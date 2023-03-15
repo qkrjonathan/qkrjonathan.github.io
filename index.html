@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.cdnfonts.com/css/hero-new" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/major-mono-display-2" rel="stylesheet">
+
+        <link href="stylesheet.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+        <div class="row">
+            
+            <div class="col" style="flex:25%;">
+                <h1>JONATHAN PARK</h1>
+                <img src="uploads/pfp.jpg">
+            </div>
+            <div class="col" id="main" style="flex:50%;">
+                <p>welcome to my website! :&rpar;</p>
+                <p>my name is jonathan; i&rsquo;m a sophomore at the university of southern california, majoring in applied & computational mathematics, with a minor in computer science and a specialization in cybersecurity. i regularly engage in projects involving python and html/css/javascript, and am currently working on expanding my knowledge in kali linux and defensive security. i have personal interests in politics, journalism, and the occasional sports. #lightthebeam</p>
+                <p style="text-align: center;"><a href="https://drive.google.com/file/d/1TSOPADCYvEI8vJN9liofCgkY9cKojqjI/view?usp=sharing" target="_blank">resume</a> | <a href="https://linkedin.com/in/jon25" target="_blank">linkedin</a> | <a href="https://twitter.com/park_djwls" target="_blank">twitter</a> | <a href="https://github.com/xamqpx" target="_blank">github</a></p>
+
+                <!-- THE 25 POST -->
+                <br><br>
+                <button class="menu" id="menu" onclick="display()"><p>&darr; the 25 post</p></button>
+                <div class="collapsible" id="collapsible">
+                    <p>a writing website &mdash; for prose and backseat journalism.</p>
+                    <p>latest: &lsquo;<b>a letter to half moon bay</b>&rsquo;</p>
+                    <button onclick="toggle_windows('tfp')">read here</button> | <button onclick="redirect('https://the25post.com/archives/pieces/letter')">read on the 25 post</button>
+                </div>
+                <button class="menu" id="menu2" onclick="display2()"><p>&darr; the daily trojan</p></button>
+                <div class="collapsible" id="collapsible2">
+                    <p>usc&rsquo;s only student-run newspaper.</p>
+                    <p><a href="https://dailytrojan.com/tag/jonathan-park" target="_blank">all contributions</a> | <a href="https://dailytrojan.com/2023/02/17/live-updates-usg-presidential-debate/" target="_blank">live updates sample</a></p>
+                    <p>highlights:</p>
+                    <p><b>experts talk impacts of ukraine invasion</b></p>
+                    <button onclick="toggle_windows('dt1')">read here</button> | <button onclick="redirect('https://dailytrojan.com/2022/03/28/experts-talk-impacts-of-ukraine-invasion/')">read on the daily trojan</button>
+                    <p><b>new state law sheds light on usc wages</b></p>
+                    <button onclick="toggle_windows('dt2')">read here</button> | <button onclick="redirect('https://dailytrojan.com/2023/01/18/new-state-law-sheds-light-on-usc-wages/')">read on the daily trojan</button>
+                    <p style="text-align: left;"><b>students, panelists react to california ballot propositions</b></p>
+                    <button onclick="toggle_windows('dt3')">read here</button> | <button onclick="redirect('https://dailytrojan.com/2022/11/10/students-panelists-react-to-california-ballot-propositions/')">read on the daily trojan</button>
+                </div>
+
+                <script>
+                    function display() {
+                        var menu = document.getElementById('menu');
+                        var collapsible = document.getElementById('collapsible');
+                        if (collapsible.style.display == 'none') {
+                            menu.innerHTML = "<p>&times; the 25 post</p>";
+                            menu.style.background = "#0047bb";
+                            collapsible.style.display = 'block';
+                        } else { 
+                            menu.innerHTML = "<p>&darr; the 25 post</p>";
+                            menu.style.background = "transparent";
+                            collapsible.style.display = 'none'; 
+                        }
+                    }
+                    function display2() {
+                        var menu = document.getElementById('menu2');
+                        var collapsible = document.getElementById('collapsible2');
+                        if (collapsible.style.display == 'none') {
+                            menu.innerHTML = "<p>&times; the daily trojan</p>";
+                            menu.style.background = "#0047bb";
+                            collapsible.style.display = 'block';
+                        } else { 
+                            menu.innerHTML = "<p>&darr; the daily trojan</p>";
+                            menu.style.background = "transparent";
+                            collapsible.style.display = 'none'; 
+                        }
+                    }
+                    function redirect(url) {
+                        window.open(url);
+                    }
+                    function toggle_windows(id) {
+                        var main = document.getElementById("main");
+                        var not_main = document.getElementById(id);
+                        main.classList.toggle("other");
+                        not_main.classList.toggle("other");
+                    }
+                </script>
+            </div>
+
+            <div class="col other" id="tfp" style="flex:50%">
+                <button onclick="toggle_windows('tfp')">&larr; back</button>
+                <p>non / fiction</p>
+                <br>
+                <p>a letter to half moon bay</p>
+                <br>
+                <p>19 february 2023</p>
+                <br>
+                <p><i>this article was initially written for the daily trojan.</i></p>
+                <p>when we still lived in the bay area, my family and i often went to half moon bay. by age five, when i could remember most things for long enough, the hour-long drive was familiar, almost dreamlike. west through the 580, veering into route 92, through steep-ledged roads etched into the sides of valleys, past quaint pumpkin patches and christmas tree farms; and at once the ocean reveals herself &mdash; silent and mighty, stretching ever wide over the horizon.</p>
+                <p>my parents had frequented this spot for dates. that was back in the noughties, when they wore matching chic shades, probably from tj maxx, and when my mother felt young enough to wear her neon peach-red leather coat. then there was me: the beach at half moon bay was the first one i ever saw after i was born, my mother told me. i&rsquo;d torn myself out of her hands, out of my father&rsquo;s hands, straight for the roaring ocean, screaming. i was stupid, soaked &mdash; but free. as the day grew old, and wind cut into our cheeks, we huddled together, mother, father, and i, watching the sun slowly sink below the water &mdash; and family felt warmer than the heaps of layers we'd worn to prevent exactly this sort of thing. but it didn't really matter.</p>
+                <p>then life came and went, and two years ago &mdash; the last time i&rsquo;d gone &mdash; it was just my mother and i, looking over that same sun setting over the couples and the ships and the unspoken deafening absence of the person we&rsquo;d been forced to leave behind.</p>
+                <p>but in another way, it felt right, to have my mother behind the wheel and myself riding shotgun, taking the ritual drive to half moon bay, basking in what is and what could have been. in the silence of the car, in the crashing of the waves, in the cawing of the seagulls, there was a feeling that it was just us. it was utopia.</p>
+                <p>on 23 january, a gunman killed seven people in the neighborhood, in two separate shootings, with a legally obtained firearm, allegedly over a hundred-dollar repair bill. somehow, it was one of the less devastating shootings to come out of the news that week.</p>
+                <p>i felt the urge to text my mother. she&rsquo;d seen it too. the deaths, the arrests, the thoughts and prayers. neither of us knew what to say. so we didn&rsquo;t say anything at all.</p>
+                <p>as we grow older, our sacred places grow desecrated. at playgrounds, we remember the running and the piercing screams of joy, but also we notice the rust growing on the welding. at beaches, our first concern is not the roaring sea in front of us, but the sisyphian task of finding parking in a gentrified beachfront. as early as in elementary school, we find in classrooms not spaces for learning and growth, but bloodstains, bullet holes and hurriedly censored bookshelves. and for many &mdash; black, trans, queer, the &lsquo;other&rsquo; in a sea of &lsquo;us&rsquo; &mdash; innocence was never afforded us in the start.</p>
+                <p>as a journalist, i understood it to be my duty to confront these desecrations day after day after day, and to reveal them to the world. i resorted to consuming and consuming the news, convinced that one thing after another was in utter ruin and chaos, horrified at the reality unfolding on my screen but unable to look away. but at some point, i had to force myself to realize: enough is enough.</p>
+                <p>i just want to live.</p>
+                <p>i write because i just want to live. and that means preserving, if not the little sanctity left in the places and the people i love, then the memory of how it used to be, or a dream of how it could be. utopia is not feasible, nor will it ever be feasible, but we might as well try. for at least thousands of years, we&rsquo;ve depended on a notion of utopia to even survive, to have the strength to press onward. now is no different.</p>
+                <p>on sunday, i went again, with my mother. we walked, as we always do, to the enormous tree that guards the yawning cliffside. it splits at the roots into two thick branches, each stretching out for a little then giving way to gravity and drooping at the end. it's always been there; it's been there so long there's a well-trodden path cutting through the split, darting for a bench nearby. i walked the path through the roots; i pressed my hand on the old bark. and i was reminded, again, of the constant in my life that is half moon bay &mdash; whose roots are older than memory, but whose leaves still sway and fall and grow anew. &#9632;</p>
+            </div>
+
+            <div class="col other" id="dt1" style="flex:50%">
+                <button onclick="toggle_windows('dt1')">&larr; back</button>
+                <p>experts talk impacts of ukraine invasion</p><br>
+                <p>by jonathan park</p><br>
+                <p>march 28, 2022</p><br>
+                <p>thursday marked exactly four weeks since russia began its invasion of ukraine on feb. 24. in that time, continued attacks on civilian targets expanded westward, where, according to the united nations high commissioner for refugees at time of publication, upward of 3.8 million people have fled to neighboring countries. on march 23, the u.n. counted 2,571 civilian casualties.</p>
+
+<p>the daily trojan spoke with usc experts concerning the invasion&rsquo;s impacts on the nuclear world order, record-high gas prices in the united states and the ensuing refugee crisis.</p>
+
+<p>najmedin meshkati, professor of civil and environmental engineering, industrial systems engineering and international relations at the viterbi school of engineering, expressed concerns about russia&rsquo;s desire to &ldquo;take over control of [the] four nuclear plants&rdquo; operating in ukraine.</p>
+
+<p>&ldquo;these plants &#8230; generate 50% of the electricity of that country,&rdquo; meshkati said. &ldquo;russia wants to be in control on that &mdash; then they want to shut it off, to pull the plug and stop the plants from operating.&rdquo;</p>
+
+<p>at time of publication, russian forces control two of the four ukrainian plants: chernobyl and zaporizhzhia. russian forces held more than 300 ukrainians, including workers and guards hostage at chernobyl, forcing them to continue operations at gunpoint for three weeks without rest. russia allowed 64 people to leave sunday and replaced them with &ldquo;employee-volunteers.&rdquo;</p>
+
+<p>&ldquo;having worked on nuclear safety for the last 35 years, this is a recipe for disaster,&rdquo; meshkati said. &ldquo;if there is, god forbid, an accident in these four plants &#8230; that radiation fallout will affect everybody.&rdquo;</p>
+
+<p>to avoid such a scenario, meshkati said &ldquo;the only solution&rdquo; is to have demilitarized &ldquo;safe-haven&rdquo; zones around all ukrainian plants.</p>
+
+<p>&ldquo;[the international atomic energy agency] should mobilize on asking russia to declare a &lsquo;no-fighting&rsquo; zone around these plants and allow these employees and operators of the plants to rotate their shifts, be with their family,&rdquo; he said. &ldquo;let russians, unfortunately, do anything else that they want &mdash; but these four [plants] need to be considered as safe havens.&rdquo;</p>
+
+<p>meshkati questioned the validity of past disarmament and security assurance agreements, including the 1994 budapest memorandum &mdash; which denuclearized ukraine in exchange for security assurances from the u.s., united kingdom and russian federation &mdash; as well as the treaty on the non-proliferation of nuclear weapons, which meshkati extensively studied. on march 4, ukrainian president volodymyr zelensky expressed regret about ukraine&rsquo;s denuclearization, saying &ldquo;all that the [nato] alliance has managed to do so far is carry 50 tons of diesel fuel for ukraine &#8230; probably so that we can burn the [budapest memorandum].&rdquo;</p>
+
+<p>meshkati co-authored an article for iran news in 2000, the title of which declared &ldquo;the npt is a cold war relic.&rdquo; over twenty years later, meshkati said he is &ldquo;even more convinced&rdquo; that the title is applicable today.</p>
+
+<p>&ldquo;i think the npt was good. it served its purpose, but we really need a paradigm shift,&rdquo; he said. &ldquo;after this [invasion], would mr. kim [jong-un] in [north] korea, or anybody for that matter, &#8230; exchange their nuclear weapon arsenal for a piece of paper? i mean, this is going to be the $65,000 question.&rdquo;</p>
+
+<p>shon hiatt, associate professor of business administration at the marshall school of business and faculty affiliate of the greif center for entrepreneurial studies, said the recent unprecedented hike in gasoline prices was the culmination of &ldquo;an imbalance of supply and demand&rdquo; that started about 10 months ago.</p>
+
+<p>more recently, however, hiatt said the &ldquo;potential of russian oil not getting onto the marketplace,&rdquo; as western trade deals with russia deteriorated in the wake of the invasion, caused the &ldquo;major price jump&rdquo; to a national average of $4.17 per gallon on march 8 &mdash; the highest since 2008. los angeles county reached a record high of $5.966 per gallon on march 19.</p>
+
+<p>the price hikes, in turn, increased political pressures in the u.s. to suspend gas taxes. preexisting calls for a &ldquo;gas tax holiday&rdquo; gained further traction in congress because of the ukraine invasion. house democrats introduced a bill on march 17 to provide rebate checks of $100 per month to american taxpayers. hiatt said, at the federal level, such measures would only &ldquo;add fuel to the inflationary fire.&rdquo; a &ldquo;complete 180-degree turn for the biden administration&rdquo; would be necessary instead, he said.</p>
+
+<p>&ldquo;they have this climate change strategy throughout all their agencies to reduce fossil fuel usage,&rdquo; hiatt said. &ldquo;but, now that we have a massive shortage in the global supply, which is also building now into this inflation that we have &mdash; this is a terrible time to do this. so there needs to be a complete change, but that doesn&rsquo;t seem to be happening.&rdquo;</p>
+
+<p>in a feb. 28 q&amp;a with marshall&rsquo;s communications team, hiatt said he believed &ldquo;the glasgow 2021 goals to become carbon net neutral by 2050 will not be achieved.&rdquo; when asked whether he had changed his mind since then, he said, &ldquo;absolutely not.&rdquo;</p>
+
+<p>first, hiatt said, recent decreases in the european union&rsquo;s carbon emissions, which were touted as progress toward the glasgow goals, &ldquo;never counted the russian imports&rdquo; &mdash; which account for 40% of e.u. consumption. as for china, the country processes 80% of the materials required to produce electric vehicle batteries, preventing u.s. energy independence.</p>
+
+<p>&ldquo;if you were to still continue for the glasgow [goals], you&rsquo;re still at the mercy of russia and china &mdash; [countries] which, right now, don&rsquo;t care much about western interests,&rdquo; hiatt said.</p>
+
+<p>hannah garry, clinical professor of law and founding director of the international human rights clinic at the gould school of law, said the e.u. directive to grant ukrainian refugees temporary protective status &mdash; allowing ukrainians to live and work within the e.u. for three years &mdash; &ldquo;makes a lot of good sense.&rdquo; under this temporary protection directive, ukrainians are also allowed freedom of movement, a reversal of the e.u.&rsquo;s previous &lsquo;first country of asylum&rsquo; policy, which states a refugee must remain in the first country to have granted them asylum.</p>
+
+<p>garry also called the directive &ldquo;discriminatory&rdquo; because the e.u. denied freedom of movement for the millions of afghan and syrian refugees who have sought asylum in europe. refugees of color also faced racism at the ukrainian border: africans attempting to leave ukraine told the new york times that border guards would &ldquo;slap them, beat them and push them to the end of the queue.&rdquo;</p>
+
+<p>&ldquo;the perverse effect of the &lsquo;first country of asylum&rsquo; rule is that these border countries are fatigued from taking in refugees or don&rsquo;t want certain kinds of refugees,&rdquo; garry said. &ldquo;so they have engaged in illegal deterrence practices, pushbacks, indefinite detention &mdash; and we are seeing that with afghans and syrians and others at the border &#8230; it&rsquo;s clearly discrimination. and it&rsquo;s clearly in violation of international law.&rdquo;</p>
+
+<p>following the 2015 syrian refugee crisis, public opinion of refugees in europe was mostly negative: a 2016 pew research survey found that upward of 50% of surveyed europeans believed refugees &ldquo;are a burden to society,&rdquo; that syrian and iraqi refugees were a major threat, and that an &ldquo;influx of refugees will increase the likelihood of terrorism.&rdquo; meanwhile, far-right parties across europe &mdash; including france&rsquo;s national rally (then the national front) and germany&rsquo;s alternative f&uuml;r deutschland &mdash; seized the opportunity to expand their power via anti-immigration platforms. but with ukrainians, garry said there was &ldquo;more empathy and receptivity and openness.&rdquo;</p>
+
+<p>&ldquo;we hear of individuals from those far-right parties &#8230; running to ukraine to fight and to take part in the battle,&rdquo; she said. &ldquo;i think that they have seen these refugees coming out of ukraine as in the battle for their national identity, for their self-determination as a state and as a country &mdash; and that resonates right with their narratives.&rdquo;</p>
+
+<p>garry said she hopes the &ldquo;ukrainian model&rdquo; of refugee policy &ldquo;brings new awareness&rdquo; to the european public and beyond.</p>
+
+<p>&ldquo;i&rsquo;m hoping that, as we observe what&rsquo;s going on in europe &mdash; particularly as we&rsquo;re having our own moments with systemic racism and understanding of underlying biases that are endemic in all systems &mdash; [we will] realize that it needs to change here in the united states as well,&rdquo; garry said.</p>
+            </div>
+
+            <div class="col other" id="dt2" style="flex:50%">
+                <button onclick="toggle_windows('dt2')">&larr; back</button>
+                <p>new state law sheds light on usc wages</p><br>
+                <p>by jonathan park</p><br>
+                <p>january 18, 2023</p><br>
+                <img src="https://dailytrojan.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-18-at-12.44.44-AM-1500x1194.png">
+                <p>california now requires employers with at least fifteen workers to report salary ranges in job postings, as of jan. 1. it is not the first or only state to do so: similar laws in washington and rhode island also went into effect at the turn of the new year, joining nevada, colorado, connecticut, maryland and a handful of cities and counties. usc, the second-largest private employer in los angeles county with 28,119 faculty, staff and student workers as of the 2021-22 academic year, is also subject to the new law.</p>
+
+<p>wages have been a subject of contention at the university for several years, recently spotlighted in april, when janitors contracted under aramark protested alongside students and faculty members for higher wages and better healthcare benefits. graduate student workers are also in the process of unionizing in hopes of negotiating for higher compensation, following a national reckoning over universities&rsquo; treatment of academic workers spurred by a historic strike across university of california campuses.</p>
+
+<p>the daily trojan compiled and analyzed data for 50 recent usc job postings at the date of publication, taking into consideration the position, department and hourly wages or salaries. postings are from jan. 2-9. also included in the analysis are 100 other job postings from nov. 22 to dec. 30, compiled and posted to reddit by a graduate student who granted permission to use their data set and requested to remain anonymous due to privacy concerns.</p>
+
+<p>postings from the keck school of medicine have been excluded from both data sets because of the large quantity of open positions, out-of-state positions that are not subject to the new law and different regulations for minimum wages and benefits. not all usc departments are reflected in the data.</p>
+
+<p>a model created by dr. amy glasmeier, professor of economic geography and regional planning at the massachusetts institute of technology, calculates the living wage for a single adult with no children living in l.a. county to be $21.89 an hour. this, according to the model, is the minimum an individual must earn to support themself, assuming they work full-time &mdash; 40 hours a week, 52 weeks a year.</p>
+
+<p>six of the fifty most recent postings, all of them within auxiliary services, offer significantly less than this calculated living wage. a &ldquo;culinary specialist&rdquo; at burger crush makes $19.92 an hour. a host at the university club would earn $18.77 an hour. two postings, including one for a hotel service worker position, pay exactly the l.a. city minimum wage, at $16.04 an hour.</p>
+
+<p>last year&rsquo;s postings paint a fuller picture. five of nine auxiliary services positions listed are below the glasmeier model&rsquo;s living wage, including a trojan grounds starbucks cashier position at $18.84 an hour. financial business services offers $19.84 for a mail and material handler and $20.49 for an accounting assistant. an associate child care teacher at university relations would earn $16.58, just over half a dollar more than minimum wage and far below the city-wide average for a child care teacher, at $25.27.</p>
+
+<p>a majority of these positions do not require a college degree; in contrast, the university often offers competitive, if not above-average, salaries for positions that do require a bachelor&rsquo;s degree or above. a deputy chief information officer at information technology services can earn anywhere between $300,000 and $350,000, either way almost double the city&rsquo;s average for such a position. a senior project manager position at the usc credit union just about hits the average mark at $132,591.50.</p>
+
+<p>the university wrote in a statement to the daily trojan thursday that it is &ldquo;committed to maintaining institutional compliance with all laws, including those relating to minimum wage and pay transparency.&rdquo;</p>
+
+<p>&ldquo;when extending an offer of employment, the university considers factors such as (but not limited to) the scope and responsibilities of the position, the candidate&rsquo;s work experience, education/training, key skills, internal peer equity, federal, state and local laws, contractual stipulations, grant funding, as well as external market and organizational considerations,&rdquo; the statement read.</p>
+
+<p>wages offered for auxiliary services positions are mostly union-bargained, a university spokesperson said, and are coupled with benefits packages for employees and their families in accordance with negotiated contracts. offers for hospitality positions also take tips into consideration, the spokesperson said.</p>
+
+<p>a spokesperson for unite here local 11, a union representing usc hospitality workers, did not respond to multiple requests for comment.</p>
+
+<p>some businesses have responded to the new pay transparency law by exploiting weaknesses in its wording to their advantage. big tech companies, in a precedented move, posted excessively wide salary ranges: an l4 software engineer position at netflix now offers anywhere between $90,000 and $900,000, which the company justified as the &ldquo;overall market range for roles in this area.&rdquo; tesla employed a similar strategy, offering $104,000 to $348,000 for its own software engineer position.</p>
+
+<p>usc, meanwhile, is including its pay ranges only after an introduction and five or six other sections, including the job description and necessary qualifications. a typical posting for auxiliary services lists the range after about 700 to 900 words, which is similar to the length of this article. information technology services postings have almost 1,300 words before the range appears.</p>
+
+<p>whereas other listings &mdash; including the $90,000 to $900,000 netflix position &mdash; separate the range as a standalone paragraph, university positions include it within a paragraph that reads exactly like the university&rsquo;s thursday statement. the result is a job posting with no immediately visible statement of a pay range.</p>
+
+<p>the university declined to comment on the matter, instead referring to a mar. 29 memo from president carol folt on &ldquo;long-term plans for increasing faculty and staff compensation,&rdquo; including a $700 million investment &ldquo;over the next five years to support performance-based salary increases, related employee benefits, and market adjustments.&rdquo;</p>
+
+<p>&ldquo;our strategy is to bolster the excellence and innovation of our academic programs, strengthen our workforce, retain critical talent, ensure our job descriptions describe current roles and responsibilities, address compensation inequities, and systematically raise salaries to be competitive in one of the country&rsquo;s most expensive job markets,&rdquo; the memo read.</p>
+            </div>
+
+            <div class="col other" id="dt3" style="flex:50%">
+                <button onclick="toggle_windows('dt3')">&larr; back</button>
+                <p>new state law sheds light on usc wages</p><br>
+                <p>by nathan elias & jonathan park</p><br>
+                <p>november 10, 2022</p><br>
+                <p>three of the seven state propositions on this year&rsquo;s ballot will pass, the associated press projects: prop 1, which will enshrine the right to abortion in the state&rsquo;s constitution; prop 28, which will fund arts and music education in public schools; and prop 31, which will uphold a 2020 law banning the sale of certain flavored tobacco products. the rest &mdash; prop 26 and 27, on allowing sports betting; prop 29, on regulating kidney dialysis clinics; and prop 30, on an electric vehicle incentive tax &mdash; are projected to fail.</p>
+
+<p>the daily trojan spoke with students and panelists at the election day watch party at wallis annenberg hall, hosted by the usc center for the political future tuesday night, when most propositions were too early to call. general consensus among those interviewed, however, was that the results were widely expected.</p>
+
+<p>prop 1: yes, ap projects</p>
+
+<p>noelia rodriguez, a panelist at the event and fall 2022 cpf fellow, told the daily trojan that the passing of the proposition was a &ldquo;personal thing,&rdquo; having been a student herself at the time of the 1973 roe v. wade decision.</p>
+
+<p>&ldquo;it memorializes what the people in our state really believe, and that is the right to choice,&rdquo; said rodriguez, who formerly served as los angeles deputy mayor and director of communications for first lady laura bush. &ldquo;i know [what] having access to safe child healthcare and preventative measures meant to young women &mdash; and quite frankly, their partners &#8230; this is a way to enshrine that in our state constitution.&rdquo;</p>
+
+<p>prop 1 was also about sending a message to other states: gov. gavin newsom announced the measure a mere three days after dobbs v. jackson overturned the roe precedent &mdash; in addition to legislation signed the day of, preventing &ldquo;radical attempts by other states to extend their anti-abortion laws into california,&rdquo; according to a jun. 24 press release from newsom&rsquo;s office.</p>
+
+<p>&ldquo;more than anything, it&rsquo;s to send a message that california is pro-abortion rights,&rdquo; said muna shikaki, a panelist and adjunct instructor at the annenberg school for communication and journalism. &ldquo;and on the other hand, it&rsquo;s also a great way to get people to vote during a midterm election where usually there&rsquo;s not very high turnout.&rdquo;</p>
+
+<p>alex flores, a freshman majoring in public relations and a registered democrat, said he voted in support of prop 1.</p>
+
+<p>&ldquo;not only for women, but for anyone that has a uterus, seeing discrepancies against their choice was upsetting,&rdquo; said flores, who lobbied with planned parenthood for the measure. &ldquo;when you come [to the u.s.], you have an expectation that everyone&rsquo;s going to be respected. and when people are not being respected, that to me is not upholding an american value.&rdquo;</p>
+
+<p>prop 26: no, ap projects</p>
+
+<p>both gambling-related propositions, together the most expensive ballot initiative effort to date, overwhelmingly failed. disapproval of the measures was bipartisan: state republicans and democrats declined to openly support either prop 26 or 27. opinions among students interviewed, however, were mixed, despite some of them not being of gambling age.</p>
+
+<p>&ldquo;i voted [for prop 26] because i am native to my land and i know that it&rsquo;s a little bit of a struggle to get funding from states here,&rdquo; flores said. &ldquo;of course, we know that for a lot of native american peoples and tribes, casinos are a big way for them to make money, and they already do not get much help from the state. they only get tax-exempt land, which is a help, but not the best help.&rdquo;</p>
+
+<p>prop 27: no, ap projects</p>
+
+<p>james peters, a freshman majoring in political science and a registered democrat, said he believes trojan football&rsquo;s recent comeback could garner support for gambling at usc.</p>
+
+<p>&ldquo;especially in my dormitory, a lot of people are in favor of prop 27 because sports betting is very popular out of state, and right now they&rsquo;re doing it [in california] through illegal means,&rdquo; peters said. &ldquo;so specifically, with usc gaining more traction with a better football team, i feel like it could, in a sense, increase favor for proposition 27.&rdquo;</p>
+
+<p>david cerna, a freshman majoring in piano performance and a registered republican, voted against the measure.</p>
+
+<p>&ldquo;[prop] 27 in particular was a big one for me,&rdquo; cerna said. &ldquo;it would virtually allow for any mobile device to become a gambling device. the way i view it, whenever you put something like that into an app on a phone, it automatically puts the mind that, &lsquo;oh, this is a game&rsquo; &#8230; and you don&rsquo;t realize that what you&rsquo;re using up is your actual money. you can lose your whole life&rsquo;s savings.&rdquo;</p>
+
+<p>prop 28: yes, ap projects</p>
+
+<p>prop 28 is expected to overwhelmingly pass, being what shikaki called a &ldquo;safe proposition&rdquo; for voters. the measure will direct $1 billion dollars in state funds to arts and music education programs in public schools slashed during the 2008 financial crisis, disproportionately affecting low-income communities.</p>
+
+<p>&ldquo;i grew up during a time where a lot of art docent and garden docent programs were getting cut by the state,&rdquo; said eleanor love, a freshman majoring in public policy and a registered democrat who voted for the measure. &ldquo;so i think it&rsquo;s important that younger students especially are able to be exposed to the arts and music and that sort of thing.&rdquo;</p>
+
+<p>flores, a dance instructor, similarly said he took his personal experience into consideration in voting for the measure.</p>
+
+<p>&ldquo;there is a reason why no one is against the arts,&rdquo; flores said. &ldquo;it is vital to teach our children in school. the arts [are] just as vital as any stem [or] english class. you&rsquo;re letting children express themselves creatively and letting children explore issues with their own creative will, and find creative answers to complex issues.&rdquo;</p>
+
+<p>prop 29: no, ap projects</p>
+
+<p>&ldquo;they&rsquo;ve tried to do this before and it&rsquo;s failed, and they&rsquo;re trying again and it&rsquo;s likely to fail &mdash; again,&rdquo; shikaki said of prop 29, which would impose regulations on kidney dialysis clinics.</p>
+
+<p>her prediction was true: ap on wednesday projected the measure will fail, with 69.9% of ballots counted at the time of publication having voted &ldquo;no.&rdquo; a similar proposition in 2020, prop 23, overwhelmingly failed, with 63.42% voting no. a 2018 proposition, prop 8, to impose patient refund requirements on clinics also failed, with 59.93% voting no.</p>
+
+<p>prop 30: no, ap projects</p>
+
+<p>responding to an audience question during the watch party panel, ira reiner, a fall 2022 usc cpf fellow and former l.a. district attorney, said of prop 30, &ldquo;i was &mdash; i am &mdash; against it.&rdquo; reiner went on to criticize the ballot initiative system as a once democratic system that has since been corrupted by corporate money.</p>
+
+<p>&ldquo;what&rsquo;s really wrong with the initiative process is that it is no longer citizen-driven,&rdquo; reiner said. &ldquo;it is driven by very, very, very large money, [pushing] matters that should go through the legislature, go through the committee process &mdash; where there can be amendments, there can be witnesses that are brought in, and the final product is never exactly the same as was initially reported.&rdquo;</p>
+
+<p>prop 30 is the second ballot measure in the last few years to have had significant financial backing from rideshare company lyft. the first was in 2020, when prop 22 became the most expensive ballot measure in california history as gig companies poured money to fight against the measure. (this year&rsquo;s props 26 and 27 combined have since taken the lead as the most expensive measure.)</p>
+
+<p>prop 31: yes, ap projects</p>
+
+<p>love said prop 31 was of major concern for her and her friends, considering the popularity of flavored tobacco products among younger voters.</p>
+
+<p>&ldquo;some of my friends were texting me and saying, &lsquo;vote no on 31 so i can still buy vapes,&rsquo;&rdquo; love said. &ldquo;i just noticed that a lot of people my age are addicted to it. i was in eighth grade or seventh grade when kids my age started using flavored tobacco and vape products &#8230; and i just feel like kids should not have access to that.&rdquo;</p>
+            </div>
+
+
+            <div class="col" style="flex:25%">
+                <a class="twitter-timeline" data-height="320" data-theme="dark" href="https://twitter.com/park_djwls?ref_src=twsrc%5Etfw">Tweets by park_djwls</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+                <br>
+                <a class="twitter-timeline" data-height="320" data-theme="dark" href="https://twitter.com/NBA?ref_src=twsrc%5Etfw">Tweets by NBA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+
+        
+    </body>
+</html>

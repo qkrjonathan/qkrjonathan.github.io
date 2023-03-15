@@ -1,0 +1,75 @@
+* {
+    box-sizing: content-box;
+}
+body { 
+    font-family: 'Major Mono Display', sans-serif; font-size: 13px;
+    color: white;
+    background: black;
+}
+
+p { text-align: justify; line-height: 1.2; }
+
+h1 { 
+    font-size: 20px; 
+    position: relative;
+    font-family: 'Hero New';
+}
+
+.row {
+    display: flex;
+    flex-wrap:nowrap;
+    margin: auto;
+    max-width: 1600px;
+}
+
+.col { padding: 10px; height: 650px; overflow-y:scroll; }
+
+
+@media screen and (max-width: 1000px) {
+    .row { flex-direction: column; }
+}
+
+@keyframes drop-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    50% {
+        opacity: 1;
+        letter-spacing: 0.4rem;
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradient-wave {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+img { width: 100%; }
+
+a:link, a:active, a:visited { color:white; }
+a:hover { color: #00ff00; }
+
+.divide { width: 100%; color: white; margin: 10px auto; }
+button { font-family: inherit; color: inherit; background: inherit; cursor: pointer; }
+.menu {
+    font-family: inherit; color: inherit; background: inherit;
+    width: 100%;
+    border-left: none; border-right: none; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;
+    transition: 0.2s color;
+}
+
+.menu:hover { color: #00ff00; }
+.collapsible { display: none; padding: 10px 0 10px 10px; width: 100%;}
+
+.other { display: none; height: 100%; }
