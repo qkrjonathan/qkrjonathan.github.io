@@ -4,7 +4,7 @@
 body { 
     font-family: 'Major Mono Display', sans-serif; font-size: 13px;
     color: white;
-    background: #0047bb;
+    background: #000;
 }
 
 p { text-align: justify; line-height: 1.2; }
