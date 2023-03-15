@@ -14,18 +14,19 @@
             
             <div class="col" style="flex:25%;">
                 <h1>JONATHAN PARK</h1>
-                <img src="uploads/pfp.jpg">
+                <img src="uploads/pfp.jpg" style="width: 100%;">
+                
             </div>
             <div class="col" id="main" style="flex:50%;">
-                <p>welcome to my website! :&rpar;</p>
-                <p>my name is jonathan; i&rsquo;m a sophomore at the university of southern california, majoring in applied & computational mathematics, with a minor in computer science and a specialization in cybersecurity. i regularly engage in projects involving python and html/css/javascript, and am currently working on expanding my knowledge in kali linux and defensive security. i have personal interests in politics, journalism, and the occasional sports. #lightthebeam</p>
+                <p>welcome to my website!</p>
+                <p>i&rsquo;m a sophomore at the university of southern california, majoring in applied & computational mathematics, with a minor in computer science and a specialization in cybersecurity. i regularly engage in projects involving python and html/css/javascript, and am currently working on expanding my knowledge in kali linux and defensive security. i have personal interests in politics, journalism, and the occasional sports. #lightthebeam</p>
                 <p style="text-align: center;"><a href="https://drive.google.com/file/d/1TSOPADCYvEI8vJN9liofCgkY9cKojqjI/view?usp=sharing" target="_blank">resume</a> | <a href="https://linkedin.com/in/jon25" target="_blank">linkedin</a> | <a href="https://twitter.com/park_djwls" target="_blank">twitter</a> | <a href="https://github.com/xamqpx" target="_blank">github</a></p>
 
                 <!-- THE 25 POST -->
                 <br><br>
                 <button class="menu" id="menu" onclick="display()"><p>&darr; the 25 post</p></button>
                 <div class="collapsible" id="collapsible">
-                    <p>a writing website &mdash; for prose and backseat journalism.</p>
+                    <p>a writing website &mdash; for prose and backseat journalism.<br>built from scratch with html/css/js.</p>
                     <p>latest: &lsquo;<b>a letter to half moon bay</b>&rsquo;</p>
                     <button onclick="toggle_windows('tfp')">read here</button> | <button onclick="redirect('https://the25post.com/archives/pieces/letter')">read on the 25 post</button>
                 </div>
@@ -48,7 +49,7 @@
                         var collapsible = document.getElementById('collapsible');
                         if (collapsible.style.display == 'none') {
                             menu.innerHTML = "<p>&times; the 25 post</p>";
-                            menu.style.background = "#0047bb";
+                            menu.style.background = "#525252";
                             collapsible.style.display = 'block';
                         } else { 
                             menu.innerHTML = "<p>&darr; the 25 post</p>";
@@ -61,7 +62,7 @@
                         var collapsible = document.getElementById('collapsible2');
                         if (collapsible.style.display == 'none') {
                             menu.innerHTML = "<p>&times; the daily trojan</p>";
-                            menu.style.background = "#0047bb";
+                            menu.style.background = "#525252";
                             collapsible.style.display = 'block';
                         } else { 
                             menu.innerHTML = "<p>&darr; the daily trojan</p>";
@@ -272,9 +273,8 @@
 
 
             <div class="col" style="flex:25%">
-                <a class="twitter-timeline" data-height="320" data-theme="dark" href="https://twitter.com/park_djwls?ref_src=twsrc%5Etfw">Tweets by park_djwls</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-                <br>
-                <a class="twitter-timeline" data-height="320" data-theme="dark" href="https://twitter.com/NBA?ref_src=twsrc%5Etfw">Tweets by NBA</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <img style="width: 50%; margin-left: auto; margin-right: auto; display: block;" src="http://33.media.tumblr.com/f02aed641beb7a5059d57484c7f80f8c/tumblr_nlmmguXypN1tv87ujo1_400.gif">
+                <a class="twitter-timeline" data-height="450" href="https://twitter.com/park_djwls?ref_src=twsrc%5Etfw">Tweets by park_djwls</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
             </div>
         </div>
 
