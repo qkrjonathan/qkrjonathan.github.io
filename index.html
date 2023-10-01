@@ -1,309 +1,258 @@
-<!DOCTYPE html>
 <html>
     <head>
         <title>jonathan park</title>
-        <link href="https://fonts.cdnfonts.com/css/hero-new" rel="stylesheet">
-        <link href="https://fonts.cdnfonts.com/css/major-mono-display-2" rel="stylesheet">
-
-        <link href="stylesheet.css" rel="stylesheet">
+        
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="title" content="Jonathan Park">
+        <meta name="description" content="$ whoami /all">
+        <meta name="keywords" content="Jonathan Park">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <meta name="author" content="Jonathan Park">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://parkdj.com/">
-        <meta content="jonathan park" property="og:title">
-        
+        <meta property="og:image" content="https://parkdj.com/uploads/production.gif">
+        <meta property="og:title" content="Jonathan Park">
+        <meta property="og:description" content="$ whoami /all">
+
+        <meta property="twitter:image" content="https://parkdj.com/uploads/production.gif">
+        <meta property="twitter:title" content="Jonathan Park">
+        <meta property="twitter:description" content="$ whoami /all">
+
+        <link href="https://fonts.cdnfonts.com/css/freesans-2" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
+    <style>
+          
+          
+    </style>
     <body>
-        <div class="row">
-            
-            <div class="col" style="flex:25%;">
-                <h1>JONATHAN PARK</h1>
-                <img src="uploads/headshot.jpg" style="width: 100%;">
-        
-            </div>
-            <div class="col" id="main" style="flex:50%;">
-                <p>welcome to my website!</p>
-                <p>i&rsquo;m a sophomore at the university of southern california, majoring in applied & computational mathematics, with a minor in computer science and a specialization in cybersecurity. i regularly engage in projects involving python and html/css/javascript, and am currently working on expanding my knowledge in kali linux and defensive security. i have personal interests in politics, journalism, and the occasional sports. #lightthebeam</p>
-                <p style="text-align: center;"><a href="https://drive.proton.me/urls/3J3VQAPWHM#GVlNpz7SX04C" target="_blank">resume</a> | <a href="https://linkedin.com/in/jon25" target="_blank">linkedin</a> | <a href="https://github.com/xamqpx" target="_blank">github</a></p>
-
-                <!-- THE 25 POST -->
-                <br><br>
-                <button class="menu" id="menu" onclick="display()"><p>&darr; the 25 post</p></button>
-                <div class="collapsible" id="collapsible">
-                    <p>a writing website &mdash; for prose and backseat journalism.<br>built from scratch with html/css/js.</p>
-                    <p>latest: &lsquo;<b>life, death, and mac demarco</b>&rsquo;</p>
-                    <button onclick="toggle_windows('tfp')">read here</button> | <button onclick="redirect('the25post.com/archives/articles/mac-demarco.html')">read on the 25 post</button>
+        <div id="title">
+            <h1>jonathan park</h1>            
+        </div>
+        <div id="folders">
+            <div class="folder" id="about-folder" onclick="selectFolder(this)" ondblclick="openFolder('about-folder-contents')">
+                <div class="folder-img" id="about-folder-img">
+                    <img src="uploads/folder.png" alt="folder">
                 </div>
-                <button class="menu" id="menu2" onclick="display2()"><p>&darr; the daily trojan</p></button>
-                <div class="collapsible" id="collapsible2">
-                    <p>usc&rsquo;s only student-run newspaper.</p>
-                    <p><a href="https://dailytrojan.com/bios/jonathan-park" target="_blank">all contributions</a> | <a href="https://dailytrojan.com/2023/02/17/live-updates-usg-presidential-debate/" target="_blank">live updates sample</a></p>
-                    <p>highlights:</p>
-                    <p><b>experts talk impacts of ukraine invasion</b></p>
-                    <button onclick="toggle_windows('dt1')">read here</button> | <button onclick="redirect('dailytrojan.com/2022/03/28/experts-talk-impacts-of-ukraine-invasion/')">read on the daily trojan</button>
-                    <p><b>new state law sheds light on usc wages</b></p>
-                    <button onclick="toggle_windows('dt2')">read here</button> | <button onclick="redirect('dailytrojan.com/2023/01/18/new-state-law-sheds-light-on-usc-wages/')">read on the daily trojan</button>
-                    <p style="text-align: left;"><b>students, panelists react to california ballot propositions</b></p>
-                    <button onclick="toggle_windows('dt3')">read here</button> | <button onclick="redirect('dailytrojan.com/2022/11/10/students-panelists-react-to-california-ballot-propositions/')">read on the daily trojan</button>
+                <h6 class="foldername">About</h6>
+            </div>
+            <div class="folder" id="work-folder" onclick="selectFolder(this)" ondblclick="openFolder('work-folder-contents')">
+                <div class="folder-img" id="work-folder-img">
+                    <img src="uploads/folder.png" alt="folder">
                 </div>
-
-                <script>
-                    function display() {
-                        var menu = document.getElementById('menu');
-                        var collapsible = document.getElementById('collapsible');
-                        if (collapsible.style.display == 'none') {
-                            menu.innerHTML = "<p>&times; the 25 post</p>";
-                            menu.style.background = "#0047bb";
-                            collapsible.style.display = 'block';
-                        } else { 
-                            menu.innerHTML = "<p>&darr; the 25 post</p>";
-                            menu.style.background = "transparent";
-                            collapsible.style.display = 'none'; 
-                        }
-                    }
-                    function display2() {
-                        var menu = document.getElementById('menu2');
-                        var collapsible = document.getElementById('collapsible2');
-                        if (collapsible.style.display == 'none') {
-                            menu.innerHTML = "<p>&times; the daily trojan</p>";
-                            menu.style.background = "#0047bb";
-                            collapsible.style.display = 'block';
-                        } else { 
-                            menu.innerHTML = "<p>&darr; the daily trojan</p>";
-                            menu.style.background = "transparent";
-                            collapsible.style.display = 'none'; 
-                        }
-                    }
-                    function redirect(url) {
-                        window.open(url);
-                    }
-                    function toggle_windows(id) {
-                        var main = document.getElementById("main");
-                        var not_main = document.getElementById(id);
-                        main.classList.toggle("other");
-                        not_main.classList.toggle("other");
-                    }
-                </script>
+                <h6 class="foldername">Work</h6>
             </div>
-
-            <div class="col other" id="tfp" style="flex:50%">
-                <button onclick="toggle_windows('tfp')">&larr; back</button>
-                <p>music</p>
-                <br>
-                <p>life, death, and mac demarco</p>
-                <br>
-                <p>15 june 2023</p>
-                <p>o my soul, do not aspire to immortal life, but exhaust the limits of the possible.</p>
-                <p>— pindar, pythian iii</p>
-                <br><br>
-                <p>ahead are discussions of death and compulsive thoughts, which readers may find triggering.</p>
-                <br>
-                <p>when i look in the mirror, it seems as though i’ll live forever. in that brief moment, at least, time stands still. my blank complexion stares back at me, unchanging, as if carved into the glass. nothing moves. the air stands still. only my breathing, the buzzing of the lights, and the ticking of the clock are there to remind me of the passage of time — of reality.</p>
-                <p>the night before i turned twenty, i stared at the mirror for the longest time. i finally had to confront the fact that i, too, was a victim-to-be of age. as a teenager, i could live, somewhat, knowing that i had my whole life ahead of me — climate change, political strife, and the like notwithstanding. but that excuse didn’t really work anymore. my life was really starting now. and there was no going back.</p>
-                <p>i thought ahead, as i always do. after my twenties came my thirties, and, after my thirties, my forties; middle age, then old age, then death. i had no choice in this matter. all the billions of lives, great to good to downright horrible, that had flickered by on this planet had that same ending.</p>
-                <p>i’ve always felt wallowing in this existential dread was a little childish — impractical, illogical, irrational, otherwise a waste of my energy — but, time and time again, i find myself returning to it. it’s the silent question that haunts everyone, but that no one ever wants to talk about.</p>
-                <p>that night, i sat back at my desk and turned to a familiar source of comfort: mac demarco.</p>
-                <p>i first discovered mac demarco — properly discovered; i had known of him at least for a few years — at a low point in my life. i was at the roof of a seven-story car park. it was past midnight. the sprawl of los angeles glimmered in the distant horizon as fluorescent dots. i pondered these dots for a while, then, needing something to fill the void, pulled out my headphones and hit shuffle on one wayne g.</p>
-                <p>20191009 i like her started playing. over the characteristic twangy guitar lines and minimal kick and snare:</p>
-                <p>i'd give the world to her</p>
-                <p>as long as my heart's still beating</p>
-                <p>as long as she's next to me</p>
-                <p>as long as this love's still fleeting</p>
-                <p>because i like her</p>
-                <p>there was an openness about him that struck me. one wayne g invites anyone who cares to listen into a vulnerable space, the interior of the mind journaling its thoughts in notes and lyrics. even standing on that car park rooftop, all alone in a sea of dozens of empty cars, i felt seen, and safe, and loved.</p>
-                <p>when i had the time, i went all the way back to the first track and listened from start to finish. 20180512 is a splash of cold water over an otherwise groovy, laid-back beat. 20180519 is bare-essentials lo-fi — an arpeggiating synth over a drum track, nothing else besides the sparse, rhythmic knocking of wood blocks. the electric guitar in 20180701 has a surreal banjo-like timbre. and so on and so forth, for 199 tracks. it’s that familiar melancholic-upbeat sound that mac has been cultivating over the past decade, yet somehow inscrutably different. perhaps the eerie, ambient synth tracks — 20190205 2, for instance — intermixed in the album have something to do with it; yet even those seem more a hazy dream than a nightmare.</p>
-                <p>and that’s what mac’s music is. a hazy dream, in his utopian world. listening to one wayne g, or five easy hot dogs, or this old dog, i instantly go into a trance; and when i snap out of it, i find myself profoundly moved, but having remembered nothing of the actual music — only that i had been transported to somewhere that was certainly not here.</p>
-                <p>of course, at times, he breaks the mold. “choo choo” from here comes the cowboy is hardly a meditative track, with such philosophical lyrics as “choo choo, take a ride with me / choo choo, take a ride with me / choo choo, take a ride with me / choo choo, come and die with me.” he’s light when he needs to be — or whenever he wants to be, frankly.</p>
-                <p>but, overall, the trend is clear — even as far back as another (demo) one or “my kind of woman” (from 2), his songs had betrayed an affinity toward the sort of liminal, trance-like alt-rock sound that garnered such a devout following.</p>
-                <p>i always come back to his take away show for la blogothèque. it’s akin to a stress test for his dream-world aesthetic: he sets out on a park in paris, france, with nothing but a guitar with no strap and a wordless cameraman following him from behind. children scream on the playground, people come up to him to “sing along” (by the loosest definition of the term) or tell him that he’s good, blaring sirens threaten to drown him out. but he only laughs; and he keeps walking; and he keeps singing:</p>
-                <p>often a heart tends to change its mind</p>
-                <p>a new day decides on a new design</p>
-                <p>a new day gets set on another way</p>
-                <p>as long as i live, all i've got to say is</p>
-                <p>this old dog ain't about to forget</p>
-                <p>all we've had</p>
-                <p>and all that's next</p>
-                <p>'long as my heart's beating in my chest</p>
-                <p>this old dog ain't about to forget</p>
-                <p>i would be lying if i said mac demarco helped me reach some grandiose conclusion about life and my place in the universe, or whatever. i am still scared, to death, of death; i am terrified about its knowns and its unknowns, and its inevitability. but his music helps me to, at least, find a temporary peace in the moment, knowing that i am alive and relishing the sensation of it all, knowing that there is not just despair, but joy and calm in the ends of things. there is a brief and beautiful existence, and then there is a gentle silence. and the silence smiles, knowing it has lived.</p>
-                <p>i once saw a tiktok that said, “i hope death is like being carried to your bedroom when you were a child and fell asleep on the couch at a family party. i hope you can hear the laughter from the next room.”</p>
-                <p>i hope death is like a mac demarco song. and i hope death is like the end of a mac demarco song: just you, the people you love, and the satisfaction of remembering that you were happy. ■</p>            </div>
-
-            <div class="col other" id="dt1" style="flex:50%">
-                <button onclick="toggle_windows('dt1')">&larr; back</button>
-                <p>experts talk impacts of ukraine invasion</p><br>
-                <p>by jonathan park</p><br>
-                <p>march 28, 2022</p><br>
-                <p>thursday marked exactly four weeks since russia began its invasion of ukraine on feb. 24. in that time, continued attacks on civilian targets expanded westward, where, according to the united nations high commissioner for refugees at time of publication, upward of 3.8 million people have fled to neighboring countries. on march 23, the u.n. counted 2,571 civilian casualties.</p>
-
-<p>the daily trojan spoke with usc experts concerning the invasion&rsquo;s impacts on the nuclear world order, record-high gas prices in the united states and the ensuing refugee crisis.</p>
-
-<p>najmedin meshkati, professor of civil and environmental engineering, industrial systems engineering and international relations at the viterbi school of engineering, expressed concerns about russia&rsquo;s desire to &ldquo;take over control of [the] four nuclear plants&rdquo; operating in ukraine.</p>
-
-<p>&ldquo;these plants &#8230; generate 50% of the electricity of that country,&rdquo; meshkati said. &ldquo;russia wants to be in control on that &mdash; then they want to shut it off, to pull the plug and stop the plants from operating.&rdquo;</p>
-
-<p>at time of publication, russian forces control two of the four ukrainian plants: chernobyl and zaporizhzhia. russian forces held more than 300 ukrainians, including workers and guards hostage at chernobyl, forcing them to continue operations at gunpoint for three weeks without rest. russia allowed 64 people to leave sunday and replaced them with &ldquo;employee-volunteers.&rdquo;</p>
-
-<p>&ldquo;having worked on nuclear safety for the last 35 years, this is a recipe for disaster,&rdquo; meshkati said. &ldquo;if there is, god forbid, an accident in these four plants &#8230; that radiation fallout will affect everybody.&rdquo;</p>
-
-<p>to avoid such a scenario, meshkati said &ldquo;the only solution&rdquo; is to have demilitarized &ldquo;safe-haven&rdquo; zones around all ukrainian plants.</p>
-
-<p>&ldquo;[the international atomic energy agency] should mobilize on asking russia to declare a &lsquo;no-fighting&rsquo; zone around these plants and allow these employees and operators of the plants to rotate their shifts, be with their family,&rdquo; he said. &ldquo;let russians, unfortunately, do anything else that they want &mdash; but these four [plants] need to be considered as safe havens.&rdquo;</p>
-
-<p>meshkati questioned the validity of past disarmament and security assurance agreements, including the 1994 budapest memorandum &mdash; which denuclearized ukraine in exchange for security assurances from the u.s., united kingdom and russian federation &mdash; as well as the treaty on the non-proliferation of nuclear weapons, which meshkati extensively studied. on march 4, ukrainian president volodymyr zelensky expressed regret about ukraine&rsquo;s denuclearization, saying &ldquo;all that the [nato] alliance has managed to do so far is carry 50 tons of diesel fuel for ukraine &#8230; probably so that we can burn the [budapest memorandum].&rdquo;</p>
-
-<p>meshkati co-authored an article for iran news in 2000, the title of which declared &ldquo;the npt is a cold war relic.&rdquo; over twenty years later, meshkati said he is &ldquo;even more convinced&rdquo; that the title is applicable today.</p>
-
-<p>&ldquo;i think the npt was good. it served its purpose, but we really need a paradigm shift,&rdquo; he said. &ldquo;after this [invasion], would mr. kim [jong-un] in [north] korea, or anybody for that matter, &#8230; exchange their nuclear weapon arsenal for a piece of paper? i mean, this is going to be the $65,000 question.&rdquo;</p>
-
-<p>shon hiatt, associate professor of business administration at the marshall school of business and faculty affiliate of the greif center for entrepreneurial studies, said the recent unprecedented hike in gasoline prices was the culmination of &ldquo;an imbalance of supply and demand&rdquo; that started about 10 months ago.</p>
-
-<p>more recently, however, hiatt said the &ldquo;potential of russian oil not getting onto the marketplace,&rdquo; as western trade deals with russia deteriorated in the wake of the invasion, caused the &ldquo;major price jump&rdquo; to a national average of $4.17 per gallon on march 8 &mdash; the highest since 2008. los angeles county reached a record high of $5.966 per gallon on march 19.</p>
-
-<p>the price hikes, in turn, increased political pressures in the u.s. to suspend gas taxes. preexisting calls for a &ldquo;gas tax holiday&rdquo; gained further traction in congress because of the ukraine invasion. house democrats introduced a bill on march 17 to provide rebate checks of $100 per month to american taxpayers. hiatt said, at the federal level, such measures would only &ldquo;add fuel to the inflationary fire.&rdquo; a &ldquo;complete 180-degree turn for the biden administration&rdquo; would be necessary instead, he said.</p>
-
-<p>&ldquo;they have this climate change strategy throughout all their agencies to reduce fossil fuel usage,&rdquo; hiatt said. &ldquo;but, now that we have a massive shortage in the global supply, which is also building now into this inflation that we have &mdash; this is a terrible time to do this. so there needs to be a complete change, but that doesn&rsquo;t seem to be happening.&rdquo;</p>
-
-<p>in a feb. 28 q&amp;a with marshall&rsquo;s communications team, hiatt said he believed &ldquo;the glasgow 2021 goals to become carbon net neutral by 2050 will not be achieved.&rdquo; when asked whether he had changed his mind since then, he said, &ldquo;absolutely not.&rdquo;</p>
-
-<p>first, hiatt said, recent decreases in the european union&rsquo;s carbon emissions, which were touted as progress toward the glasgow goals, &ldquo;never counted the russian imports&rdquo; &mdash; which account for 40% of e.u. consumption. as for china, the country processes 80% of the materials required to produce electric vehicle batteries, preventing u.s. energy independence.</p>
-
-<p>&ldquo;if you were to still continue for the glasgow [goals], you&rsquo;re still at the mercy of russia and china &mdash; [countries] which, right now, don&rsquo;t care much about western interests,&rdquo; hiatt said.</p>
-
-<p>hannah garry, clinical professor of law and founding director of the international human rights clinic at the gould school of law, said the e.u. directive to grant ukrainian refugees temporary protective status &mdash; allowing ukrainians to live and work within the e.u. for three years &mdash; &ldquo;makes a lot of good sense.&rdquo; under this temporary protection directive, ukrainians are also allowed freedom of movement, a reversal of the e.u.&rsquo;s previous &lsquo;first country of asylum&rsquo; policy, which states a refugee must remain in the first country to have granted them asylum.</p>
-
-<p>garry also called the directive &ldquo;discriminatory&rdquo; because the e.u. denied freedom of movement for the millions of afghan and syrian refugees who have sought asylum in europe. refugees of color also faced racism at the ukrainian border: africans attempting to leave ukraine told the new york times that border guards would &ldquo;slap them, beat them and push them to the end of the queue.&rdquo;</p>
-
-<p>&ldquo;the perverse effect of the &lsquo;first country of asylum&rsquo; rule is that these border countries are fatigued from taking in refugees or don&rsquo;t want certain kinds of refugees,&rdquo; garry said. &ldquo;so they have engaged in illegal deterrence practices, pushbacks, indefinite detention &mdash; and we are seeing that with afghans and syrians and others at the border &#8230; it&rsquo;s clearly discrimination. and it&rsquo;s clearly in violation of international law.&rdquo;</p>
-
-<p>following the 2015 syrian refugee crisis, public opinion of refugees in europe was mostly negative: a 2016 pew research survey found that upward of 50% of surveyed europeans believed refugees &ldquo;are a burden to society,&rdquo; that syrian and iraqi refugees were a major threat, and that an &ldquo;influx of refugees will increase the likelihood of terrorism.&rdquo; meanwhile, far-right parties across europe &mdash; including france&rsquo;s national rally (then the national front) and germany&rsquo;s alternative f&uuml;r deutschland &mdash; seized the opportunity to expand their power via anti-immigration platforms. but with ukrainians, garry said there was &ldquo;more empathy and receptivity and openness.&rdquo;</p>
-
-<p>&ldquo;we hear of individuals from those far-right parties &#8230; running to ukraine to fight and to take part in the battle,&rdquo; she said. &ldquo;i think that they have seen these refugees coming out of ukraine as in the battle for their national identity, for their self-determination as a state and as a country &mdash; and that resonates right with their narratives.&rdquo;</p>
-
-<p>garry said she hopes the &ldquo;ukrainian model&rdquo; of refugee policy &ldquo;brings new awareness&rdquo; to the european public and beyond.</p>
-
-<p>&ldquo;i&rsquo;m hoping that, as we observe what&rsquo;s going on in europe &mdash; particularly as we&rsquo;re having our own moments with systemic racism and understanding of underlying biases that are endemic in all systems &mdash; [we will] realize that it needs to change here in the united states as well,&rdquo; garry said.</p>
-            </div>
-
-            <div class="col other" id="dt2" style="flex:50%">
-                <button onclick="toggle_windows('dt2')">&larr; back</button>
-                <p>new state law sheds light on usc wages</p><br>
-                <p>by jonathan park</p><br>
-                <p>january 18, 2023</p><br>
-                <img src="https://dailytrojan.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-18-at-12.44.44-AM-1500x1194.png">
-                <p>california now requires employers with at least fifteen workers to report salary ranges in job postings, as of jan. 1. it is not the first or only state to do so: similar laws in washington and rhode island also went into effect at the turn of the new year, joining nevada, colorado, connecticut, maryland and a handful of cities and counties. usc, the second-largest private employer in los angeles county with 28,119 faculty, staff and student workers as of the 2021-22 academic year, is also subject to the new law.</p>
-
-<p>wages have been a subject of contention at the university for several years, recently spotlighted in april, when janitors contracted under aramark protested alongside students and faculty members for higher wages and better healthcare benefits. graduate student workers are also in the process of unionizing in hopes of negotiating for higher compensation, following a national reckoning over universities&rsquo; treatment of academic workers spurred by a historic strike across university of california campuses.</p>
-
-<p>the daily trojan compiled and analyzed data for 50 recent usc job postings at the date of publication, taking into consideration the position, department and hourly wages or salaries. postings are from jan. 2-9. also included in the analysis are 100 other job postings from nov. 22 to dec. 30, compiled and posted to reddit by a graduate student who granted permission to use their data set and requested to remain anonymous due to privacy concerns.</p>
-
-<p>postings from the keck school of medicine have been excluded from both data sets because of the large quantity of open positions, out-of-state positions that are not subject to the new law and different regulations for minimum wages and benefits. not all usc departments are reflected in the data.</p>
-
-<p>a model created by dr. amy glasmeier, professor of economic geography and regional planning at the massachusetts institute of technology, calculates the living wage for a single adult with no children living in l.a. county to be $21.89 an hour. this, according to the model, is the minimum an individual must earn to support themself, assuming they work full-time &mdash; 40 hours a week, 52 weeks a year.</p>
-
-<p>six of the fifty most recent postings, all of them within auxiliary services, offer significantly less than this calculated living wage. a &ldquo;culinary specialist&rdquo; at burger crush makes $19.92 an hour. a host at the university club would earn $18.77 an hour. two postings, including one for a hotel service worker position, pay exactly the l.a. city minimum wage, at $16.04 an hour.</p>
-
-<p>last year&rsquo;s postings paint a fuller picture. five of nine auxiliary services positions listed are below the glasmeier model&rsquo;s living wage, including a trojan grounds starbucks cashier position at $18.84 an hour. financial business services offers $19.84 for a mail and material handler and $20.49 for an accounting assistant. an associate child care teacher at university relations would earn $16.58, just over half a dollar more than minimum wage and far below the city-wide average for a child care teacher, at $25.27.</p>
-
-<p>a majority of these positions do not require a college degree; in contrast, the university often offers competitive, if not above-average, salaries for positions that do require a bachelor&rsquo;s degree or above. a deputy chief information officer at information technology services can earn anywhere between $300,000 and $350,000, either way almost double the city&rsquo;s average for such a position. a senior project manager position at the usc credit union just about hits the average mark at $132,591.50.</p>
-
-<p>the university wrote in a statement to the daily trojan thursday that it is &ldquo;committed to maintaining institutional compliance with all laws, including those relating to minimum wage and pay transparency.&rdquo;</p>
-
-<p>&ldquo;when extending an offer of employment, the university considers factors such as (but not limited to) the scope and responsibilities of the position, the candidate&rsquo;s work experience, education/training, key skills, internal peer equity, federal, state and local laws, contractual stipulations, grant funding, as well as external market and organizational considerations,&rdquo; the statement read.</p>
-
-<p>wages offered for auxiliary services positions are mostly union-bargained, a university spokesperson said, and are coupled with benefits packages for employees and their families in accordance with negotiated contracts. offers for hospitality positions also take tips into consideration, the spokesperson said.</p>
-
-<p>a spokesperson for unite here local 11, a union representing usc hospitality workers, did not respond to multiple requests for comment.</p>
-
-<p>some businesses have responded to the new pay transparency law by exploiting weaknesses in its wording to their advantage. big tech companies, in a precedented move, posted excessively wide salary ranges: an l4 software engineer position at netflix now offers anywhere between $90,000 and $900,000, which the company justified as the &ldquo;overall market range for roles in this area.&rdquo; tesla employed a similar strategy, offering $104,000 to $348,000 for its own software engineer position.</p>
-
-<p>usc, meanwhile, is including its pay ranges only after an introduction and five or six other sections, including the job description and necessary qualifications. a typical posting for auxiliary services lists the range after about 700 to 900 words, which is similar to the length of this article. information technology services postings have almost 1,300 words before the range appears.</p>
-
-<p>whereas other listings &mdash; including the $90,000 to $900,000 netflix position &mdash; separate the range as a standalone paragraph, university positions include it within a paragraph that reads exactly like the university&rsquo;s thursday statement. the result is a job posting with no immediately visible statement of a pay range.</p>
-
-<p>the university declined to comment on the matter, instead referring to a mar. 29 memo from president carol folt on &ldquo;long-term plans for increasing faculty and staff compensation,&rdquo; including a $700 million investment &ldquo;over the next five years to support performance-based salary increases, related employee benefits, and market adjustments.&rdquo;</p>
-
-<p>&ldquo;our strategy is to bolster the excellence and innovation of our academic programs, strengthen our workforce, retain critical talent, ensure our job descriptions describe current roles and responsibilities, address compensation inequities, and systematically raise salaries to be competitive in one of the country&rsquo;s most expensive job markets,&rdquo; the memo read.</p>
-            </div>
-
-            <div class="col other" id="dt3" style="flex:50%">
-                <button onclick="toggle_windows('dt3')">&larr; back</button>
-                <p>new state law sheds light on usc wages</p><br>
-                <p>by nathan elias & jonathan park</p><br>
-                <p>november 10, 2022</p><br>
-                <p>three of the seven state propositions on this year&rsquo;s ballot will pass, the associated press projects: prop 1, which will enshrine the right to abortion in the state&rsquo;s constitution; prop 28, which will fund arts and music education in public schools; and prop 31, which will uphold a 2020 law banning the sale of certain flavored tobacco products. the rest &mdash; prop 26 and 27, on allowing sports betting; prop 29, on regulating kidney dialysis clinics; and prop 30, on an electric vehicle incentive tax &mdash; are projected to fail.</p>
-
-<p>the daily trojan spoke with students and panelists at the election day watch party at wallis annenberg hall, hosted by the usc center for the political future tuesday night, when most propositions were too early to call. general consensus among those interviewed, however, was that the results were widely expected.</p>
-
-<p>prop 1: yes, ap projects</p>
-
-<p>noelia rodriguez, a panelist at the event and fall 2022 cpf fellow, told the daily trojan that the passing of the proposition was a &ldquo;personal thing,&rdquo; having been a student herself at the time of the 1973 roe v. wade decision.</p>
-
-<p>&ldquo;it memorializes what the people in our state really believe, and that is the right to choice,&rdquo; said rodriguez, who formerly served as los angeles deputy mayor and director of communications for first lady laura bush. &ldquo;i know [what] having access to safe child healthcare and preventative measures meant to young women &mdash; and quite frankly, their partners &#8230; this is a way to enshrine that in our state constitution.&rdquo;</p>
-
-<p>prop 1 was also about sending a message to other states: gov. gavin newsom announced the measure a mere three days after dobbs v. jackson overturned the roe precedent &mdash; in addition to legislation signed the day of, preventing &ldquo;radical attempts by other states to extend their anti-abortion laws into california,&rdquo; according to a jun. 24 press release from newsom&rsquo;s office.</p>
-
-<p>&ldquo;more than anything, it&rsquo;s to send a message that california is pro-abortion rights,&rdquo; said muna shikaki, a panelist and adjunct instructor at the annenberg school for communication and journalism. &ldquo;and on the other hand, it&rsquo;s also a great way to get people to vote during a midterm election where usually there&rsquo;s not very high turnout.&rdquo;</p>
-
-<p>alex flores, a freshman majoring in public relations and a registered democrat, said he voted in support of prop 1.</p>
-
-<p>&ldquo;not only for women, but for anyone that has a uterus, seeing discrepancies against their choice was upsetting,&rdquo; said flores, who lobbied with planned parenthood for the measure. &ldquo;when you come [to the u.s.], you have an expectation that everyone&rsquo;s going to be respected. and when people are not being respected, that to me is not upholding an american value.&rdquo;</p>
-
-<p>prop 26: no, ap projects</p>
-
-<p>both gambling-related propositions, together the most expensive ballot initiative effort to date, overwhelmingly failed. disapproval of the measures was bipartisan: state republicans and democrats declined to openly support either prop 26 or 27. opinions among students interviewed, however, were mixed, despite some of them not being of gambling age.</p>
-
-<p>&ldquo;i voted [for prop 26] because i am native to my land and i know that it&rsquo;s a little bit of a struggle to get funding from states here,&rdquo; flores said. &ldquo;of course, we know that for a lot of native american peoples and tribes, casinos are a big way for them to make money, and they already do not get much help from the state. they only get tax-exempt land, which is a help, but not the best help.&rdquo;</p>
-
-<p>prop 27: no, ap projects</p>
-
-<p>james peters, a freshman majoring in political science and a registered democrat, said he believes trojan football&rsquo;s recent comeback could garner support for gambling at usc.</p>
-
-<p>&ldquo;especially in my dormitory, a lot of people are in favor of prop 27 because sports betting is very popular out of state, and right now they&rsquo;re doing it [in california] through illegal means,&rdquo; peters said. &ldquo;so specifically, with usc gaining more traction with a better football team, i feel like it could, in a sense, increase favor for proposition 27.&rdquo;</p>
-
-<p>david cerna, a freshman majoring in piano performance and a registered republican, voted against the measure.</p>
-
-<p>&ldquo;[prop] 27 in particular was a big one for me,&rdquo; cerna said. &ldquo;it would virtually allow for any mobile device to become a gambling device. the way i view it, whenever you put something like that into an app on a phone, it automatically puts the mind that, &lsquo;oh, this is a game&rsquo; &#8230; and you don&rsquo;t realize that what you&rsquo;re using up is your actual money. you can lose your whole life&rsquo;s savings.&rdquo;</p>
-
-<p>prop 28: yes, ap projects</p>
-
-<p>prop 28 is expected to overwhelmingly pass, being what shikaki called a &ldquo;safe proposition&rdquo; for voters. the measure will direct $1 billion dollars in state funds to arts and music education programs in public schools slashed during the 2008 financial crisis, disproportionately affecting low-income communities.</p>
-
-<p>&ldquo;i grew up during a time where a lot of art docent and garden docent programs were getting cut by the state,&rdquo; said eleanor love, a freshman majoring in public policy and a registered democrat who voted for the measure. &ldquo;so i think it&rsquo;s important that younger students especially are able to be exposed to the arts and music and that sort of thing.&rdquo;</p>
-
-<p>flores, a dance instructor, similarly said he took his personal experience into consideration in voting for the measure.</p>
-
-<p>&ldquo;there is a reason why no one is against the arts,&rdquo; flores said. &ldquo;it is vital to teach our children in school. the arts [are] just as vital as any stem [or] english class. you&rsquo;re letting children express themselves creatively and letting children explore issues with their own creative will, and find creative answers to complex issues.&rdquo;</p>
-
-<p>prop 29: no, ap projects</p>
-
-<p>&ldquo;they&rsquo;ve tried to do this before and it&rsquo;s failed, and they&rsquo;re trying again and it&rsquo;s likely to fail &mdash; again,&rdquo; shikaki said of prop 29, which would impose regulations on kidney dialysis clinics.</p>
-
-<p>her prediction was true: ap on wednesday projected the measure will fail, with 69.9% of ballots counted at the time of publication having voted &ldquo;no.&rdquo; a similar proposition in 2020, prop 23, overwhelmingly failed, with 63.42% voting no. a 2018 proposition, prop 8, to impose patient refund requirements on clinics also failed, with 59.93% voting no.</p>
-
-<p>prop 30: no, ap projects</p>
-
-<p>responding to an audience question during the watch party panel, ira reiner, a fall 2022 usc cpf fellow and former l.a. district attorney, said of prop 30, &ldquo;i was &mdash; i am &mdash; against it.&rdquo; reiner went on to criticize the ballot initiative system as a once democratic system that has since been corrupted by corporate money.</p>
-
-<p>&ldquo;what&rsquo;s really wrong with the initiative process is that it is no longer citizen-driven,&rdquo; reiner said. &ldquo;it is driven by very, very, very large money, [pushing] matters that should go through the legislature, go through the committee process &mdash; where there can be amendments, there can be witnesses that are brought in, and the final product is never exactly the same as was initially reported.&rdquo;</p>
-
-<p>prop 30 is the second ballot measure in the last few years to have had significant financial backing from rideshare company lyft. the first was in 2020, when prop 22 became the most expensive ballot measure in california history as gig companies poured money to fight against the measure. (this year&rsquo;s props 26 and 27 combined have since taken the lead as the most expensive measure.)</p>
-
-<p>prop 31: yes, ap projects</p>
-
-<p>love said prop 31 was of major concern for her and her friends, considering the popularity of flavored tobacco products among younger voters.</p>
-
-<p>&ldquo;some of my friends were texting me and saying, &lsquo;vote no on 31 so i can still buy vapes,&rsquo;&rdquo; love said. &ldquo;i just noticed that a lot of people my age are addicted to it. i was in eighth grade or seventh grade when kids my age started using flavored tobacco and vape products &#8230; and i just feel like kids should not have access to that.&rdquo;</p>
-            </div>
-
-
-            <div class="col" style="flex:25%">
-                <img src="https://i.pinimg.com/originals/be/80/f2/be80f29361acc483644d5a135d994345.gif">
-                <a class="twitter-timeline" data-height="400" data-theme="dark" href="https://twitter.com/park_djwls?ref_src=twsrc%5Etfw">Tweets by park_djwls</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+            <div class="folder" id="fun-folder" onclick="selectFolder(this)" ondblclick="openFolder('fun-folder-contents')">
+                <div class="folder-img" id="fun-folder-img">
+                    <img src="uploads/folder.png" alt="folder">
+                </div>  
+                <h6 class="foldername">Fun</h6>
             </div>
         </div>
 
+        <!-- ABOUT FOLDER -->
+        <div class="folder-contents-draggable" id="about-folder-contents" style="display:none;">
+
+            <!-- header -->
+            <div class="folder-contents-header" id="about-folder-contents-header">
+                <small>About</small>
+                <small class="close-folder-button" id="about-folder-close-button" onclick="closeFolder(this)">x</small>
+            </div>
+
+            <!-- contents -->
+            <div class="folder-contents-files" id="about-folder-contents-files">
+                <table class="folder-contents-table">
+                    <tr>
+                        <!-- about -->
+                        <td>
+                            <div class="file-container" id="about-file" onclick="selectFile(this)" ondblclick="openFile('about-container')">
+                                <div class="file-img" id="about-file-img">
+                                    <img src="uploads/textfile.png" alt="textfile">
+                                </div>
+                                <h6 class="filename">about.txt</h6>
+                            </div>
+                        </td>
+                        <!-- resume -->
+                        <td>
+                            <div class="file-container" id="resume-file" onclick="selectFile(this)" ondblclick="openFile('resume-container')">
+                                <div class="file-img" id="resume-file-img">
+                                    <img src="uploads/pdf.png" alt="textfile">
+                                </div>
+                                <h6 class="filename">resume.pdf</h6>
+                                
+                            </div> 
+                        </td>
+                        <!-- socials -->
+                        <td>
+                            <div class="file-container" id="socials-file" onclick="selectFile(this)" ondblclick="openFile('socials-container')">
+                                <div class="file-img" id="socials-file-img">
+                                    <img src="uploads/textfile.png" alt="textfile">
+                                </div>
+                                <h6 class="filename">socials.txt</h6>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <img src="https://media3.giphy.com/media/AzA3AoYdrm7KRUlutU/giphy.gif?cid=ecf05e47yqvgxn1xuc64np9w9l6uby1gh7zceha87rd6ynrf&ep=v1_gifs_related&rid=giphy.gif&ct=s" style="height: 60px; width: auto; position: absolute; top: -10px; right: 20px;">
+            </div> 
+            
+        </div>
+
+        <!-- ABOUT FOLDER: CONTENTS-->
+
+            <!-- ABOUT.TXT -->
+            <div class="file-open" id="about-container" style="display:none; left: 400px;">
+                <div class="file-open-header" id="about-container-header">
+                    <small>about.txt</small>
+                    <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+                </div>
+                <div class="file-open-content txt-content" id="about-content">
+                    <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
+                    <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
+                    <p><b>CURRENTLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
+                    <p>I was born and raised in the San Francisco Bay Area (Dublin, CA, to be exact). I had a brief stint living in Irvine, but I'm back in the Bay.</p>
+                    <p>Other things about me:</p>
+                    <ul>
+                        <li>Recovering <i>New Yorker</i> magazine addict</li>
+                        <li>Four semesters and counting at the <i>Daily Trojan</i>, USC's independent campus newspaper</li>
+                        <li>Favorite books: <i>The Anthropocene Reviewed</i>, by John Green; <i>The Color of Water</i>, by James McBride</li>
+                        <li>Currently reading: <i>The Matter of Black Lives</i>, ed. Jelani Cobb & David Remnick</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RESUME.PDF -->
+            <div class="file-open" id="resume-container" style="display:none; left: 400px;">
+                <div class="file-open-header" id="resume-container-header">
+                    <small>resume.pdf</small>
+                    <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
+                </div>
+                <div class="file-open-content" id="resume-content">
+                    <embed src="uploads/files/jonathan-park-resume.pdf" type="application/pdf" width="100%" height="100%">
+                </div>
+            </div>
+
+            <!-- SOCIALS.TXT -->
+            <div class="file-open" id="socials-container" style="display:none; left: 400px;">
+                <div class="file-open-header" id="socials-container-header">
+                    <small>socials.txt</small>
+                    <small class="close-file-button" id="socials-close-button" onclick="closeFile(this)">x</small>
+                </div>
+                <div class="file-open-content txt-content" id="socials-content">
+                    <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a></p>
+                    <p><a href="https://www.instagram.com/qkrdjwls_">Instagram</a></p>
+                </div>
+            </div>
+
+
+        <!-- WORK FOLDER -->
+        <div class="folder-contents-draggable" id="work-folder-contents" style="display:none; left: 250px; top: 200px;">
+            <div class="folder-contents-header" id="work-folder-contents-header">
+                <small>Work</small>
+                <small class="close-folder-button" id="work-folder-close-button" onclick="closeFolder(this)">x</small>
+            </div>
+        </div>
+
+        <!-- FUN FOLDER -->
+        <div class="folder-contents-draggable" id="fun-folder-contents" style="display:none; left: 400px; top: 300px;">
+            <div class="folder-contents-header" id="fun-folder-contents-header">
+                <small>Fun</small>
+                <small class="close-folder-button" id="fun-folder-close-button" onclick="closeFolder(this)">x</small>
+            </div>
+        </div>
+            
+        <!-- DRAG -->
+        <script>
+        //Make the DIV element draggable:
         
+        dragElement(document.getElementById("about-folder-contents"));
+        dragElement(document.getElementById("work-folder-contents"));
+        dragElement(document.getElementById("fun-folder-contents"));
+
+        dragElement(document.getElementById("resume-container"));
+        dragElement(document.getElementById("about-container"));
+        dragElement(document.getElementById("socials-container"));
+        
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "-header")) {
+            /* if present, the header is where you move the DIV from:*/
+            document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
+            } else {
+            /* otherwise, move the DIV from anywhere inside the DIV:*/
+            elmnt.onmousedown = dragMouseDown;
+            }
+        
+            function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+            }
+        
+            function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+        
+            function closeDragElement() {
+            /* stop moving when mouse button is released:*/
+            document.onmouseup = null;
+            document.onmousemove = null;
+            }
+        }
+        </script>
+        
+        <!-- SELECT / OPEN / CLOSE FOLDER -->
+        <script>
+        function selectFolder(div) {
+        if (div.classList.contains('selected')) {
+            div.classList.remove('selected');
+        } else {
+            div.classList.add('selected');
+        }
+        }
+
+        function openFolder(id) {
+            document.getElementById(id).style.display = "initial";
+        }
+
+        function closeFolder(small) {
+            small.parentNode.parentNode.style.display = "none";
+        }
+        </script>
+        
+        <!-- SELECT / OPEN / CLOSE FILE -->
+        <script>
+        function selectFile(div) {
+        if (div.classList.contains('selected-file')) {
+            div.classList.remove('selected-file');
+        } else {
+            div.classList.add('selected-file');
+        }
+        }
+
+        function openFile(id) {
+            document.getElementById(id).style.display = "initial";
+        }
+
+        function closeFile(small) {
+            small.parentNode.parentNode.style.display = "none";
+        }
+        </script>
     </body>
 </html>
