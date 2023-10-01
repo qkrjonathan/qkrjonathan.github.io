@@ -171,10 +171,24 @@ h6.foldername, h6.filename {
 }
 
 .file-open-content {
-    overflow: scroll !important;
+    overflow-y: scroll !important;
     height: 500px;
 }
 
 .txt-content {
     padding: 20px;
 }
+
+
+
+
+
+#credits {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 999;
+}
+
+#credits small { color: white; font-size: 9px; }
