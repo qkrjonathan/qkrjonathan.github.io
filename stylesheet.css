@@ -65,12 +65,20 @@ h6.foldername, h6.filename {
     color: #fff;
     margin: 4px 0 0 0;
     padding: 0;
-    text-align: center !important;
+    text-align: center;
+}
+
+h6.filename {
+    width: 80px;
+}
+
+h6.foldername {
+    width: 70px;
 }
 
 .folder-img img {
     height: 50px;
-    width: auto;
+    width: 70px;
     padding: 2px;
 }
 
@@ -119,20 +127,17 @@ h6.foldername, h6.filename {
 }
 
 .file-container {
-    width: 50px;
-    height: 80px;
-    padding: 5px 15px;
-}
-
-.file-container img {
-    height: 50px;
-    width: auto;
-    padding: 2px;
-}
-
-.file-container small {
     width: 80px;
-    word-wrap: wrap;
+    height: 80px;
+    padding: 5px 5px;
+}
+
+.file-img img {
+    height: 50px;
+    width: 80px;
+    object-fit: contain;
+    margin: 0 auto !important;
+    padding: 2px;
 }
 
 .file-container.selected-file {
@@ -188,7 +193,22 @@ h6.foldername, h6.filename {
     bottom: 0;
     right: 0;
     margin: 20px;
-    z-index: 999;
+    z-index: 0;
 }
 
 #credits small { color: white; font-size: 9px; }
+
+/* sample article styles */
+.sample-article h1 {
+    font-family: 'FreeSans';
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff !important;
+    margin: 20px 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.sample-article small {
+    color: #fff;
+}

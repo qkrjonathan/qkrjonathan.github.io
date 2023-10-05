@@ -29,6 +29,10 @@
           
     </style>
     <body>
+        <div id="credits">
+            <small>Video: <a href="https://www.pexels.com/@anthony-brown-41922/">Anthony Brown</a>. Cat animation: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a>.</small>
+        </div>
+        
         <div id="title">
             <h1>jonathan park</h1>            
         </div>
@@ -48,7 +52,7 @@
             <div class="folder" id="fun-folder" onclick="selectFolder(this)" ondblclick="openFolder('fun-folder-contents')">
                 <div class="folder-img" id="fun-folder-img">
                     <img src="uploads/folder.png" alt="folder">
-                </div>  
+                </div>
                 <h6 class="foldername">Fun</h6>
             </div>
         </div>
@@ -154,7 +158,35 @@
                 <small>Work</small>
                 <small class="close-folder-button" id="work-folder-close-button" onclick="closeFolder(this)">x</small>
             </div>
+
+            <div class="folder-contents-files" id="work-folder-contents-files">
+                <table class="folder-contents-table">
+                    <tr>
+                        <!-- dailytrojan -->
+                        <td>
+                            <div class="folder" id="dt-folder" onclick="selectFolder(this)" ondblclick="openFolder('dt-folder-container')">
+                                <div class="folder-img" id="dt-folder-img">
+                                    <img src="uploads/folder.png" alt="textfile">
+                                </div>
+                                <h6 class="foldername">daily trojan</h6>
+                            </div>
+                        </td>
+
+                        <!-- cnn -->
+                        <td>
+                            <div class="folder" id="cnn-folder" onclick="selectFolder(this)" ondblclick="openFolder('cnn-folder-container')">
+                                <div class="folder-img" id="cnn-folder-img">
+                                    <img src="uploads/folder.png" alt="textfile">
+                                </div>
+                                <h6 class="foldername">cnn</h6>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
+            </div>
         </div>
+            
 
         <!-- FUN FOLDER -->
         <div class="folder-contents-draggable" id="fun-folder-contents" style="display:none; left: 400px; top: 300px;">
@@ -162,12 +194,226 @@
                 <small>Fun</small>
                 <small class="close-folder-button" id="fun-folder-close-button" onclick="closeFolder(this)">x</small>
             </div>
+            <div class="folder-contents-files" id="fun-folder-contents-files">
+                <table class="folder-contents-table">
+                </table>
+            </div>
         </div>
 
-        <div id="credits">
-            <small>Video: <a href="https://www.pexels.com/@anthony-brown-41922/">Anthony Brown</a>. Cat animation: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a>.</small>
-        </div>
-            
+        <!-- WORK FOLDER: CONTENTS -->
+
+            <!-- daily trojan sub-folder -->
+            <div class="folder-contents-draggable" id="dt-folder-container" style="display: none; left: 200px; top: 50px;">
+                <div class="folder-contents-header" id="dt-folder-container-header">
+                    <small>daily trojan</small>
+                    <small class="close-folder-button" id="dt-folder-container-close-button" onclick="closeFolder(this)">x</small>
+                </div>
+                <div class="folder-contents-files" id="dt-folder-container-files">
+                    <table class="folder-contents-table">
+                        <tr>
+                            <!-- sample 1 -->
+                            <td>
+                                <div class="file-container" id="dt-sample1-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample1-container')">
+                                    <div class="file-img" id="dt-articles-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">dt_sample1.txt</h6>
+                                </div>
+                            </td>
+                            <!-- sample 2 -->
+                            <td>
+                                <div class="file-container" id="dt-sample2-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample2-container')">
+                                    <div class="file-img" id="dt-sample2-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">dt_sample2.txt</h6>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="file-container" id="dt-sample3-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample3-container')">
+                                    <div class="file-img" id="dt-sample3-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">dt_sample3.txt</h6>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+                <!-- daily trojan sample 1 -->
+                <div class="file-open sample-article" id="dt-sample1-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="dt-sample1-container-header">
+                        <small>dt_sample1.txt</small>
+                        <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="dt-sample1-content">
+                        <a href="https://dailytrojan.com/2023/06/30/affirmative-action-down/"><small>READ ON THE DAILY TROJAN</small></a>
+                        <h1>
+                            Supreme Court strikes down affirmative action — future of USC admissions remains unclear
+                        </h1>
+                        <p>University officials are releasing statements vowing to commit to diversity regardless of the ruling, but prior experience in other states says the prospects are grim.</p>
+                        <small>By JONATHAN PARK<br>June 30, 2023</small>
+                        <br><br>
+                        <img src="https://dailytrojan.com/wp-content/uploads/2023/06/aa-strikedown-graphic-2048x1248.jpg" style="width: 100%;">
+                        <small>Graphic: Jonathan Park / Daily Trojan. Photo: Supreme Court of the United States</small>
+                        <p>The Supreme Court struck down affirmative action by a vote of 6-3 Thursday, forcing universities across the country to rethink their race-conscious admissions programs.</p>
+                        <p>President Carol Folt called the decision &ldquo;very disappointing,&rdquo; in a statement posted to <a href="https://www.instagram.com/p/CuFKfrAx31J/?utm_source=ig_web_copy_link&amp;igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Instagram</a> and <a href="https://twitter.com/PresidentFolt/status/1674454151689027589?s=20" target="_blank" rel="noopener">Twitter</a> Thursday morning, writing that &ldquo;each of our students, faculty and staff has earned a place here and contributes to creating one of the most stimulating and creative educational communities in the world.&rdquo;</p>
+                        <p>&ldquo;This decision will not impact our commitment to creating a campus that is welcoming, diverse, and inclusive to talented individuals from every background,&rdquo; Folt wrote. &ldquo;We will not go backward.&rdquo;</p>
+                        <p>The ruling &mdash; a largely expected move &mdash; found that Harvard University and the University of North Carolina&rsquo;s admissions processes &ldquo;unavoidably employ race in a negative manner&rdquo; and &ldquo;involve racial stereotyping,&rdquo; Chief Justice John Roberts Jr. wrote.</p>
+                        <p>It is not yet clear what the decision means for USC. California banned affirmative action from all public institutions in 1996 with Proposition 209, but private universities were still at liberty to employ race-conscious admissions programs.&nbsp;</p>
+                        <p>The University did not comment further when asked about plans to continue enrolling a diverse student body, with a spokesperson saying only that the &ldquo;statement &hellip; from Dr. Folt is the statement from the university.&rdquo;</p>
+                        <p>In a <a href="https://www.instagram.com/p/CuGFKlgpfeO/?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">letter</a> to the School of Cinematic Arts, posted to Instagram Thursday afternoon, Dean Elizabeth Daley assured students, faculty and staff that &ldquo;today&rsquo;s Supreme Court ruling prohibiting race-conscious admissions will not diminish our School&rsquo;s commitment to recruiting and enrolling the diverse storytellers and media scholars our industry desperately needs.&rdquo;</p>
+                        <p>&ldquo;Each of our students is chosen to join their SCA cohort in recognition that their lived experience contributes to their talent as storytellers, media makers and scholars,&rdquo; Daley wrote. &ldquo;The bottom line is that our deep commitment to diversity and inclusion will not change.&rdquo;</p>
+                        <p>A <a href="https://www.instagram.com/p/CuGAZFzJgaL/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener">statement</a> from the Black Student Assembly, posted to the organization&rsquo;s Instagram account Thursday afternoon, called the decision &ldquo;shameful and disheartening,&rdquo; saying it &ldquo;represents another blow to civil rights that reinforces systemic barriers and undermines centuries of progress for Black and Brown people.&rdquo;</p>
+                        <p>&ldquo;We must remember that affirmative action wasn&rsquo;t created because Black students could not thrive and excel under merit based systems,&rdquo; the statement read. &ldquo;It was created because the system has never been merit based &hellip; This attack on affirmative action frames anti-racist policies and laws as punitive to White Americans rather than a promotion of universal equality.&rdquo;</p>
+                        <p>Julie Posselt, associate dean of the Graduate School, said she received the news of the ruling with &ldquo;unsurprised disappointment,&rdquo; in an interview with the <em>Daily Trojan</em>.</p>
+                        <p>&ldquo;Many of us &hellip; were anticipating this would be the outcome,&rdquo; Posselt said. &ldquo;Nevertheless, it is always disappointing to see this kind of an outcome in a world where what we are looking for, often, are tools to manage racial inequalities &mdash; not to have them taken away.&rdquo;</p>
+                        <p>Posselt noted that, in the states that have already issued bans on race-conscious admissions, &ldquo;diversity drops significantly.&rdquo;&nbsp;</p>
+                        <p>Nine states &mdash; Arizona, California, Florida, Idaho, Michigan, Nebraska, New Hampshire, Oklahoma and Washington &mdash; have instituted bans. Despite efforts to circumvent them with other approaches, universities consistently failed to reach their previously set diversity targets, according to a <em>Wall Street Journal </em>analysis published Thursday. Applicants who identify as Black, Latine or Indigenous would suffer the greatest losses, the <em>Journal</em> found; Posselt also concurred that &ldquo;all of the evidence supports that view.&rdquo;</p>
+                        <p>&ldquo;We can anticipate that it will be much more difficult to admit the same diversity that we have had for the last several years at USC,&rdquo; Posselt said. &ldquo;But we have excellent leaders in Admissions and Enrollment [Services], who are committed to diversity and who are committed to using every tool at our disposal.&rdquo;</p>
+                        <p>Examples of such tools, Posselt said, included admissions processes that centered more on financial aid rather than in-built &ldquo;racial biases,&rdquo; the elimination of standardized test score requirements &mdash; for now, USC runs on a test-optional policy &mdash; and, as implemented at the UCs, evaluation rubrics with &ldquo;a more systematic set of criteria&rdquo; with which to evaluate applicants. While Posselt declined to &ldquo;speak for USC&rdquo; as to whether it would take a similar direction, she said places &ldquo;that have had race-conscious admissions eliminated &hellip; tend to move in fairly similar ways.&rdquo;</p>
+                        <p>&ldquo;In moments like this, we see that universities tend to become more cautious than even the law requires,&rdquo; Posselt said. &ldquo;It will be very important for administrators, general counsels, communications officers and others to very clearly understand what the law requires &mdash; and what the law does not require &mdash; and to stem the potential loss of diversity, to not go beyond the requirements of the new decision.&rdquo;</p>
+                        <small>Sparsh Sharma contributed reporting.</small>
+                    </div>
+                </div>
+
+                <!-- daily trojan sample 2 -->
+                <div class="file-open sample-article" id="dt-sample2-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="dt-sample2-container-header">
+                        <small>dt_sample2.txt</small>
+                        <small class="close-file-button" id="dt-sample2-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="dt-sample1-content">
+                        <a href="https://dailytrojan.com/2023/04/13/experts-discuss-leaked-pentagon-papers/"><small>READ ON THE DAILY TROJAN</small></a>
+                        <h1>
+                            Experts discuss leaked Pentagon papers
+                        </h1>
+                        <p>The U.S. spying on its allies could damage its diplomatic relations.</p>
+                        <small>By JONATHAN PARK<br>JApril 13, 2023</small>
+                        <br><br>
+                        <img src="https://dailytrojan.com/wp-content/uploads/2023/04/Aerial_view_of_the_Pentagon_Arlington_VA_38285035892.jpeg" style="width: 100%;">
+                        <small>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, compared the severity of the Pentagon papers leak to Edward Snowden’s in 2013. (Mariordo59 / Wikimedia Commons)</small>
+                        <p>More than 100 documents containing sensitive information about United States national security secrets on Ukraine, the Middle East and China, circulated on social media sites Friday. The classified documents reveal the Pentagon&rsquo;s extensive trove of data on its adversaries and allies, including Israel, South Korea and France. The <em>Daily Trojan</em> spoke with experts and students pertaining to the leaks, their impacts on U.S. diplomatic relations and the trajectory of the Russian invasion of Ukraine going forward.</p>
+                        <p>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, said the leaks were problematic in two ways: the information itself &mdash; details in the documents exposed sensitive information about the Ukrainian military and the status of its weaponry &mdash; and the allegations of espionage making the U.S. an international &ldquo;embarrassment.&rdquo;</p>
+                        <p>&ldquo;Everyone will presume that, even if there were only documents on [South Korea, Israel and France], we&rsquo;re doing it to everybody &mdash; in other words, we are snooping on our allies,&rdquo; English said. &ldquo;So all of this is, at a minimum, irritating, and in some cases, really infuriating.&rdquo;</p>
+                        <p>Among the documents&rsquo; claims are that senior officials in Mossad, Israel&rsquo;s security agency, &ldquo;advocated for Mossad officials and Israeli citizens to protest against the new Israeli government&rsquo;s proposed judicial reforms, including several explicit calls to action that decried the Israeli government, according to signals intelligence.&rdquo; Prime Minister Benjamin Netanyahu denied this claim in a statement Sunday.</p>
+                        <p>The documents also claim the U.S. spied on its allies in Seoul, amid ongoing pressures for Yoon Suk-yeol, president of South Korea, to supply weapons to Ukraine in violation of national policy. South Korean government officials said they would have necessary consultations with the U.S. side related to the leak.</p>
+                        <p>English compared the severity of the leaks to when Edward Snowden leaked thousands of National Security Agency documents in 2013, revealing the U.S. was gathering extensive intelligence on France and Germany.</p>
+                        <p>&ldquo;And [now] it&rsquo;s like, &lsquo;Here we go again,&rsquo;&rdquo; English said. &ldquo;Probably everyone knows we do it. Frankly, they do some of it as well. It just shouldn&rsquo;t be revealed and cause embarrassment. Even if the South Koreans know that Big Brother America is probably poking around, [they would say,] &lsquo;Please don&rsquo;t rub it in our faces so that we are humiliated before an election, or so that we&rsquo;re embarrassed right before a key parliamentary vote.&rdquo;</p>
+                        <p>Though <em>The</em> <em>New York Times</em>, which first reported the leaks, wrote that the documents surfaced on Twitter and Telegram, a separate investigation by Bellingcat published April 9 found that they had circulated as early as March. Photos of 10 documents emerged March 4 in a Discord server called &ldquo;Minecraft Earth Map&rdquo; &mdash; with a user interjecting in a seemingly unrelated conversation, saying, &ldquo;here, have some leaked documents,&rdquo; with the images attached. These later circulated to the fringe forum 4chan before emerging on mainstream social media channels.</p>
+                        <p>&ldquo;It&rsquo;s &hellip; incredibly disturbing, and yet, at the same time, it&rsquo;s comical and amusing,&rdquo; English said. &ldquo;This whole episode is something unprecedented in the world of espionage and intelligence.&rdquo;&nbsp;</p>
+                        <p>Classified documents leaks on gaming forums are precedented: Players of the video game &ldquo;War Thunder&rdquo; have posted multiple classified documents related to British, French and Chinese tanks since 2021. One user, the UK Defence Journal reported, posted such documents to encourage developers to make more accurate in-game tanks.</p>
+                        <br><br>
+                        <img src="https://dailytrojan.com/wp-content/uploads/2023/04/52004786557_b16e79d7c9_o-1500x1000.jpg" style="width: 100%;">
+                        <small>Classified documents leaked to social media sites such as Discord, 4chan and some more mainstream websites. Photos were leaked in a Discord server known as “Minecraft Earth Maps” as early as March 4. (Oleksandr Ratushniak | UNDP Ukraine)</small>
+                        <p>Copies of the documents obtained by <em>The</em> <em>New York Times</em> appeared to be altered, with U.S. estimates of Ukrainian war casualties overstated and numbers of Russian troops killed understated &mdash; modifications English said were &ldquo;amateurish.&rdquo;</p>
+                        <p>&ldquo;How strange to have information right out of the bowels of the Pentagon,&rdquo; English said, &ldquo;and then get out the white-out or the Photoshop and do a sloppy job of doctoring it &hellip; It&rsquo;s not a professional Russian intelligence job. It&rsquo;s some game-obsessed military history buff who literally has access inside the Pentagon &hellip; and he doesn&rsquo;t even care about national security, Russia and Ukraine. He cares about winning an argument.&rdquo;</p>
+                        <p>The debacle comes amid an <a href="https://dailytrojan.com/2022/03/28/experts-talk-impacts-of-ukraine-invasion/" target="_blank" rel="noopener">increasingly tense invasion-turned-war-of-attrition</a> brutalizing Ukraine and its residents since it began in February 2022. Russia has continued its attacks on Ukrainian nuclear infrastructure, in addition to stacking its sustained threats of all-out nuclear warfare against its enemies. On Feb. 21, Vladimir Putin, president of Russia, announced in an address to the Federal Assembly that the state would be suspending its participation in its New START treaty with the U.S. &mdash; thought it did not withdraw, and has said it would continue to abide by the treaty&rsquo;s numerical limits.</p>
+                        <p>Najmedin Meshkati, a professor of civil and environmental engineering, attributed the suspension to a larger trend where countries break or withdraw from treaties &ldquo;rather than engaging in active diplomacy and coming up with treaties and agreements.&rdquo; Meshkati said the U.S. would rather exercise &ldquo;preventive diplomacy&rdquo; &mdash; for example, former Speaker of the House Nancy Pelosi&rsquo;s surprise visit to Taiwan, and even the covert intelligence-gathering alleged in the leaked documents &mdash; absent a definitive diplomatic leader who could draft agreements during tense times.</p>
+                        <p>&ldquo;I really think that we need a very skillful diplomat,&rdquo; Meshkati said. &ldquo;If people in the same league as [Henry] Kissinger and [Tom] Pickering were still active, I think we would have seen a better situation.&rdquo;</p>
+                        <p>Meshkati cited Kissinger&rsquo;s success in convincing China and the U.S. to sign the 1972 Shanghai Communique at the height of the Cold War. The finalized communique states that, though there were &ldquo;essential differences between China and the United States in their social systems and foreign policies,&rdquo; the two nations &ldquo;should conduct their relations on the principles of respect.&rdquo;</p>
+                        <p>&ldquo;Even if they&rsquo;re from adversarial countries, if a diplomat is skillful enough &mdash; if he is tactful enough, if he knows the rules of negotiation &mdash; they can bridge the gap,&rdquo; Meshkati said. &ldquo;We need to find and empower and enable that. Unfortunately, I see a lot of technocrats in Washington, but not a true diplomat with all nuances. Maybe this is the tragedy of our time.&rdquo;</p>
+                        <p>As even the United Nations Secretary-General doubts that Russia and Ukraine (and by proxy, the U.S.) will negotiate with Russia anytime soon, the future of the war, and of U.S. diplomatic relations, remains uncertain.</p>
+                        <p>&ldquo;I think it&rsquo;s hard to know exactly how those countries will interact with us,&rdquo; said John Belton, a sophomore majoring in public policy and a former legislative intern in the U.S. House of Representatives. &ldquo;Israel [especially] relies so much on United States aid and &hellip; all the stuff that the United States gives to Israel. It&rsquo;s hard for them to take a very hard stance against this.&rdquo;</p>
+                        <p>Meanwhile, Russia is facing criticism itself for a slew of transgressions, including the alleged kidnapping of Ukrainian children to be put up for adoption, the detainment of <em>Wall Street Journal</em> reporter Evan Gershkovich and the apparent beheading of a Ukrainian prisoner of war with a knife, according to footage that surfaced Wednesday.</p>
+                        <p>&ldquo;Every time something happens &hellip; to introduce doubt about the war effort, the Russians go and do something outrageous, and then everyone&rsquo;s on board again,&rdquo; English said. &ldquo;Putin seems to have a flair for shooting himself in the foot. Perhaps that kind of outrage will balance out the anger over the eavesdropping and over the distortion of the battle news.&rdquo;</p>
+                    </div>
+                </div>
+
+                <!-- daily trojan sample 3 -->
+                <div class="file-open sample-article" id="dt-sample3-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="dt-sample3-container-header">
+                        <small>dt_sample2.txt</small>
+                        <small class="close-file-button" id="dt-sample3-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="about-content">
+                        <a href="https://dailytrojan.com/2023/03/24/haiti-just-cant-catch-a-break/"><small>READ ON THE DAILY TROJAN</small></a>
+                        <br>
+                        <small>BURSITNG YOUR BUBBLE</small>
+                        <h1>
+                            Haiti just can’t catch a break
+                        </h1>
+                        <p>The nation’s current crisis is a test of how much we’ve learned during our racial reckonings.</p>
+                        <small>By JONATHAN PARK<br>March 24, 2023</small>
+                        <br><br>
+                        <img src="https://dailytrojan.com/wp-content/uploads/2023/03/haiti-1500x867.png" style="width: 100%;">
+                        <small>(Viviana Ruiz / Daily Trojan)</small>
+                        <br><br>
+                        <small>"Bursting Your Bubble" was a column about international politics outside of Western interests. It ran biweekly on Tuesdays.</small>
+                        <p>In 1804, a group of formerly enslaved people emerged victorious against the tyranny of French colonists in Haiti, making history as the first nation in the Americas to abolish slavery. However, the victory proved to be bitterly pyrrhic. A bitter France forced Haiti to pay 112 million francs in reparations to their own enslavers under persistent threat of an invasion, leaving Haiti in crippling debt. Though the United States finally recognized Haiti&rsquo;s independence in 1862, economic sanctions, incessant political instability and the Cold War (not to mention a U.S. occupation from 1915-34 following the assassination of the Haitian president) left Haiti dependent on foreign aid in the form of food and medical supplies.</p>
+                        <p>Around the turn of the 21st century, amid a coup d&rsquo;etat that overthrew democratically-elected Haitian President Jean-Bertrand Aristide, the U.S. and United Nations decided to rebrand its interventions in the nation as humanitarian aid. From 2004 to 2017, the U.N. operated a peacekeeping mission in Haiti, codenamed MINUSTAH, which Haitians have accused of introducing cholera and abetting widespread sexual abuse.</p>
+                        <p>As of Tuesday, the U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. The UN announced Tuesday that 187 people have been killed in the past 11 days amid the political turmoil following the 2021 assassination of Haitian President Jovenel Mo&iuml;se.</p>
+                        <p>On Wednesday, I phoned Niels Frenzen, clinical professor of law and director of the Immigration Clinic at the Gould School of Law, to discuss the history of U.S.-Haiti relations and the potential impacts of another foreign intervention should it occur. Frenzen, who has been teaching at USC since 2000, previously served as the supervising attorney at the Haitian Refugee Center, a &ldquo;Haitian refugee-founded and Haitian refugee-run&rdquo; organization based in Miami.&nbsp;</p>
+                        <p>&ldquo;Very few Haitians&rsquo; asylum claims were successful,&rdquo; Frenzen recalled from his work at the HRC. &ldquo;Back in the day &mdash; I can&rsquo;t remember what the approval rate was for Haitian asylum applications, but it was somewhere in the neighborhood of less than 2%.&rdquo; As of 2021, Haitian migrants still have the <a href="https://www.newsweek.com/haitian-migrants-have-lowest-rate-us-asylum-approvals-since-2018-1632520" target="_blank" rel="noopener">lowest asylum approval rate</a> since 2018, at just under 5%.</p>
+                        <p>The particular racism historically directed at Haiti was precisely due to the U.S.&rsquo; fear of similar uprisings in their own country inspired by the Haitian Revolution, uprooting a system that massively benefited white plantation owners.</p>
+                        <p>&ldquo;Haiti was already seen as a threat to the United States from day one of Haitian independence,&rdquo; Frenzen told me. &ldquo;One can never overstate the role that race has played, in that [Haiti] is a predominantly Black country, and has suffered because of institutional racism &mdash; [which] is so much a part of the American experience.&rdquo;</p>
+                        <p>Such racism has manifested, and continues to manifest, in the U.S.&rsquo; response to Haitian migrants seeking asylum. The (senior) Bush administration in 1991 refused to grant asylum to migrants fleeing that year&rsquo;s coup d&rsquo;etat &mdash; which saw the deposition of Aristide &mdash; claiming their applications were on the basis of &ldquo;economic conditions&rdquo; and not political persecution. Former President Donald Trump, followed by his successor Joe Biden, used the coronavirus pandemic &ldquo;as an excuse to prevent people from pursuing asylum in the United States,&rdquo; Frenzen told me, enacting <a href="https://www.pbs.org/newshour/nation/what-is-title-42-and-what-does-it-mean-for-immigration-at-the-southern-border" target="_blank" rel="noopener">Title 42</a> expulsions to prevent migrants&rsquo; entry into the U.S.</p>
+                        <p>In some cases, the imagery is hardly abstract: As recently as September 2021, video footage emerged of Border Patrol officers on horseback appearing, to some, to whip Haitian migrants as they crossed the Rio Grande. A nine-month federal investigation concluded that agents did not use whips but did maneuver their horses dangerously around the migrants and used denigrating language.</p>
+                        <br><br>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Minustah.jpg" style="width:100%">
+                        <small>The U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. (Jesús Serrano Redondo /6 United Nations)</small>
+                        <p>As for foreign interventions in Haiti itself, Frenzen told me that while he believed in the concept of &ldquo;humanitarian intervention by force,&rdquo; he still had his doubts about how exactly it would be executed.</p>
+                        <p>&ldquo;The United Nations and the U.S. and Canada, among other countries, have been talking about renewed intervention of some sort in Haiti, and that has been done,&rdquo; Frenzen said. &ldquo;It has been done for over 100 years, on several occasions, and nothing good comes of it&hellip; There aren&rsquo;t many good options &mdash; if any good options &mdash; that are on the table,&rdquo; he told me.</p>
+                        <p>But Haiti is stuck &mdash; ruined by &ldquo;humanitarian&rdquo; efforts that are really just covers for exploitation, yet, having been crippled by said efforts, ironically reliant on them to survive. By the end of our conversation, neither Frenzen nor I had any confidence in yet another military intervention changing Haiti for the better, should it actually take place.</p>
+                        <p>&ldquo;What would the United States &mdash; or, what would an international force do?&rdquo; Frenzen said. &ldquo;It&rsquo;s not a situation where we have two armies fighting one another and we&rsquo;re talking about putting peacekeepers &hellip; it&rsquo;s just unclear what a military force would do, other than to go in and kill people. Is that the stated objective? To go in eliminating gangs by killing and locking them up?&rdquo;</p>
+                        <p>Even the U.S. is doubtful about doing it all over again; <a href="https://www.politico.com/news/magazine/2022/12/01/haiti-us-military-intervention-00071459" target="_blank" rel="noopener">opinion</a> after <a href="https://www.theatlantic.com/ideas/archive/2021/07/america-haiti-limited-options/619481/" target="_blank" rel="noopener">opinion</a> from former ambassadors to Haiti beg the international community not to make the same mistakes it did over 20 years ago. James B. Foley, ex-U.S. ambassador to Haiti, wrote for <em>The</em> <em>Atlantic </em>that &ldquo;the chances of success for a Haitian government that emerges from elections will still depend on the willingness of the U.S. and its partners to invest the resources required to build state institutions and address Haiti&rsquo;s overwhelming needs.&rdquo; Whether the U.S. will be so willing remains to be seen, especially when, as Frenzen told me, its only interests are &ldquo;keeping Haitians in Haiti&rdquo; and &mdash; to a lesser extent &mdash; keeping communism out.</p>
+                        <p>Haiti is a test. The U.S. has had a significant racial reckoning in the past few years; it only took some 60 years after the civil rights movement and a nauseating amount of Black people to be murdered for it to happen, but nonetheless, it&rsquo;s here. And yes, there was police reform, Black Lives Matter Plaza, Democratic congressmembers <a href="https://www.bbc.com/news/world-africa-52978780" target="_blank" rel="noopener">kneeling and wearing Ghanaian kente cloth</a> and a San Francisco city-appointed committee <a href="https://apnews.com/article/san-francisco-black-reparations-5-million-36899f7974c751950a8ce0e444f86189" target="_blank" rel="noopener">proposing $5 million each</a> in reparations to eligible Black adults. But how we respond to Haiti&rsquo;s crisis &mdash; how, if at all, we help rebuild a nation whose very foundations are in Black power and resistance &mdash; will tell us if we&rsquo;ve actually learned anything since then.&nbsp;</p>
+                        
+                    </div>
+                </div>
+
+
+            <!-- cnn sub-folder -->
+            <div class="folder-contents-draggable" id="cnn-folder-container" style="display: none; left: 250px; top: 90px;">
+                <div class="folder-contents-header" id="cnn-folder-container-header">
+                    <small>cnn</small>
+                    <small class="close-folder-button" id="cnn-folder-container-close-button" onclick="closeFolder(this)">x</small>
+                </div>
+                <div class="folder-contents-files" id="cnn-folder-container-files">
+                    <table class="folder-contents-table">
+                        <tr>
+                            <!-- sample 1 -->
+                            <td>
+                                <div class="file-container" id="cnn-sample1-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample1-container')">
+                                    <div class="file-img" id="cnn-articles-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">cnn_sample1.txt</h6>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+                <!-- cnn sample 1 -->
+                <div class="file-open sample-article" id="cnn-sample1-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="cnn-sample1-container-header">
+                        <small>cnn_sample1.txt</small>
+                        <small class="close-file-button" id="cnn-sample1-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="cnn-sample1-content">
+                        <a href="https://www.cnn.com/2023/10/03/business/starbucks-san-francisco-closures/index.html"><small>READ ON CNN BUSINESS</small></a>
+                        <h1>
+                            Starbucks set to close seven stores in San Francisco 
+                        </h1>
+                        <small>By JONATHAN PARK<br>October 3, 2023</small>
+                        <br><br>
+                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/231003184529-starbucks-sf-0428-restricted.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp" style="width: 100%;">
+                        <small> A customer exits a Starbucks coffee shop in San Francisco, California, U.S., on Thursday, April 28, 2022. (David Paul Morris/Bloomberg/Getty Images)</small>
+                        <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
+                        <p>When asked why the company decided to close these stores, a Starbucks spokesperson said it was part of a larger evaluation of their store portfolio.</p>
+                        <p>&ldquo;Each year as a standard course of business, we evaluate the store portfolio to determine where we can best meet our community and customers&rsquo; needs,&rdquo; the spokesperson said in a statement. &ldquo;This includes opening new locations, identifying stores in need of investment or renovation, exploring locations where an alternative format is needed and, in some instances, re-evaluating our footprint.&rdquo;</p>
+                        <p>Starbucks has also opened three new stores in downtown San Francisco in the last six months and is renovating four other locations, the spokesperson said.</p>
+                        <p>&ldquo;We remain dedicated to investing in the City in meaningful and important ways that meet our partners and customers where they are &ndash; in the best way we know how,&rdquo; wrote Jessica Borton, Starbucks&rsquo; regional vice president for Northern California, in an internal memo shared with CNN.</p>
+                        <p>The closures come as several well-known chains have left San Francisco in the last few years, including Whole Foods, CB2, Anthropologie and Nordstrom, CNN <a href="https://www.cnn.com/2023/08/28/business/nordstrom-san-francisco-closure/index.html" target="_blank" rel="noopener">previously reported</a>.</p>
+                        <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
+                    </div>
+                </div>
+
+
         <!-- DRAG -->
         <script>
         //Make the DIV element draggable:
@@ -179,6 +425,13 @@
         dragElement(document.getElementById("resume-container"));
         dragElement(document.getElementById("about-container"));
         dragElement(document.getElementById("socials-container"));
+        dragElement(document.getElementById("dt-folder-container"));
+        dragElement(document.getElementById("dt-sample1-container"));
+        dragElement(document.getElementById("dt-sample2-container"));
+        dragElement(document.getElementById("dt-sample3-container"));
+        dragElement(document.getElementById("cnn-folder-container"));
+        dragElement(document.getElementById("cnn-sample1-container"));
+
         
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -233,11 +486,20 @@
         }
 
         function openFolder(id) {
-            document.getElementById(id).style.display = "initial";
+            document.getElementById(id).style.display = "block";
+
+            redraw();
         }
 
         function closeFolder(small) {
             small.parentNode.parentNode.style.display = "none";
+        }
+
+        function redraw() {
+            // Force refresh
+            document.body.style.display = "none";
+            document.body.offsetHeight;
+            document.body.style.display = "block";
         }
         </script>
         
@@ -252,7 +514,7 @@
         }
 
         function openFile(id) {
-            document.getElementById(id).style.display = "initial";
+            document.getElementById(id).style.display = "block";
         }
 
         function closeFile(small) {
