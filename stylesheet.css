@@ -212,3 +212,14 @@ h6.foldername {
 .sample-article small {
     color: #fff;
 }
+
+.file-img { position: relative; }
+
+.file-img .external-url-icon {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    text-align: right;
+    bottom: 0;
+    right: 10px;
+}
