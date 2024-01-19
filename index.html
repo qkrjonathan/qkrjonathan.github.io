@@ -21,7 +21,7 @@
         <meta property="twitter:title" content="Jonathan Park">
         <meta property="twitter:description" content="$ whoami /all">
 
-        <link href="https://fonts.cdnfonts.com/css/freesans-2" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
         <link rel="stylesheet" href="stylesheet.css">
         <script src="https://kit.fontawesome.com/c1e1e973df.js" crossorigin="anonymous"></script>
     </head>
@@ -113,8 +113,9 @@
                 <div class="file-open-content txt-content" id="about-content">
                     <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
                     <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
-                    <p><b>CURRENTLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
-                    <p>I was born and raised in the San Francisco Bay Area (Dublin, CA, to be exact). I had a brief stint living in Irvine, but I'm back in the Bay.</p>
+                    <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
+                    <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
+                    <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
                     <p>Other things about me:</p>
                     <ul>
                         <li>Recovering <i>New Yorker</i> magazine addict</li>
@@ -406,6 +407,25 @@
                                     <h6 class="filename">cnn_sample1.txt</h6>
                                 </div>
                             </td>
+                            <!-- sample 2 -->
+                            <td>
+                                <div class="file-container" id="cnn-sample2-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample2-container')">
+                                    <div class="file-img" id="cnn-articles-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">cnn_sample2.txt</h6>
+                                </div>
+                            </td>
+
+                            <!-- sample 3 -->
+                            <td>
+                                <div class="file-container" id="cnn-sample3-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample3-container')">
+                                    <div class="file-img" id="cnn-articles-file-img">
+                                        <img src="uploads/textfile.png" alt="textfile">
+                                    </div>
+                                    <h6 class="filename">cnn_sample3.txt</h6>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -433,6 +453,87 @@
                         <p>&ldquo;We remain dedicated to investing in the City in meaningful and important ways that meet our partners and customers where they are &ndash; in the best way we know how,&rdquo; wrote Jessica Borton, Starbucks&rsquo; regional vice president for Northern California, in an internal memo shared with CNN.</p>
                         <p>The closures come as several well-known chains have left San Francisco in the last few years, including Whole Foods, CB2, Anthropologie and Nordstrom, CNN <a href="https://www.cnn.com/2023/08/28/business/nordstrom-san-francisco-closure/index.html" target="_blank" rel="noopener">previously reported</a>.</p>
                         <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
+                    </div>
+                </div>
+
+                <!-- cnn sample 2 -->
+                <div class="file-open sample-article" id="cnn-sample2-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="cnn-sample2-container-header">
+                        <small>cnn_sample2.txt</small>
+                        <small class="close-file-button" id="cnn-sample2-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="cnn-sample2-content">
+                        <a href="https://edition.cnn.com/2023/11/27/us/national-park-sequoia-planting-lawsuit-climate/index.html"><small>READ ON CNN</small></a>
+                        <h1>
+                            Why environmentalists are suing the National Park Service to prevent it from planting trees 
+                        </h1>
+                        <small>By JANNA VAN VRANKEN & JONATHAN PARK<br>November 27, 2023</small>
+                        <br><br>
+                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/ap21345080527026.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp" style="width: 100%;">
+                        <small>  Assistant fire manager Leif Mathiesen looks for an opening in the burned-out sequoias from the Redwood Mountain Grove in the Kings Canyon National Park on November 2021. (Gary Kazanjian/AP/File)</small>
+                        <p>The National Park Service wants to replant sequoia groves in Sequoia and Kings Canyon National Parks, where wildfires in 2020 and 2021 inflicted lasting damage on the iconic sequoia forests. Environmentalists in California say it&rsquo;s a huge mistake.</p>
+                        <p>Four groups filed suit against the NPS on November 17, saying the agency&rsquo;s effort violates the law as it includes planting in designated wilderness areas, where human involvement in the ecosystem is explicitly prohibited.</p>
+                        <p>The NPS announced the seedling-planting project earlier this fall, saying it was &ldquo;concerned that natural regeneration may not be sufficient to support self-sustaining groves into the future, particularly as the fires killed an unprecedented number of reproductive sequoia trees in the groves themselves.&rdquo;</p>
+                        <p>Chad Hanson, the director of the John Muir Project, one of the groups that filed suit, disputes that conclusion. Sequoias are among the species of trees that actually &ldquo;depend on high-intensity fire in order to reproduce effectively,&rdquo; Hanson told CNN.</p>
+                        <p>&ldquo;Nature doesn&rsquo;t need our help,&rdquo; Hanson said. &ldquo;We are not supposed to be getting involved with tending it like a garden.&rdquo;</p>
+                        <p>Advocates at Wilderness Watch, Sequoia Forest Keeper and the Tule River Conservancy first sued the NPS in September to stop a separate project by the agency to cut and burn trees in the same designated wilderness areas. Coined the &ldquo;Fuels Reduction Project,&rdquo; that plan would authorize cutting a thousand acres of timber and make 20,000 additional acres subject to &ldquo;manager-ignited fires and associated activity,&rdquo; according to the complaint.</p>
+                        <p>The John Muir Project, a nonprofit focused on ensuring federal public forests are protected, joined the lawsuit on November 17, amending it to include the sequoia replanting project as part of the complaint. The groups now jointly accuse the NPS of illegally encroaching on federally protected land in both of the projects.</p>
+                        <p>A spokesperson for the NPS declined to comment, citing the agency&rsquo;s policy on ongoing litigation, but confirmed replanting had already begun in two sequoia groves in mid-October, before the latter complaint was filed. </p>
+                        <p>&ldquo;The Park Service has to abide by the 1964 Wilderness Act,&rdquo; said Kevin Proescholdt, conservation director at Wilderness Watch. Even if climate change aggravates natural phenomena such as wildfires, the Wilderness Act requires that &ldquo;we should still allow these natural ecosystems to respond as they want to the changes brought about by the changing climate,&rdquo; Proescholdt said.</p>
+                        <p>The groups also allege both projects were approved after having circumvented &ldquo;required processes of environmental review and public engagement,&rdquo; according to the lawsuit, by declaring them as &ldquo;emergency&rdquo; projects that would not have to meet those requirements.</p>
+                        <p>High-intensity wildfires have been a &ldquo;natural component&rdquo; of California&rsquo;s sequoia forests for &ldquo;tens of millions of years,&rdquo; Hanson said, and sequoias have evolved since then to adapt to, and even depend on, those fires.</p>
+                        <p>The cones on giant sequoia trees are serotinous, meaning they &ldquo;need fire that&rsquo;s intense enough to melt the resins in the cones, and cause the cones to release &hellip; millions and millions of seeds,&rdquo; Hanson said. High-intensity fires also clear the forest floor of organic material &mdash; turning it into mineral-rich soil where those seeds can take root &mdash; and kills most of the trees in the forest canopy, allowing in the necessary sunlight for saplings to properly grow.</p>
+                        <p>But several agencies, including the NPS and the National Forest Service, have operated on a &ldquo;Smokey the Bear mentality,&rdquo; treating natural fires as needing to be suppressed and prevented, without understanding their &ldquo;historic ecological roles,&rdquo; Proescholdt said.</p>
+                        <p>&ldquo;The more that agencies will allow natural fire to burn and perform its role, the better these wilderness forests will be,&rdquo; he said.</p>    
+                        <p>The NPS said in its project announcement it would only replant in areas that field surveys showed &ldquo;insufficient natural regeneration for forests to successfully re-establish &hellip; as they would have done naturally had they not experienced extensive severe fire effects during recent fires.&rdquo;</p>
+                        <p>Hanson believes, after analyzing three decades&rsquo; worth of geological data and satellite imagery of wildfires, that those planned interventions have an effect opposite of what&rsquo;s intended.</p>
+                        <p>&ldquo;What we found is that the forest with the fewest environmental protections and the most tree removal had the most intense fire, even in the same forest types,&rdquo; Hanson said.</p>
+                        <p>If the NPS is allowed to proceed with the projects, it would set a &ldquo;terrible, terrible precedent for wildernesses across the nation,&rdquo; Proescholdt said; but he strongly believes the court will side with the plaintiffs.</p>
+                        <p>&ldquo;We know what the [Wilderness] Act says, and we know how the courts have interpreted the Wilderness Act in the past,&rdquo; he said. &ldquo;And that&rsquo;s why I believe that we will prevail in this case as well.&rdquo;</p>
+                    </div>
+                </div>
+
+                <!-- cnn sample 3 -->
+                <div class="file-open sample-article" id="cnn-sample3-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="cnn-sample3-container-header">
+                        <small>cnn_sample3.txt</small>
+                        <small class="close-file-button" id="cnn-sample3-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="cnn-sample3-content">
+                        <a href="https://www.cnn.com/2023/11/09/us/shoah-foundation-records-october-7-testimonies/index.html"><small>READ ON CNN</small></a>
+                        <h1>
+                            October 7 was the deadliest day for Jews since the Holocaust. The Shoah Foundation is now documenting it  
+                        </h1>
+                        <small>By NICK WATT<br>November 27, 2023</small>
+                        <br>
+                        <small><em>CNN’s Stephanie Becker and Jonathan Park contributed to this story.</em></small>
+                        <br><br>
+                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/231109163502-01-shoah-foundation-stories.jpg?c=16x9&q=w_800,c_fill" style="width: 100%;">
+                        <small>'The entire village is full of bodies:' Survivors of October 7 detail the horror (CNN)</small>
+                        <p>Los Angeles (CNN) &mdash;&nbsp;&ldquo;Every year at school in Israel we used to get a lecture from a Holocaust survivor,&rdquo; said Tomer Peretz. &ldquo;I was always getting bored listening to him like, &lsquo;OK, OK, we got it, OK. So, they killed you guys. Let&rsquo;s move on &hellip;</p>
+                        <p>&ldquo;&lsquo;It&rsquo;s one of those things that happened and will never happen again.&rsquo;&rdquo;</p>
+                        <p>But after<a href="https://www.cnn.com/2023/10/28/middleeast/israel-hamas-war-one-month-explainer-mime-intl/index.html" target="_blank"> Hamas fighters raided Israeli farms and villages</a>, killing and butchering more than 1,400 Israelis and taking more than 200 hostages on October 7, Peretz agreed to tape his own testimony so that others would not just move on.</p>
+                        <p>&ldquo;Everybody has to do it. It&rsquo;s a must. I don&rsquo;t see any other option. People need to know,&rdquo; he told CNN.</p>
+                        <p>He was giving his testimony to <a href="https://sfi.usc.edu/" target="_blank">the USC Shoah Foundation</a>, which for years has collected the accounts of survivors of the Holocaust and subsequent genocides in countries like Cambodia and Rwanda.</p>
+                        <p>Peretz, a Jerusalem-born artist who now lives in Los Angeles, was in Israel the first week of October for a family wedding. As the horror unfolded that Saturday morning, he knew that he had to help. He volunteered with Zaka, an organization that collects human remains after terror attacks so they can be buried according to Jewish tradition.</p>
+                        <p>Peretz was sent to collect the bodies<a href="https://www.cnn.com/2023/10/12/middleeast/kibbutz-beeri-israel-war-intl-cmd/index.html" target="_blank"> at Kibbutz Be&rsquo;eri</a>, where more than 120 lay dead.</p>
+                        <p>&ldquo;I was too coward to be on the side of the head. I didn&rsquo;t want to see faces,&rdquo; Peretz said of the gruesome process of bagging mutilated bodies and loading them into trucks. &ldquo;And then my time to touch the body came. It was the first time.&rdquo; He helped lift a woman&rsquo;s body, pulling her up by the arm so someone else could slip a body bag underneath. Of a victim, he said: &ldquo;She had no face &hellip; It looked like they, someone &hellip; didn&rsquo;t want to leave a face.&rdquo;</p>
+                        <p>Sifting through some of the more than 50,000 Holocaust testimonies at the foundation, it&rsquo;s easy to find eerie echoes, which Peretz once believed could never come again.</p>
+                        <p>&ldquo;I&rsquo;d never touched a dead body before. I mean, I&rsquo;d seen dead bodies,&rdquo; said Anita Lasker-Wallfisch in her testimony recorded back in 1998. She survived the Holocaust in part because she was a cellist &ndash; a rarity at Auschwitz &ndash; playing an irreplaceable part in a death camp orchestra. &ldquo;Somebody else came and we just put the body out. One body. Well, it didn&rsquo;t take long before that was multiplied by thousands.&rdquo;</p>
+                        <p>&ldquo;There were dead people covered by newspapers,&rdquo; Alicia Rand remembers of the Warsaw Ghetto. &ldquo;Once a day or so, there was someone coming with wheelbarrows and taking the bodies.&rdquo; Rand recorded her testimony in April of this year.</p>
+                        <p>&ldquo;And I see it now that this hatred still lives on,&rdquo; she told the Shoah Foundation. &ldquo;And then people did say that it never happened.&rdquo;</p>
+                        <p>Robert Williams, a historian who now serves as the Shoah Foundation&rsquo;s executive director, said they had an obligation to Rand and the other survivors to deal with the forms of antisemitism that continued after the Holocaust ended. &ldquo;For the better part of a year, we&rsquo;ve resolved that we need to begin taking testimony on contemporary antisemitism,&rdquo; he said. &ldquo;Then October 7 happened, and we had to ramp up our efforts very, very quickly.&rdquo;</p>
+                        <p>Within days, teams on the ground in Israel were taping testimonies. &ldquo;It is immediate and that comes with benefits, and it comes with risks,&rdquo; said Williams. &ldquo;The individual will be able to recount with greater clarity and greater detail what happened to them. The challenge though is the trauma is also very fresh in their mind.&rdquo;&nbsp;</p>
+                        <p>Amit Ades, a mother of three, remembered trying to keep her children quiet, distracting them with a Sponge Bob movie on an iPad during lulls in the violence as Hamas swept through her community. She described the &lsquo;smell of war&rsquo; seeping in through the windows of their kibbutz home. She was ready to fight. &ldquo;With the knife in my hand and the baby on the other hand trying to keep her not crying so no one will hear us,&rdquo; she said. &ldquo;And it went on &hellip; it felt like forever.&rdquo;</p>
+                        <p>Another survivor, Avi Shamriz, told the camera: &ldquo;My village was destroyed by the Hamas &hellip; There is no village to return to.&rdquo; His young adult son was kidnapped. The family has no idea where he is, or whether he&rsquo;s alive or dead. &ldquo;My son, he&rsquo;s an innocent boy,&rdquo; said Shamriz. &ldquo;He didn&rsquo;t harm them.&rdquo;</p>
+                        <p>&ldquo;We thought it will never happen again,&rdquo; said Maor Moravia. &ldquo;They did worse than Nazis. The Nazis had &hellip; a little human in them just to gas us.&rdquo; As they were led out of their kibbutz by the Israeli soldiers who eventually came to save them, Moravia told his children to look only at the ground in front of their feet, so they would not see the dead bodies of their neighbors and friends.</p>
+                        <p>Williams said of taking the testimonies now: &ldquo;It&rsquo;s about providing a platform for the voices of survivors to echo for future generations.&rdquo;</p>
+                        <p>Peretz spoke in his account about experiences he is, for now, unable to tell his children.</p>
+                        <p><strong>&ldquo;</strong>Lie to them. Don&rsquo;t tell them the truth &hellip; Just lie to them,&rdquo; Peretz recalled telling his father-in-law on October 7. That was the only time he cried in nearly two hours of testimony. In all of the videos CNN has seen, all survivors speak with a similar stoicism.</p>
+                        <p>&ldquo;I don&rsquo;t want to speculate on what happens in the minds of those who are providing testimony,&rdquo; said Williams. &ldquo;But I imagine that the immediacy of the events that they are facing today, the ongoing war, the fact that they are worried about children, friends, family who have been taken hostage, living with the reality that neighbors have been murdered may be so overwhelming that their best way of coping at the moment is to be a matter of fact.&rdquo;</p>
+                        <p>The Shoah Foundation will return to every subject further down the line, maybe years down the line, to find out how they feel with the benefits of healing and hindsight.</p>
+                        <p>But the foundation will not be taking testimony from Palestinian civilians, currently suffering as the Israeli Defense Forces seek to destroy Hamas in Gaza. &ldquo;The reason we&rsquo;re taking testimonies from October 7 is because it was an act of anti-Semitism that is squarely within our mission,&rdquo; explained Williams. &ldquo;That being said we are always happy to share our methodologies with organizations who are interested in taking testimony.&rdquo;</p>
+                        <p>Asked if there is any hope of resolving this now decades-old and seemingly intractable conflict between Israel and the Palestinians, Peretz takes a long pause before answering. &ldquo;I think so &hellip; But I think we gotta go so low, so low,&rdquo; he said. &ldquo;Both sides I guess needs to get a big slap before something will come out of it.&rdquo; This, he said, just might be that moment.</p>
                     </div>
                 </div>
 

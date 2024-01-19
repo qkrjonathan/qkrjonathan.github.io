@@ -15,7 +15,7 @@ body {
 }
 
 p, li {
-    font-family: 'FreeSans';
+    font-family: 'SF Pro Display';
     font-size: 16px;
     color: #fff;
     padding: 0;
@@ -24,7 +24,7 @@ p, li {
 a:link, a:visited, a:active { color: #fff; }
 
 small {
-    font-family: 'FreeSans';
+    font-family: 'SF Pro Display';
     font-size: 12px;
     color: #000000;
     text-align: center;
@@ -38,7 +38,7 @@ small {
 }
 
 #title h1 {
-    font-family: 'FreeSans';
+    font-family: 'SF Pro Display';
     font-weight: 700;
     font-size: 40px;
     color: #fff;
@@ -59,7 +59,7 @@ small {
 #fun-folder { top: 300px; }
 
 h6.foldername, h6.filename {
-    font-family: 'FreeSans';
+    font-family: 'SF Pro Display';
     font-size: 12px;
     font-weight: normal;
     color: #fff;
@@ -200,7 +200,7 @@ h6.foldername {
 
 /* sample article styles */
 .sample-article h1 {
-    font-family: 'FreeSans';
+    font-family: 'SF Pro Display';
     font-weight: 700;
     font-size: 40px;
     color: #fff !important;
