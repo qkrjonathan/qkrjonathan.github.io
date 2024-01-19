@@ -26,632 +26,701 @@
         <script src="https://kit.fontawesome.com/c1e1e973df.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="credits">
-            <small>Video: <a href="https://www.pexels.com/@anthony-brown-41922/">Anthony Brown</a>. Cat animations: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a> & <a href="https://giphy.com/lemonadeinc">Lemonade</a>.</small>
-        </div>
-        
-        <div id="title">
-            <h1>jonathan park</h1>            
-        </div>
-        <div id="folders">
-            <div class="folder" id="about-folder" onclick="selectFolder(this)" ondblclick="openFolder('about-folder-contents')">
-                <div class="folder-img" id="about-folder-img">
-                    <img src="uploads/folder.png" alt="folder">
-                </div>
-                <h6 class="foldername">About</h6>
+        <div id="mobile-display-container">
+            <div id="title">
+                <h1>jonathan park</h1> 
+                <small>This website is better experienced on desktop &hellip; for now</small>
+                <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a> | <a href="https://www.instagram.com/qkrdjwls_">Instagram</a></p>
             </div>
-            <div class="folder" id="work-folder" onclick="selectFolder(this)" ondblclick="openFolder('work-folder-contents')">
-                <div class="folder-img" id="work-folder-img">
-                    <img src="uploads/folder.png" alt="folder">
-                </div>
-                <h6 class="foldername">Work</h6>
-            </div>
-            <div class="folder" id="fun-folder" onclick="selectFolder(this)" ondblclick="openFolder('fun-folder-contents')">
-                <div class="folder-img" id="fun-folder-img">
-                    <img src="uploads/folder.png" alt="folder">
-                </div>
-                <h6 class="foldername">Fun</h6>
-            </div>
-        </div>
+            <br>
+            <img src="uploads/headshot.jpg" style="width: 100%; height: auto; margin-bottom: 20px;">
+            <h2>ABOUT ME</h2>
+            <hr>
+                <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
+                <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
+                <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
+                <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
+                <p>Other things about me:</p>
+                <ul>
+                    <li>Recovering <i>New Yorker</i> magazine addict</li>
+                    <li>Four semesters and counting at the <i>Daily Trojan</i>, USC's independent campus newspaper</li>
+                    <li>Favorite books: <i>The Anthropocene Reviewed</i>, by John Green; <i>The Color of Water</i>, by James McBride</li>
+                    <li>Currently reading: <i>Lenin's Tomb</i>, by David Remnick</li>
+                </ul>
 
-        <!-- ABOUT FOLDER -->
-        <div class="folder-contents-draggable" id="about-folder-contents" style="display:none;">
-
-            <!-- header -->
-            <div class="folder-contents-header" id="about-folder-contents-header">
-                <small>About</small>
-                <small class="close-folder-button" id="about-folder-close-button" onclick="closeFolder(this)">x</small>
+            <div id="resume-container">
+                <h2>RESUME</h2>
+                <hr>
+                <p><strong>Fall 2023 Newsgathering Intern, CNN Los Angeles</strong></p>
+                <small><strong>Oct - Dec 2023</strong></small>
+                <br>
+                <small>Los Angeles, CA</small>
+                <p>● Participate in frontline news reporting and gathering as intern for CNN's Los Angeles bureau. Assist producers and reporters with interviews, research, and logistics for breaking news.</p>
+                <p>● Pitch story ideas and research local issues impacting California and the Western region. Write news alerts and contribute to coverage for CNN's TV and digital platforms.</p>
+                <p>● Pitch about USC Shoah Foundation collecting Oct. 7 survivor stories aired on The Situation Room with Wolf Blitzer + Digital write with international correspondent Nick Watt</p>
+                <p>● Gain firsthand experience in news decision making processes and content production. Collaborate with diverse editorial staff on stories for CNN's linear and digital channels. Develop reporting and writing skills while working among world-class journalists.</p>
+                <p><strong>Digital Managing Editor, Daily Trojan</strong></p>
+                <small><strong>May 2023 - present</strong></small>
+                <Br>
+                <small>Los Angeles, CA</small>
+                <p>● Rework award-winning daily university newspaper&rsquo;s digital presence &mdash; curate social media, redesign dailytrojan.com website, expand multimedia content (photos, videos, podcasts, TikTok/Reels)</p>
+                <p>● Found and lead first-ever magazine for the newspaper, released monthly; pitch, approve, edit, place, post and promote longer-form investigative/opinion/culture-related articles, both online and in print</p>
+                <p>● Oversee Social, Online, Photo, Video, Podcast sections</p>
+                <p><strong><em>News Assignments Editor (Jan-May 2023)</em></strong></p>
+                <p>● Write, pitch, assign, and edit headlining articles for award-winning daily university newspaper, covering urgent, relevant issues on campus to a diverse student audience (circulation 10,000+)</p>
+                <p>● Assign 20+ stories weekly for 40+ staff writers, including pitches relevant to USC, as well as national breaking news. Also write news stories as needed.</p>
+                <small><em>Previous positions: Assistant News Editor (Aug-Dec 2022), Columnist (Aug 2022-May 2023), Staff Writer (Jun-Aug 2022)</em></small>
+                <br>
+                <p><strong>Facilities Student Worker, USC Libraries </strong></p>
+                <small><strong> Nov 2021 - present</strong></small>
+                <br>
+                <small>Los Angeles, CA</small>
+                <p>● Field 20-30 tickets regarding campus maintenance weekly, delegated responsibilities to 10 departments</p>
+                <p>● Engage with clients across all sectors of Libraries department to satisfy personal/business needs and facilitate necessary logistics</p>
             </div>
-
-            <!-- contents -->
-            <div class="folder-contents-files" id="about-folder-contents-files">
-                <table class="folder-contents-table">
-                    <tr>
-                        <!-- about -->
-                        <td>
-                            <div class="file-container" id="about-file" onclick="selectFile(this)" ondblclick="openFile('about-container')">
-                                <div class="file-img" id="about-file-img">
-                                    <img src="uploads/textfile.png" alt="textfile">
-                                </div>
-                                <h6 class="filename">about.txt</h6>
-                            </div>
-                        </td>
-                        <!-- resume -->
-                        <td>
-                            <div class="file-container" id="resume-file" onclick="selectFile(this)" ondblclick="openFile('resume-container')">
-                                <div class="file-img" id="resume-file-img">
-                                    <img src="uploads/pdf.png" alt="textfile">
-                                </div>
-                                <h6 class="filename">resume.pdf</h6>
-                                
-                            </div> 
-                        </td>
-                        <!-- socials -->
-                        <td>
-                            <div class="file-container" id="socials-file" onclick="selectFile(this)" ondblclick="openFile('socials-container')">
-                                <div class="file-img" id="socials-file-img">
-                                    <img src="uploads/textfile.png" alt="textfile">
-                                </div>
-                                <h6 class="filename">socials.txt</h6>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <img src="https://media3.giphy.com/media/AzA3AoYdrm7KRUlutU/giphy.gif?cid=ecf05e47yqvgxn1xuc64np9w9l6uby1gh7zceha87rd6ynrf&ep=v1_gifs_related&rid=giphy.gif&ct=s" style="height: 60px; width: auto; position: absolute; top: -10px; right: 20px;">
-            </div> 
+            <div id="samples-container">
+                <h2>SAMPLES</h2>
+                <hr>
+                <p><strong>Daily Trojan</strong></p>
+                <a href="https://dailytrojan.com/2023/06/30/affirmative-action-down/"><p>Supreme Court strikes down affirmative action — future of USC admissions remains unclear</p></a>
+                <a href="https://dailytrojan.com/2023/04/13/experts-discuss-leaked-pentagon-papers/"><p>Experts discuss leaked Pentagon papers</p></a>
+                <a href="https://dailytrojan.com/2023/03/24/haiti-just-cant-catch-a-break/"><p>Haiti just can’t catch a break</p></a>
+                <br>
+                <p><strong>CNN</strong></p>
+                <a href="https://www.cnn.com/2023/10/03/business/starbucks-san-francisco-closures/index.html"><p>Starbucks set to close seven stores in San Francisco</p></a>
+                <a href="https://edition.cnn.com/2023/11/27/us/national-park-sequoia-planting-lawsuit-climate/index.html"><p>Why environmentalists are suing the National Park Service to prevent it from planting trees</p></a>
+                <a href="https://www.cnn.com/2023/11/09/us/shoah-foundation-records-october-7-testimonies/index.html"><p>October 7 was the deadliest day for Jews since the Holocaust. The Shoah Foundation is now documenting it</p></a>
+                
+            </div>
+        </div>
+        <div id="desktop-display-container">
+            <div id="credits">
+                <small>Video: <a href="https://www.pexels.com/@anthony-brown-41922/">Anthony Brown</a>. Cat animations: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a> & <a href="https://giphy.com/lemonadeinc">Lemonade</a>.</small>
+            </div>
             
-        </div>
-
-        <!-- ABOUT FOLDER: CONTENTS-->
-
-            <!-- ABOUT.TXT -->
-            <div class="file-open" id="about-container" style="display:none; left: 400px;">
-                <div class="file-open-header" id="about-container-header">
-                    <small>about.txt</small>
-                    <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+            <div id="title">
+                <h1>jonathan park</h1>            
+            </div>
+            <div id="folders">
+                <div class="folder" id="about-folder" onclick="selectFolder(this)" ondblclick="openFolder('about-folder-contents')">
+                    <div class="folder-img" id="about-folder-img">
+                        <img src="uploads/folder.png" alt="folder">
+                    </div>
+                    <h6 class="foldername">About</h6>
                 </div>
-                <div class="file-open-content txt-content" id="about-content">
-                    <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
-                    <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
-                    <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
-                    <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
-                    <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
-                    <p>Other things about me:</p>
-                    <ul>
-                        <li>Recovering <i>New Yorker</i> magazine addict</li>
-                        <li>Four semesters and counting at the <i>Daily Trojan</i>, USC's independent campus newspaper</li>
-                        <li>Favorite books: <i>The Anthropocene Reviewed</i>, by John Green; <i>The Color of Water</i>, by James McBride</li>
-                        <li>Currently reading: <i>The Matter of Black Lives</i>, ed. Jelani Cobb & David Remnick</li>
-                    </ul>
+                <div class="folder" id="work-folder" onclick="selectFolder(this)" ondblclick="openFolder('work-folder-contents')">
+                    <div class="folder-img" id="work-folder-img">
+                        <img src="uploads/folder.png" alt="folder">
+                    </div>
+                    <h6 class="foldername">Work</h6>
+                </div>
+                <div class="folder" id="fun-folder" onclick="selectFolder(this)" ondblclick="openFolder('fun-folder-contents')">
+                    <div class="folder-img" id="fun-folder-img">
+                        <img src="uploads/folder.png" alt="folder">
+                    </div>
+                    <h6 class="foldername">Fun</h6>
                 </div>
             </div>
-
-            <!-- RESUME.PDF -->
-            <div class="file-open" id="resume-container" style="display:none; left: 400px;">
-                <div class="file-open-header" id="resume-container-header">
-                    <small>resume.pdf</small>
-                    <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
+    
+            <!-- ABOUT FOLDER -->
+            <div class="folder-contents-draggable" id="about-folder-contents" style="display:none;">
+    
+                <!-- header -->
+                <div class="folder-contents-header" id="about-folder-contents-header">
+                    <small>About</small>
+                    <small class="close-folder-button" id="about-folder-close-button" onclick="closeFolder(this)">x</small>
                 </div>
-                <div class="file-open-content" id="resume-content">
-                    <embed src="uploads/files/jonathan-park-resume.pdf" type="application/pdf" width="100%" height="100%">
-                </div>
-            </div>
-
-            <!-- SOCIALS.TXT -->
-            <div class="file-open" id="socials-container" style="display:none; left: 400px;">
-                <div class="file-open-header" id="socials-container-header">
-                    <small>socials.txt</small>
-                    <small class="close-file-button" id="socials-close-button" onclick="closeFile(this)">x</small>
-                </div>
-                <div class="file-open-content txt-content" id="socials-content">
-                    <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a></p>
-                    <p><a href="https://www.instagram.com/qkrdjwls_">Instagram</a></p>
-                </div>
-            </div>
-
-
-        <!-- WORK FOLDER -->
-        <div class="folder-contents-draggable" id="work-folder-contents" style="display:none; left: 250px; top: 200px;">
-            <div class="folder-contents-header" id="work-folder-contents-header">
-                <small>Work</small>
-                <small class="close-folder-button" id="work-folder-close-button" onclick="closeFolder(this)">x</small>
-            </div>
-
-            <div class="folder-contents-files" id="work-folder-contents-files">
-                <table class="folder-contents-table">
-                    <tr>
-                        <!-- dailytrojan -->
-                        <td>
-                            <div class="folder" id="dt-folder" onclick="selectFolder(this)" ondblclick="openFolder('dt-folder-container')">
-                                <div class="folder-img" id="dt-folder-img">
-                                    <img src="uploads/folder.png" alt="textfile">
-                                </div>
-                                <h6 class="foldername">daily trojan</h6>
-                            </div>
-                        </td>
-
-                        <!-- cnn -->
-                        <td>
-                            <div class="folder" id="cnn-folder" onclick="selectFolder(this)" ondblclick="openFolder('cnn-folder-container')">
-                                <div class="folder-img" id="cnn-folder-img">
-                                    <img src="uploads/folder.png" alt="textfile">
-                                </div>
-                                <h6 class="foldername">cnn</h6>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
-            </div>
-        </div>
-            
-
-        <!-- FUN FOLDER -->
-        <div class="folder-contents-draggable" id="fun-folder-contents" style="display:none; left: 400px; top: 300px;">
-            <div class="folder-contents-header" id="fun-folder-contents-header">
-                <small>Fun</small>
-                <small class="close-folder-button" id="fun-folder-close-button" onclick="closeFolder(this)">x</small>
-            </div>
-            <div class="folder-contents-files" id="fun-folder-contents-files">
-                <table class="folder-contents-table">
-                    <tr>
-                        <!-- the 25 post -->
-                        <td>
-                            <div class="file-container" id="fun-file" onclick="selectFile(this)" ondblclick="openExternalUrl('https://the25post.com/')">
-                                <div class="file-img" id="25post-file-img">
-                                    <img src="uploads/external-web.png" alt="external webpage">
-                                    <div class="external-url-icon">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                    </div>
-                                </div>
-                                <h6 class="filename">The 25 Post</h6>
-                            </div>
-                        </td>
-                        <!-- medium -->
-                        <td>
-                            <div class="file-container" id="medium-file" onclick="selectFile(this)" ondblclick="openExternalUrl('https://medium.com/@jpark6203/')">
-                                <div class="file-img" id="medium-file-img">
-                                    <img src="uploads/external-web.png" alt="external webpage">
-                                    <div class="external-url-icon">
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                    </div>
-                                </div>
-                                <h6 class="filename">Medium</h6>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <!-- WORK FOLDER: CONTENTS -->
-
-            <!-- daily trojan sub-folder -->
-            <div class="folder-contents-draggable" id="dt-folder-container" style="display: none; left: 200px; top: 50px;">
-                <div class="folder-contents-header" id="dt-folder-container-header">
-                    <small>daily trojan</small>
-                    <small class="close-folder-button" id="dt-folder-container-close-button" onclick="closeFolder(this)">x</small>
-                </div>
-                <div class="folder-contents-files" id="dt-folder-container-files">
+    
+                <!-- contents -->
+                <div class="folder-contents-files" id="about-folder-contents-files">
                     <table class="folder-contents-table">
                         <tr>
-                            <!-- sample 1 -->
+                            <!-- about -->
                             <td>
-                                <div class="file-container" id="dt-sample1-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample1-container')">
-                                    <div class="file-img" id="dt-articles-file-img">
+                                <div class="file-container" id="about-file" onclick="selectFile(this)" ondblclick="openFile('about-container')">
+                                    <div class="file-img" id="about-file-img">
                                         <img src="uploads/textfile.png" alt="textfile">
                                     </div>
-                                    <h6 class="filename">dt_sample1.txt</h6>
+                                    <h6 class="filename">about.txt</h6>
                                 </div>
                             </td>
-                            <!-- sample 2 -->
+                            <!-- resume -->
                             <td>
-                                <div class="file-container" id="dt-sample2-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample2-container')">
-                                    <div class="file-img" id="dt-sample2-file-img">
-                                        <img src="uploads/textfile.png" alt="textfile">
+                                <div class="file-container" id="resume-file" onclick="selectFile(this)" ondblclick="openFile('resume-container')">
+                                    <div class="file-img" id="resume-file-img">
+                                        <img src="uploads/pdf.png" alt="textfile">
                                     </div>
-                                    <h6 class="filename">dt_sample2.txt</h6>
-                                </div>
+                                    <h6 class="filename">resume.pdf</h6>
+                                    
+                                </div> 
                             </td>
+                            <!-- socials -->
                             <td>
-                                <div class="file-container" id="dt-sample3-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample3-container')">
-                                    <div class="file-img" id="dt-sample3-file-img">
+                                <div class="file-container" id="socials-file" onclick="selectFile(this)" ondblclick="openFile('socials-container')">
+                                    <div class="file-img" id="socials-file-img">
                                         <img src="uploads/textfile.png" alt="textfile">
                                     </div>
-                                    <h6 class="filename">dt_sample3.txt</h6>
+                                    <h6 class="filename">socials.txt</h6>
                                 </div>
                             </td>
                         </tr>
                     </table>
-                </div>
+                    <img src="https://media3.giphy.com/media/AzA3AoYdrm7KRUlutU/giphy.gif?cid=ecf05e47yqvgxn1xuc64np9w9l6uby1gh7zceha87rd6ynrf&ep=v1_gifs_related&rid=giphy.gif&ct=s" style="height: 60px; width: auto; position: absolute; top: -10px; right: 20px;">
+                </div> 
+                
             </div>
-
-                <!-- daily trojan sample 1 -->
-                <div class="file-open sample-article" id="dt-sample1-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="dt-sample1-container-header">
-                        <small>dt_sample1.txt</small>
+    
+            <!-- ABOUT FOLDER: CONTENTS-->
+    
+                <!-- ABOUT.TXT -->
+                <div class="file-open" id="about-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="about-container-header">
+                        <small>about.txt</small>
                         <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
                     </div>
-                    <div class="file-open-content txt-content" id="dt-sample1-content">
-                        <a href="https://dailytrojan.com/2023/06/30/affirmative-action-down/"><small>READ ON THE DAILY TROJAN</small></a>
-                        <h1>
-                            Supreme Court strikes down affirmative action — future of USC admissions remains unclear
-                        </h1>
-                        <p>University officials are releasing statements vowing to commit to diversity regardless of the ruling, but prior experience in other states says the prospects are grim.</p>
-                        <small>By JONATHAN PARK<br>June 30, 2023</small>
-                        <br><br>
-                        <img src="https://dailytrojan.com/wp-content/uploads/2023/06/aa-strikedown-graphic-2048x1248.jpg" style="width: 100%;">
-                        <small>Graphic: Jonathan Park / Daily Trojan. Photo: Supreme Court of the United States</small>
-                        <p>The Supreme Court struck down affirmative action by a vote of 6-3 Thursday, forcing universities across the country to rethink their race-conscious admissions programs.</p>
-                        <p>President Carol Folt called the decision &ldquo;very disappointing,&rdquo; in a statement posted to <a href="https://www.instagram.com/p/CuFKfrAx31J/?utm_source=ig_web_copy_link&amp;igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Instagram</a> and <a href="https://twitter.com/PresidentFolt/status/1674454151689027589?s=20" target="_blank" rel="noopener">Twitter</a> Thursday morning, writing that &ldquo;each of our students, faculty and staff has earned a place here and contributes to creating one of the most stimulating and creative educational communities in the world.&rdquo;</p>
-                        <p>&ldquo;This decision will not impact our commitment to creating a campus that is welcoming, diverse, and inclusive to talented individuals from every background,&rdquo; Folt wrote. &ldquo;We will not go backward.&rdquo;</p>
-                        <p>The ruling &mdash; a largely expected move &mdash; found that Harvard University and the University of North Carolina&rsquo;s admissions processes &ldquo;unavoidably employ race in a negative manner&rdquo; and &ldquo;involve racial stereotyping,&rdquo; Chief Justice John Roberts Jr. wrote.</p>
-                        <p>It is not yet clear what the decision means for USC. California banned affirmative action from all public institutions in 1996 with Proposition 209, but private universities were still at liberty to employ race-conscious admissions programs.&nbsp;</p>
-                        <p>The University did not comment further when asked about plans to continue enrolling a diverse student body, with a spokesperson saying only that the &ldquo;statement &hellip; from Dr. Folt is the statement from the university.&rdquo;</p>
-                        <p>In a <a href="https://www.instagram.com/p/CuGFKlgpfeO/?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">letter</a> to the School of Cinematic Arts, posted to Instagram Thursday afternoon, Dean Elizabeth Daley assured students, faculty and staff that &ldquo;today&rsquo;s Supreme Court ruling prohibiting race-conscious admissions will not diminish our School&rsquo;s commitment to recruiting and enrolling the diverse storytellers and media scholars our industry desperately needs.&rdquo;</p>
-                        <p>&ldquo;Each of our students is chosen to join their SCA cohort in recognition that their lived experience contributes to their talent as storytellers, media makers and scholars,&rdquo; Daley wrote. &ldquo;The bottom line is that our deep commitment to diversity and inclusion will not change.&rdquo;</p>
-                        <p>A <a href="https://www.instagram.com/p/CuGAZFzJgaL/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener">statement</a> from the Black Student Assembly, posted to the organization&rsquo;s Instagram account Thursday afternoon, called the decision &ldquo;shameful and disheartening,&rdquo; saying it &ldquo;represents another blow to civil rights that reinforces systemic barriers and undermines centuries of progress for Black and Brown people.&rdquo;</p>
-                        <p>&ldquo;We must remember that affirmative action wasn&rsquo;t created because Black students could not thrive and excel under merit based systems,&rdquo; the statement read. &ldquo;It was created because the system has never been merit based &hellip; This attack on affirmative action frames anti-racist policies and laws as punitive to White Americans rather than a promotion of universal equality.&rdquo;</p>
-                        <p>Julie Posselt, associate dean of the Graduate School, said she received the news of the ruling with &ldquo;unsurprised disappointment,&rdquo; in an interview with the <em>Daily Trojan</em>.</p>
-                        <p>&ldquo;Many of us &hellip; were anticipating this would be the outcome,&rdquo; Posselt said. &ldquo;Nevertheless, it is always disappointing to see this kind of an outcome in a world where what we are looking for, often, are tools to manage racial inequalities &mdash; not to have them taken away.&rdquo;</p>
-                        <p>Posselt noted that, in the states that have already issued bans on race-conscious admissions, &ldquo;diversity drops significantly.&rdquo;&nbsp;</p>
-                        <p>Nine states &mdash; Arizona, California, Florida, Idaho, Michigan, Nebraska, New Hampshire, Oklahoma and Washington &mdash; have instituted bans. Despite efforts to circumvent them with other approaches, universities consistently failed to reach their previously set diversity targets, according to a <em>Wall Street Journal </em>analysis published Thursday. Applicants who identify as Black, Latine or Indigenous would suffer the greatest losses, the <em>Journal</em> found; Posselt also concurred that &ldquo;all of the evidence supports that view.&rdquo;</p>
-                        <p>&ldquo;We can anticipate that it will be much more difficult to admit the same diversity that we have had for the last several years at USC,&rdquo; Posselt said. &ldquo;But we have excellent leaders in Admissions and Enrollment [Services], who are committed to diversity and who are committed to using every tool at our disposal.&rdquo;</p>
-                        <p>Examples of such tools, Posselt said, included admissions processes that centered more on financial aid rather than in-built &ldquo;racial biases,&rdquo; the elimination of standardized test score requirements &mdash; for now, USC runs on a test-optional policy &mdash; and, as implemented at the UCs, evaluation rubrics with &ldquo;a more systematic set of criteria&rdquo; with which to evaluate applicants. While Posselt declined to &ldquo;speak for USC&rdquo; as to whether it would take a similar direction, she said places &ldquo;that have had race-conscious admissions eliminated &hellip; tend to move in fairly similar ways.&rdquo;</p>
-                        <p>&ldquo;In moments like this, we see that universities tend to become more cautious than even the law requires,&rdquo; Posselt said. &ldquo;It will be very important for administrators, general counsels, communications officers and others to very clearly understand what the law requires &mdash; and what the law does not require &mdash; and to stem the potential loss of diversity, to not go beyond the requirements of the new decision.&rdquo;</p>
-                        <small>Sparsh Sharma contributed reporting.</small>
-                    </div>
-                </div>
-
-                <!-- daily trojan sample 2 -->
-                <div class="file-open sample-article" id="dt-sample2-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="dt-sample2-container-header">
-                        <small>dt_sample2.txt</small>
-                        <small class="close-file-button" id="dt-sample2-close-button" onclick="closeFile(this)">x</small>
-                    </div>
-                    <div class="file-open-content txt-content" id="dt-sample1-content">
-                        <a href="https://dailytrojan.com/2023/04/13/experts-discuss-leaked-pentagon-papers/"><small>READ ON THE DAILY TROJAN</small></a>
-                        <h1>
-                            Experts discuss leaked Pentagon papers
-                        </h1>
-                        <p>The U.S. spying on its allies could damage its diplomatic relations.</p>
-                        <small>By JONATHAN PARK<br>JApril 13, 2023</small>
-                        <br><br>
-                        <img src="https://dailytrojan.com/wp-content/uploads/2023/04/Aerial_view_of_the_Pentagon_Arlington_VA_38285035892.jpeg" style="width: 100%;">
-                        <small>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, compared the severity of the Pentagon papers leak to Edward Snowden’s in 2013. (Mariordo59 / Wikimedia Commons)</small>
-                        <p>More than 100 documents containing sensitive information about United States national security secrets on Ukraine, the Middle East and China, circulated on social media sites Friday. The classified documents reveal the Pentagon&rsquo;s extensive trove of data on its adversaries and allies, including Israel, South Korea and France. The <em>Daily Trojan</em> spoke with experts and students pertaining to the leaks, their impacts on U.S. diplomatic relations and the trajectory of the Russian invasion of Ukraine going forward.</p>
-                        <p>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, said the leaks were problematic in two ways: the information itself &mdash; details in the documents exposed sensitive information about the Ukrainian military and the status of its weaponry &mdash; and the allegations of espionage making the U.S. an international &ldquo;embarrassment.&rdquo;</p>
-                        <p>&ldquo;Everyone will presume that, even if there were only documents on [South Korea, Israel and France], we&rsquo;re doing it to everybody &mdash; in other words, we are snooping on our allies,&rdquo; English said. &ldquo;So all of this is, at a minimum, irritating, and in some cases, really infuriating.&rdquo;</p>
-                        <p>Among the documents&rsquo; claims are that senior officials in Mossad, Israel&rsquo;s security agency, &ldquo;advocated for Mossad officials and Israeli citizens to protest against the new Israeli government&rsquo;s proposed judicial reforms, including several explicit calls to action that decried the Israeli government, according to signals intelligence.&rdquo; Prime Minister Benjamin Netanyahu denied this claim in a statement Sunday.</p>
-                        <p>The documents also claim the U.S. spied on its allies in Seoul, amid ongoing pressures for Yoon Suk-yeol, president of South Korea, to supply weapons to Ukraine in violation of national policy. South Korean government officials said they would have necessary consultations with the U.S. side related to the leak.</p>
-                        <p>English compared the severity of the leaks to when Edward Snowden leaked thousands of National Security Agency documents in 2013, revealing the U.S. was gathering extensive intelligence on France and Germany.</p>
-                        <p>&ldquo;And [now] it&rsquo;s like, &lsquo;Here we go again,&rsquo;&rdquo; English said. &ldquo;Probably everyone knows we do it. Frankly, they do some of it as well. It just shouldn&rsquo;t be revealed and cause embarrassment. Even if the South Koreans know that Big Brother America is probably poking around, [they would say,] &lsquo;Please don&rsquo;t rub it in our faces so that we are humiliated before an election, or so that we&rsquo;re embarrassed right before a key parliamentary vote.&rdquo;</p>
-                        <p>Though <em>The</em> <em>New York Times</em>, which first reported the leaks, wrote that the documents surfaced on Twitter and Telegram, a separate investigation by Bellingcat published April 9 found that they had circulated as early as March. Photos of 10 documents emerged March 4 in a Discord server called &ldquo;Minecraft Earth Map&rdquo; &mdash; with a user interjecting in a seemingly unrelated conversation, saying, &ldquo;here, have some leaked documents,&rdquo; with the images attached. These later circulated to the fringe forum 4chan before emerging on mainstream social media channels.</p>
-                        <p>&ldquo;It&rsquo;s &hellip; incredibly disturbing, and yet, at the same time, it&rsquo;s comical and amusing,&rdquo; English said. &ldquo;This whole episode is something unprecedented in the world of espionage and intelligence.&rdquo;&nbsp;</p>
-                        <p>Classified documents leaks on gaming forums are precedented: Players of the video game &ldquo;War Thunder&rdquo; have posted multiple classified documents related to British, French and Chinese tanks since 2021. One user, the UK Defence Journal reported, posted such documents to encourage developers to make more accurate in-game tanks.</p>
-                        <br><br>
-                        <img src="https://dailytrojan.com/wp-content/uploads/2023/04/52004786557_b16e79d7c9_o-1500x1000.jpg" style="width: 100%;">
-                        <small>Classified documents leaked to social media sites such as Discord, 4chan and some more mainstream websites. Photos were leaked in a Discord server known as “Minecraft Earth Maps” as early as March 4. (Oleksandr Ratushniak | UNDP Ukraine)</small>
-                        <p>Copies of the documents obtained by <em>The</em> <em>New York Times</em> appeared to be altered, with U.S. estimates of Ukrainian war casualties overstated and numbers of Russian troops killed understated &mdash; modifications English said were &ldquo;amateurish.&rdquo;</p>
-                        <p>&ldquo;How strange to have information right out of the bowels of the Pentagon,&rdquo; English said, &ldquo;and then get out the white-out or the Photoshop and do a sloppy job of doctoring it &hellip; It&rsquo;s not a professional Russian intelligence job. It&rsquo;s some game-obsessed military history buff who literally has access inside the Pentagon &hellip; and he doesn&rsquo;t even care about national security, Russia and Ukraine. He cares about winning an argument.&rdquo;</p>
-                        <p>The debacle comes amid an <a href="https://dailytrojan.com/2022/03/28/experts-talk-impacts-of-ukraine-invasion/" target="_blank" rel="noopener">increasingly tense invasion-turned-war-of-attrition</a> brutalizing Ukraine and its residents since it began in February 2022. Russia has continued its attacks on Ukrainian nuclear infrastructure, in addition to stacking its sustained threats of all-out nuclear warfare against its enemies. On Feb. 21, Vladimir Putin, president of Russia, announced in an address to the Federal Assembly that the state would be suspending its participation in its New START treaty with the U.S. &mdash; thought it did not withdraw, and has said it would continue to abide by the treaty&rsquo;s numerical limits.</p>
-                        <p>Najmedin Meshkati, a professor of civil and environmental engineering, attributed the suspension to a larger trend where countries break or withdraw from treaties &ldquo;rather than engaging in active diplomacy and coming up with treaties and agreements.&rdquo; Meshkati said the U.S. would rather exercise &ldquo;preventive diplomacy&rdquo; &mdash; for example, former Speaker of the House Nancy Pelosi&rsquo;s surprise visit to Taiwan, and even the covert intelligence-gathering alleged in the leaked documents &mdash; absent a definitive diplomatic leader who could draft agreements during tense times.</p>
-                        <p>&ldquo;I really think that we need a very skillful diplomat,&rdquo; Meshkati said. &ldquo;If people in the same league as [Henry] Kissinger and [Tom] Pickering were still active, I think we would have seen a better situation.&rdquo;</p>
-                        <p>Meshkati cited Kissinger&rsquo;s success in convincing China and the U.S. to sign the 1972 Shanghai Communique at the height of the Cold War. The finalized communique states that, though there were &ldquo;essential differences between China and the United States in their social systems and foreign policies,&rdquo; the two nations &ldquo;should conduct their relations on the principles of respect.&rdquo;</p>
-                        <p>&ldquo;Even if they&rsquo;re from adversarial countries, if a diplomat is skillful enough &mdash; if he is tactful enough, if he knows the rules of negotiation &mdash; they can bridge the gap,&rdquo; Meshkati said. &ldquo;We need to find and empower and enable that. Unfortunately, I see a lot of technocrats in Washington, but not a true diplomat with all nuances. Maybe this is the tragedy of our time.&rdquo;</p>
-                        <p>As even the United Nations Secretary-General doubts that Russia and Ukraine (and by proxy, the U.S.) will negotiate with Russia anytime soon, the future of the war, and of U.S. diplomatic relations, remains uncertain.</p>
-                        <p>&ldquo;I think it&rsquo;s hard to know exactly how those countries will interact with us,&rdquo; said John Belton, a sophomore majoring in public policy and a former legislative intern in the U.S. House of Representatives. &ldquo;Israel [especially] relies so much on United States aid and &hellip; all the stuff that the United States gives to Israel. It&rsquo;s hard for them to take a very hard stance against this.&rdquo;</p>
-                        <p>Meanwhile, Russia is facing criticism itself for a slew of transgressions, including the alleged kidnapping of Ukrainian children to be put up for adoption, the detainment of <em>Wall Street Journal</em> reporter Evan Gershkovich and the apparent beheading of a Ukrainian prisoner of war with a knife, according to footage that surfaced Wednesday.</p>
-                        <p>&ldquo;Every time something happens &hellip; to introduce doubt about the war effort, the Russians go and do something outrageous, and then everyone&rsquo;s on board again,&rdquo; English said. &ldquo;Putin seems to have a flair for shooting himself in the foot. Perhaps that kind of outrage will balance out the anger over the eavesdropping and over the distortion of the battle news.&rdquo;</p>
-                    </div>
-                </div>
-
-                <!-- daily trojan sample 3 -->
-                <div class="file-open sample-article" id="dt-sample3-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="dt-sample3-container-header">
-                        <small>dt_sample2.txt</small>
-                        <small class="close-file-button" id="dt-sample3-close-button" onclick="closeFile(this)">x</small>
-                    </div>
                     <div class="file-open-content txt-content" id="about-content">
-                        <a href="https://dailytrojan.com/2023/03/24/haiti-just-cant-catch-a-break/"><small>READ ON THE DAILY TROJAN</small></a>
-                        <br>
-                        <small>BURSITNG YOUR BUBBLE</small>
-                        <h1>
-                            Haiti just can’t catch a break
-                        </h1>
-                        <p>The nation’s current crisis is a test of how much we’ve learned during our racial reckonings.</p>
-                        <small>By JONATHAN PARK<br>March 24, 2023</small>
-                        <br><br>
-                        <img src="https://dailytrojan.com/wp-content/uploads/2023/03/haiti-1500x867.png" style="width: 100%;">
-                        <small>(Viviana Ruiz / Daily Trojan)</small>
-                        <br><br>
-                        <small>"Bursting Your Bubble" was a column about international politics outside of Western interests. It ran biweekly on Tuesdays.</small>
-                        <p>In 1804, a group of formerly enslaved people emerged victorious against the tyranny of French colonists in Haiti, making history as the first nation in the Americas to abolish slavery. However, the victory proved to be bitterly pyrrhic. A bitter France forced Haiti to pay 112 million francs in reparations to their own enslavers under persistent threat of an invasion, leaving Haiti in crippling debt. Though the United States finally recognized Haiti&rsquo;s independence in 1862, economic sanctions, incessant political instability and the Cold War (not to mention a U.S. occupation from 1915-34 following the assassination of the Haitian president) left Haiti dependent on foreign aid in the form of food and medical supplies.</p>
-                        <p>Around the turn of the 21st century, amid a coup d&rsquo;etat that overthrew democratically-elected Haitian President Jean-Bertrand Aristide, the U.S. and United Nations decided to rebrand its interventions in the nation as humanitarian aid. From 2004 to 2017, the U.N. operated a peacekeeping mission in Haiti, codenamed MINUSTAH, which Haitians have accused of introducing cholera and abetting widespread sexual abuse.</p>
-                        <p>As of Tuesday, the U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. The UN announced Tuesday that 187 people have been killed in the past 11 days amid the political turmoil following the 2021 assassination of Haitian President Jovenel Mo&iuml;se.</p>
-                        <p>On Wednesday, I phoned Niels Frenzen, clinical professor of law and director of the Immigration Clinic at the Gould School of Law, to discuss the history of U.S.-Haiti relations and the potential impacts of another foreign intervention should it occur. Frenzen, who has been teaching at USC since 2000, previously served as the supervising attorney at the Haitian Refugee Center, a &ldquo;Haitian refugee-founded and Haitian refugee-run&rdquo; organization based in Miami.&nbsp;</p>
-                        <p>&ldquo;Very few Haitians&rsquo; asylum claims were successful,&rdquo; Frenzen recalled from his work at the HRC. &ldquo;Back in the day &mdash; I can&rsquo;t remember what the approval rate was for Haitian asylum applications, but it was somewhere in the neighborhood of less than 2%.&rdquo; As of 2021, Haitian migrants still have the <a href="https://www.newsweek.com/haitian-migrants-have-lowest-rate-us-asylum-approvals-since-2018-1632520" target="_blank" rel="noopener">lowest asylum approval rate</a> since 2018, at just under 5%.</p>
-                        <p>The particular racism historically directed at Haiti was precisely due to the U.S.&rsquo; fear of similar uprisings in their own country inspired by the Haitian Revolution, uprooting a system that massively benefited white plantation owners.</p>
-                        <p>&ldquo;Haiti was already seen as a threat to the United States from day one of Haitian independence,&rdquo; Frenzen told me. &ldquo;One can never overstate the role that race has played, in that [Haiti] is a predominantly Black country, and has suffered because of institutional racism &mdash; [which] is so much a part of the American experience.&rdquo;</p>
-                        <p>Such racism has manifested, and continues to manifest, in the U.S.&rsquo; response to Haitian migrants seeking asylum. The (senior) Bush administration in 1991 refused to grant asylum to migrants fleeing that year&rsquo;s coup d&rsquo;etat &mdash; which saw the deposition of Aristide &mdash; claiming their applications were on the basis of &ldquo;economic conditions&rdquo; and not political persecution. Former President Donald Trump, followed by his successor Joe Biden, used the coronavirus pandemic &ldquo;as an excuse to prevent people from pursuing asylum in the United States,&rdquo; Frenzen told me, enacting <a href="https://www.pbs.org/newshour/nation/what-is-title-42-and-what-does-it-mean-for-immigration-at-the-southern-border" target="_blank" rel="noopener">Title 42</a> expulsions to prevent migrants&rsquo; entry into the U.S.</p>
-                        <p>In some cases, the imagery is hardly abstract: As recently as September 2021, video footage emerged of Border Patrol officers on horseback appearing, to some, to whip Haitian migrants as they crossed the Rio Grande. A nine-month federal investigation concluded that agents did not use whips but did maneuver their horses dangerously around the migrants and used denigrating language.</p>
-                        <br><br>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Minustah.jpg" style="width:100%">
-                        <small>The U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. (Jesús Serrano Redondo /6 United Nations)</small>
-                        <p>As for foreign interventions in Haiti itself, Frenzen told me that while he believed in the concept of &ldquo;humanitarian intervention by force,&rdquo; he still had his doubts about how exactly it would be executed.</p>
-                        <p>&ldquo;The United Nations and the U.S. and Canada, among other countries, have been talking about renewed intervention of some sort in Haiti, and that has been done,&rdquo; Frenzen said. &ldquo;It has been done for over 100 years, on several occasions, and nothing good comes of it&hellip; There aren&rsquo;t many good options &mdash; if any good options &mdash; that are on the table,&rdquo; he told me.</p>
-                        <p>But Haiti is stuck &mdash; ruined by &ldquo;humanitarian&rdquo; efforts that are really just covers for exploitation, yet, having been crippled by said efforts, ironically reliant on them to survive. By the end of our conversation, neither Frenzen nor I had any confidence in yet another military intervention changing Haiti for the better, should it actually take place.</p>
-                        <p>&ldquo;What would the United States &mdash; or, what would an international force do?&rdquo; Frenzen said. &ldquo;It&rsquo;s not a situation where we have two armies fighting one another and we&rsquo;re talking about putting peacekeepers &hellip; it&rsquo;s just unclear what a military force would do, other than to go in and kill people. Is that the stated objective? To go in eliminating gangs by killing and locking them up?&rdquo;</p>
-                        <p>Even the U.S. is doubtful about doing it all over again; <a href="https://www.politico.com/news/magazine/2022/12/01/haiti-us-military-intervention-00071459" target="_blank" rel="noopener">opinion</a> after <a href="https://www.theatlantic.com/ideas/archive/2021/07/america-haiti-limited-options/619481/" target="_blank" rel="noopener">opinion</a> from former ambassadors to Haiti beg the international community not to make the same mistakes it did over 20 years ago. James B. Foley, ex-U.S. ambassador to Haiti, wrote for <em>The</em> <em>Atlantic </em>that &ldquo;the chances of success for a Haitian government that emerges from elections will still depend on the willingness of the U.S. and its partners to invest the resources required to build state institutions and address Haiti&rsquo;s overwhelming needs.&rdquo; Whether the U.S. will be so willing remains to be seen, especially when, as Frenzen told me, its only interests are &ldquo;keeping Haitians in Haiti&rdquo; and &mdash; to a lesser extent &mdash; keeping communism out.</p>
-                        <p>Haiti is a test. The U.S. has had a significant racial reckoning in the past few years; it only took some 60 years after the civil rights movement and a nauseating amount of Black people to be murdered for it to happen, but nonetheless, it&rsquo;s here. And yes, there was police reform, Black Lives Matter Plaza, Democratic congressmembers <a href="https://www.bbc.com/news/world-africa-52978780" target="_blank" rel="noopener">kneeling and wearing Ghanaian kente cloth</a> and a San Francisco city-appointed committee <a href="https://apnews.com/article/san-francisco-black-reparations-5-million-36899f7974c751950a8ce0e444f86189" target="_blank" rel="noopener">proposing $5 million each</a> in reparations to eligible Black adults. But how we respond to Haiti&rsquo;s crisis &mdash; how, if at all, we help rebuild a nation whose very foundations are in Black power and resistance &mdash; will tell us if we&rsquo;ve actually learned anything since then.&nbsp;</p>
-                        
+                        <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
+                        <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
+                        <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
+                        <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
+                        <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
+                        <p>Other things about me:</p>
+                        <ul>
+                            <li>Recovering <i>New Yorker</i> magazine addict</li>
+                            <li>Four semesters and counting at the <i>Daily Trojan</i>, USC's independent campus newspaper</li>
+                            <li>Favorite books: <i>The Anthropocene Reviewed</i>, by John Green; <i>The Color of Water</i>, by James McBride</li>
+                            <li>Currently reading: <i>Lenin's Tomb</i>, by David Remnick</li>
+                        </ul>
                     </div>
                 </div>
-
-
-            <!-- cnn sub-folder -->
-            <div class="folder-contents-draggable" id="cnn-folder-container" style="display: none; left: 250px; top: 90px;">
-                <div class="folder-contents-header" id="cnn-folder-container-header">
-                    <small>cnn</small>
-                    <small class="close-folder-button" id="cnn-folder-container-close-button" onclick="closeFolder(this)">x</small>
+    
+                <!-- RESUME.PDF -->
+                <div class="file-open" id="resume-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="resume-container-header">
+                        <small>resume.pdf</small>
+                        <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content" id="resume-content">
+                        <embed src="uploads/files/jonathan-park-resume.pdf" type="application/pdf" width="100%" height="100%">
+                    </div>
                 </div>
-                <div class="folder-contents-files" id="cnn-folder-container-files">
+    
+                <!-- SOCIALS.TXT -->
+                <div class="file-open" id="socials-container" style="display:none; left: 400px;">
+                    <div class="file-open-header" id="socials-container-header">
+                        <small>socials.txt</small>
+                        <small class="close-file-button" id="socials-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="socials-content">
+                        <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a></p>
+                        <p><a href="https://www.instagram.com/qkrdjwls_">Instagram</a></p>
+                    </div>
+                </div>
+    
+    
+            <!-- WORK FOLDER -->
+            <div class="folder-contents-draggable" id="work-folder-contents" style="display:none; left: 250px; top: 200px;">
+                <div class="folder-contents-header" id="work-folder-contents-header">
+                    <small>Work</small>
+                    <small class="close-folder-button" id="work-folder-close-button" onclick="closeFolder(this)">x</small>
+                </div>
+    
+                <div class="folder-contents-files" id="work-folder-contents-files">
                     <table class="folder-contents-table">
                         <tr>
-                            <!-- sample 1 -->
+                            <!-- dailytrojan -->
                             <td>
-                                <div class="file-container" id="cnn-sample1-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample1-container')">
-                                    <div class="file-img" id="cnn-articles-file-img">
-                                        <img src="uploads/textfile.png" alt="textfile">
+                                <div class="folder" id="dt-folder" onclick="selectFolder(this)" ondblclick="openFolder('dt-folder-container')">
+                                    <div class="folder-img" id="dt-folder-img">
+                                        <img src="uploads/folder.png" alt="textfile">
                                     </div>
-                                    <h6 class="filename">cnn_sample1.txt</h6>
+                                    <h6 class="foldername">daily trojan</h6>
                                 </div>
                             </td>
-                            <!-- sample 2 -->
+    
+                            <!-- cnn -->
                             <td>
-                                <div class="file-container" id="cnn-sample2-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample2-container')">
-                                    <div class="file-img" id="cnn-articles-file-img">
-                                        <img src="uploads/textfile.png" alt="textfile">
+                                <div class="folder" id="cnn-folder" onclick="selectFolder(this)" ondblclick="openFolder('cnn-folder-container')">
+                                    <div class="folder-img" id="cnn-folder-img">
+                                        <img src="uploads/folder.png" alt="textfile">
                                     </div>
-                                    <h6 class="filename">cnn_sample2.txt</h6>
+                                    <h6 class="foldername">cnn</h6>
                                 </div>
                             </td>
-
-                            <!-- sample 3 -->
+                        </tr>
+                    </table>
+                    <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
+                </div>
+            </div>
+                
+    
+            <!-- FUN FOLDER -->
+            <div class="folder-contents-draggable" id="fun-folder-contents" style="display:none; left: 400px; top: 300px;">
+                <div class="folder-contents-header" id="fun-folder-contents-header">
+                    <small>Fun</small>
+                    <small class="close-folder-button" id="fun-folder-close-button" onclick="closeFolder(this)">x</small>
+                </div>
+                <div class="folder-contents-files" id="fun-folder-contents-files">
+                    <table class="folder-contents-table">
+                        <tr>
+                            <!-- the 25 post -->
                             <td>
-                                <div class="file-container" id="cnn-sample3-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample3-container')">
-                                    <div class="file-img" id="cnn-articles-file-img">
-                                        <img src="uploads/textfile.png" alt="textfile">
+                                <div class="file-container" id="fun-file" onclick="selectFile(this)" ondblclick="openExternalUrl('https://the25post.com/')">
+                                    <div class="file-img" id="25post-file-img">
+                                        <img src="uploads/external-web.png" alt="external webpage">
+                                        <div class="external-url-icon">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </div>
                                     </div>
-                                    <h6 class="filename">cnn_sample3.txt</h6>
+                                    <h6 class="filename">The 25 Post</h6>
+                                </div>
+                            </td>
+                            <!-- medium -->
+                            <td>
+                                <div class="file-container" id="medium-file" onclick="selectFile(this)" ondblclick="openExternalUrl('https://medium.com/@jpark6203/')">
+                                    <div class="file-img" id="medium-file-img">
+                                        <img src="uploads/external-web.png" alt="external webpage">
+                                        <div class="external-url-icon">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        </div>
+                                    </div>
+                                    <h6 class="filename">Medium</h6>
                                 </div>
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-
-                <!-- cnn sample 1 -->
-                <div class="file-open sample-article" id="cnn-sample1-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="cnn-sample1-container-header">
-                        <small>cnn_sample1.txt</small>
-                        <small class="close-file-button" id="cnn-sample1-close-button" onclick="closeFile(this)">x</small>
+    
+            <!-- WORK FOLDER: CONTENTS -->
+    
+                <!-- daily trojan sub-folder -->
+                <div class="folder-contents-draggable" id="dt-folder-container" style="display: none; left: 200px; top: 50px;">
+                    <div class="folder-contents-header" id="dt-folder-container-header">
+                        <small>daily trojan</small>
+                        <small class="close-folder-button" id="dt-folder-container-close-button" onclick="closeFolder(this)">x</small>
                     </div>
-                    <div class="file-open-content txt-content" id="cnn-sample1-content">
-                        <a href="https://www.cnn.com/2023/10/03/business/starbucks-san-francisco-closures/index.html"><small>READ ON CNN BUSINESS</small></a>
-                        <h1>
-                            Starbucks set to close seven stores in San Francisco 
-                        </h1>
-                        <small>By JONATHAN PARK<br>October 3, 2023</small>
-                        <br><br>
-                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/231003184529-starbucks-sf-0428-restricted.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp" style="width: 100%;">
-                        <small> A customer exits a Starbucks coffee shop in San Francisco, California, U.S., on Thursday, April 28, 2022. (David Paul Morris/Bloomberg/Getty Images)</small>
-                        <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
-                        <p>When asked why the company decided to close these stores, a Starbucks spokesperson said it was part of a larger evaluation of their store portfolio.</p>
-                        <p>&ldquo;Each year as a standard course of business, we evaluate the store portfolio to determine where we can best meet our community and customers&rsquo; needs,&rdquo; the spokesperson said in a statement. &ldquo;This includes opening new locations, identifying stores in need of investment or renovation, exploring locations where an alternative format is needed and, in some instances, re-evaluating our footprint.&rdquo;</p>
-                        <p>Starbucks has also opened three new stores in downtown San Francisco in the last six months and is renovating four other locations, the spokesperson said.</p>
-                        <p>&ldquo;We remain dedicated to investing in the City in meaningful and important ways that meet our partners and customers where they are &ndash; in the best way we know how,&rdquo; wrote Jessica Borton, Starbucks&rsquo; regional vice president for Northern California, in an internal memo shared with CNN.</p>
-                        <p>The closures come as several well-known chains have left San Francisco in the last few years, including Whole Foods, CB2, Anthropologie and Nordstrom, CNN <a href="https://www.cnn.com/2023/08/28/business/nordstrom-san-francisco-closure/index.html" target="_blank" rel="noopener">previously reported</a>.</p>
-                        <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
-                    </div>
-                </div>
-
-                <!-- cnn sample 2 -->
-                <div class="file-open sample-article" id="cnn-sample2-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="cnn-sample2-container-header">
-                        <small>cnn_sample2.txt</small>
-                        <small class="close-file-button" id="cnn-sample2-close-button" onclick="closeFile(this)">x</small>
-                    </div>
-                    <div class="file-open-content txt-content" id="cnn-sample2-content">
-                        <a href="https://edition.cnn.com/2023/11/27/us/national-park-sequoia-planting-lawsuit-climate/index.html"><small>READ ON CNN</small></a>
-                        <h1>
-                            Why environmentalists are suing the National Park Service to prevent it from planting trees 
-                        </h1>
-                        <small>By JANNA VAN VRANKEN & JONATHAN PARK<br>November 27, 2023</small>
-                        <br><br>
-                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/ap21345080527026.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp" style="width: 100%;">
-                        <small>  Assistant fire manager Leif Mathiesen looks for an opening in the burned-out sequoias from the Redwood Mountain Grove in the Kings Canyon National Park on November 2021. (Gary Kazanjian/AP/File)</small>
-                        <p>The National Park Service wants to replant sequoia groves in Sequoia and Kings Canyon National Parks, where wildfires in 2020 and 2021 inflicted lasting damage on the iconic sequoia forests. Environmentalists in California say it&rsquo;s a huge mistake.</p>
-                        <p>Four groups filed suit against the NPS on November 17, saying the agency&rsquo;s effort violates the law as it includes planting in designated wilderness areas, where human involvement in the ecosystem is explicitly prohibited.</p>
-                        <p>The NPS announced the seedling-planting project earlier this fall, saying it was &ldquo;concerned that natural regeneration may not be sufficient to support self-sustaining groves into the future, particularly as the fires killed an unprecedented number of reproductive sequoia trees in the groves themselves.&rdquo;</p>
-                        <p>Chad Hanson, the director of the John Muir Project, one of the groups that filed suit, disputes that conclusion. Sequoias are among the species of trees that actually &ldquo;depend on high-intensity fire in order to reproduce effectively,&rdquo; Hanson told CNN.</p>
-                        <p>&ldquo;Nature doesn&rsquo;t need our help,&rdquo; Hanson said. &ldquo;We are not supposed to be getting involved with tending it like a garden.&rdquo;</p>
-                        <p>Advocates at Wilderness Watch, Sequoia Forest Keeper and the Tule River Conservancy first sued the NPS in September to stop a separate project by the agency to cut and burn trees in the same designated wilderness areas. Coined the &ldquo;Fuels Reduction Project,&rdquo; that plan would authorize cutting a thousand acres of timber and make 20,000 additional acres subject to &ldquo;manager-ignited fires and associated activity,&rdquo; according to the complaint.</p>
-                        <p>The John Muir Project, a nonprofit focused on ensuring federal public forests are protected, joined the lawsuit on November 17, amending it to include the sequoia replanting project as part of the complaint. The groups now jointly accuse the NPS of illegally encroaching on federally protected land in both of the projects.</p>
-                        <p>A spokesperson for the NPS declined to comment, citing the agency&rsquo;s policy on ongoing litigation, but confirmed replanting had already begun in two sequoia groves in mid-October, before the latter complaint was filed. </p>
-                        <p>&ldquo;The Park Service has to abide by the 1964 Wilderness Act,&rdquo; said Kevin Proescholdt, conservation director at Wilderness Watch. Even if climate change aggravates natural phenomena such as wildfires, the Wilderness Act requires that &ldquo;we should still allow these natural ecosystems to respond as they want to the changes brought about by the changing climate,&rdquo; Proescholdt said.</p>
-                        <p>The groups also allege both projects were approved after having circumvented &ldquo;required processes of environmental review and public engagement,&rdquo; according to the lawsuit, by declaring them as &ldquo;emergency&rdquo; projects that would not have to meet those requirements.</p>
-                        <p>High-intensity wildfires have been a &ldquo;natural component&rdquo; of California&rsquo;s sequoia forests for &ldquo;tens of millions of years,&rdquo; Hanson said, and sequoias have evolved since then to adapt to, and even depend on, those fires.</p>
-                        <p>The cones on giant sequoia trees are serotinous, meaning they &ldquo;need fire that&rsquo;s intense enough to melt the resins in the cones, and cause the cones to release &hellip; millions and millions of seeds,&rdquo; Hanson said. High-intensity fires also clear the forest floor of organic material &mdash; turning it into mineral-rich soil where those seeds can take root &mdash; and kills most of the trees in the forest canopy, allowing in the necessary sunlight for saplings to properly grow.</p>
-                        <p>But several agencies, including the NPS and the National Forest Service, have operated on a &ldquo;Smokey the Bear mentality,&rdquo; treating natural fires as needing to be suppressed and prevented, without understanding their &ldquo;historic ecological roles,&rdquo; Proescholdt said.</p>
-                        <p>&ldquo;The more that agencies will allow natural fire to burn and perform its role, the better these wilderness forests will be,&rdquo; he said.</p>    
-                        <p>The NPS said in its project announcement it would only replant in areas that field surveys showed &ldquo;insufficient natural regeneration for forests to successfully re-establish &hellip; as they would have done naturally had they not experienced extensive severe fire effects during recent fires.&rdquo;</p>
-                        <p>Hanson believes, after analyzing three decades&rsquo; worth of geological data and satellite imagery of wildfires, that those planned interventions have an effect opposite of what&rsquo;s intended.</p>
-                        <p>&ldquo;What we found is that the forest with the fewest environmental protections and the most tree removal had the most intense fire, even in the same forest types,&rdquo; Hanson said.</p>
-                        <p>If the NPS is allowed to proceed with the projects, it would set a &ldquo;terrible, terrible precedent for wildernesses across the nation,&rdquo; Proescholdt said; but he strongly believes the court will side with the plaintiffs.</p>
-                        <p>&ldquo;We know what the [Wilderness] Act says, and we know how the courts have interpreted the Wilderness Act in the past,&rdquo; he said. &ldquo;And that&rsquo;s why I believe that we will prevail in this case as well.&rdquo;</p>
+                    <div class="folder-contents-files" id="dt-folder-container-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <!-- sample 1 -->
+                                <td>
+                                    <div class="file-container" id="dt-sample1-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample1-container')">
+                                        <div class="file-img" id="dt-articles-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">dt_sample1.txt</h6>
+                                    </div>
+                                </td>
+                                <!-- sample 2 -->
+                                <td>
+                                    <div class="file-container" id="dt-sample2-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample2-container')">
+                                        <div class="file-img" id="dt-sample2-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">dt_sample2.txt</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="file-container" id="dt-sample3-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample3-container')">
+                                        <div class="file-img" id="dt-sample3-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">dt_sample3.txt</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-
-                <!-- cnn sample 3 -->
-                <div class="file-open sample-article" id="cnn-sample3-container" style="display:none; left: 400px;">
-                    <div class="file-open-header" id="cnn-sample3-container-header">
-                        <small>cnn_sample3.txt</small>
-                        <small class="close-file-button" id="cnn-sample3-close-button" onclick="closeFile(this)">x</small>
+    
+                    <!-- daily trojan sample 1 -->
+                    <div class="file-open sample-article" id="dt-sample1-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="dt-sample1-container-header">
+                            <small>dt_sample1.txt</small>
+                            <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="dt-sample1-content">
+                            <a href="https://dailytrojan.com/2023/06/30/affirmative-action-down/"><small>READ ON THE DAILY TROJAN</small></a>
+                            <h1>
+                                Supreme Court strikes down affirmative action — future of USC admissions remains unclear
+                            </h1>
+                            <p>University officials are releasing statements vowing to commit to diversity regardless of the ruling, but prior experience in other states says the prospects are grim.</p>
+                            <small>By JONATHAN PARK<br>June 30, 2023</small>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2023/06/aa-strikedown-graphic-2048x1248.jpg" style="width: 100%;">
+                            <small>Graphic: Jonathan Park / Daily Trojan. Photo: Supreme Court of the United States</small>
+                            <p>The Supreme Court struck down affirmative action by a vote of 6-3 Thursday, forcing universities across the country to rethink their race-conscious admissions programs.</p>
+                            <p>President Carol Folt called the decision &ldquo;very disappointing,&rdquo; in a statement posted to <a href="https://www.instagram.com/p/CuFKfrAx31J/?utm_source=ig_web_copy_link&amp;igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">Instagram</a> and <a href="https://twitter.com/PresidentFolt/status/1674454151689027589?s=20" target="_blank" rel="noopener">Twitter</a> Thursday morning, writing that &ldquo;each of our students, faculty and staff has earned a place here and contributes to creating one of the most stimulating and creative educational communities in the world.&rdquo;</p>
+                            <p>&ldquo;This decision will not impact our commitment to creating a campus that is welcoming, diverse, and inclusive to talented individuals from every background,&rdquo; Folt wrote. &ldquo;We will not go backward.&rdquo;</p>
+                            <p>The ruling &mdash; a largely expected move &mdash; found that Harvard University and the University of North Carolina&rsquo;s admissions processes &ldquo;unavoidably employ race in a negative manner&rdquo; and &ldquo;involve racial stereotyping,&rdquo; Chief Justice John Roberts Jr. wrote.</p>
+                            <p>It is not yet clear what the decision means for USC. California banned affirmative action from all public institutions in 1996 with Proposition 209, but private universities were still at liberty to employ race-conscious admissions programs.&nbsp;</p>
+                            <p>The University did not comment further when asked about plans to continue enrolling a diverse student body, with a spokesperson saying only that the &ldquo;statement &hellip; from Dr. Folt is the statement from the university.&rdquo;</p>
+                            <p>In a <a href="https://www.instagram.com/p/CuGFKlgpfeO/?igshid=MzRlODBiNWFlZA==" target="_blank" rel="noopener">letter</a> to the School of Cinematic Arts, posted to Instagram Thursday afternoon, Dean Elizabeth Daley assured students, faculty and staff that &ldquo;today&rsquo;s Supreme Court ruling prohibiting race-conscious admissions will not diminish our School&rsquo;s commitment to recruiting and enrolling the diverse storytellers and media scholars our industry desperately needs.&rdquo;</p>
+                            <p>&ldquo;Each of our students is chosen to join their SCA cohort in recognition that their lived experience contributes to their talent as storytellers, media makers and scholars,&rdquo; Daley wrote. &ldquo;The bottom line is that our deep commitment to diversity and inclusion will not change.&rdquo;</p>
+                            <p>A <a href="https://www.instagram.com/p/CuGAZFzJgaL/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener">statement</a> from the Black Student Assembly, posted to the organization&rsquo;s Instagram account Thursday afternoon, called the decision &ldquo;shameful and disheartening,&rdquo; saying it &ldquo;represents another blow to civil rights that reinforces systemic barriers and undermines centuries of progress for Black and Brown people.&rdquo;</p>
+                            <p>&ldquo;We must remember that affirmative action wasn&rsquo;t created because Black students could not thrive and excel under merit based systems,&rdquo; the statement read. &ldquo;It was created because the system has never been merit based &hellip; This attack on affirmative action frames anti-racist policies and laws as punitive to White Americans rather than a promotion of universal equality.&rdquo;</p>
+                            <p>Julie Posselt, associate dean of the Graduate School, said she received the news of the ruling with &ldquo;unsurprised disappointment,&rdquo; in an interview with the <em>Daily Trojan</em>.</p>
+                            <p>&ldquo;Many of us &hellip; were anticipating this would be the outcome,&rdquo; Posselt said. &ldquo;Nevertheless, it is always disappointing to see this kind of an outcome in a world where what we are looking for, often, are tools to manage racial inequalities &mdash; not to have them taken away.&rdquo;</p>
+                            <p>Posselt noted that, in the states that have already issued bans on race-conscious admissions, &ldquo;diversity drops significantly.&rdquo;&nbsp;</p>
+                            <p>Nine states &mdash; Arizona, California, Florida, Idaho, Michigan, Nebraska, New Hampshire, Oklahoma and Washington &mdash; have instituted bans. Despite efforts to circumvent them with other approaches, universities consistently failed to reach their previously set diversity targets, according to a <em>Wall Street Journal </em>analysis published Thursday. Applicants who identify as Black, Latine or Indigenous would suffer the greatest losses, the <em>Journal</em> found; Posselt also concurred that &ldquo;all of the evidence supports that view.&rdquo;</p>
+                            <p>&ldquo;We can anticipate that it will be much more difficult to admit the same diversity that we have had for the last several years at USC,&rdquo; Posselt said. &ldquo;But we have excellent leaders in Admissions and Enrollment [Services], who are committed to diversity and who are committed to using every tool at our disposal.&rdquo;</p>
+                            <p>Examples of such tools, Posselt said, included admissions processes that centered more on financial aid rather than in-built &ldquo;racial biases,&rdquo; the elimination of standardized test score requirements &mdash; for now, USC runs on a test-optional policy &mdash; and, as implemented at the UCs, evaluation rubrics with &ldquo;a more systematic set of criteria&rdquo; with which to evaluate applicants. While Posselt declined to &ldquo;speak for USC&rdquo; as to whether it would take a similar direction, she said places &ldquo;that have had race-conscious admissions eliminated &hellip; tend to move in fairly similar ways.&rdquo;</p>
+                            <p>&ldquo;In moments like this, we see that universities tend to become more cautious than even the law requires,&rdquo; Posselt said. &ldquo;It will be very important for administrators, general counsels, communications officers and others to very clearly understand what the law requires &mdash; and what the law does not require &mdash; and to stem the potential loss of diversity, to not go beyond the requirements of the new decision.&rdquo;</p>
+                            <small>Sparsh Sharma contributed reporting.</small>
+                        </div>
                     </div>
-                    <div class="file-open-content txt-content" id="cnn-sample3-content">
-                        <a href="https://www.cnn.com/2023/11/09/us/shoah-foundation-records-october-7-testimonies/index.html"><small>READ ON CNN</small></a>
-                        <h1>
-                            October 7 was the deadliest day for Jews since the Holocaust. The Shoah Foundation is now documenting it  
-                        </h1>
-                        <small>By NICK WATT<br>November 27, 2023</small>
-                        <br>
-                        <small><em>CNN’s Stephanie Becker and Jonathan Park contributed to this story.</em></small>
-                        <br><br>
-                        <img src="https://media.cnn.com/api/v1/images/stellar/prod/231109163502-01-shoah-foundation-stories.jpg?c=16x9&q=w_800,c_fill" style="width: 100%;">
-                        <small>'The entire village is full of bodies:' Survivors of October 7 detail the horror (CNN)</small>
-                        <p>Los Angeles (CNN) &mdash;&nbsp;&ldquo;Every year at school in Israel we used to get a lecture from a Holocaust survivor,&rdquo; said Tomer Peretz. &ldquo;I was always getting bored listening to him like, &lsquo;OK, OK, we got it, OK. So, they killed you guys. Let&rsquo;s move on &hellip;</p>
-                        <p>&ldquo;&lsquo;It&rsquo;s one of those things that happened and will never happen again.&rsquo;&rdquo;</p>
-                        <p>But after<a href="https://www.cnn.com/2023/10/28/middleeast/israel-hamas-war-one-month-explainer-mime-intl/index.html" target="_blank"> Hamas fighters raided Israeli farms and villages</a>, killing and butchering more than 1,400 Israelis and taking more than 200 hostages on October 7, Peretz agreed to tape his own testimony so that others would not just move on.</p>
-                        <p>&ldquo;Everybody has to do it. It&rsquo;s a must. I don&rsquo;t see any other option. People need to know,&rdquo; he told CNN.</p>
-                        <p>He was giving his testimony to <a href="https://sfi.usc.edu/" target="_blank">the USC Shoah Foundation</a>, which for years has collected the accounts of survivors of the Holocaust and subsequent genocides in countries like Cambodia and Rwanda.</p>
-                        <p>Peretz, a Jerusalem-born artist who now lives in Los Angeles, was in Israel the first week of October for a family wedding. As the horror unfolded that Saturday morning, he knew that he had to help. He volunteered with Zaka, an organization that collects human remains after terror attacks so they can be buried according to Jewish tradition.</p>
-                        <p>Peretz was sent to collect the bodies<a href="https://www.cnn.com/2023/10/12/middleeast/kibbutz-beeri-israel-war-intl-cmd/index.html" target="_blank"> at Kibbutz Be&rsquo;eri</a>, where more than 120 lay dead.</p>
-                        <p>&ldquo;I was too coward to be on the side of the head. I didn&rsquo;t want to see faces,&rdquo; Peretz said of the gruesome process of bagging mutilated bodies and loading them into trucks. &ldquo;And then my time to touch the body came. It was the first time.&rdquo; He helped lift a woman&rsquo;s body, pulling her up by the arm so someone else could slip a body bag underneath. Of a victim, he said: &ldquo;She had no face &hellip; It looked like they, someone &hellip; didn&rsquo;t want to leave a face.&rdquo;</p>
-                        <p>Sifting through some of the more than 50,000 Holocaust testimonies at the foundation, it&rsquo;s easy to find eerie echoes, which Peretz once believed could never come again.</p>
-                        <p>&ldquo;I&rsquo;d never touched a dead body before. I mean, I&rsquo;d seen dead bodies,&rdquo; said Anita Lasker-Wallfisch in her testimony recorded back in 1998. She survived the Holocaust in part because she was a cellist &ndash; a rarity at Auschwitz &ndash; playing an irreplaceable part in a death camp orchestra. &ldquo;Somebody else came and we just put the body out. One body. Well, it didn&rsquo;t take long before that was multiplied by thousands.&rdquo;</p>
-                        <p>&ldquo;There were dead people covered by newspapers,&rdquo; Alicia Rand remembers of the Warsaw Ghetto. &ldquo;Once a day or so, there was someone coming with wheelbarrows and taking the bodies.&rdquo; Rand recorded her testimony in April of this year.</p>
-                        <p>&ldquo;And I see it now that this hatred still lives on,&rdquo; she told the Shoah Foundation. &ldquo;And then people did say that it never happened.&rdquo;</p>
-                        <p>Robert Williams, a historian who now serves as the Shoah Foundation&rsquo;s executive director, said they had an obligation to Rand and the other survivors to deal with the forms of antisemitism that continued after the Holocaust ended. &ldquo;For the better part of a year, we&rsquo;ve resolved that we need to begin taking testimony on contemporary antisemitism,&rdquo; he said. &ldquo;Then October 7 happened, and we had to ramp up our efforts very, very quickly.&rdquo;</p>
-                        <p>Within days, teams on the ground in Israel were taping testimonies. &ldquo;It is immediate and that comes with benefits, and it comes with risks,&rdquo; said Williams. &ldquo;The individual will be able to recount with greater clarity and greater detail what happened to them. The challenge though is the trauma is also very fresh in their mind.&rdquo;&nbsp;</p>
-                        <p>Amit Ades, a mother of three, remembered trying to keep her children quiet, distracting them with a Sponge Bob movie on an iPad during lulls in the violence as Hamas swept through her community. She described the &lsquo;smell of war&rsquo; seeping in through the windows of their kibbutz home. She was ready to fight. &ldquo;With the knife in my hand and the baby on the other hand trying to keep her not crying so no one will hear us,&rdquo; she said. &ldquo;And it went on &hellip; it felt like forever.&rdquo;</p>
-                        <p>Another survivor, Avi Shamriz, told the camera: &ldquo;My village was destroyed by the Hamas &hellip; There is no village to return to.&rdquo; His young adult son was kidnapped. The family has no idea where he is, or whether he&rsquo;s alive or dead. &ldquo;My son, he&rsquo;s an innocent boy,&rdquo; said Shamriz. &ldquo;He didn&rsquo;t harm them.&rdquo;</p>
-                        <p>&ldquo;We thought it will never happen again,&rdquo; said Maor Moravia. &ldquo;They did worse than Nazis. The Nazis had &hellip; a little human in them just to gas us.&rdquo; As they were led out of their kibbutz by the Israeli soldiers who eventually came to save them, Moravia told his children to look only at the ground in front of their feet, so they would not see the dead bodies of their neighbors and friends.</p>
-                        <p>Williams said of taking the testimonies now: &ldquo;It&rsquo;s about providing a platform for the voices of survivors to echo for future generations.&rdquo;</p>
-                        <p>Peretz spoke in his account about experiences he is, for now, unable to tell his children.</p>
-                        <p><strong>&ldquo;</strong>Lie to them. Don&rsquo;t tell them the truth &hellip; Just lie to them,&rdquo; Peretz recalled telling his father-in-law on October 7. That was the only time he cried in nearly two hours of testimony. In all of the videos CNN has seen, all survivors speak with a similar stoicism.</p>
-                        <p>&ldquo;I don&rsquo;t want to speculate on what happens in the minds of those who are providing testimony,&rdquo; said Williams. &ldquo;But I imagine that the immediacy of the events that they are facing today, the ongoing war, the fact that they are worried about children, friends, family who have been taken hostage, living with the reality that neighbors have been murdered may be so overwhelming that their best way of coping at the moment is to be a matter of fact.&rdquo;</p>
-                        <p>The Shoah Foundation will return to every subject further down the line, maybe years down the line, to find out how they feel with the benefits of healing and hindsight.</p>
-                        <p>But the foundation will not be taking testimony from Palestinian civilians, currently suffering as the Israeli Defense Forces seek to destroy Hamas in Gaza. &ldquo;The reason we&rsquo;re taking testimonies from October 7 is because it was an act of anti-Semitism that is squarely within our mission,&rdquo; explained Williams. &ldquo;That being said we are always happy to share our methodologies with organizations who are interested in taking testimony.&rdquo;</p>
-                        <p>Asked if there is any hope of resolving this now decades-old and seemingly intractable conflict between Israel and the Palestinians, Peretz takes a long pause before answering. &ldquo;I think so &hellip; But I think we gotta go so low, so low,&rdquo; he said. &ldquo;Both sides I guess needs to get a big slap before something will come out of it.&rdquo; This, he said, just might be that moment.</p>
+    
+                    <!-- daily trojan sample 2 -->
+                    <div class="file-open sample-article" id="dt-sample2-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="dt-sample2-container-header">
+                            <small>dt_sample2.txt</small>
+                            <small class="close-file-button" id="dt-sample2-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="dt-sample1-content">
+                            <a href="https://dailytrojan.com/2023/04/13/experts-discuss-leaked-pentagon-papers/"><small>READ ON THE DAILY TROJAN</small></a>
+                            <h1>
+                                Experts discuss leaked Pentagon papers
+                            </h1>
+                            <p>The U.S. spying on its allies could damage its diplomatic relations.</p>
+                            <small>By JONATHAN PARK<br>JApril 13, 2023</small>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2023/04/Aerial_view_of_the_Pentagon_Arlington_VA_38285035892.jpeg" style="width: 100%;">
+                            <small>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, compared the severity of the Pentagon papers leak to Edward Snowden’s in 2013. (Mariordo59 / Wikimedia Commons)</small>
+                            <p>More than 100 documents containing sensitive information about United States national security secrets on Ukraine, the Middle East and China, circulated on social media sites Friday. The classified documents reveal the Pentagon&rsquo;s extensive trove of data on its adversaries and allies, including Israel, South Korea and France. The <em>Daily Trojan</em> spoke with experts and students pertaining to the leaks, their impacts on U.S. diplomatic relations and the trajectory of the Russian invasion of Ukraine going forward.</p>
+                            <p>Robert English, an associate professor of international relations, Slavic languages and literature and environmental studies, said the leaks were problematic in two ways: the information itself &mdash; details in the documents exposed sensitive information about the Ukrainian military and the status of its weaponry &mdash; and the allegations of espionage making the U.S. an international &ldquo;embarrassment.&rdquo;</p>
+                            <p>&ldquo;Everyone will presume that, even if there were only documents on [South Korea, Israel and France], we&rsquo;re doing it to everybody &mdash; in other words, we are snooping on our allies,&rdquo; English said. &ldquo;So all of this is, at a minimum, irritating, and in some cases, really infuriating.&rdquo;</p>
+                            <p>Among the documents&rsquo; claims are that senior officials in Mossad, Israel&rsquo;s security agency, &ldquo;advocated for Mossad officials and Israeli citizens to protest against the new Israeli government&rsquo;s proposed judicial reforms, including several explicit calls to action that decried the Israeli government, according to signals intelligence.&rdquo; Prime Minister Benjamin Netanyahu denied this claim in a statement Sunday.</p>
+                            <p>The documents also claim the U.S. spied on its allies in Seoul, amid ongoing pressures for Yoon Suk-yeol, president of South Korea, to supply weapons to Ukraine in violation of national policy. South Korean government officials said they would have necessary consultations with the U.S. side related to the leak.</p>
+                            <p>English compared the severity of the leaks to when Edward Snowden leaked thousands of National Security Agency documents in 2013, revealing the U.S. was gathering extensive intelligence on France and Germany.</p>
+                            <p>&ldquo;And [now] it&rsquo;s like, &lsquo;Here we go again,&rsquo;&rdquo; English said. &ldquo;Probably everyone knows we do it. Frankly, they do some of it as well. It just shouldn&rsquo;t be revealed and cause embarrassment. Even if the South Koreans know that Big Brother America is probably poking around, [they would say,] &lsquo;Please don&rsquo;t rub it in our faces so that we are humiliated before an election, or so that we&rsquo;re embarrassed right before a key parliamentary vote.&rdquo;</p>
+                            <p>Though <em>The</em> <em>New York Times</em>, which first reported the leaks, wrote that the documents surfaced on Twitter and Telegram, a separate investigation by Bellingcat published April 9 found that they had circulated as early as March. Photos of 10 documents emerged March 4 in a Discord server called &ldquo;Minecraft Earth Map&rdquo; &mdash; with a user interjecting in a seemingly unrelated conversation, saying, &ldquo;here, have some leaked documents,&rdquo; with the images attached. These later circulated to the fringe forum 4chan before emerging on mainstream social media channels.</p>
+                            <p>&ldquo;It&rsquo;s &hellip; incredibly disturbing, and yet, at the same time, it&rsquo;s comical and amusing,&rdquo; English said. &ldquo;This whole episode is something unprecedented in the world of espionage and intelligence.&rdquo;&nbsp;</p>
+                            <p>Classified documents leaks on gaming forums are precedented: Players of the video game &ldquo;War Thunder&rdquo; have posted multiple classified documents related to British, French and Chinese tanks since 2021. One user, the UK Defence Journal reported, posted such documents to encourage developers to make more accurate in-game tanks.</p>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2023/04/52004786557_b16e79d7c9_o-1500x1000.jpg" style="width: 100%;">
+                            <small>Classified documents leaked to social media sites such as Discord, 4chan and some more mainstream websites. Photos were leaked in a Discord server known as “Minecraft Earth Maps” as early as March 4. (Oleksandr Ratushniak | UNDP Ukraine)</small>
+                            <p>Copies of the documents obtained by <em>The</em> <em>New York Times</em> appeared to be altered, with U.S. estimates of Ukrainian war casualties overstated and numbers of Russian troops killed understated &mdash; modifications English said were &ldquo;amateurish.&rdquo;</p>
+                            <p>&ldquo;How strange to have information right out of the bowels of the Pentagon,&rdquo; English said, &ldquo;and then get out the white-out or the Photoshop and do a sloppy job of doctoring it &hellip; It&rsquo;s not a professional Russian intelligence job. It&rsquo;s some game-obsessed military history buff who literally has access inside the Pentagon &hellip; and he doesn&rsquo;t even care about national security, Russia and Ukraine. He cares about winning an argument.&rdquo;</p>
+                            <p>The debacle comes amid an <a href="https://dailytrojan.com/2022/03/28/experts-talk-impacts-of-ukraine-invasion/" target="_blank" rel="noopener">increasingly tense invasion-turned-war-of-attrition</a> brutalizing Ukraine and its residents since it began in February 2022. Russia has continued its attacks on Ukrainian nuclear infrastructure, in addition to stacking its sustained threats of all-out nuclear warfare against its enemies. On Feb. 21, Vladimir Putin, president of Russia, announced in an address to the Federal Assembly that the state would be suspending its participation in its New START treaty with the U.S. &mdash; thought it did not withdraw, and has said it would continue to abide by the treaty&rsquo;s numerical limits.</p>
+                            <p>Najmedin Meshkati, a professor of civil and environmental engineering, attributed the suspension to a larger trend where countries break or withdraw from treaties &ldquo;rather than engaging in active diplomacy and coming up with treaties and agreements.&rdquo; Meshkati said the U.S. would rather exercise &ldquo;preventive diplomacy&rdquo; &mdash; for example, former Speaker of the House Nancy Pelosi&rsquo;s surprise visit to Taiwan, and even the covert intelligence-gathering alleged in the leaked documents &mdash; absent a definitive diplomatic leader who could draft agreements during tense times.</p>
+                            <p>&ldquo;I really think that we need a very skillful diplomat,&rdquo; Meshkati said. &ldquo;If people in the same league as [Henry] Kissinger and [Tom] Pickering were still active, I think we would have seen a better situation.&rdquo;</p>
+                            <p>Meshkati cited Kissinger&rsquo;s success in convincing China and the U.S. to sign the 1972 Shanghai Communique at the height of the Cold War. The finalized communique states that, though there were &ldquo;essential differences between China and the United States in their social systems and foreign policies,&rdquo; the two nations &ldquo;should conduct their relations on the principles of respect.&rdquo;</p>
+                            <p>&ldquo;Even if they&rsquo;re from adversarial countries, if a diplomat is skillful enough &mdash; if he is tactful enough, if he knows the rules of negotiation &mdash; they can bridge the gap,&rdquo; Meshkati said. &ldquo;We need to find and empower and enable that. Unfortunately, I see a lot of technocrats in Washington, but not a true diplomat with all nuances. Maybe this is the tragedy of our time.&rdquo;</p>
+                            <p>As even the United Nations Secretary-General doubts that Russia and Ukraine (and by proxy, the U.S.) will negotiate with Russia anytime soon, the future of the war, and of U.S. diplomatic relations, remains uncertain.</p>
+                            <p>&ldquo;I think it&rsquo;s hard to know exactly how those countries will interact with us,&rdquo; said John Belton, a sophomore majoring in public policy and a former legislative intern in the U.S. House of Representatives. &ldquo;Israel [especially] relies so much on United States aid and &hellip; all the stuff that the United States gives to Israel. It&rsquo;s hard for them to take a very hard stance against this.&rdquo;</p>
+                            <p>Meanwhile, Russia is facing criticism itself for a slew of transgressions, including the alleged kidnapping of Ukrainian children to be put up for adoption, the detainment of <em>Wall Street Journal</em> reporter Evan Gershkovich and the apparent beheading of a Ukrainian prisoner of war with a knife, according to footage that surfaced Wednesday.</p>
+                            <p>&ldquo;Every time something happens &hellip; to introduce doubt about the war effort, the Russians go and do something outrageous, and then everyone&rsquo;s on board again,&rdquo; English said. &ldquo;Putin seems to have a flair for shooting himself in the foot. Perhaps that kind of outrage will balance out the anger over the eavesdropping and over the distortion of the battle news.&rdquo;</p>
+                        </div>
+                    </div>
+    
+                    <!-- daily trojan sample 3 -->
+                    <div class="file-open sample-article" id="dt-sample3-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="dt-sample3-container-header">
+                            <small>dt_sample2.txt</small>
+                            <small class="close-file-button" id="dt-sample3-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="about-content">
+                            <a href="https://dailytrojan.com/2023/03/24/haiti-just-cant-catch-a-break/"><small>READ ON THE DAILY TROJAN</small></a>
+                            <br>
+                            <small>BURSITNG YOUR BUBBLE</small>
+                            <h1>
+                                Haiti just can’t catch a break
+                            </h1>
+                            <p>The nation’s current crisis is a test of how much we’ve learned during our racial reckonings.</p>
+                            <small>By JONATHAN PARK<br>March 24, 2023</small>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2023/03/haiti-1500x867.png" style="width: 100%;">
+                            <small>(Viviana Ruiz / Daily Trojan)</small>
+                            <br><br>
+                            <small>"Bursting Your Bubble" was a column about international politics outside of Western interests. It ran biweekly on Tuesdays.</small>
+                            <p>In 1804, a group of formerly enslaved people emerged victorious against the tyranny of French colonists in Haiti, making history as the first nation in the Americas to abolish slavery. However, the victory proved to be bitterly pyrrhic. A bitter France forced Haiti to pay 112 million francs in reparations to their own enslavers under persistent threat of an invasion, leaving Haiti in crippling debt. Though the United States finally recognized Haiti&rsquo;s independence in 1862, economic sanctions, incessant political instability and the Cold War (not to mention a U.S. occupation from 1915-34 following the assassination of the Haitian president) left Haiti dependent on foreign aid in the form of food and medical supplies.</p>
+                            <p>Around the turn of the 21st century, amid a coup d&rsquo;etat that overthrew democratically-elected Haitian President Jean-Bertrand Aristide, the U.S. and United Nations decided to rebrand its interventions in the nation as humanitarian aid. From 2004 to 2017, the U.N. operated a peacekeeping mission in Haiti, codenamed MINUSTAH, which Haitians have accused of introducing cholera and abetting widespread sexual abuse.</p>
+                            <p>As of Tuesday, the U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. The UN announced Tuesday that 187 people have been killed in the past 11 days amid the political turmoil following the 2021 assassination of Haitian President Jovenel Mo&iuml;se.</p>
+                            <p>On Wednesday, I phoned Niels Frenzen, clinical professor of law and director of the Immigration Clinic at the Gould School of Law, to discuss the history of U.S.-Haiti relations and the potential impacts of another foreign intervention should it occur. Frenzen, who has been teaching at USC since 2000, previously served as the supervising attorney at the Haitian Refugee Center, a &ldquo;Haitian refugee-founded and Haitian refugee-run&rdquo; organization based in Miami.&nbsp;</p>
+                            <p>&ldquo;Very few Haitians&rsquo; asylum claims were successful,&rdquo; Frenzen recalled from his work at the HRC. &ldquo;Back in the day &mdash; I can&rsquo;t remember what the approval rate was for Haitian asylum applications, but it was somewhere in the neighborhood of less than 2%.&rdquo; As of 2021, Haitian migrants still have the <a href="https://www.newsweek.com/haitian-migrants-have-lowest-rate-us-asylum-approvals-since-2018-1632520" target="_blank" rel="noopener">lowest asylum approval rate</a> since 2018, at just under 5%.</p>
+                            <p>The particular racism historically directed at Haiti was precisely due to the U.S.&rsquo; fear of similar uprisings in their own country inspired by the Haitian Revolution, uprooting a system that massively benefited white plantation owners.</p>
+                            <p>&ldquo;Haiti was already seen as a threat to the United States from day one of Haitian independence,&rdquo; Frenzen told me. &ldquo;One can never overstate the role that race has played, in that [Haiti] is a predominantly Black country, and has suffered because of institutional racism &mdash; [which] is so much a part of the American experience.&rdquo;</p>
+                            <p>Such racism has manifested, and continues to manifest, in the U.S.&rsquo; response to Haitian migrants seeking asylum. The (senior) Bush administration in 1991 refused to grant asylum to migrants fleeing that year&rsquo;s coup d&rsquo;etat &mdash; which saw the deposition of Aristide &mdash; claiming their applications were on the basis of &ldquo;economic conditions&rdquo; and not political persecution. Former President Donald Trump, followed by his successor Joe Biden, used the coronavirus pandemic &ldquo;as an excuse to prevent people from pursuing asylum in the United States,&rdquo; Frenzen told me, enacting <a href="https://www.pbs.org/newshour/nation/what-is-title-42-and-what-does-it-mean-for-immigration-at-the-southern-border" target="_blank" rel="noopener">Title 42</a> expulsions to prevent migrants&rsquo; entry into the U.S.</p>
+                            <p>In some cases, the imagery is hardly abstract: As recently as September 2021, video footage emerged of Border Patrol officers on horseback appearing, to some, to whip Haitian migrants as they crossed the Rio Grande. A nine-month federal investigation concluded that agents did not use whips but did maneuver their horses dangerously around the migrants and used denigrating language.</p>
+                            <br><br>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Minustah.jpg" style="width:100%">
+                            <small>The U.N. Office of the High Commissioner for Human Rights is again calling for deployment of specialized forces in Haiti to take down the ongoing gang violence brutalizing the country. (Jesús Serrano Redondo /6 United Nations)</small>
+                            <p>As for foreign interventions in Haiti itself, Frenzen told me that while he believed in the concept of &ldquo;humanitarian intervention by force,&rdquo; he still had his doubts about how exactly it would be executed.</p>
+                            <p>&ldquo;The United Nations and the U.S. and Canada, among other countries, have been talking about renewed intervention of some sort in Haiti, and that has been done,&rdquo; Frenzen said. &ldquo;It has been done for over 100 years, on several occasions, and nothing good comes of it&hellip; There aren&rsquo;t many good options &mdash; if any good options &mdash; that are on the table,&rdquo; he told me.</p>
+                            <p>But Haiti is stuck &mdash; ruined by &ldquo;humanitarian&rdquo; efforts that are really just covers for exploitation, yet, having been crippled by said efforts, ironically reliant on them to survive. By the end of our conversation, neither Frenzen nor I had any confidence in yet another military intervention changing Haiti for the better, should it actually take place.</p>
+                            <p>&ldquo;What would the United States &mdash; or, what would an international force do?&rdquo; Frenzen said. &ldquo;It&rsquo;s not a situation where we have two armies fighting one another and we&rsquo;re talking about putting peacekeepers &hellip; it&rsquo;s just unclear what a military force would do, other than to go in and kill people. Is that the stated objective? To go in eliminating gangs by killing and locking them up?&rdquo;</p>
+                            <p>Even the U.S. is doubtful about doing it all over again; <a href="https://www.politico.com/news/magazine/2022/12/01/haiti-us-military-intervention-00071459" target="_blank" rel="noopener">opinion</a> after <a href="https://www.theatlantic.com/ideas/archive/2021/07/america-haiti-limited-options/619481/" target="_blank" rel="noopener">opinion</a> from former ambassadors to Haiti beg the international community not to make the same mistakes it did over 20 years ago. James B. Foley, ex-U.S. ambassador to Haiti, wrote for <em>The</em> <em>Atlantic </em>that &ldquo;the chances of success for a Haitian government that emerges from elections will still depend on the willingness of the U.S. and its partners to invest the resources required to build state institutions and address Haiti&rsquo;s overwhelming needs.&rdquo; Whether the U.S. will be so willing remains to be seen, especially when, as Frenzen told me, its only interests are &ldquo;keeping Haitians in Haiti&rdquo; and &mdash; to a lesser extent &mdash; keeping communism out.</p>
+                            <p>Haiti is a test. The U.S. has had a significant racial reckoning in the past few years; it only took some 60 years after the civil rights movement and a nauseating amount of Black people to be murdered for it to happen, but nonetheless, it&rsquo;s here. And yes, there was police reform, Black Lives Matter Plaza, Democratic congressmembers <a href="https://www.bbc.com/news/world-africa-52978780" target="_blank" rel="noopener">kneeling and wearing Ghanaian kente cloth</a> and a San Francisco city-appointed committee <a href="https://apnews.com/article/san-francisco-black-reparations-5-million-36899f7974c751950a8ce0e444f86189" target="_blank" rel="noopener">proposing $5 million each</a> in reparations to eligible Black adults. But how we respond to Haiti&rsquo;s crisis &mdash; how, if at all, we help rebuild a nation whose very foundations are in Black power and resistance &mdash; will tell us if we&rsquo;ve actually learned anything since then.&nbsp;</p>
+                            
+                        </div>
+                    </div>
+    
+    
+                <!-- cnn sub-folder -->
+                <div class="folder-contents-draggable" id="cnn-folder-container" style="display: none; left: 250px; top: 90px;">
+                    <div class="folder-contents-header" id="cnn-folder-container-header">
+                        <small>cnn</small>
+                        <small class="close-folder-button" id="cnn-folder-container-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+                    <div class="folder-contents-files" id="cnn-folder-container-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <!-- sample 1 -->
+                                <td>
+                                    <div class="file-container" id="cnn-sample1-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample1-container')">
+                                        <div class="file-img" id="cnn-articles-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">cnn_sample1.txt</h6>
+                                    </div>
+                                </td>
+                                <!-- sample 2 -->
+                                <td>
+                                    <div class="file-container" id="cnn-sample2-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample2-container')">
+                                        <div class="file-img" id="cnn-articles-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">cnn_sample2.txt</h6>
+                                    </div>
+                                </td>
+    
+                                <!-- sample 3 -->
+                                <td>
+                                    <div class="file-container" id="cnn-sample3-file" onclick="selectFile(this)" ondblclick="openFile('cnn-sample3-container')">
+                                        <div class="file-img" id="cnn-articles-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">cnn_sample3.txt</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-
-
-        <!-- DRAG -->
-        <script>
-        //Make the DIV element draggable:
-        
-        dragElement(document.getElementById("about-folder-contents"));
-        dragElement(document.getElementById("work-folder-contents"));
-        dragElement(document.getElementById("fun-folder-contents"));
-
-        dragElement(document.getElementById("resume-container"));
-        dragElement(document.getElementById("about-container"));
-        dragElement(document.getElementById("socials-container"));
-        dragElement(document.getElementById("dt-folder-container"));
-        dragElement(document.getElementById("dt-sample1-container"));
-        dragElement(document.getElementById("dt-sample2-container"));
-        dragElement(document.getElementById("dt-sample3-container"));
-        dragElement(document.getElementById("cnn-folder-container"));
-        dragElement(document.getElementById("cnn-sample1-container"));
-
-        
-        function dragElement(elmnt) {
-            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            if (document.getElementById(elmnt.id + "-header")) {
-            /* if present, the header is where you move the DIV from:*/
-            document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
+    
+                    <!-- cnn sample 1 -->
+                    <div class="file-open sample-article" id="cnn-sample1-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="cnn-sample1-container-header">
+                            <small>cnn_sample1.txt</small>
+                            <small class="close-file-button" id="cnn-sample1-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="cnn-sample1-content">
+                            <a href="https://www.cnn.com/2023/10/03/business/starbucks-san-francisco-closures/index.html"><small>READ ON CNN BUSINESS</small></a>
+                            <h1>
+                                Starbucks set to close seven stores in San Francisco 
+                            </h1>
+                            <small>By JONATHAN PARK<br>October 3, 2023</small>
+                            <br><br>
+                            <img src="https://media.cnn.com/api/v1/images/stellar/prod/231003184529-starbucks-sf-0428-restricted.jpg?c=16x9&q=h_720,w_1280,c_fill/f_webp" style="width: 100%;">
+                            <small> A customer exits a Starbucks coffee shop in San Francisco, California, U.S., on Thursday, April 28, 2022. (David Paul Morris/Bloomberg/Getty Images)</small>
+                            <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
+                            <p>When asked why the company decided to close these stores, a Starbucks spokesperson said it was part of a larger evaluation of their store portfolio.</p>
+                            <p>&ldquo;Each year as a standard course of business, we evaluate the store portfolio to determine where we can best meet our community and customers&rsquo; needs,&rdquo; the spokesperson said in a statement. &ldquo;This includes opening new locations, identifying stores in need of investment or renovation, exploring locations where an alternative format is needed and, in some instances, re-evaluating our footprint.&rdquo;</p>
+                            <p>Starbucks has also opened three new stores in downtown San Francisco in the last six months and is renovating four other locations, the spokesperson said.</p>
+                            <p>&ldquo;We remain dedicated to investing in the City in meaningful and important ways that meet our partners and customers where they are &ndash; in the best way we know how,&rdquo; wrote Jessica Borton, Starbucks&rsquo; regional vice president for Northern California, in an internal memo shared with CNN.</p>
+                            <p>The closures come as several well-known chains have left San Francisco in the last few years, including Whole Foods, CB2, Anthropologie and Nordstrom, CNN <a href="https://www.cnn.com/2023/08/28/business/nordstrom-san-francisco-closure/index.html" target="_blank" rel="noopener">previously reported</a>.</p>
+                            <p>Seven Starbucks locations across San Francisco will shut down effective October 22, the company told<strong> </strong>CNN on Tuesday.</p>
+                        </div>
+                    </div>
+    
+                    <!-- cnn sample 2 -->
+                    <div class="file-open sample-article" id="cnn-sample2-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="cnn-sample2-container-header">
+                            <small>cnn_sample2.txt</small>
+                            <small class="close-file-button" id="cnn-sample2-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="cnn-sample2-content">
+                            <a href="https://edition.cnn.com/2023/11/27/us/national-park-sequoia-planting-lawsuit-climate/index.html"><small>READ ON CNN</small></a>
+                            <h1>
+                                Why environmentalists are suing the National Park Service to prevent it from planting trees 
+                            </h1>
+                            <small>By JANNA VAN VRANKEN & JONATHAN PARK<br>November 27, 2023</small>
+                            <br><br>
+                            <img src="https://media.cnn.com/api/v1/images/stellar/prod/ap21345080527026.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp" style="width: 100%;">
+                            <small>  Assistant fire manager Leif Mathiesen looks for an opening in the burned-out sequoias from the Redwood Mountain Grove in the Kings Canyon National Park on November 2021. (Gary Kazanjian/AP/File)</small>
+                            <p>The National Park Service wants to replant sequoia groves in Sequoia and Kings Canyon National Parks, where wildfires in 2020 and 2021 inflicted lasting damage on the iconic sequoia forests. Environmentalists in California say it&rsquo;s a huge mistake.</p>
+                            <p>Four groups filed suit against the NPS on November 17, saying the agency&rsquo;s effort violates the law as it includes planting in designated wilderness areas, where human involvement in the ecosystem is explicitly prohibited.</p>
+                            <p>The NPS announced the seedling-planting project earlier this fall, saying it was &ldquo;concerned that natural regeneration may not be sufficient to support self-sustaining groves into the future, particularly as the fires killed an unprecedented number of reproductive sequoia trees in the groves themselves.&rdquo;</p>
+                            <p>Chad Hanson, the director of the John Muir Project, one of the groups that filed suit, disputes that conclusion. Sequoias are among the species of trees that actually &ldquo;depend on high-intensity fire in order to reproduce effectively,&rdquo; Hanson told CNN.</p>
+                            <p>&ldquo;Nature doesn&rsquo;t need our help,&rdquo; Hanson said. &ldquo;We are not supposed to be getting involved with tending it like a garden.&rdquo;</p>
+                            <p>Advocates at Wilderness Watch, Sequoia Forest Keeper and the Tule River Conservancy first sued the NPS in September to stop a separate project by the agency to cut and burn trees in the same designated wilderness areas. Coined the &ldquo;Fuels Reduction Project,&rdquo; that plan would authorize cutting a thousand acres of timber and make 20,000 additional acres subject to &ldquo;manager-ignited fires and associated activity,&rdquo; according to the complaint.</p>
+                            <p>The John Muir Project, a nonprofit focused on ensuring federal public forests are protected, joined the lawsuit on November 17, amending it to include the sequoia replanting project as part of the complaint. The groups now jointly accuse the NPS of illegally encroaching on federally protected land in both of the projects.</p>
+                            <p>A spokesperson for the NPS declined to comment, citing the agency&rsquo;s policy on ongoing litigation, but confirmed replanting had already begun in two sequoia groves in mid-October, before the latter complaint was filed. </p>
+                            <p>&ldquo;The Park Service has to abide by the 1964 Wilderness Act,&rdquo; said Kevin Proescholdt, conservation director at Wilderness Watch. Even if climate change aggravates natural phenomena such as wildfires, the Wilderness Act requires that &ldquo;we should still allow these natural ecosystems to respond as they want to the changes brought about by the changing climate,&rdquo; Proescholdt said.</p>
+                            <p>The groups also allege both projects were approved after having circumvented &ldquo;required processes of environmental review and public engagement,&rdquo; according to the lawsuit, by declaring them as &ldquo;emergency&rdquo; projects that would not have to meet those requirements.</p>
+                            <p>High-intensity wildfires have been a &ldquo;natural component&rdquo; of California&rsquo;s sequoia forests for &ldquo;tens of millions of years,&rdquo; Hanson said, and sequoias have evolved since then to adapt to, and even depend on, those fires.</p>
+                            <p>The cones on giant sequoia trees are serotinous, meaning they &ldquo;need fire that&rsquo;s intense enough to melt the resins in the cones, and cause the cones to release &hellip; millions and millions of seeds,&rdquo; Hanson said. High-intensity fires also clear the forest floor of organic material &mdash; turning it into mineral-rich soil where those seeds can take root &mdash; and kills most of the trees in the forest canopy, allowing in the necessary sunlight for saplings to properly grow.</p>
+                            <p>But several agencies, including the NPS and the National Forest Service, have operated on a &ldquo;Smokey the Bear mentality,&rdquo; treating natural fires as needing to be suppressed and prevented, without understanding their &ldquo;historic ecological roles,&rdquo; Proescholdt said.</p>
+                            <p>&ldquo;The more that agencies will allow natural fire to burn and perform its role, the better these wilderness forests will be,&rdquo; he said.</p>    
+                            <p>The NPS said in its project announcement it would only replant in areas that field surveys showed &ldquo;insufficient natural regeneration for forests to successfully re-establish &hellip; as they would have done naturally had they not experienced extensive severe fire effects during recent fires.&rdquo;</p>
+                            <p>Hanson believes, after analyzing three decades&rsquo; worth of geological data and satellite imagery of wildfires, that those planned interventions have an effect opposite of what&rsquo;s intended.</p>
+                            <p>&ldquo;What we found is that the forest with the fewest environmental protections and the most tree removal had the most intense fire, even in the same forest types,&rdquo; Hanson said.</p>
+                            <p>If the NPS is allowed to proceed with the projects, it would set a &ldquo;terrible, terrible precedent for wildernesses across the nation,&rdquo; Proescholdt said; but he strongly believes the court will side with the plaintiffs.</p>
+                            <p>&ldquo;We know what the [Wilderness] Act says, and we know how the courts have interpreted the Wilderness Act in the past,&rdquo; he said. &ldquo;And that&rsquo;s why I believe that we will prevail in this case as well.&rdquo;</p>
+                        </div>
+                    </div>
+    
+                    <!-- cnn sample 3 -->
+                    <div class="file-open sample-article" id="cnn-sample3-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="cnn-sample3-container-header">
+                            <small>cnn_sample3.txt</small>
+                            <small class="close-file-button" id="cnn-sample3-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="cnn-sample3-content">
+                            <a href="https://www.cnn.com/2023/11/09/us/shoah-foundation-records-october-7-testimonies/index.html"><small>READ ON CNN</small></a>
+                            <h1>
+                                October 7 was the deadliest day for Jews since the Holocaust. The Shoah Foundation is now documenting it  
+                            </h1>
+                            <small>By NICK WATT<br>November 27, 2023</small>
+                            <br>
+                            <small><em>CNN’s Stephanie Becker and Jonathan Park contributed to this story.</em></small>
+                            <br><br>
+                            <img src="https://media.cnn.com/api/v1/images/stellar/prod/231109163502-01-shoah-foundation-stories.jpg?c=16x9&q=w_800,c_fill" style="width: 100%;">
+                            <small>'The entire village is full of bodies:' Survivors of October 7 detail the horror (CNN)</small>
+                            <p>Los Angeles (CNN) &mdash;&nbsp;&ldquo;Every year at school in Israel we used to get a lecture from a Holocaust survivor,&rdquo; said Tomer Peretz. &ldquo;I was always getting bored listening to him like, &lsquo;OK, OK, we got it, OK. So, they killed you guys. Let&rsquo;s move on &hellip;</p>
+                            <p>&ldquo;&lsquo;It&rsquo;s one of those things that happened and will never happen again.&rsquo;&rdquo;</p>
+                            <p>But after<a href="https://www.cnn.com/2023/10/28/middleeast/israel-hamas-war-one-month-explainer-mime-intl/index.html" target="_blank"> Hamas fighters raided Israeli farms and villages</a>, killing and butchering more than 1,400 Israelis and taking more than 200 hostages on October 7, Peretz agreed to tape his own testimony so that others would not just move on.</p>
+                            <p>&ldquo;Everybody has to do it. It&rsquo;s a must. I don&rsquo;t see any other option. People need to know,&rdquo; he told CNN.</p>
+                            <p>He was giving his testimony to <a href="https://sfi.usc.edu/" target="_blank">the USC Shoah Foundation</a>, which for years has collected the accounts of survivors of the Holocaust and subsequent genocides in countries like Cambodia and Rwanda.</p>
+                            <p>Peretz, a Jerusalem-born artist who now lives in Los Angeles, was in Israel the first week of October for a family wedding. As the horror unfolded that Saturday morning, he knew that he had to help. He volunteered with Zaka, an organization that collects human remains after terror attacks so they can be buried according to Jewish tradition.</p>
+                            <p>Peretz was sent to collect the bodies<a href="https://www.cnn.com/2023/10/12/middleeast/kibbutz-beeri-israel-war-intl-cmd/index.html" target="_blank"> at Kibbutz Be&rsquo;eri</a>, where more than 120 lay dead.</p>
+                            <p>&ldquo;I was too coward to be on the side of the head. I didn&rsquo;t want to see faces,&rdquo; Peretz said of the gruesome process of bagging mutilated bodies and loading them into trucks. &ldquo;And then my time to touch the body came. It was the first time.&rdquo; He helped lift a woman&rsquo;s body, pulling her up by the arm so someone else could slip a body bag underneath. Of a victim, he said: &ldquo;She had no face &hellip; It looked like they, someone &hellip; didn&rsquo;t want to leave a face.&rdquo;</p>
+                            <p>Sifting through some of the more than 50,000 Holocaust testimonies at the foundation, it&rsquo;s easy to find eerie echoes, which Peretz once believed could never come again.</p>
+                            <p>&ldquo;I&rsquo;d never touched a dead body before. I mean, I&rsquo;d seen dead bodies,&rdquo; said Anita Lasker-Wallfisch in her testimony recorded back in 1998. She survived the Holocaust in part because she was a cellist &ndash; a rarity at Auschwitz &ndash; playing an irreplaceable part in a death camp orchestra. &ldquo;Somebody else came and we just put the body out. One body. Well, it didn&rsquo;t take long before that was multiplied by thousands.&rdquo;</p>
+                            <p>&ldquo;There were dead people covered by newspapers,&rdquo; Alicia Rand remembers of the Warsaw Ghetto. &ldquo;Once a day or so, there was someone coming with wheelbarrows and taking the bodies.&rdquo; Rand recorded her testimony in April of this year.</p>
+                            <p>&ldquo;And I see it now that this hatred still lives on,&rdquo; she told the Shoah Foundation. &ldquo;And then people did say that it never happened.&rdquo;</p>
+                            <p>Robert Williams, a historian who now serves as the Shoah Foundation&rsquo;s executive director, said they had an obligation to Rand and the other survivors to deal with the forms of antisemitism that continued after the Holocaust ended. &ldquo;For the better part of a year, we&rsquo;ve resolved that we need to begin taking testimony on contemporary antisemitism,&rdquo; he said. &ldquo;Then October 7 happened, and we had to ramp up our efforts very, very quickly.&rdquo;</p>
+                            <p>Within days, teams on the ground in Israel were taping testimonies. &ldquo;It is immediate and that comes with benefits, and it comes with risks,&rdquo; said Williams. &ldquo;The individual will be able to recount with greater clarity and greater detail what happened to them. The challenge though is the trauma is also very fresh in their mind.&rdquo;&nbsp;</p>
+                            <p>Amit Ades, a mother of three, remembered trying to keep her children quiet, distracting them with a Sponge Bob movie on an iPad during lulls in the violence as Hamas swept through her community. She described the &lsquo;smell of war&rsquo; seeping in through the windows of their kibbutz home. She was ready to fight. &ldquo;With the knife in my hand and the baby on the other hand trying to keep her not crying so no one will hear us,&rdquo; she said. &ldquo;And it went on &hellip; it felt like forever.&rdquo;</p>
+                            <p>Another survivor, Avi Shamriz, told the camera: &ldquo;My village was destroyed by the Hamas &hellip; There is no village to return to.&rdquo; His young adult son was kidnapped. The family has no idea where he is, or whether he&rsquo;s alive or dead. &ldquo;My son, he&rsquo;s an innocent boy,&rdquo; said Shamriz. &ldquo;He didn&rsquo;t harm them.&rdquo;</p>
+                            <p>&ldquo;We thought it will never happen again,&rdquo; said Maor Moravia. &ldquo;They did worse than Nazis. The Nazis had &hellip; a little human in them just to gas us.&rdquo; As they were led out of their kibbutz by the Israeli soldiers who eventually came to save them, Moravia told his children to look only at the ground in front of their feet, so they would not see the dead bodies of their neighbors and friends.</p>
+                            <p>Williams said of taking the testimonies now: &ldquo;It&rsquo;s about providing a platform for the voices of survivors to echo for future generations.&rdquo;</p>
+                            <p>Peretz spoke in his account about experiences he is, for now, unable to tell his children.</p>
+                            <p><strong>&ldquo;</strong>Lie to them. Don&rsquo;t tell them the truth &hellip; Just lie to them,&rdquo; Peretz recalled telling his father-in-law on October 7. That was the only time he cried in nearly two hours of testimony. In all of the videos CNN has seen, all survivors speak with a similar stoicism.</p>
+                            <p>&ldquo;I don&rsquo;t want to speculate on what happens in the minds of those who are providing testimony,&rdquo; said Williams. &ldquo;But I imagine that the immediacy of the events that they are facing today, the ongoing war, the fact that they are worried about children, friends, family who have been taken hostage, living with the reality that neighbors have been murdered may be so overwhelming that their best way of coping at the moment is to be a matter of fact.&rdquo;</p>
+                            <p>The Shoah Foundation will return to every subject further down the line, maybe years down the line, to find out how they feel with the benefits of healing and hindsight.</p>
+                            <p>But the foundation will not be taking testimony from Palestinian civilians, currently suffering as the Israeli Defense Forces seek to destroy Hamas in Gaza. &ldquo;The reason we&rsquo;re taking testimonies from October 7 is because it was an act of anti-Semitism that is squarely within our mission,&rdquo; explained Williams. &ldquo;That being said we are always happy to share our methodologies with organizations who are interested in taking testimony.&rdquo;</p>
+                            <p>Asked if there is any hope of resolving this now decades-old and seemingly intractable conflict between Israel and the Palestinians, Peretz takes a long pause before answering. &ldquo;I think so &hellip; But I think we gotta go so low, so low,&rdquo; he said. &ldquo;Both sides I guess needs to get a big slap before something will come out of it.&rdquo; This, he said, just might be that moment.</p>
+                        </div>
+                    </div>
+    
+    
+            <!-- DRAG -->
+            <script>
+            //Make the DIV element draggable:
+            
+            dragElement(document.getElementById("about-folder-contents"));
+            dragElement(document.getElementById("work-folder-contents"));
+            dragElement(document.getElementById("fun-folder-contents"));
+    
+            dragElement(document.getElementById("resume-container"));
+            dragElement(document.getElementById("about-container"));
+            dragElement(document.getElementById("socials-container"));
+            dragElement(document.getElementById("dt-folder-container"));
+            dragElement(document.getElementById("dt-sample1-container"));
+            dragElement(document.getElementById("dt-sample2-container"));
+            dragElement(document.getElementById("dt-sample3-container"));
+            dragElement(document.getElementById("cnn-folder-container"));
+            dragElement(document.getElementById("cnn-sample1-container"));
+    
+            
+            function dragElement(elmnt) {
+                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                if (document.getElementById(elmnt.id + "-header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "-header").onmousedown = dragMouseDown;
+                } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+                }
+            
+                function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+                }
+            
+                function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+            
+                function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+                }
+            }
+            </script>
+            
+            <!-- SELECT / OPEN / CLOSE FOLDER -->
+            <script>
+            function selectFolder(div) {
+            if (div.classList.contains('selected')) {
+                div.classList.remove('selected');
             } else {
-            /* otherwise, move the DIV from anywhere inside the DIV:*/
-            elmnt.onmousedown = dragMouseDown;
+                div.classList.add('selected');
             }
-        
-            function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // get the mouse cursor position at startup:
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup = closeDragElement;
-            // call a function whenever the cursor moves:
-            document.onmousemove = elementDrag;
             }
-        
-            function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // calculate the new cursor position:
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            // set the element's new position:
-            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    
+            function openFolder(id) {
+                document.getElementById(id).style.display = "block";
+    
+                redraw();
             }
-        
-            function closeDragElement() {
-            /* stop moving when mouse button is released:*/
-            document.onmouseup = null;
-            document.onmousemove = null;
+    
+            function closeFolder(small) {
+                small.parentNode.parentNode.style.display = "none";
             }
-        }
-        </script>
-        
-        <!-- SELECT / OPEN / CLOSE FOLDER -->
-        <script>
-        function selectFolder(div) {
-        if (div.classList.contains('selected')) {
-            div.classList.remove('selected');
-        } else {
-            div.classList.add('selected');
-        }
-        }
-
-        function openFolder(id) {
-            document.getElementById(id).style.display = "block";
-
-            redraw();
-        }
-
-        function closeFolder(small) {
-            small.parentNode.parentNode.style.display = "none";
-        }
-
-        function redraw() {
-            // Force refresh
-            document.body.style.display = "none";
-            document.body.offsetHeight;
-            document.body.style.display = "block";
-        }
-        </script>
-        
-        <!-- SELECT / OPEN / CLOSE FILE -->
-        <script>
-        function selectFile(div) {
-        if (div.classList.contains('selected-file')) {
-            div.classList.remove('selected-file');
-        } else {
-            div.classList.add('selected-file');
-        }
-        }
-
-        function openFile(id) {
-            document.getElementById(id).style.display = "block";
-        }
-
-        function closeFile(small) {
-            small.parentNode.parentNode.style.display = "none";
-        }
-        </script>
-
-        <!-- OPEN EXTERNAL URL -->
-        <script>
-        function openExternalUrl(url) {
-            window.open(url, '_blank');
-        }
-        </script>
+    
+            function redraw() {
+                // Force refresh
+                document.body.style.display = "none";
+                document.body.offsetHeight;
+                document.body.style.display = "block";
+            }
+            </script>
+            
+            <!-- SELECT / OPEN / CLOSE FILE -->
+            <script>
+            function selectFile(div) {
+            if (div.classList.contains('selected-file')) {
+                div.classList.remove('selected-file');
+            } else {
+                div.classList.add('selected-file');
+            }
+            }
+    
+            function openFile(id) {
+                document.getElementById(id).style.display = "block";
+            }
+    
+            function closeFile(small) {
+                small.parentNode.parentNode.style.display = "none";
+            }
+            </script>
+    
+            <!-- OPEN EXTERNAL URL -->
+            <script>
+            function openExternalUrl(url) {
+                window.open(url, '_blank');
+            }
+            </script>
+        </div>
 
     </body>
 </html>
