@@ -23,7 +23,6 @@
 
         <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
         <link rel="stylesheet" href="stylesheet.css">
-        <script src="https://kit.fontawesome.com/c1e1e973df.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="mobile-display-container">
@@ -48,7 +47,7 @@
                     <li>Currently reading: <i>Lenin's Tomb</i>, by David Remnick</li>
                 </ul>
 
-            <div id="resume-container">
+            <div id="resume-container-mobile">
                 <h2>RESUME</h2>
                 <hr>
                 <p><strong>Fall 2023 Newsgathering Intern, CNN Los Angeles</strong></p>
@@ -151,7 +150,6 @@
                                         <img src="uploads/pdf.png" alt="textfile">
                                     </div>
                                     <h6 class="filename">resume.pdf</h6>
-                                    
                                 </div> 
                             </td>
                             <!-- socials -->
@@ -195,18 +193,19 @@
                 </div>
     
                 <!-- RESUME.PDF -->
-                <div class="file-open" id="resume-container" style="display:none; left: 400px;">
+                <div class="file-open" id="resume-container">
                     <div class="file-open-header" id="resume-container-header">
                         <small>resume.pdf</small>
                         <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
                     </div>
                     <div class="file-open-content" id="resume-content">
-                        <embed src="uploads/files/jonathan-park-resume.pdf" type="application/pdf" width="100%" height="100%">
+                        <script src="/js/pdfobject.js"></script>
+                        <script>PDFObject.embed("/uploads/files/jonathan-park-resume.pdf", "#resume-content");</script>
                     </div>
                 </div>
     
                 <!-- SOCIALS.TXT -->
-                <div class="file-open" id="socials-container" style="display:none; left: 400px;">
+                <div class="file-open" id="socials-container">
                     <div class="file-open-header" id="socials-container-header">
                         <small>socials.txt</small>
                         <small class="close-file-button" id="socials-close-button" onclick="closeFile(this)">x</small>
