@@ -36,8 +36,6 @@
             <h2>ABOUT ME</h2>
             <hr>
                 <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
-                <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
-                <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
                 <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
                 <p>Other things about me:</p>
                 <ul>
@@ -94,7 +92,7 @@
         </div>
         <div id="desktop-display-container">
             <div id="credits">
-                <small>Video: <a href="https://www.pexels.com/@anthony-brown-41922/">Anthony Brown</a>. Cat animations: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a> & <a href="https://giphy.com/lemonadeinc">Lemonade</a>.</small>
+                <small>Photo by me. Cat animations: <a href="https://giphy.com/chloetheillustrator">Chloe the Illustrator</a> & <a href="https://giphy.com/lemonadeinc">Lemonade</a>.</small>
             </div>
             
             <div id="title">
@@ -179,8 +177,6 @@
                     <div class="file-open-content txt-content" id="about-content">
                         <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
                         <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
-                        <p><b>CURRENTLY</b>: Digital Managing Editor, Daily Trojan</p>
-                        <p><b>PREVIOUSLY:</b> Fall 2023 Newsgathering Intern, CNN Los Angeles</p>
                         <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
                         <p>Other things about me:</p>
                         <ul>
@@ -308,7 +304,7 @@
                                         <div class="file-img" id="dt-articles-file-img">
                                             <img src="uploads/textfile.png" alt="textfile">
                                         </div>
-                                        <h6 class="filename">dt_sample1.txt</h6>
+                                        <h6 class="filename">supreme_court.txt</h6>
                                     </div>
                                 </td>
                                 <!-- sample 2 -->
@@ -317,7 +313,7 @@
                                         <div class="file-img" id="dt-sample2-file-img">
                                             <img src="uploads/textfile.png" alt="textfile">
                                         </div>
-                                        <h6 class="filename">dt_sample2.txt</h6>
+                                        <h6 class="filename">experts.txt</h6>
                                     </div>
                                 </td>
                                 <td>
@@ -325,7 +321,33 @@
                                         <div class="file-img" id="dt-sample3-file-img">
                                             <img src="uploads/textfile.png" alt="textfile">
                                         </div>
-                                        <h6 class="filename">dt_sample3.txt</h6>
+                                        <h6 class="filename">column.txt</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="file-container" id="dt-sample4-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample4-container')">
+                                        <div class="file-img" id="dt-sample4-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">encampment.txt</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="file-container" id="dt-sample5-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample5-container')">
+                                        <div class="file-img" id="dt-sample4-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">valedictorian.txt</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="file-container" id="dt-sample6-file" onclick="selectFile(this)" ondblclick="openFile('dt-sample6-container')">
+                                        <div class="file-img" id="dt-sample4-file-img">
+                                            <img src="uploads/textfile.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">commencement.txt</h6>
                                     </div>
                                 </td>
                             </tr>
@@ -336,7 +358,7 @@
                     <!-- daily trojan sample 1 -->
                     <div class="file-open sample-article" id="dt-sample1-container" style="display:none; left: 400px;">
                         <div class="file-open-header" id="dt-sample1-container-header">
-                            <small>dt_sample1.txt</small>
+                            <small>supreme_court.txt</small>
                             <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
                         </div>
                         <div class="file-open-content txt-content" id="dt-sample1-content">
@@ -373,7 +395,7 @@
                     <!-- daily trojan sample 2 -->
                     <div class="file-open sample-article" id="dt-sample2-container" style="display:none; left: 400px;">
                         <div class="file-open-header" id="dt-sample2-container-header">
-                            <small>dt_sample2.txt</small>
+                            <small>experts.txt</small>
                             <small class="close-file-button" id="dt-sample2-close-button" onclick="closeFile(this)">x</small>
                         </div>
                         <div class="file-open-content txt-content" id="dt-sample1-content">
@@ -416,7 +438,7 @@
                     <!-- daily trojan sample 3 -->
                     <div class="file-open sample-article" id="dt-sample3-container" style="display:none; left: 400px;">
                         <div class="file-open-header" id="dt-sample3-container-header">
-                            <small>dt_sample2.txt</small>
+                            <small>column.txt</small>
                             <small class="close-file-button" id="dt-sample3-close-button" onclick="closeFile(this)">x</small>
                         </div>
                         <div class="file-open-content txt-content" id="about-content">
@@ -454,7 +476,167 @@
                             
                         </div>
                     </div>
-    
+
+                    <!-- daily trojan sample 4 -->
+                    <div class="file-open sample-article" id="dt-sample4-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="dt-sample3-container-header">
+                            <small>encampment.txt</small>
+                            <small class="close-file-button" id="dt-sample3-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="about-content">
+                            <br>
+                            <h1>
+                                Gaza encampment coverage
+                            </h1>
+                            <p>For over 200 hours, the <em>Daily Trojan</em> covered the "Gaza Solidarity Occupation" by USC students and community members at Alumni Park. Our staffers were live on the ground through 11 days of tents and peaceful activities, two police crackdowns, and renewed attention and support for student journalism.</p>
+
+                            <div class="flexbox">
+                                <div class="flexbox-item left">
+                                    <h6>READ ON THE DAILY TROJAN</h6>
+                                    <a target="_blank" href="https://dailytrojan.com/2024/04/25/the-initial-gaza-solidarity-occupation-at-usc-and-the-aftermath-as-it-happened/"><h4>The initial ‘Gaza Solidarity Occupation’ at USC, and the aftermath — as it happened</h4></a>
+                                    <h6><strong>Elizabeth Kunz</strong>, <strong>Jonathan Park</strong>, <strong>David Rendon</strong>, <strong>Christina Chkarboul</strong>, <strong>Nicholas Corral</strong> & <strong>Zachary Whalen</strong>; <strong>Talia Wexler</strong>, <strong>Eva Hartman</strong>, <strong>Nathan Elias</strong>, <strong>Jennifer Nehrer</strong>, and <strong>Sasha Ryu</strong> reporting; photos by <strong>Henry Kofman</strong>, <strong>Zongyi Wang</strong>, <strong>Marcus Heatherly</strong>, <strong>Jordan Renville</strong>, <strong>Sarah Ruiz</strong>, <strong>Maya Din</strong>, <strong>Marissa Ding</strong>, <strong>Joy Wang</strong>, <strong>Christina Chkarboul</strong> & <strong>Kate McQuarrie</strong></h6>
+                                </div>
+                                <div class="flexbox-item right">
+                                    <a target="_blank" href="https://dailytrojan.com/2024/04/25/the-initial-gaza-solidarity-occupation-at-usc-and-the-aftermath-as-it-happened/"><img style="width: 100%;" src="https://dailytrojan.com/wp-content/uploads/2024/04/2024_24_04_Occupation-Joy-Wang-67-scaled-1030x700.webp"></a>
+                                    <h6 style="text-align: right;">(Joy Wang / Daily Trojan)</h6>
+                                </div>
+                            </div>
+                            
+                            <div class="flexbox">
+                                <div class="flexbox-item left">
+                                    <h6>READ ON THE DAILY TROJAN</h6>
+                                    <a target="_blank" href="https://dailytrojan.com/2024/04/27/gaza-solidarity-occupation-at-usc-continues-after-police-shutdown-live-updates/"><h4>‘Gaza Solidarity Occupation’ at USC continues after police shutdown — as it happened</h4></a>
+                                    <h6><strong>Christina Chkarboul</strong>, <strong>Nicholas Corral</strong>, <strong>Sasha Ryu</strong>, <strong>Eva Hartman</strong>, <strong>Nathan Elias</strong>, <strong>Elizabeth Kunz</strong>, <strong>Jennifer Nehrer</strong>, <strong>Talia Wexler</strong>, <strong>Zachary Whalen</strong> & <strong>Jonathan Park</strong> reporting; photos by <strong>Zongyi Wang</strong>, <strong>Jordan Renville</strong>, <strong>Kate McQuarrie</strong> & <strong>Joy Wang</strong></h6>
+                                </div>
+                                <div class="flexbox-item right">
+                                    <a target="_blank" href="https://dailytrojan.com/2024/04/27/gaza-solidarity-occupation-at-usc-continues-after-police-shutdown-live-updates/"><img src="https://dailytrojan.com/wp-content/uploads/2024/04/Encampment-4-28-Jordan-Renville-3-scaled-2060x1400.webp" style="width: 100%"></a>
+                                    <h6 style="text-align: right;">(Jordan Renville / Daily Trojan)</h6>
+                                </div>
+                            </div>
+
+                            <div class="flexbox">
+                                <div class="flexbox-item left">
+                                    <h6>READ ON THE DAILY TROJAN</h6>
+                                    <a target="_blank" href="https://dailytrojan.com/2024/05/01/lapd-dps-clear-gaza-solidarity-occupation-at-usc-as-it-happened/"><h4>LAPD, DPS clear ‘Gaza Solidarity Occupation’ at USC — as it happened</h4></a>
+                                    <h6><strong>Christina Chkarboul</strong>, <strong>Nicholas Corral</strong>, <strong>Sasha Ryu</strong>, <strong>Eva Hartman</strong>, <strong>Nathan Elias</strong>, <strong>Elizabeth Kunz</strong>, <strong>Jennifer Nehrer</strong>, <strong>Talia Wexler</strong>, <strong>Zachary Whalen</strong> & <strong>Jonathan Park</strong> reporting; photos by <strong>Henry Kofman</strong>, <strong>Zongyi Wang</strong>, <strong>Jordan Renville</strong>, <strong>Kate McQuarrie</strong> & <strong>Joy Wang</strong></h6>
+                                </div>
+                                <div class="flexbox-item right">
+                                    <a target="_blank" href="https://dailytrojan.com/2024/05/01/lapd-dps-clear-gaza-solidarity-occupation-at-usc-as-it-happened/"><img src="https://dailytrojan.com/wp-content/uploads/2024/04/DSC_2252-scaled-2060x1400.webp" style="width: 100%;"></a>
+                                    <h6 style="text-align: right;">(Kate McQuarrie / Daily Trojan)</h6>
+                                </div>
+                            <br>
+                            
+
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- daily trojan sample 5 -->
+                    <div class="file-open sample-article" id="dt-sample5-container" style="display:none; left: 400px;">
+                        <div class="file-open-header" id="dt-sample5-container-header">
+                            <small>valedictorian.txt</small>
+                            <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="dt-sample5-content">
+                            <a href="https://dailytrojan.com/2024/04/17/aftershocks-ring-in-wake-of-usc-valedictorian-speech-decision/"><small>READ ON THE DAILY TROJAN</small></a>
+                            <h1>
+                                Aftershocks ring in wake of USC valedictorian speech decision
+                            </h1>
+                            <p>Several statements, local and national headlines, and tens of thousands of petition signatures later, a picture of general anger and frustration emerges.</p>
+                            <small>By JONATHAN PARK<br>April 17, 2024</small>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2024/04/asnaupdatecover.png" style="width: 100%;">
+                            <small>Graphic: Jonathan Park / Daily Trojan</small>
+                            <p>USC’s unprecedented decision Monday to cancel its Class of 2024 valedictorian’s speech is still reverberating two days after the fact. Asna Tabassum has made national headlines and appeared as a guest on CNN and CBS News. Statement after statement has criticized the decision in one way or another. A petition to reinstate Tabassum’s speech has garnered 38,000 signatures in 48 hours. And, after the University at first vaguely attributed the decision to USC leadership, a new statement clarified that President Carol Folt had the final say.</p>
+                            <br>
+                            <p><strong>A barrage of statements</strong></p>
+                            <p>The Undergraduate Student Government&rsquo;s executive cabinet wrote, in a statement released Tuesday, that it shared &ldquo;the sentiments of many of our fellow students who have felt disappointed by the University&rsquo;s decision,&rdquo; and that cabinet members &ldquo;have relayed [their] concerns&rdquo; to campus administration but have yet to receive a response.</p>
+                            <p>&ldquo;The reasoning as it stands is insufficient and ambiguous,&rdquo; the statement read.</p>
+                            <p>Trojans for Palestine, alongside 65 other student and local organizations, <a href="https://dailytrojan.com/2024/04/16/student-organizations-say-let-our-valedictorian-speak-at-commencement/" target="_blank">penned a letter to the editor published Tuesday</a>, demanding Tabassum&rsquo;s speech be reinstated and arguing that USC &ldquo;perpetuates and engages in Islamophobia and xenophobia by bowing to anonymous, violent harassment campaigns that aim to harm people&rsquo;s lives.&rdquo;</p>
+                            <p>&ldquo;We would like to make this very clear: When you are silencing her, you are silencing all of us,&rdquo; the letter read.</p>
+                            <p>A <a href="https://docs.google.com/document/d/1V2nSg5TUSptiGXCLD9ncyDtwfD0cFKVpwczztl74p2g/edit" target="_blank">different open letter</a>, with some overlap in the 44 organizations that signed it, pointed out that USC has &ldquo;a long history of hosting controversial speakers and famous leaders, indicating its confidence in its security protocol.&rdquo; But in Tabassum&rsquo;s case, USC forwent other alternatives &mdash; such as a pre-recorded speech or a written speech to be delivered by a faculty member &mdash; and instead made &ldquo;the choice to break a promise to Asna.&rdquo;&nbsp;</p>
+                            <p>Pro-Israel groups on campus which, from the beginning, were opposed to Tabassum&rsquo;s selection, were no less vexed by the decision. Chabad at USC posted an &ldquo;Open Letter to USC Administration&rdquo; on Tuesday from Rabbi Dov Wagner, who said that the University citing safety concerns &ldquo;conveys the idea that the university supports the hate speech,&rdquo; referring to the anti-Zionist content that the valedictorian engaged with on social media.&nbsp;</p>
+                            <p>&ldquo;I pray for wisdom and moral clarity on the part of our university&rsquo;s leadership,&rdquo; Wagner wrote. &ldquo;I look forward to the day when USC actually lives up to its commitments to create an environment that is inclusive and welcoming to all.&rdquo;</p>
+                            <p>Trojans for Israel, in its own statement Tuesday, dared the University to &ldquo;give her the platform to speak&rdquo; if it &ldquo;believes that the antisemitic vitriol promoted by the Valedictorian is representative of its values.&rdquo;</p>
+                            <p>USC Hillel expressed concern that the community is seeing &ldquo;a surge of antisemitism and hate expressed on campus, in the classroom, and online,&rdquo; and listed available resources for support.</p>
+                            <br>
+                            <p><strong>Jewish professor stands in lone protest</strong></p>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2024/04/DSC05929-scaled.webp" style="width: 100%;">
+                            <h6>“They can’t make imperious decisions based on their own concepts of fear,” said Brent Blair, a professor of theatre practice in voice and movement. “We are the students and faculty. Let us be the bearers of what we think is and is not a safety issue.” (Henry Kofman / Daily Trojan)</h6>
+                            <p>Wednesday morning, Brent Blair stood guard at Tommy Trojan, donning a kippah and tallit &mdash; a religious Jewish head covering and prayer shawl, respectively &mdash; and a white poster board bearing the words: &ldquo;JEWISH FACULTY IN SUPPORT OF ASNA TABASSUM / LET HER SPEAK!&rdquo;</p>
+                            <p>&ldquo;It felt like my Jewish identity was somehow being presented as people against her,&rdquo; said Blair, a professor of theatre practice in voice and movement. &ldquo;I wanted her to know that there were Jews in support of her, who really felt like she should speak.&rdquo;</p>
+                            <p>Blair, who had been standing for 30 minutes before being interviewed, said he hoped his demonstration would help others &ldquo;have a different idea of Jewish faculty, at least,&rdquo; and that &ldquo;faculty will stand together in solidarity and show this administration that we are bigger than them.&rdquo;</p>
+                            <p>&ldquo;They can&rsquo;t make imperious decisions based on their own concepts of fear,&rdquo; Blair said. &ldquo;We are the students and faculty. Let us be the bearers of what we think is and is not a safety issue.&rdquo;</p>
+                            <br>
+                            <p><strong>USC doubles down on “safety concerns” justification</strong></p>
+                            <p>In an interview with student media Tuesday afternoon, Associate Senior Vice President of Safety and Risk Assurance Erroll Southers differentiated the current case with other high-profile appearances, explicitly citing Barack Obama, Will Ferrell and the King of Jordan. Unlike them, Southers said, there was an &ldquo;unprecedented number of people expressing grievances,&rdquo; including some who threatened that &ldquo;they were going to come to campus&rdquo; should Tabassum deliver a speech.</p>
+                            <p>Southers also sought to differentiate Tabassum with other controversial figures who were invited to speak on campus, such as <a href="https://dailytrojan.com/2024/04/16/the-choice-between-safety-and-free-speech-is-a-false-one/" target="_blank">Ben Shapiro</a> in 2018 &mdash; before Southers&rsquo; time &mdash; and <a href="https://dailytrojan.com/2023/09/30/armenian-students-and-supporters-protest-annenberg-event-featuring-turkish-ambassador/" target="_blank">the Turkish ambassador to the United States</a> last September. Both faced student protests and increased security presence.</p>
+                            <p>&ldquo;We look at the same risk formula for everything we do here, every single day, for almost every event,&rdquo; Southers said. &ldquo;All of them present different pictures, and all of them are very dynamic.&rdquo;</p>
+                            <p>Southers also disputed Tabassum&rsquo;s account of their meeting on Sunday, in which the valedictorian quotes Southers as saying they were choosing not to implement increased security protections as that was &ldquo;not what the University wants to &lsquo;present as an image.&rsquo;&rdquo;</p>
+                            <p>&ldquo;We did not talk about image,&rdquo; he said. &ldquo;We only talked about safety.&rdquo;</p>
+                            <p>Senior Vice President of Communications Joel Curran wrote in a statement to the <em>Daily Trojan</em> on Wednesday that &ldquo;whenever there is a question of safety and security of the campus, the president always makes the final decision.&rdquo; </p>
+                            <p>When asked if the administration had considered alternatives that still would allow Tabassum to speak before deciding on a complete cancellation, a University spokesperson pointed to Guzman&rsquo;s initial announcement and declined to comment further. The same spokesperson also said the University had no further information when asked whether Tabassum would be present at the commencement ceremony and if that would not present the same sort of safety concerns cited in their decision to bar her from speaking.</p>
+
+                            <br>
+                            <p><strong>Tens of thousands sign petition</strong></p>
+                            <p>A petition to reinstate Tabassum&rsquo;s valedictorian speech has garnered more than 38,000 signatures, the Greater Los Angeles Area office of the Council on American-Islamic Relations announced in a press release Wednesday afternoon.</p>
+                            <p>&ldquo;The overwhelming response in support of Asna is truly inspiring,&rdquo; said CAIR-LA Executive Director Hussam Ayloush in a statement. &ldquo;Asna&rsquo;s strength and courage are admirable, and we fully support her as she continues to speak out against injustice and stands up for human rights for all.&rdquo;</p>
+                            <p>The University had no comment regarding the petition.</p>
+                            <p><em>Quinten Seghers contributed to this report.</em></p>
+                        </div>
+                    </div>
+
+                    <!-- daily trojan sample 6 -->
+                    <div class="file-open sample-article" id="dt-sample6-container" style="display:none; left: 500px;">
+                        <div class="file-open-header" id="dt-sample6-container-header">
+                            <small>commencement.txt</small>
+                            <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
+                        </div>
+                        <div class="file-open-content txt-content" id="dt-sample6-content">
+                            <a href="https://dailytrojan.com/2024/04/21/pandemic-graduates-face-yet-another-redesigned-commencement/"><small>READ ON THE DAILY TROJAN</small></a>
+                            <h1>
+                                Pandemic graduates face yet another ‘redesigned’ commencement
+                            </h1>
+                            <p>Some seniors say USC has taken away their final chance at a full graduation ceremony.</p>
+                            <small>By JONATHAN PARK<br>April 21, 2024</small>
+                            <br><br>
+                            <img src="https://dailytrojan.com/wp-content/uploads/2024/04/Matthew_Karatsu-jpeg.webp" style="width: 100%;">
+                            <h6>Some members of the graduating Class of 2024 expressed their disappointment in the University for canceling speeches from outside speakers and Valedectorian Asna Tabassum at this year’s commencement ceremony. (Matthew Karatsu)</h6>
+                            <p>The year 2020 was marked, for many, by pain and trauma. The coronavirus pandemic engulfed the world. Lockdowns and subsequent remote learning brought drastic changes, the effects of which still reverberate years later. When it came time to graduate, many high school seniors were forced to walk not the stage of an auditorium, but often their own living rooms as their names were called. Others had no graduation ceremony at all.</p>
+                            <p>Four years removed from the chaos, those same graduates are now seniors at USC &mdash; readying their caps and gowns, adorning their sashes and climbing Traveler for their photoshoots. But the commencement they were looking forward to as a final celebration of their academic achievements is itself facing a &ldquo;redesign&rdquo;: The University announced Friday it would be <a href="https://dailytrojan.com/2024/04/19/usc-release-outside-speakers-honorees-commencement/" target="_blank">&ldquo;releasing&rdquo; all outside speakers and honorees from the main stage ceremony</a> after four days of backlash for their decision to <a href="https://dailytrojan.com/2024/04/15/valedictorian-will-not-speak-at-class-of-2024-commencement/" target="_blank">cut Asna Tabassum&rsquo;s valedictory address</a>.</p>
+                            <p>The <em>Daily Trojan</em> spoke to some graduating seniors who voiced their confusion and disappointment about the decision.</p>
+
+                            <br>
+                            <p><strong>&ldquo;We will not forgive you&rdquo;</strong></p>
+                            <p>For Salma Durra, a senior majoring in biochemistry who is Palestinian and Jordanian, the naming of this year&rsquo;s valedictorian was a special moment &mdash; before USC decided to &ldquo;silence her as a result of standing up for human rights and doing the right thing,&rdquo; Durra said. The University had faced complaints and threats after Tabassum was found to have engaged with anti-Zionist content on social media.</p>
+                            <p>&ldquo;When she got nominated &hellip; it was honestly the first time that I really felt seen by the University,&rdquo; Durra said. &ldquo;When they took that away, it essentially showed me what their attitude is to women like me.&rdquo;</p>
+                            <p>Now with all outside commencement speakers released from the main ceremony alongside Tabassum, Durra said she was &ldquo;baffled.&rdquo;</p>
+                            <p>&ldquo;It&rsquo;s bad enough already that the Class of 2020 didn&rsquo;t have a graduation because of COVID,&rdquo; she said. &ldquo;Now, our next graduation has been screwed by the University.&rdquo;</p>
+                            <p>Durra spoke directly to President Carol Folt and Provost Andrew Guzman, who <a href="https://dailytrojan.com/2024/04/17/aftershocks-ring-in-wake-of-usc-valedictorian-speech-decision/" target="_blank">made</a> and announced, respectively, the initial decision regarding Tabassum&rsquo;s speech.</p>
+                            <p>&ldquo;Your Middle Eastern, South Asian and Muslim students see you,&rdquo; Durra said. &ldquo;They see what you've done, and we will not forgive you.&rdquo;</p>
+
+                            <br>
+                            <p><strong>&ldquo;We don&rsquo;t really care to hear anybody else speak&rdquo;</strong></p>
+                            <p>Maideh Orangi, a co-executive director of the Middle Eastern and North African Student Assembly, had also wanted to see Tabassum speak, as someone who &mdash; like the valedictorian &mdash; is Muslim, wears a hijab and is pro-Palestine. But canceling Tabassum&rsquo;s address, and then all outside commencement speakers, made the ceremony &ldquo;hollowed out and &hellip; pretty meaningless,&rdquo; she said.</p>
+                            <p>&ldquo;We don&rsquo;t care to hear anything they have to say,&rdquo; said Orangi, a senior majoring in philosophy, politics and law, referring to the administrators who would likely still speak at the ceremony. &ldquo;Not only have they silenced all ways in which we wanted to be celebrated and recognized, but they also have no &hellip; valuable information or insights that I care to hear on one of the most celebratory days of my life.&rdquo;</p>
+
+                            <br>
+                            <p><strong>A lost opportunity for Asian American representation</strong></p>
+                            <p>Among the speeches canceled in Friday&rsquo;s announcement was that of <a href="https://dailytrojan.com/2024/03/07/usc-announces-wicked-commencement-speaker/" target="_blank">commencement speaker Jon M. Chu</a>, a USC alum and filmmaker who, among a plethora of other works, directed the Hollywood blockbuster &ldquo;Crazy Rich Asians&rdquo; (2018). Rocco Wu, a senior majoring in interactive media and games, said he had been looking forward to hearing from someone &ldquo;who&rsquo;s not only a big leader&rdquo; in the Asian American community, but &ldquo;also a Trojan.&rdquo;</p>
+                            <p>&ldquo;I&rsquo;m sure his message, and what he wants to do that day, is to inspire people,&rdquo; Wu said. &ldquo;He wants us to come together, and he wants to inspire us, so that the next day, we might have a north star &hellip; Taking away people from a platform that people and students like me are eager to hear from &mdash; it&rsquo;s like taking away a representation.&rdquo;</p>
+
+                            <br>
+                            <p><strong>For first-generation students, frustration is even greater</strong></p>
+                            <p>For some graduating seniors, the upcoming commencement will be the first their families would attend. This year, especially, one senior majoring in global health &mdash; like other first-generation college students &mdash; expected to finally bring their loved ones to a proper graduation after the circumstances of the coronavirus pandemic forced them to partake in a &ldquo;drive-through&rdquo; high school graduation ceremony.</p>
+                            <p>Then came the news that there would be no outside speakers.&nbsp;</p>
+                            <p>When the senior, who requested anonymity for fear of their safety, read the University&rsquo;s statement that it was &ldquo;redesigning the commencement program,&rdquo; it prompted flashbacks to the height of the coronavirus pandemic.</p>
+                            <p>&ldquo;We've already had almost two or three years of redesigning everything,&rdquo; the senior said. &ldquo;I came into USC experiencing <a href="https://dailytrojan.com/2022/03/31/trojan-check-no-longer-required-starting-monday/" target="_blank">Trojan Check</a>, literally all that, and then to have to finish college with a similar note &mdash; it's just frustrating.&rdquo;</p>
+                            <p>The frustration was only greater, the senior said, when added with the financial and logistical difficulties of studying at a private institution as a first-generation student. But they still planned to attend the main ceremony, given its importance to her and her family, and with the hope that the University would &ldquo;rectify the situation.&rdquo;</p>
+                            <p>&ldquo;Please listen to your students,&rdquo; the senior said, when asked if they had a message for administration. &ldquo;Give us the most traditional graduation experience, and even go above and beyond for us, because we have literally lost so much &hellip; [In] speeches last year, all I heard was, &lsquo;Oh, COVID, COVID, COVID,&rsquo; and students being resilient; so why don't you recognize that resilience by showing us that you care?&rdquo;</p>
+                        </div>
+                    </div>
+
     
                 <!-- cnn sub-folder -->
                 <div class="folder-contents-draggable" id="cnn-folder-container" style="display: none; left: 250px; top: 90px;">
@@ -608,20 +790,16 @@
             <!-- DRAG -->
             <script>
             //Make the DIV element draggable:
-            
-            dragElement(document.getElementById("about-folder-contents"));
-            dragElement(document.getElementById("work-folder-contents"));
-            dragElement(document.getElementById("fun-folder-contents"));
-    
-            dragElement(document.getElementById("resume-container"));
-            dragElement(document.getElementById("about-container"));
-            dragElement(document.getElementById("socials-container"));
-            dragElement(document.getElementById("dt-folder-container"));
-            dragElement(document.getElementById("dt-sample1-container"));
-            dragElement(document.getElementById("dt-sample2-container"));
-            dragElement(document.getElementById("dt-sample3-container"));
-            dragElement(document.getElementById("cnn-folder-container"));
-            dragElement(document.getElementById("cnn-sample1-container"));
+            var sample_articles = document.getElementsByClassName("sample-article");
+            var folder_contents = document.getElementsByClassName("folder-contents-draggable");
+
+            for (var i = 0; i < sample_articles.length; i++) {
+                dragElement(sample_articles[i]);
+            }
+
+            for (var i = 0; i < folder_contents.length; i++) {
+                dragElement(folder_contents[i]);
+            }
     
             
             function dragElement(elmnt) {

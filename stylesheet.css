@@ -6,8 +6,8 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url('uploads/production.gif');
-    background-position: center absolute;
+    background-image: url('uploads/DSC_3129.jpg');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -65,6 +65,7 @@ h6.foldername, h6.filename {
     margin: 4px 0 0 0;
     padding: 0;
     text-align: center;
+    white-space: wrap;
 }
 
 h6.filename {
@@ -206,8 +207,19 @@ h6.foldername {
     line-height: 1;
 }
 
-h2 {
+h1,h2,h3,h4,h5,h6,p {
     font-family: 'SF Pro Display';
+    color: #fff;
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
     font-weight: 700;
     font-size: 30px;
     color: #fff !important;
@@ -239,6 +251,21 @@ h2 {
     display: none;
 }
 
+.flexbox {
+    display: flex;
+    border-top: 1px solid #fff;
+    padding: 20px 0;
+}
+
+.flexbox-item.left {
+    flex: 40%;
+    padding-right: 10%;
+}
+
+.flexbox-item.right {
+    flex: 50%;
+}
+
 @media screen and (max-width: 989px) {
     #mobile-display-container {
         display: block;
@@ -257,3 +284,4 @@ h2 {
         display: none;
     }
 }
+
