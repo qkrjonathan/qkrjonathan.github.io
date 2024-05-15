@@ -29,7 +29,7 @@
             <div id="title">
                 <h1>jonathan park</h1> 
                 <small>This website is better experienced on desktop &hellip; for now</small>
-                <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a> | <a href="https://www.instagram.com/qkrdjwls_">Instagram</a></p>
+                <p><a href="https://www.linkedin.com/in/jon25/">LinkedIn</a> | <a href="https://www.instagram.com/qkr_jonathan">Instagram</a></p>
             </div>
             <br>
             <img src="uploads/headshot.jpg" style="width: 100%; height: auto; margin-bottom: 20px;">
@@ -242,6 +242,15 @@
                                     <h6 class="foldername">cnn</h6>
                                 </div>
                             </td>
+                            <!-- media -->
+                            <td>
+                                <div class="folder" id="media-folder" onclick="selectFolder(this)" ondblclick="openFolder('media-folder-container')">
+                                    <div class="folder-img" id="cnn-folder-img">
+                                        <img src="uploads/folder.png" alt="textfile">
+                                    </div>
+                                    <h6 class="foldername">media</h6>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                     <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
@@ -352,6 +361,70 @@
                                 </td>
                             </tr>
                         </table>
+                    </div>
+                </div>
+                
+                <!-- media sub-folder -->
+                <div class="folder-contents-draggable" id="media-folder-container" style="display: none; left: 200px; top: 50px;">
+                    <div class="folder-contents-header" id="media-folder-container-header">
+                        <small>media</small>
+                        <small class="close-folder-button" id="media-folder-container-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+                    <div class="folder-contents-files" id="media-folder-container-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <!-- bbc interview -->
+                                <td>
+                                    <div class="file-container" id="bbc-interview-file" onclick="selectFile(this)" ondblclick="openFile('bbc-interview-container')">
+                                        <div class="file-img" id="bbc-interview-file-img">
+                                            <img src="uploads/bbc-thumb.jpg" alt="videofile">
+                                        </div>
+                                        <h6 class="filename">bbc_interview.mp4</h6>
+                                    </div>
+                                </td>
+                                <!-- knx in depth special -->
+                                <td>
+                                    <div class="file-container" id="knx-interview-file" onclick="selectFile(this)" ondblclick="openFile('knx-interview-container')">
+                                        <div class="file-img" id="knx-interview-file-img">
+                                            <img src="uploads/knx-thumb.jpg" alt="videofile">
+                                        </div>
+                                        <h6 class="filename">knx_interview.mp3</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- bbc interview -->
+                <div class="file-open video-container" id="bbc-interview-container" style="display: none; left: 400px;">
+                    <div class="file-open-header" id="bbc-interview-container-header">
+                        <small>bbc_interview.mp4</small>
+                        <small class="close-file-button" id="bbc-interview-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="bbc-interview-content">
+                        <h1>Anti-war protests continue on US campuses</h1>
+                        <h6>April 27, 2024</h6>
+                        <p>Live TV interview with BBC News anchor Helena Humphrey.</p>
+                        <video width="100%" controls>
+                            <source src="uploads/bbc_interview.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- knx interview -->
+                <div class="file-open video-container" id="knx-interview-container" style="display: none; left: 400px;">
+                    <div class="file-open-header" id="knx-interview-container-header">
+                        <small>knx_interview.mp3</small>
+                        <small class="close-file-button" id="knx-interview-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content txt-content" id="knx-interview-content">
+                        <a href="https://omny.fm/shows/knx-in-depth/campus-fury-a-knx-in-depth-special"><h6>LISTEN ON KNX NEWS</h6></a>
+                        <h1>Campus Fury: A KNX In Depth Special</h1>
+                        <h6>May 2, 2024</h6>
+                        <p>After hundreds were arrested at pro-Palestine demonstrations at USC and UCLA, students from both schools sat down with KNX News Chief Correspondent Charles Feldman to give their perspectives on the events.</p>
+                        <iframe src="https://omny.fm/shows/knx-in-depth/campus-fury-a-knx-in-depth-special/embed?source=OmnyFm&size=Square&style=Cover" style="width: 100%; height: 50vh;"></iframe>
                     </div>
                 </div>
     
@@ -792,6 +865,7 @@
             //Make the DIV element draggable:
             var sample_articles = document.getElementsByClassName("sample-article");
             var folder_contents = document.getElementsByClassName("folder-contents-draggable");
+            var video_containers = document.getElementsByClassName("video-container");
 
             for (var i = 0; i < sample_articles.length; i++) {
                 dragElement(sample_articles[i]);
@@ -799,6 +873,10 @@
 
             for (var i = 0; i < folder_contents.length; i++) {
                 dragElement(folder_contents[i]);
+            }
+
+            for (var i = 0; i < video_containers.length; i++) {
+                dragElement(video_containers[i]);
             }
     
             
