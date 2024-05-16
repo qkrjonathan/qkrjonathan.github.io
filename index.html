@@ -175,8 +175,15 @@
                         <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
                     </div>
                     <div class="file-open-content txt-content" id="about-content">
-                        <img src="uploads/headshot.jpg" style="width: 80px; height: auto; margin-bottom: 20px;">
-                        <p>Hi! My name is Jonathan Park; I'm a third-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
+                        <div style="display: flex;">
+                            <div style="flex: 50%;">
+                                <img src="uploads/DSC_1473.JPG" style="width: 100%; height: auto;">
+                            </div>
+                            <div style="flex: 50%;">
+                                <img src="uploads/DSC_2020.JPG" style="width: 100%; height: auto;">
+                            </div>
+                        </div>
+                        <p>Hi! My name is Jonathan Park; I'm an incoming fourth-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
                         <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
                         <p>Other things about me:</p>
                         <ul>
@@ -251,19 +258,17 @@
                                     <h6 class="foldername">media</h6>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
                             <td>
-                                <div class="file-container" id="socials-graphics-file" onclick="selectFile(this)" ondblclick="openExternalUrl('socials-graphics.html')">
+                                <div class="folder" style="position: fixed;" id="socials-graphics-file" onclick="selectFile(this)" ondblclick="openExternalUrl('socials-graphics.html')">
                                     <div class="file-img" id="socials-graphics-file-img">
-                                        <img src="uploads/external-web.png" alt="external webpage">
-                                        <div class="external-url-icon">
-                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                        </div>
+                                        <img src="uploads/external-web.png" style="height: 50px;" alt="external webpage">
                                     </div>
-                                    <h6 class="filename">socials/graphics</h6>
+                                    <h6 class="filename">socials</h6>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
+                            
                         </tr>
                     </table>
                     <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
