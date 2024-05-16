@@ -275,10 +275,10 @@ h2 {
 }
 
 @media screen and (max-width: 989px) {
-    #credits, #title { text-align: center !important; }
-    #title { margin-top: 100px; }
-    #all-display-container { background-position: 70%; }
-    #folders { display: block; width: 20%; margin: 0 auto; }
+    #title { text-align: center !important; margin-top: 100px; }
+    #credits { left: 0; & p { text-align: center !important; } }
+    #all-display-container { background-position: 70%; width: 100%; }
+    #folders { display: block; width: 80px; margin: 0 auto; padding-right: 20px; }
     #about-folder { top: 200px; }
     #work-folder { top: 350px; }
     #fun-folder { top: 500px; }
