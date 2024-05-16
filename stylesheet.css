@@ -1,4 +1,4 @@
-#desktop-display-container {
+#all-display-container {
     content: ' ';
     display: block;
     position: absolute;
@@ -266,22 +266,53 @@ h2 {
     flex: 50%;
 }
 
-@media screen and (max-width: 989px) {
-    #mobile-display-container {
-        display: block;
-        padding: 30px;
-        max-width: 500px;
-    }
-
-    #mobile-display-container { color: white; }
-
-    #title { margin: 0; }
-
-    body { background-color: #000; background-image: none; overflow: scroll; width: 90%;
-    }
-
-    #desktop-display-container {
-        display: none;
-    }
+#work-folder-contents {
+    display:none; left: 250px; top: 200px;
 }
 
+#fun-folder-contents {
+    display:none; left: 400px; top: 100px;
+}
+
+@media screen and (max-width: 989px) {
+    #credits, #title { text-align: center !important; }
+    #title { margin-top: 100px; }
+    #all-display-container { background-position: 70%; }
+    #folders { display: block; width: 20%; margin: 0 auto; }
+    #about-folder { top: 200px; }
+    #work-folder { top: 350px; }
+    #fun-folder { top: 500px; }
+
+    .folder-contents-table {
+        width: 100%; 
+        & td {
+            display: block;
+            width: 100% !important;
+            margin: 20px 0;
+        }
+        & .file-container {
+            width: 80px; margin: 0 auto;
+        }
+
+        & .folder {
+            position: relative !important;
+            width: 80px;
+            margin: 0 auto;
+        }
+        & #socials-graphics-file {
+            width: 90px;
+        }
+
+    }
+
+    .folder-contents-files, .txt-content {
+        height: 400px;
+        overflow: scroll;
+    }
+
+    .folder-contents-draggable, .file-open {
+        width: 90%;
+        left: 5% !important;
+        top: 25% !important;
+    }
+}
