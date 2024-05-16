@@ -309,6 +309,10 @@ h2 {
         height: 400px;
         overflow: scroll;
     }
+    
+    .sample-article h1 {
+        font-size: 24px;
+    }
 
     .folder-contents-draggable, .file-open {
         width: 90%;
