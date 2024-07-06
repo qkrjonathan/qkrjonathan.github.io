@@ -253,7 +253,6 @@ h2 {
 
 .flexbox {
     display: flex;
-    border-top: 1px solid #fff;
     padding: 20px 0;
 }
 
