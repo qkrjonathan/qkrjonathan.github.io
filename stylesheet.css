@@ -1,12 +1,12 @@
 #all-display-container {
-    content: ' ';
+    content: " ";
     display: block;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url('uploads/production.gif');
+    background-image: url("uploads/production.gif");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,30 +14,34 @@
     overflow: hidden;
 }
 
-p, li {
-    font-family: 'SF Pro Display';
+p,
+li {
+    font-family: "SF Pro Display";
     font-size: 16px;
     color: #fff;
     padding: 0;
 }
 
-a:link, a:visited, a:active { color: #fff; }
+a:link,
+a:visited,
+a:active {
+    color: #fff;
+}
 
 small {
-    font-family: 'SF Pro Display';
+    font-family: "SF Pro Display";
     font-size: 12px;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-
 #title {
     margin: 20px;
 }
 
 #title h1 {
-    font-family: 'SF Pro Display';
+    font-family: "SF Pro Display";
     font-weight: 700;
     font-size: 40px;
     color: #fff;
@@ -53,12 +57,22 @@ small {
     position: fixed;
 }
 
-#about-folder { top: 100px; }
-#work-folder { top: 200px; }
-#fun-folder { top: 300px; }
+#about-folder {
+    top: 100px;
+}
+#work-folder {
+    top: 200px;
+}
+#fun-folder {
+    top: 300px;
+}
+#blog-folder {
+    top: 400px;
+}
 
-h6.foldername, h6.filename {
-    font-family: 'SF Pro Display';
+h6.foldername,
+h6.filename {
+    font-family: "SF Pro Display";
     font-size: 12px;
     font-weight: normal;
     color: #fff;
@@ -82,11 +96,11 @@ h6.foldername {
     padding: 2px;
 }
 
-.folder.selected, .folder.selected-dblclick {
+.folder.selected,
+.folder.selected-dblclick {
     border: 1px solid #999;
     background: #aaaaaaee;
-  
-  }
+}
 
 .folder-contents-draggable {
     position: absolute;
@@ -130,7 +144,6 @@ h6.foldername {
     width: 80px;
     height: 80px;
     padding: 5px 5px;
-
 }
 
 .file-img img {
@@ -194,11 +207,14 @@ h6.foldername {
     z-index: 0;
 }
 
-#credits small { color: white; font-size: 9px; }
+#credits small {
+    color: white;
+    font-size: 9px;
+}
 
 /* sample article styles */
 .sample-article h1 {
-    font-family: 'SF Pro Display';
+    font-family: "SF Pro Display";
     font-weight: 700;
     font-size: 40px;
     color: #fff !important;
@@ -207,8 +223,14 @@ h6.foldername {
     line-height: 1;
 }
 
-h1,h2,h3,h4,h5,h6,p {
-    font-family: 'SF Pro Display';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: "SF Pro Display";
     color: #fff;
 }
 
@@ -232,7 +254,9 @@ h2 {
     color: #fff;
 }
 
-.file-img { position: relative; }
+.file-img {
+    position: relative;
+}
 
 .file-img .external-url-icon {
     position: absolute;
@@ -266,31 +290,62 @@ h2 {
 }
 
 #work-folder-contents {
-    display:none; left: 250px; top: 200px;
+    display: none;
+    left: 250px;
+    top: 200px;
 }
 
 #fun-folder-contents {
-    display:none; left: 400px; top: 100px;
+    display: none;
+    left: 400px;
+    top: 100px;
 }
 
 @media screen and (max-width: 989px) {
-    #title { text-align: center !important; margin-top: 100px; }
-    #credits { left: 0; & p { text-align: center !important; } }
-    #all-display-container { background-position: 70%; width: 100%; }
-    #folders { display: block; width: 80px; margin: 0 auto; padding-right: 20px; }
-    #about-folder { top: 200px; }
-    #work-folder { top: 350px; }
-    #fun-folder { top: 500px; }
+    #title {
+        text-align: center !important;
+        margin-top: 100px;
+    }
+    #credits {
+        left: 0;
+        & p {
+            text-align: center !important;
+        }
+    }
+    #all-display-container {
+        background-position: 70%;
+        width: 100%;
+    }
+    #folders {
+        display: block;
+        width: 80px;
+        margin: 0 auto;
+        padding-right: 20px;
+    }
+    #about-folder {
+        top: 200px;
+    }
+    #work-folder {
+        top: 325px;
+    }
+    #fun-folder {
+        top: 450px;
+    }
+
+    #blog-folder {
+        top: 575px;
+    }
 
     .folder-contents-table {
-        width: 100%; 
+        width: 100%;
         & td {
             display: block;
             width: 100% !important;
             margin: 20px 0;
         }
         & .file-container {
-            width: 80px; margin: 0 auto;
+            width: 80px;
+            margin: 0 auto;
         }
 
         & .folder {
@@ -301,19 +356,20 @@ h2 {
         & #socials-graphics-file {
             width: 90px;
         }
-
     }
 
-    .folder-contents-files, .txt-content {
+    .folder-contents-files,
+    .txt-content {
         height: 400px;
         overflow: scroll;
     }
-    
+
     .sample-article h1 {
         font-size: 24px;
     }
 
-    .folder-contents-draggable, .file-open {
+    .folder-contents-draggable,
+    .file-open {
         width: 90%;
         left: 5% !important;
         top: 25% !important;
