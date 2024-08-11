@@ -126,8 +126,20 @@
 
             <!-- ABOUT FOLDER: CONTENTS-->
 
+                <!-- RESUME.PDF -->
+                <div class="folder-contents-draggable" id="resume-container" style="display: none; left: 400px; top: 50px;">
+                    <div class="file-open-header" id="resume-container-header">
+                        <small>resume.pdf</small>
+                        <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
+                    </div>
+                    <div class="file-open-content" id="resume-content">
+                        <script src="/js/pdfobject.js"></script>
+                        <script>PDFObject.embed("/uploads/files/jonathan-park-resume.pdf", "#resume-content");</script>
+                    </div>
+                </div>
+
                 <!-- ABOUT.TXT -->
-                <div class="file-open" id="about-container" style="display:none; left: 400px;">
+                <div class="folder-contents-draggable" id="about-container" style="display:none; left: 400px;">
                     <div class="file-open-header" id="about-container-header">
                         <small>about.txt</small>
                         <small class="close-file-button" id="about-close-button" onclick="closeFile(this)">x</small>
@@ -141,34 +153,169 @@
                                 <img src="uploads/DSC_2020.JPG" style="width: 100%; height: auto;">
                             </div>
                         </div>
-                        <p>Hi! My name is Jonathan Park; I'm an incoming fourth-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m also interested in a career in journalism.</p>
+                        <p>Hi! My name is Jonathan Park; I'm an incoming fourth-year undergraduate student at the University of Southern California, majoring in applied & computational mathematics with a minor in cybersecurity. I&rsquo;m interested in a career in blueteaming and/or cyber governance.</p>
                         <p>I was born and raised in the San Francisco Bay Area. I had a brief stint living in Irvine, but I'm back in the Bay.</p>
-                        <p><strong>CURRENTLY:</strong> Cybersecurity Intern @ Aristotle</p>
-                        <p><strong>PREVIOUSLY:</strong> Digital Managing Editor @ Daily Trojan, Newsgathering Intern @ CNN</p>
+                        <p><strong>CURRENTLY:</strong> Attending USC</p>
+                        <p><strong>PREVIOUSLY:</strong> Summer 2024 Cybersecurity Intern at Aristotle Capital Management</p>
                         <p>Other things about me:</p>
                         <ul>
-                            <li>Avid <i>New Yorker</i> reader (unfortunately)</li>
+                            <li>Avid <i>New Yorker</i> reader</li>
                             <li>Four semesters and counting at the <i>Daily Trojan</i>, USC's independent campus newspaper</li>
                             <li>Favorite books: <i>The Anthropocene Reviewed</i>, by John Green; <i>The Color of Water</i>, by James McBride</li>
-                            <li>Currently reading: <i>Lenin's Tomb</i>, by David Remnick</li>
+                            <li>
+                                <!-- Show static HTML/CSS as a placeholder in case js is not enabled - javascript include will override this if things work -->
+                            <style type="text/css" media="screen">
+                                .gr_custom_container_1723359200 {
+                                /* customize your Goodreads widget container here*/
+                                border: 1px solid gray;
+                                border-radius:10px;
+                                padding: 10px 5px 10px 5px;
+                                background-color: #000;
+                                color: #fff;
+                                width: 300px
+                                }
+                                .gr_custom_header_1723359200 {
+                                /* customize your Goodreads header here*/
+                                border-bottom: 1px solid gray;
+                                width: 100%;
+                                margin-bottom: 5px;
+                                text-align: center;
+                                font-size: 120%
+                                }
+                                .gr_custom_each_container_1723359200 {
+                                /* customize each individual book container here */
+                                width: 100%;
+                                clear: both;
+                                margin-bottom: 10px;
+                                overflow: auto;
+                                padding-bottom: 4px;
+                                border-bottom: 1px solid #aaa;
+                                }
+                                .gr_custom_book_container_1723359200 {
+                                /* customize your book covers here */
+                                overflow: hidden;
+                                height: 60px;
+                                    float: left;
+                                    margin-right: 4px;
+                                    width: 39px;
+                                }
+                                .gr_custom_author_1723359200 {
+                                /* customize your author names here */
+                                font-size: 10px;
+                                }
+                                .gr_custom_tags_1723359200 {
+                                /* customize your tags here */
+                                font-size: 10px;
+                                color: gray;
+                                }
+                                .gr_custom_rating_1723359200 {
+                                /* customize your rating stars here */
+                                float: right;
+                                }
+                            </style>
+                            <div id="gr_custom_widget_1723359200">
+                                <div class="gr_custom_container_1723359200">
+                              <h2 class="gr_custom_header_1723359200">
+                              <a style="text-decoration: none;" rel="nofollow" href="https://www.goodreads.com/review/list/146065982-jonathan-park?shelf=currently-reading&amp;utm_medium=api&amp;utm_source=custom_widget">Currently reading</a>
+                              </h2>
+                                <div class="gr_custom_each_container_1723359200">
+                                    <div class="gr_custom_book_container_1723359200">
+                                      <a title="Lenin's Tomb: The Last Days of the Soviet Empire" rel="nofollow" href="https://www.goodreads.com/review/show/6189989242?utm_medium=api&amp;utm_source=custom_widget"><img alt="Lenin's Tomb: The Last Days of the Soviet Empire" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1442415682l/113206._SX50_.jpg" /></a>
+                                    </div>
+                                    <div class="gr_custom_title_1723359200">
+                                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6189989242?utm_medium=api&amp;utm_source=custom_widget">Lenin's Tomb: The Last Days of the Soviet Empire</a>
+                                    </div>
+                                    <div class="gr_custom_author_1723359200">
+                                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/29303.David_Remnick">David Remnick</a>
+                                    </div>
+                                    <div class="gr_custom_tags_1723359200">
+                                      tagged:
+                                      currently-reading
+                                    </div>
+                                </div>
+                                <div class="gr_custom_each_container_1723359200">
+                                    <div class="gr_custom_book_container_1723359200">
+                                      <a title="The Sane Society" rel="nofollow" href="https://www.goodreads.com/review/show/6189991816?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Sane Society" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1530712273l/40717990._SY75_.jpg" /></a>
+                                    </div>
+                                    <div class="gr_custom_title_1723359200">
+                                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6189991816?utm_medium=api&amp;utm_source=custom_widget">The Sane Society</a>
+                                    </div>
+                                    <div class="gr_custom_author_1723359200">
+                                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/8788.Erich_Fromm">Erich Fromm</a>
+                                    </div>
+                                    <div class="gr_custom_tags_1723359200">
+                                      tagged:
+                                      currently-reading
+                                    </div>
+                                </div>
+                                <div class="gr_custom_each_container_1723359200">
+                                    <div class="gr_custom_book_container_1723359200">
+                                      <a title="The Rings of Saturn" rel="nofollow" href="https://www.goodreads.com/review/show/6196597060?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Rings of Saturn" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1642038157l/434903._SY75_.jpg" /></a>
+                                    </div>
+                                    <div class="gr_custom_title_1723359200">
+                                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6196597060?utm_medium=api&amp;utm_source=custom_widget">The Rings of Saturn</a>
+                                    </div>
+                                    <div class="gr_custom_author_1723359200">
+                                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/6580622.W_G_Sebald">W.G. Sebald</a>
+                                    </div>
+                                    <div class="gr_custom_tags_1723359200">
+                                      tagged:
+                                      currently-reading
+                                    </div>
+                                </div>
+                                <div class="gr_custom_each_container_1723359200">
+                                    <div class="gr_custom_book_container_1723359200">
+                                      <a title="On Palestine" rel="nofollow" href="https://www.goodreads.com/review/show/6196598247?utm_medium=api&amp;utm_source=custom_widget"><img alt="On Palestine" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1427756115l/23129811._SY75_.jpg" /></a>
+                                    </div>
+                                    <div class="gr_custom_title_1723359200">
+                                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6196598247?utm_medium=api&amp;utm_source=custom_widget">On Palestine</a>
+                                    </div>
+                                    <div class="gr_custom_author_1723359200">
+                                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/2476.Noam_Chomsky">Noam Chomsky</a>
+                                    </div>
+                                    <div class="gr_custom_tags_1723359200">
+                                      tagged:
+                                      currently-reading
+                                    </div>
+                                </div>
+                                <div class="gr_custom_each_container_1723359200">
+                                    <div class="gr_custom_book_container_1723359200">
+                                      <a title="The Power Broker: Robert Moses and the Fall of New York" rel="nofollow" href="https://www.goodreads.com/review/show/6196600162?utm_medium=api&amp;utm_source=custom_widget"><img alt="The Power Broker: Robert Moses and the Fall of New York" border="0" src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403194611l/1111._SY75_.jpg" /></a>
+                                    </div>
+                                    <div class="gr_custom_title_1723359200">
+                                      <a rel="nofollow" href="https://www.goodreads.com/review/show/6196600162?utm_medium=api&amp;utm_source=custom_widget">The Power Broker: Robert Moses and the Fall of New York</a>
+                                    </div>
+                                    <div class="gr_custom_author_1723359200">
+                                      by <a rel="nofollow" href="https://www.goodreads.com/author/show/722.Robert_A_Caro">Robert A. Caro</a>
+                                    </div>
+                                    <div class="gr_custom_tags_1723359200">
+                                      tagged:
+                                      currently-reading
+                                    </div>
+                                </div>
+                                <br style="clear: both"/>
+                                <center>
+                                <a rel="nofollow" href="https://www.goodreads.com/"><img alt="goodreads.com" style="border:0" src="https://s.gr-assets.com/images/widget/widget_logo.gif" /></a>
+                                </center>
+                                <noscript>
+                                Share <a rel="nofollow" href="https://www.goodreads.com/">book reviews</a> and ratings with Jonathan, and even join a <a rel="nofollow" href="https://www.goodreads.com/group">book club</a> on Goodreads.
+                                </noscript>
+                            </div>
+                            </div>
+                                <script src="https://www.goodreads.com/review/custom_widget/146065982.Currently%20reading?cover_position=left&cover_size=small&num_books=5&order=a&shelf=currently-reading&show_author=1&show_cover=1&show_rating=0&show_review=0&show_tags=1&show_title=1&sort=date_added&widget_bg_color=000&widget_bg_transparent=&widget_border_width=1&widget_id=1723359200&widget_text_color=fff&widget_title_size=medium&widget_width=medium" type="text/javascript" charset="utf-8"></script>
+                            </li>
+                            <li>Currently listening to: <br><br>
+                                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2i5KShr0VNK7PYmeVeW8Xz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+                                </iframe>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- RESUME.PDF -->
-                <div class="file-open" id="resume-container">
-                    <div class="file-open-header" id="resume-container-header">
-                        <small>resume.pdf</small>
-                        <small class="close-file-button" id="resume-close-button" onclick="closeFile(this)">x</small>
-                    </div>
-                    <div class="file-open-content" id="resume-content">
-                        <script src="/js/pdfobject.js"></script>
-                        <script>PDFObject.embed("/uploads/files/jonathan-park-resume.pdf", "#resume-content");</script>
-                    </div>
-                </div>
+
 
                 <!-- SOCIALS.TXT -->
-                <div class="file-open" id="socials-container">
+                <div class="folder-contents-draggable" id="socials-container" style="display: none; left: 400px; top: 50px;">
                     <div class="file-open-header" id="socials-container-header">
                         <small>socials.txt</small>
                         <small class="close-file-button" id="socials-close-button" onclick="closeFile(this)">x</small>
@@ -190,58 +337,29 @@
                 <div class="folder-contents-files" id="work-folder-contents-files">
                     <table class="folder-contents-table">
                         <tr>
-                            <!-- dailytrojan -->
                             <td>
-                                <div class="folder" id="dt-folder" onclick="selectFolder(this)" ondblclick="openFolder('dt-folder-container')">
-                                    <div class="folder-img" id="dt-folder-img">
+                                <div class="folder" id="cyber-folder" onclick="selectFolder(this)" ondblclick="openFolder('cyber-folder-contents')">
+                                    <div class="folder-img" id="cyber-folder-img">
                                         <img src="uploads/folder.png" alt="textfile">
                                     </div>
-                                    <h6 class="foldername">daily trojan</h6>
+                                    <h6 class="foldername">cyber</h6>
                                 </div>
                             </td>
-
-                            <!-- cnn -->
                             <td>
-                                <div class="folder" id="cnn-folder" onclick="selectFolder(this)" ondblclick="openFolder('cnn-folder-container')">
-                                    <div class="folder-img" id="cnn-folder-img">
+                                <div class="folder" id="journo-folder" onclick="selectFolder(this)" ondblclick="openFolder('journo-folder-contents')">
+                                    <div class="folder-img" id="journo-folder-img">
                                         <img src="uploads/folder.png" alt="textfile">
                                     </div>
-                                    <h6 class="foldername">cnn</h6>
+                                    <h6 class="foldername">journalism</h6>
                                 </div>
                             </td>
-                            <!-- media -->
-                            <td>
-                                <div class="folder" id="media-folder" onclick="selectFolder(this)" ondblclick="openFolder('media-folder-container')">
-                                    <div class="folder-img" id="cnn-folder-img">
-                                        <img src="uploads/folder.png" alt="textfile">
-                                    </div>
-                                    <h6 class="foldername">media</h6>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="folder" style="position: fixed;" id="socials-graphics-file" onclick="selectFolder(this)" ondblclick="openExternalUrl('socials-graphics.html')">
-                                    <div class="file-img" id="socials-graphics-file-img">
-                                        <img src="uploads/external-web.png" style="height: 50px;" alt="external webpage">
-                                    </div>
-                                    <h6 class="filename">socials</h6>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="folder" style="position: fixed;" id="photos-page-file" onclick="selectFolder(this)" ondblclick="openExternalUrl('photos.html')">
-                                    <div class="file-img" id="photos-page-file-img">
-                                        <img src="uploads/external-web.png" style="height: 50px;" alt="external webpage">
-                                    </div>
-                                    <h6 class="filename">photos</h6>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-
                         </tr>
                     </table>
-                    <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
                 </div>
+
             </div>
+
+
 
 
             <!-- FUN FOLDER -->
@@ -285,7 +403,173 @@
 
             <!-- WORK FOLDER: CONTENTS -->
 
-                <!-- daily trojan sub-folder -->
+                <!-- dos-donts-chatgpt.pdf -->
+                <div class="folder-contents-draggable" id="dos-donts-chatgpt-contents" style="display: none; left: 800px; top: 200px; z-index: 99;">
+                    <div class="folder-contents-header" id="aristotle-folder-contents-header">
+                        <small>dos-donts-chatgpt.pdf</small>
+                        <small class="close-folder-button" id="aristotle-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="file-open-content" id="dos-donts-chatgpt-folder-contents-files">
+                        <script src="/js/pdfobject.js"></script>
+                        <script>PDFObject.embed("/uploads/files/dos-donts-chatgpt.pdf", "#dos-donts-chatgpt-folder-contents-files");</script>
+                    </div>
+                </div>
+
+                <!-- intern-ppt-exabeam.pdf -->
+                <div class="folder-contents-draggable" id="intern-ppt-exabeam-contents" style="display: none; left: 800px; top: 200px; z-index: 99;">
+                    <div class="folder-contents-header" id="intern-ppt-exabeam-folder-contents-header">
+                        <small>intern-ppt-exabeam.pdf</small>
+                        <small class="close-folder-button" id="intern-ppt-exabeam-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="file-open-content" id="intern-ppt-exabeam-folder-contents-files">
+                        <script src="/js/pdfobject.js"></script>
+                        <script>PDFObject.embed("/uploads/files/intern-ppt-exabeam.pdf", "#intern-ppt-exabeam-folder-contents-files");</script>
+                    </div>
+                </div>
+
+                <!-- introduction-to-copilot.pdf -->
+                <div class="folder-contents-draggable" id="introduction-to-copilot-contents" style="display: none; left: 800px; top: 200px; z-index: 99;">
+                    <div class="folder-contents-header" id="intern-ppt-exabeam-folder-contents-header">
+                        <small>introduction-to-copilot.pdf</small>
+                        <small class="close-folder-button" id="introduction-to-copilot-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="file-open-content" id="introduction-to-copilot-folder-contents-files">
+                        <script src="/js/pdfobject.js"></script>
+                        <script>PDFObject.embed("/uploads/files/introduction-to-copilot.pdf", "#introduction-to-copilot-folder-contents-files");</script>
+                    </div>
+                </div>
+
+                <!-- cyber sub-folder -->
+                <div class="folder-contents-draggable" id="cyber-folder-contents" style="display: none; left: 300px; top: 50px;">
+                    <div class="folder-contents-header" id="cyber-folder-contents-header">
+                        <small>cyber</small>
+                        <small class="close-folder-button" id="cyber-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="folder-contents-files" id="journo-folder-contents-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <!-- aristotle -->
+                                <td>
+                                    <div class="folder" id="aristotle-folder" onclick="selectFolder(this)" ondblclick="openFolder('aristotle-folder-container')">
+                                        <div class="folder-img" id="aristotle-folder-img">
+                                            <img src="uploads/folder.png" alt="textfile">
+                                        </div>
+                                        <h6 class="foldername">aristotle</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- cyber/aristotle sub-folder -->
+                <div class="folder-contents-draggable" id="aristotle-folder-container" style="display: none; left: 400px; top: 50px;">
+                    <div class="folder-contents-header" id="aristotle-folder-contents-header">
+                        <small>aristotle</small>
+                        <small class="close-folder-button" id="aristotle-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="folder-contents-files" id="aristotle-folder-contents-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <td>
+                                    <div class="file-container" id="dos-donts-chatgpt-file" onclick="selectFile(this)" ondblclick="openFile('dos-donts-chatgpt-contents')">
+                                        <div class="file-img" id="dos-donts-chatgpt-file-img">
+                                            <img src="uploads/pdf.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">dos-donts-chatgpt.pdf</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="file-container" id="intern-ppt-exabeam-file" onclick="selectFile(this)" ondblclick="openFile('intern-ppt-exabeam-contents')">
+                                        <div class="file-img" id="intern-ppt-exabeam-file-img">
+                                            <img src="uploads/pdf.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">intern-ppt-exabeam.pdf</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="file-container" id="introduction-to-copilot-file" onclick="selectFile(this)" ondblclick="openFile('introduction-to-copilot-contents')">
+                                        <div class="file-img" id="introduction-to-copilot-file-img">
+                                            <img src="uploads/pdf.png" alt="textfile">
+                                        </div>
+                                        <h6 class="filename">introduction-to-copilot.pdf</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+
+                <!-- journo sub-folder -->
+                <div class="folder-contents-draggable" id="journo-folder-contents" style="display: none; left: 200px; top: 50px;">
+                    <div class="folder-contents-header" id="journo-folder-contents-header">
+                        <small>journalism</small>
+                        <small class="close-folder-button" id="journo-folder-close-button" onclick="closeFolder(this)">x</small>
+                    </div>
+
+                    <div class="folder-contents-files" id="journo-folder-contents-files">
+                        <table class="folder-contents-table">
+                            <tr>
+                                <!-- dailytrojan -->
+                                <td>
+                                    <div class="folder" id="dt-folder" onclick="selectFolder(this)" ondblclick="openFolder('dt-folder-container')">
+                                        <div class="folder-img" id="dt-folder-img">
+                                            <img src="uploads/folder.png" alt="textfile">
+                                        </div>
+                                        <h6 class="foldername">daily trojan</h6>
+                                    </div>
+                                </td>
+
+                                <!-- cnn -->
+                                <td>
+                                    <div class="folder" id="cnn-folder" onclick="selectFolder(this)" ondblclick="openFolder('cnn-folder-container')">
+                                        <div class="folder-img" id="cnn-folder-img">
+                                            <img src="uploads/folder.png" alt="textfile">
+                                        </div>
+                                        <h6 class="foldername">cnn</h6>
+                                    </div>
+                                </td>
+                                <!-- media -->
+                                <td>
+                                    <div class="folder" id="media-folder" onclick="selectFolder(this)" ondblclick="openFolder('media-folder-container')">
+                                        <div class="folder-img" id="cnn-folder-img">
+                                            <img src="uploads/folder.png" alt="textfile">
+                                        </div>
+                                        <h6 class="foldername">media</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="folder" style="position: fixed;" id="socials-graphics-file" onclick="selectFolder(this)" ondblclick="openExternalUrl('socials-graphics.html')">
+                                        <div class="file-img" id="socials-graphics-file-img">
+                                            <img src="uploads/external-web.png" style="height: 50px;" alt="external webpage">
+                                        </div>
+                                        <h6 class="filename">socials</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="folder" style="position: fixed;" id="photos-page-file" onclick="selectFolder(this)" ondblclick="openExternalUrl('photos.html')">
+                                        <div class="file-img" id="photos-page-file-img">
+                                            <img src="uploads/external-web.png" style="height: 50px;" alt="external webpage">
+                                        </div>
+                                        <h6 class="filename">photos</h6>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                        </table>
+                        <img src="https://media0.giphy.com/media/yW8gdZiUZPAIjrtY7F/giphy.gif" style="height: 60px; width: auto; position: absolute; bottom: 10px; right: 10px;">
+                    </div>
+                </div>
+
+                <!-- journo/daily trojan sub-folder -->
                 <div class="folder-contents-draggable" id="dt-folder-container" style="display: none; left: 200px; top: 50px;">
                     <div class="folder-contents-header" id="dt-folder-container-header">
                         <small>daily trojan</small>
@@ -351,7 +635,7 @@
                     </div>
                 </div>
 
-                <!-- media sub-folder -->
+                <!-- journo/media sub-folder -->
                 <div class="folder-contents-draggable" id="media-folder-container" style="display: none; left: 200px; top: 50px;">
                     <div class="folder-contents-header" id="media-folder-container-header">
                         <small>media</small>
