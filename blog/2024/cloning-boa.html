@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <title>
+            blog: cloning the bank of america homepage - jonathan park
+        </title>
+
+        <meta charset="UTF-8" />
+        <meta name="title" content="Jonathan Park" />
+        <meta name="description" content="$ whoami /all" />
+        <meta name="keywords" content="Jonathan Park" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Jonathan Park" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            property="og:image"
+            content="https://parkdj.com/uploads/boa-ss-1.png"
+        />
+        <meta
+            property="og:title"
+            content="blog: cloning the bank of america homepage - jonathan park"
+        />
+        <meta
+            property="og:description"
+            content="Lessons to be learned in trying to build a high-risk webpage from scratch."
+        />
+
+        <meta
+            property="twitter:image"
+            content="https://parkdj.com/uploads/boa-ss-1.png"
+        />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+            property="twitter:title"
+            content="blog: cloning the bank of america homepage - jonathan park"
+        />
+        <meta
+            property="twitter:description"
+            content="Lessons to be learned in trying to build a high-risk webpage from scratch."
+        />
+
+        <link
+            href="https://fonts.cdnfonts.com/css/sf-pro-display"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../stylesheet.css" />
+        <link rel="stylesheet" href="../blog-stylesheet.css" />
+
+        <!-- font awesome -->
+        <script
+            src="https://kit.fontawesome.com/5177f0fe75.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <link href="../../themes/prism.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="all-content-container">
+            <div class="header">
+                <a href="../"><h1>jonathan park</h1></a>
+            </div>
+            <div class="blog-list-container">
+                <div class="sidebar">
+                    <img
+                        src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif"
+                        style="width: 30%"
+                    />
+                    <p>
+                        Fourth-year undergraduate at the University of Southern
+                        California.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i> &nbsp;
+                        California
+                    </p>
+                    <a href="https://www.linkedin.com/in/jon25/"
+                        ><p>
+                            <i class="fa-brands fa-linkedin"></i> &nbsp;<strong
+                                >LinkedIn</strong
+                            >
+                        </p></a
+                    >
+                </div>
+                <div class="blog-content">
+                    <a href="../../blog.html" style="text-decoration: underline"
+                        ><h6>&lt;&lt; Back</h6></a
+                    >
+                    <h2>Cloning the Bank of America homepage</h2>
+                    <h6>10 August 2024</h6>
+                    <p>
+                        The Bank of America homepage, like any index webpage for
+                        a bank or other financial service, is undoubtedly one of
+                        the more tempting webpages that threat actors will try
+                        to clone. With enough effort, and a gullible enough
+                        target, a webpage clone could suffice in extracting user
+                        credentials.
+                    </p>
+                    <p>
+                        Bank of America probably knows this, and their
+                        developers have taken subtle but effective measures to
+                        ensure their homepage,
+                        <a
+                            href="https://www.bankofamerica.com/"
+                            style="text-decoration: underline !important"
+                            >https://www.bankofamerica.com/</a
+                        >, can't be so easily cloned.
+                    </p>
+                    <p>
+                        In this post, I try to clone the page for myself, and
+                        reveal here what I found along the way.
+                    </p>
+                    <h4>The easy way out</h4>
+                    <p>
+                        The first thing to try is to be lazy and copy the entire
+                        HTML as it appears in "Inspect element."
+                    </p>
+                    <img src="../../uploads/boa-ss-1.png" style="width: 100%" />
+                    <p>That yields a very similar result to the original:</p>
+                    <img src="../../uploads/boa-ss-2.png" style="width: 100%" />
+                    <p>
+                        But you'll immediately notice several things wrong with
+                        this. First of all, the font is wrong. Bank of America
+                        seems to use a proprietary "cnx" family of fonts, and
+                        while I was able to find the source URLs for those
+                        fonts, they refused to load when I tried to replicate
+                        the
+                        <code class="language-css">@font-face</code>
+                        configuration.
+                    </p>
+                    <pre><code class="language-css">/* Snippet of https://www2.bac-assets.com/spa/widgets/global-search-public-widget/2.0.0/spa-assets/css/styles-5a3ed7c942389fca8dca.m.css */
+@font-face {
+    font-family: "cnx-regular";
+    src: url(https://www2.bac-assets.com//homepage/spa-assets/fonts/cnx-regular.47c16abe6b264fc27f56.eot);
+    src: url(https://www2.bac-assets.com//homepage/spa-assets/fonts/cnx-regular.47c16abe6b264fc27f56.eot?#iefix) format("embedded-opentype"),
+        url(https://www2.bac-assets.com//homepage/spa-assets/fonts/cnx-regular.b3dda94b5c9ccf13d9a0.woff2) format("woff2"),
+        url(https://www2.bac-assets.com//homepage/spa-assets/fonts/cnx-regular.dcbc38b41fb754b2a149.woff) format("woff"),
+        url(https://www2.bac-assets.com//homepage/spa-assets/fonts/cnx-regular.c3f88485975bf9dd0a6f.ttf) format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-variant: normal;
+}</code></pre>
+                    <p>
+                        Meanwhile, my clone defaults to Roboto &mdash; and I got
+                        the impression that, when actually building this page
+                        from scratch, that was the best I was going to get.
+                    </p>
+                    <p>
+                        An interesting thing to note is that when a user
+                        attempts to log in on this clone, the user is still
+                        redirected to the actual Bank of America screen, as one
+                        would expect from a normal BofA login.
+                    </p>
+                    <p>
+                        So really, what a potential threat actor would need to
+                        do is recreate that red box, and insert in there some
+                        <code class="language-css">&lt;form&gt;</code> that
+                        sends the inputs to the desired destination.
+                    </p>
+
+                    <img
+                        src="../../uploads/boa-ss-3.png"
+                        style="width: 200px"
+                    />
+
+                    <p>
+                        In terms of pure frontend, this box is not so difficult
+                        to replicate. It's two
+                        <code class="language-css">&lt;input&gt;</code>s, a
+                        checkbox, a "Log In" button, and some spare links at the
+                        bottom.
+                    </p>
+                    <p>
+                        But the real issue is going into that copy-pasted HTML
+                        code and (a) trying to find out where the hell the code
+                        for that red box even is, out of 1300-plus lines, and
+                        (b) then making that new customized
+                        <code class="language-css">&lt;form&gt;</code> of yours
+                        actually work. The first part was the easy part, and
+                        even that took a while, with all the nooks and crannies
+                        and nested divs. As for the second part, I made a
+                        half-hearted attempt to edit the "Log In" button so that
+                        it would direct the user to the music video for "Never
+                        Gonna Give You Up" by Rick Astley, but I couldn't get it
+                        to work. There was some operation happening that ensured
+                        the form was always sent to the real Bank of America
+                        login page. It remains elusive, at least for me, as to
+                        whether bypassing that is possible.
+                    </p>
+
+                    <br />
+                    <h4>Conclusions</h4>
+                    <p>
+                        In attempting to clone the Bank of America homepage, I
+                        learned the hard way about the complexity and
+                        sophistication of modern web security. While copying a
+                        webpage's basic structure can be relatively
+                        straightforward, achieving an exact replica is
+                        significantly more challenging due to custom fonts,
+                        intricate CSS, and advanced JavaScript functionalities.
+                    </p>
+                    <p>
+                        As someone who, by all measures, is still a beginner
+                        when it comes to web development, it is humbling and
+                        inspiring to know there is such incredible depth to
+                        secure frontend building that I have yet to even be
+                        aware of. Further research could delve into advanced web
+                        security techniques, proprietary technologies, form
+                        redirection mechanisms, and the ethical implications of
+                        web cloning, contributing to a deeper understanding of
+                        both the challenges and best practices in creating and
+                        safeguarding web content.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="../../themes/prism.js"></script>
+    </body>
+</html>

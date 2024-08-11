@@ -375,3 +375,10 @@ h2 {
         top: 25% !important;
     }
 }
+
+.blog-list-item a {
+    transition: color 0.3s;
+}
+.blog-list-item a:hover {
+    color: #aaa;
+}

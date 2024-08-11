@@ -3,6 +3,7 @@ body {
 }
 
 .all-content-container {
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
     & a {
@@ -37,6 +38,34 @@ body {
             & h2 {
                 margin-bottom: 10px;
             }
+        }
+    }
+
+    & .blog-content {
+        flex: 3;
+        overflow: scroll;
+        padding: 0 10px;
+        & h2 {
+            margin-bottom: 10px;
+        }
+        & h4 {
+            font-size: 21px;
+        }
+    }
+}
+
+@media screen and (max-width: 989px) {
+    .all-content-container {
+        width: 100%;
+    }
+
+    .blog-list-container {
+        flex-direction: column;
+        & .sidebar {
+            display: none;
+        }
+        & .blog-content {
+            overflow: auto;
         }
     }
 }
