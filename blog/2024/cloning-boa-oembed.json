@@ -1,20 +1,15 @@
 {
-  "author": {
-    "name": "jonathan park",
-    "icon_url": "https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif",
-    "url": "https://www.parkdj.com"
-  },
+  "version": "1.0",
+  "type": "rich",
+  "width": 600,
+  "height": 400,
   "title": "blog: cloning the bank of america homepage",
   "url": "http://www.parkdj.com/blog/2024/cloning-boa.html",
-  "description": "The Bank of America homepage, like any index webpage for a bank or other financial service, is undoubtedly one of the more tempting webpages that threat actors will try to clone. With enough effort, and a gullible enough target, a webpage clone could suffice in extracting user credentials.\n\nBank of America probably knows this, and their developers have taken subtle but effective measures to ensure their homepage, https://www.bankofamerica.com/, can't be so easily cloned.\n\nIn this post, I try to clone the page for myself, and reveal here what I found along the way.",
-  "fields": [
-    {
-      "name": "published",
-      "value": "10 August 2024"
-    }
-  ],
-  "image": {
-    "url": "http://www.parkdj.com/uploads/boa-ss-1.png"
-  },
-  "color": "#00b0f4"
+  "author_name": "jonathan park",
+  "author_url": "https://www.parkdj.com",
+  "provider_name": "ParkDJ",
+  "provider_url": "http://www.parkdj.com",
+  "thumbnail_url": "http://www.parkdj.com/uploads/boa-ss-1.png",
+  "thumbnail_width": 600,
+  "thumbnail_height": 400
 }
