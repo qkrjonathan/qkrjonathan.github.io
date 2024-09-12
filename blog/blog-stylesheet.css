@@ -69,3 +69,8 @@ body {
         }
     }
 }
+
+.blog-list::-webkit-scrollbar,
+.blog-content::-webkit-scrollbar {
+    display: none;
+}
