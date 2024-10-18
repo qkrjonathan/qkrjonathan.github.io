@@ -85,10 +85,11 @@
                         I hate Git documentation. I hate it. I just want to
                         write something on this website and then push the
                         updated files to the repo, and it never works the first
-                        time, and the documentation never works, and then I just
-                        bang my head on the wall until something works, and then
-                        I forget what makes it work, and then it's the same
-                        process all over again the next month.
+                        time, and the documentation never just tells me what I
+                        want to know, and then I just bang my head on the wall
+                        until something works, and then I forget what makes it
+                        work, and then it's the same process all over again the
+                        next month.
                     </p>
                     <p>
                         This blog exists primarily to end that cycle, and,
@@ -97,11 +98,11 @@
                     </p>
                     <p>
                         It's been an especially painful process since I've been
-                        used to Github Desktop for so long (I don't want to hear
+                        used to GitHub Desktop for so long (I don't want to hear
                         it) before I switched over to Linux and was subsequently
-                        forced to transition from GUI to command-line. But fear
-                        no more. This will be a definitive one-stop shop for all
-                        my CLI needs.
+                        forced to transition from GUI to CLI. But fear no more.
+                        This will be a definitive one-stop shop for all my CLI
+                        needs.
                     </p>
                     <p>
                         For context: My only practical use of GitHub has been to
@@ -112,7 +113,118 @@
                         actual repo.
                     </p>
 
-                    <p></p>
+                    <p>
+                        First, my specs: I'm running Zed (<a
+                            href="https://zed.dev/"
+                            >zed.dev</a
+                        >), an open-source code editor for macOS and Linux that
+                        has Claude 3.5 Sonnet embedded in it &mdash; with
+                        support for other LLMs as well. (Imagine VSCode but a
+                        little cooler, and a little more annoying with
+                        auto-formatting on filesave.) My PC runs on Linux Mint
+                        22. (More on that to come.)
+                    </p>
+
+                    <h4>A quick tangent on previewing website output</h4>
+
+                    <p>
+                        I moved to Zed from VSCode, where there was an existing
+                        Live Preview plugin that was quite convenient for
+                        frontend dev. Zed doesn't have that, which threw me for
+                        a loop. But fortunately, there's a solution:
+                        <a href="https://browsersync.io">browsersync</a>.
+                    </p>
+                    <p>
+                        The installation is pretty simple, and it's listed here
+                        as well:
+                        <a href="https://browsersync.io/#install"
+                            >https://browsersync.io/#install</a
+                        >. With Node.js, you can simply open a terminal and type
+                        <code class="language-css"
+                            >npm install -g browser-sync</code
+                        >, then you're done. In your Zed bash, you can then type
+                        <code class="language-css"
+                            >browser-sync start --server --files css/*.css</code
+                        >
+                        and a new tab should open on your default browser.
+                    </p>
+                    <p>
+                        I always forget that last command, though, and I don't
+                        particularly care to memorize it; I have it under a .txt
+                        file that I then
+                        <code class="language-css">cat</code> in and copy paste
+                        whenever I need it.
+                    </p>
+
+                    <h4>The process</h4>
+
+                    <p>
+                        First things first, recognize that the modern way to
+                        connect to Git and update your repo is to connect via
+                        SSH.
+                    </p>
+                    <p>
+                        The detailed documentation for all of that is
+                        <a
+                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
+                            >here</a
+                        >, but it can be a little (and by a little I mean very)
+                        overwhelming. The important part for me, at least, was
+                        generating an SSH key and getting it to my account.
+                    </p>
+                    <p>
+                        Follow the steps
+                        <a
+                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+                            >here</a
+                        >
+                        to generate a new SSH key and add it to the
+                        <code class="language-css">ssh-agent</code>.
+                    </p>
+                    <p>
+                        Then add the SSH keys to your GitHub account (<a
+                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+                            >instructions here</a
+                        >).
+                    </p>
+                    <p>
+                        Now test your SSH connection by opening bash and typing
+                        <code class="language-css">ssh -T git@github.com</code>.
+                        You may see a message like this:
+                    </p>
+                    <pre><code class="language-css">> The authenticity of host 'github.com (IP ADDRESS)' can't be established. ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU. Are you sure you want to continue connecting (yes/no)?</code></pre>
+                    <p>
+                        IF this fingerprint matches
+                        <a
+                            href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints"
+                            >GitHub's SSH key fingerprint</a
+                        >, then type yes, and you should get the following:
+                    </p>
+                    <pre><code class="language-css"> Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+                    <p>
+                        This is good. You can now proceed with actually sending
+                        stuff to the GitHub repo.
+                    </p>
+                    <ol>
+                        <li>
+                            <p>
+                                First things first:
+                                <code class="language-css">git add .</code>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <code class="language-css"
+                                    >git commit -m "[MESSAGE]"</code
+                                >
+                            </p>
+                        </li>
+                        <li>
+                            <p><code class="language-css">git push</code></p>
+                        </li>
+                    </ol>
+                    <p>Done.</p>
                 </div>
             </div>
         </div>

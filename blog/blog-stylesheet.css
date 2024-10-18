@@ -2,6 +2,10 @@ body {
     background: #1f1f1f;
 }
 
+body a:link {
+    text-decoration: underline;
+}
+
 .all-content-container {
     width: 80%;
     max-width: 1200px;
