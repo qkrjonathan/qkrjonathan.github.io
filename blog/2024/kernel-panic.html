@@ -26,7 +26,9 @@
         />
         <meta
             property="og:description"
-            content="Reflecting on the first major crisis in my Linux journey."
+            content="Reflecting on the first major crisis in my Linux
+            journey; alternatively, learning the hard way about
+            operating systems."
         />
 
         <meta property="twitter:card" content="summary_large_image" />
@@ -81,7 +83,8 @@
                     <p>
                         <em
                             >Reflecting on the first major crisis in my Linux
-                            journey.</em
+                            journey; alternatively, learning the hard way about
+                            operating systems.</em
                         >
                     </p>
                     <h6>18 October 2024</h6>
@@ -120,6 +123,133 @@
                         unmatched, tool that is not and probably never will be
                         available on Linux.
                     </p>
+                    <p>
+                        <em
+                            >(This was an entire rabbit hole of its own, which
+                            led me to this dead end of
+                            <a
+                                href="https://www.reddit.com/r/linuxquestions/comments/16ndd7f/will_adobe_ever_be_available_on_linux/"
+                                >a Reddit thread</a
+                            >, where one particularly heated user wrote &mdash;
+                            in response o a question as to whether Adobe
+                            products would ever be made available on Linux:</em
+                        >
+                    </p>
+                    <blockquote>
+                        <p>
+                            <em
+                                >God I hope not. Adobe products are greedy,
+                                bloated parasites. Adobe can't even make a
+                                decent lightweight PDF reader, ffs. Every app
+                                they produce is a giant tentacled system
+                                designed to entrap you in their slimy embrace
+                                and pick your pockets. Adobe is antithetical to
+                                everything Linux and FOSS stands for.</em
+                            >
+                        </p>
+                    </blockquote>
+                    <p><em>But I digress.)</em></p>
+                    <p>
+                        I tried to ignore it for as long as I could, but
+                        inevitably I reached the dreaded conclusion: I missed
+                        Windows. I wanted it back.
+                    </p>
+                    <p>
+                        What has ensued in the past 72 hours has been nothing
+                        short of a disaster as I've tried to work out how to get
+                        Windows on my system again. But in the process I've
+                        actually learned quite a bit about how operating systems
+                        work and present themselves to end users. But we'll get
+                        to that later.
+                    </p>
+                    <p>
+                        When I had first installed Mint, it had quite kindly
+                        given me the option to dual-boot it alongside my
+                        then-existing Windows OS. But I was blindsided, and I
+                        declined this option. That was the first mistake.
+                    </p>
+
+                    <h4>The calm before the storm</h4>
+                    <p>
+                        In the time since I initially installed Mint, from time
+                        to time I had halfheartedly searched for ways to
+                        retroactively dual boot Windows on top of my now-default
+                        Linux. There were some tutorials, and I scrolled through
+                        them, but I'd never been particularly motivated to
+                        follow through with them. I was busy (classic excuse),
+                        and besides, I was doing quite fine without them.
+                    </p>
+                    <p>
+                        But now, though, the worst of midterm season was over,
+                        so I decided to finally sit down and get this done.
+                    </p>
+                    <p>
+                        Initially, my approach was to get a proper bootable USB
+                        with a Windows disk image burned onto it, so that
+                        whenever I plugged in that USB it would boot as Windows
+                        &mdash; and presumably without that USB it would just
+                        boot Linux Mint as usual. (In retrospect, this was
+                        extremely naive, to put it kindly.)
+                    </p>
+                    <p>
+                        I grabbed the same 16GB USB I'd used to install Mint,
+                        and I set out to have Windows burned onto it. Somewhere
+                        down the rabbit hole, I'd learned about
+                        <a href="https://ventoy.net/en/index.html">Ventoy</a>, a
+                        tool that allows you to use a single USB to load up any
+                        number of OSs. So I formatted the USB, installed Ventoy,
+                        and copied over a Windows 10 ISO per the instructions.
+                    </p>
+                    <p>
+                        This actually worked, at least in the beginning. When I
+                        booted the system with the USB in it, I could see the
+                        Ventoy launch screen, where I was prompted to select my
+                        Windows ISO. That led to the proper Windows installer.
+                    </p>
+                    <p>
+                        This is where the issues began. My hard drive had two
+                        partitions: an EFI partition, which has all the
+                        instructions for the system to actually boot the
+                        operating system (Linux in this case); and a filesystem.
+                        Neither partition would accept a Windows install. I
+                        tried everything*, but nothing worked. So I gave up,
+                        took out the USB, and restarted to boot Mint again.
+                    </p>
+
+                    <h4>The first panic</h4>
+                    <p>
+                        Staring back at me instead was a hapless "Boot Menu,"
+                        which gave me two options: "ubuntu" or
+                        meaningless-string-of-numbers. I selected "ubuntu." It
+                        just returned to the Boot Menu. I selected "ubuntu"
+                        again. It just returned to the Boot Menu again. I
+                        selected "ubuntu" a third time. Same thing.
+                    </p>
+                    <img
+                        src="https://tails.boum.org/install/inc/screenshots/boot_menu.png"
+                        style="
+                            width: 40%;
+                            margin: 0 auto !important;
+                            display: block;
+                        "
+                    />
+                    <h6 class="photo-caption">
+                        Imagine this but with the two useless options I was
+                        given.
+                    </h6>
+
+                    <p>
+                        I had hit a wall. My two options were either fail to
+                        boot Windows or fail to boot Linux Mint. My laptop was
+                        functionally a dud.
+                    </p>
+                    <p>
+                        After some minutes of internal screaming, I decided not
+                        all hope was lost &mdash; I could start from scratch and
+                        boot up a fresh copy of Linux Mint. It was already
+                        getting late at night by this point, so I went to bed.
+                    </p>
+                    <p>[To be continued]</p>
                 </div>
             </div>
         </div>

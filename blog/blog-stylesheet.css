@@ -4,7 +4,18 @@ body {
 
 body a:link {
     text-decoration: underline;
-    color: #dd7e6b;
+    color: #20c20e;
+}
+
+blockquote {
+    margin-left: 0;
+    padding-left: 15px;
+    border-left: 2px solid #20c20e;
+}
+
+::-moz-selection,
+::selection {
+    background: #20c20e;
 }
 
 .all-content-container {
@@ -52,6 +63,10 @@ body a:link {
             & h2 {
                 margin-bottom: 10px;
             }
+
+            & a:link {
+                text-decoration: none;
+            }
         }
     }
 
@@ -64,6 +79,15 @@ body a:link {
         }
         & h4 {
             font-size: 21px;
+        }
+
+        & img {
+            margin: 0 auto !important;
+            display: block;
+        }
+
+        & h6.photo-caption {
+            margin-top: 10px;
         }
     }
 }
