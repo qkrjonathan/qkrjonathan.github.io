@@ -88,6 +88,19 @@
                         >
                     </p>
                     <h6>18 October 2024</h6>
+                    <div class="table-of-contents">
+                        <p><strong>Contents</strong></p>
+                        <p><a href="#calm">The calm before the storm</a></p>
+                        <p><a href="#first">The first panic</a></p>
+                        <p><a href="#second">The second panic</a></p>
+                        <p>
+                            <a href="#temporary"
+                                >A miraculous, but temporary, fix</a
+                            >
+                        </p>
+                        <p><a href="#actual">The actual fix</a></p>
+                        <p><a href="#conclusion">Conclusion</a></p>
+                    </div>
                     <p>
                         So here's the situation. I have this 17-inch LG Gram
                         that's been chugging along with me as I get through
@@ -169,7 +182,7 @@
                         declined this option. That was the first mistake.
                     </p>
 
-                    <h4>The calm before the storm</h4>
+                    <h4 id="calm">The calm before the storm</h4>
                     <p>
                         In the time since I initially installed Mint, from time
                         to time I had halfheartedly searched for ways to
@@ -216,14 +229,16 @@
                         took out the USB, and restarted to boot Mint again.
                     </p>
 
-                    <h4>The first panic</h4>
+                    <h4 id="first">The first panic</h4>
                     <p>
                         Staring back at me instead was a hapless "Boot Menu,"
                         which gave me two options: "ubuntu" or
-                        meaningless-string-of-numbers. I selected "ubuntu." It
-                        just returned to the Boot Menu. I selected "ubuntu"
-                        again. It just returned to the Boot Menu again. I
-                        selected "ubuntu" a third time. Same thing.
+                        meaningless-string-of-numbers (the name of my hard
+                        drive, to be exact, which had nothing on it anyway). I
+                        selected "ubuntu." It just returned to the Boot Menu. I
+                        selected "ubuntu" again. It just returned to the Boot
+                        Menu again. I selected "ubuntu" a third time. Same
+                        thing.
                     </p>
                     <img
                         src="https://tails.boum.org/install/inc/screenshots/boot_menu.png"
@@ -249,7 +264,191 @@
                         boot up a fresh copy of Linux Mint. It was already
                         getting late at night by this point, so I went to bed.
                     </p>
-                    <p>[To be continued]</p>
+
+                    <h4 id="second">The second panic</h4>
+                    <p>
+                        The next morning, I felt refreshed and confident enough
+                        to try again. I borrowed my roommate's computer to get a
+                        new copy of Linux Mint (which he somehow trusted me to
+                        do, thankfully) and tried booting my own laptop up with
+                        that new copy.
+                    </p>
+                    <p>
+                        For approximately five seconds, I felt a glimmer of
+                        hope. A launch screen gave me to option to launch Mint
+                        22, normally or in compatability mode. I selected normal
+                        mode.
+                    </p>
+                    <p>
+                        After some frantic log output, this is what greeted me:
+                    </p>
+                    <pre><code class="language-css">
+ACPI Bios Error (bug): Could not resolve symbol [\_SB.PCIO.GPP7.UPOO.DP40.UP00.DP681], AE_NOT_FOUND (20210331/dswload2-162)
+ACPI Error: AE_NOT_FOUND, During name lookup/catalog (20210331/psobject-220)
+Initramfs unpacking failed: Decoding failed
+Failed to execute /init (error -2)
+Kernel panic - not syncing: No working init found. Try passing init= option to kernel. See Linux Documentation/admin-guide/init.rst for guidance.
+CPU: 1 PID: 1 Comm: swapper/0 Not tainted 5.13.0-25-generic #26~20.04.1-Ubuntu
+Hardware name: PCSpecialist Amd Am5/TUF GAMING X670E-PLUS WIFI, BIOS 1654 08/25/2023
+Call Trace:
+    dump_stack+0x7d/0x9c
+    ? rest_init+0x70/0xba
+    panic+0x101/0x2e3
+    ? putname+0x4a/0x50
+    ? rest_init+0xba/0xba
+    kernel_init+0x10a/0x116
+    ret_from_fork+0x22/0x30
+Kernel Offset: 0x37a00000 from 0xffffffff81000000 (relocation range: 0xffffffff81000000-0xffffffffbfffffff)
+---[ end Kernel panic - not syncing: No working init found. Try passing  init= option to kernel. See Linux Documentation/admin-guide/init.rst for guidance. ]---
+
+</code></pre>
+
+                    <p>
+                        So the kernel was panicking &mdash; and so was I, again.
+                        I tried again in compatability mode, and got the same
+                        thing. I turned UEFI Secure Boot off, and got the same
+                        thing.
+                    </p>
+                    <p>
+                        This is when I came to a realization: When I was trying
+                        to install Windows the first time, in pressing any
+                        button that was available to me trying to make things
+                        work I had formatted the EFI partition of my hard drive.
+                        Which meant, the laptop had lost all instructions on
+                        connecting to the kernel and was therefore stumped.
+                    </p>
+                    <h4 id="temporary">A miraculous, but temporary, fix</h4>
+                    <p>
+                        I'll skip over the several hours of frantic searching of
+                        forums that followed. After that, though, I had managed
+                        to find a solution that would goad the laptop to find
+                        the kernel and set it as the root
+                    </p>
+                    <blockquote>
+                        <ol>
+                            <li><p>Boot Linux Mint via the USB.</p></li>
+                            <li>
+                                <p>
+                                    When the launch screen appears (asking to
+                                    choose between booting Mint in normal mode
+                                    or compatability mode), do not select any of
+                                    those, and instead press "c" to enter the
+                                    GRUB command line.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Once in the command line, type
+                                    <code class="language-css">ls</code> to see
+                                    what drives are on the system.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Then
+                                    <code class="language-css">ls</code> each of
+                                    those drives to see which of them contains a
+                                    <code class="language-css">vmlinuz</code>
+                                    file, i.e., the compressed file containing
+                                    the kernel. For example, mine was contained
+                                    in
+                                    <code class="language-css">(hd0,gpt2)</code
+                                    >.
+                                </p>
+                            </li>
+                            <li>
+                                <p>Then I continue as follows:</p>
+                                <pre><code class="language-css">
+grub> set root=(hd0,gpt2) // sets the root filesystem
+grub> set prefix=(hd0,gpt2)/boot/grub // defines the location at which grub should look for the configuration files
+grub> insmod normal // load the "normal" module, which is needed to boot in normal mode
+grub> normal // boot in normal mode
+                                </code></pre>
+                            </li>
+                        </ol>
+                    </blockquote>
+                    <p>
+                        This handholding worked well enough for the next few
+                        days, where I was too busy with other things to care
+                        about the workaround; and besides, I didn't need to shut
+                        my device down and boot from scratch often enough where
+                        it really mattered.
+                    </p>
+                    <p>
+                        But it did feel scuffed, so after those few days I
+                        sought a proper fix.
+                    </p>
+                    <h4 id="actual">The actual fix</h4>
+                    <p>
+                        I searched again, this time with actual effort, for a
+                        way to properly dual-boot Windows on my existing Linux
+                        machine. This time, I struck gold: a blog by Abhishek
+                        Prakash (posted 9 October!) gave step by step
+                        instructions that actually worked.
+                    </p>
+                    <p>
+                        The
+                        <a
+                            href="https://itsfoss.com/install-windows-after-ubuntu-dual-boot/#step-2-create-a-live-ubuntu-linux-usb"
+                            >blog post itself</a
+                        >
+                        is quite long; but the key point is this: I needed to
+                        make both a functioning Linux Mint USB and a Windows USB
+                        (the latter via Ventoy),
+                        <strong
+                            >and then use the Linux Mint USB to boot a temporary
+                            new run of Linux, where I could partition my hard
+                            drive to make space for Windows.</strong
+                        >
+                        If I were to try that in my current in-use Mint OS, the
+                        hard drive would be mounted (since the Mint OS is using
+                        it to run) and would not be available to partition.
+                    </p>
+
+                    <img
+                        src="https://itsfoss.com/content/images/wordpress/2021/06/resize-disk-ubuntu-via-live-session-800x542.png"
+                        style="width: 70%"
+                    />
+
+                    <p>
+                        Then I went ahead with the Windows install, after which
+                        I updated GRUB to detect the new Windows (<code
+                            class="language-css"
+                            >sudo update-grub</code
+                        >. Then I rebooted, and &mdash; finally &mdash; the GRUB
+                        bootloader appeared, with two options: boot Linux, or
+                        boot Windows.
+                    </p>
+
+                    <img
+                        src="https://itsfoss.com/content/images/wordpress/2021/02/dual-boot-grub-screen.jpg"
+                        style="width: 70%"
+                    />
+                    <p style="text-align: center">
+                        <em>(Abhishek Prakash)</em>
+                    </p>
+
+                    <h4 id="conclusion">Conclusion</h4>
+                    <p>
+                        The nightmare was over, and I had the added benefit of
+                        learning valuable lessons about the intricacies of
+                        dual-booting, and the importance of understanding how
+                        operating systems interact with hardware. I also was
+                        able to internalize what I had known all along: that for
+                        every issue there's a solution for it on the internet
+                        &mdash; whether it's a forum post from thirteen years
+                        ago or a blog post from last week. At this stage, I'd
+                        love to learn more about the workings of UEFI and BIOS;
+                        if I do move on from Mint to other Linux distros, this
+                        process would be something to revisit all over again. If
+                        or when that does happen, I'll make another post about
+                        that process.
+                    </p>
+                    <p>In the meantime, below is my declaration of victory:</p>
+                    <img
+                        src="../../uploads/windows_ggs.jpg"
+                        style="width: 70%"
+                    />
                 </div>
             </div>
         </div>

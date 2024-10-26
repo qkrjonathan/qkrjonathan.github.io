@@ -36,6 +36,19 @@ blockquote {
     }
 }
 
+.table-of-contents {
+    margin: 40px 0;
+}
+
+.table-of-contents a:link {
+    color: grey;
+}
+
+.table-of-contents p {
+    color: grey;
+    line-height: 1;
+}
+
 .blog-list-container {
     display: flex;
     height: 75vh;
