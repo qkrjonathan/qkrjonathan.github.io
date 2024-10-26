@@ -159,52 +159,44 @@
                     <h4>The process</h4>
 
                     <p>
-                        First things first, recognize that the modern way to
-                        connect to Git and update your repo is to connect via
-                        SSH.
+                        The key is to generate a
+                        <a
+                            href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token"
+                            >personal access token for your GitHub account</a
+                        >. It doesn't really matter whether the PAT is
+                        fine-grained or classic.
                     </p>
                     <p>
-                        The detailed documentation for all of that is
-                        <a
-                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
-                            >here</a
-                        >, but it can be a little (and by a little I mean very)
-                        overwhelming. The important part for me, at least, was
-                        generating an SSH key and getting it to my account.
+                        The permissions you want to attach to the token are
+                        mostly up to you; at the very least, you should select
+                        the <code class="language-css">repo</code> permission so
+                        that you can actually access your GitHub Pages
+                        repository from the command line.
                     </p>
                     <p>
-                        Follow the steps
-                        <a
-                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
-                            >here</a
+                        <strong
+                            >You must copy the PAT when it is first shown as it
+                            is the only time you will be able to see it. If you
+                            need to keep it safe, maybe paste it into a text
+                            file that you will NOT save to your system.</strong
                         >
-                        to generate a new SSH key and add it to the
-                        <code class="language-css">ssh-agent</code>.
                     </p>
                     <p>
-                        Then add the SSH keys to your GitHub account (<a
-                            href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
-                            >instructions here</a
-                        >).
+                        Now the next step is to add that personal token in bash.
+                        Open a bash command line, and type
+                        <code class="language-css">git config -l</code> to see
+                        the current git configurations. Then proceed as follows:
                     </p>
+                    <pre><code class="language-css">
+// First bash needs to know who you are
+~/local/repo/location/username.github.io $ git config user.name username // replace "username" with your own username
+~/local/repo/location/username.github.io $ git config user.email email@example.com // use your own email
+// Now add the PAT (replace PAT with your actual personal access token)
+~/local/repo/location/username.github.io $ git remote set-url origin https://username:PAT@github.com/username/username.github.io
+                    </code></pre>
                     <p>
-                        Now test your SSH connection by opening bash and typing
-                        <code class="language-css">ssh -T git@github.com</code>.
-                        You may see a message like this:
-                    </p>
-                    <pre><code class="language-css">> The authenticity of host 'github.com (IP ADDRESS)' can't be established. ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU. Are you sure you want to continue connecting (yes/no)?</code></pre>
-                    <p>
-                        IF this fingerprint matches
-                        <a
-                            href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints"
-                            >GitHub's SSH key fingerprint</a
-                        >, then type yes, and you should get the following:
-                    </p>
-                    <pre><code class="language-css"> Hi USERNAME! You've successfully authenticated, but GitHub does not provide shell access.
-</code></pre>
-                    <p>
-                        This is good. You can now proceed with actually sending
-                        stuff to the GitHub repo.
+                        You can now proceed with actually sending stuff to the
+                        GitHub repo.
                     </p>
                     <ol>
                         <li>
