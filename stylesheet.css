@@ -189,8 +189,8 @@ h6.foldername {
 }
 
 .file-open-content {
+    height: 450px);
     overflow-y: scroll !important;
-    height: 400px;
 }
 
 .txt-content {
