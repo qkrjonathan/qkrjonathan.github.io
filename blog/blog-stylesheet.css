@@ -15,7 +15,7 @@ blockquote {
 
 ::-moz-selection,
 ::selection {
-    background: #20c20e;
+    background: rgba(32, 194, 14, 0.4);
 }
 
 .all-content-container {

@@ -1,0 +1,339 @@
+<html>
+    <head>
+        <title>blog: escaping google's monopoly - jonathan park</title>
+
+        <meta charset="UTF-8" />
+        <meta name="title" content="Jonathan Park" />
+        <meta name="description" content="$ whoami /all" />
+        <meta name="keywords" content="Jonathan Park" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Jonathan Park" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            type="application/json+oembed"
+            href="https://parkdj.com/blog/2024/cloning-boa-oembed.json"
+        />
+
+        <meta
+            property="og:image"
+            content="https://hackread.com/wp-content/uploads/2019/07/evilgnomes-linux-malware-steals-audios-spy-on-linux-users-1.jpg"
+        />
+        <meta
+            property="og:title"
+            content="blog: kernel panics, i panic - jonathan park"
+        />
+        <meta
+            property="og:description"
+            content="My ick with Google's proclivity for selling personal data has finally pushed me to act. But escaping its grasp is even harder than I thought."
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+
+        <link
+            href="https://fonts.cdnfonts.com/css/sf-pro-display"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../stylesheet.css" />
+        <link rel="stylesheet" href="../blog-stylesheet.css" />
+
+        <!-- font awesome -->
+        <script
+            src="https://kit.fontawesome.com/5177f0fe75.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <link href="../../themes/prism.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="all-content-container">
+            <div class="header">
+                <a href="../../"><h1>jonathan park</h1></a>
+            </div>
+            <div class="blog-list-container">
+                <div class="sidebar">
+                    <img
+                        src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif"
+                        style="width: 30%"
+                    />
+                    <p>
+                        Fourth-year undergraduate at the University of Southern
+                        California.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i> &nbsp;
+                        California
+                    </p>
+                    <a href="https://www.linkedin.com/in/jon25/"
+                        ><p>
+                            <i class="fa-brands fa-linkedin"></i> &nbsp;<strong
+                                >LinkedIn</strong
+                            >
+                        </p></a
+                    >
+                </div>
+                <div class="blog-content">
+                    <a href="../../blog.html" style="text-decoration: underline"
+                        ><h6>&lt;&lt; Back</h6></a
+                    >
+                    <h2>Escaping Google's monopoly</h2>
+                    <h6>22 November 2024</h6>
+                    <p>
+                        On 20 November, the U.S. Department of Justice
+                        <a href="https://www.bbc.com/news/articles/cp81ppr3l9go"
+                            >submitted a court filing</a
+                        >
+                        demanding that Google sell its browser Chrome and be
+                        banned from pursuing contracts that make its search
+                        engine the default on smartphones and laptops. This
+                        comes amid an ongoing effort to break up Google's
+                        domineering monopoly on the online search market, with a
+                        federal judge
+                        <a
+                            href="https://www.reuters.com/legal/us-judge-rules-google-broke-antitrust-law-search-case-2024-08-05/"
+                            >already having ruled</a
+                        >
+                        that Google "is a monopolist, and it has acted as one to
+                        maintain its monopoly." (Google has said they intend to
+                        appeal that decision, though it remains unclear to what
+                        extent.)
+                    </p>
+                    <p>
+                        For a while now, as that legal fight has been under
+                        progress, I've been sitting with an ick about Google's
+                        overwhelming control over my daily online life &mdash;
+                        not to mention its exploitation of the resulting data it
+                        collects for its own profit, privacy be damned.
+                        Everywhere I go, on any public or work device I use,
+                        Google Chrome is always a default; I'm forced to use
+                        Google's suite of services (Gmail, Drive, Docs, ...) at
+                        my university; Google is the default on my iPhone's
+                        browsers.
+                    </p>
+                    <p>
+                        Sometime last month, that ick finally pushed me to act.
+                        But escaping Google's grasp was even harder than I
+                        initially thought.
+                    </p>
+
+                    <p>
+                        Below I break down the steps I took to try that
+                        regardless, as well as additional measures I'd recommend
+                        to maximize privacy.
+                    </p>
+
+                    <h4>Step 1: Firefox</h4>
+
+                    <p>
+                        This one is a no-brainer. Even in its default state,
+                        it's still a major improvement from Chrome. But it's
+                        only as good as its configuration, so here's some quick
+                        additional steps:
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                <strong
+                                    >Switch tracking protection to
+                                    Strict.</strong
+                                >
+                                In Settings > Privacy (about:settings#privacy).
+                            </p>
+                        </li>
+                        <img
+                            src="../../uploads/strict-tracking-protection.png"
+                            width="50%"
+                        />
+                        <li>
+                            <p>
+                                <strong
+                                    >Tell websites not to sell or share my
+                                    data.</strong
+                                >
+                                Firefox, as with other browsers, uses Global
+                                Privacy Control (GPC), which sends a signal to
+                                businesses that a user does not want their
+                                personal information to be sold or shared.
+                                (Mozilla itself was involved in GPC's
+                                development.)
+                            </p>
+                        </li>
+
+                        <li>
+                            <p>
+                                <strong
+                                    >Send websites a "Do Not Track"
+                                    request.</strong
+                                >
+                                This sends a similar signal to every website you
+                                visit and its third-party partners that you do
+                                not want your browsing behavior tracked. But
+                                websites don't have to comply with that request.
+                            </p>
+                        </li>
+                        <img
+                            src="../../uploads/website-privacy-pref.png"
+                            width="50%"
+                        />
+                        <li>
+                            <p>
+                                <strong
+                                    >Get the uBlock Origin extension.</strong
+                                >
+                                No browser is complete with uBlock. It's a
+                                content filtering extension that's stunningly
+                                effective, less memory-intensive than its
+                                competitors, and customizable.
+                            </p>
+                        </li>
+                    </ul>
+                    <p>
+                        <em
+                            >(I personally use Firefox Nightly, but only because
+                            it has vertical tabs on a sidebar, as opposed to
+                            horizontally over the top bar. I wouldn't
+                            necessarily recommend it beyond that feature; if you
+                            do want to switch to that, be sure to turn off
+                            allowing Nightly to send technical and interaction
+                            data to Mozilla (Settings > Privacy) if that's
+                            something you're uncomfortable with. It is turned on
+                            by default.)
+                        </em>
+                    </p>
+
+                    <h4>Step 2: Startpage</h4>
+                    <p>
+                        Startpage is a privacy-focused search engine that has
+                        honestly served me well in 99% of my use cases. It
+                        serves Google search results without* tracking your
+                        activity and selling it to third parties.
+                    </p>
+                    <p>
+                        <em
+                            >* Back in May, a
+                            <a
+                                href="https://discuss.privacyguides.net/t/startpage-has-apparently-started-to-fingerprint-users/18434/95"
+                                >forum thread</a
+                            >
+                            on
+                            <a href="https://www.privacyguides.org/en/"
+                                >PrivacyGuides</a
+                            >, a reputed "privacy advocacy community" that had
+                            <a
+                                href="https://www.privacyguides.org/en/search-engines/#startpage"
+                                >vetted and publicly recommended Startpage</a
+                            >, was on the verge of panic after a
+                            <a
+                                href="https://www.reddit.com/r/privacy/comments/1culldp/sudden_jshelter_fingerprint_warnings_about/"
+                                >Reddit user alerted</a
+                            >
+                            that Startpage had apparently started to fingerprint
+                            users. The entire thread is somewhat of a
+                            nerve-wracking read; but after some more
+                            investigating, and Startpage themselves intervening
+                            to do damage control, all but a few of the users
+                            seemed convinced that the fingerprinting was for the
+                            limited use case of bot detection/abuse prevention.
+                            For that reason, and this thread being the last
+                            major concern about the service to my knowledge, I
+                            keep this recommendation in this post.</em
+                        >
+                    </p>
+                    <p>Another consideration, from PrivacyGuides themselves:</p>
+                    <blockquote>
+                        <p>
+                            Startpage's majority shareholder is System1 who is
+                            an adtech company. We don't believe that to be an
+                            issue as they have a distinctly separate privacy
+                            policy. The Privacy Guides team reached out to
+                            Startpage back in 2020 to clear up any concerns with
+                            System1's sizeable investment into the service, and
+                            we were satisfied with the answers we received.
+                        </p>
+                    </blockquote>
+                    <p><strong>Why not DuckDuckGo or Brave?</strong></p>
+                    <p>
+                        Consider
+                        <a
+                            href="https://www.reddit.com/r/privacy/comments/191yu33/comment/kh3nuy3/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+                            >this reply</a
+                        >
+                        from Reddit user u/lo________________ol:
+                    </p>
+                    <blockquote>
+                        <p>
+                            Way back in 2016,
+                            <a
+                                href="https://archive.is/W0k4j"
+                                rel="noopener nofollow ugc"
+                                target="_blank"
+                                >[DuckDuckGo] promised to remove banner ads from
+                                websites and replace them with their own</a
+                            >, basically trying to extract money directly from
+                            websites without the consent of their owners
+                        </p>
+                        <p>
+                            In the same year,
+                            <a
+                                href="https://github.com/brave/browser-laptop/issues/5475"
+                                rel="noopener nofollow ugc"
+                                target="_blank"
+                                >[DuckDuckGo] CEO Brendan Eich unilaterally
+                                added a fringe, pay-to-win Wikipedia clone into
+                                the default search engine list</a
+                            >.
+                        </p>
+                        <p>
+                            In 2018,
+                            <a
+                                href="https://www.reddit.com/r/brave_browser/comments/a8d34y/youtuber_tom_scott_claims_that_brave_is_falsely/"
+                                rel="noopener nofollow ugc"
+                                target="_blank"
+                                >Tom Scott and other creators noticed</a
+                            >
+                            Brave was soliciting donations in their names
+                            without their knowledge or consent.
+                        </p>
+                        <p>
+                            In 2020,
+                            <a
+                                href="https://www.theverge.com/2020/6/8/21283769/brave-browser-affiliate-links-crypto-privacy-ceo-apology"
+                                rel="noopener nofollow ugc"
+                                target="_blank"
+                                >Brave got caught injecting URLs with affiliate
+                                codes</a
+                            >.
+                        </p>
+                        <p>
+                            In 2023,
+                            <a
+                                href="https://www.xda-developers.com/brave-browser-installs-vpn-windows/"
+                                rel="noopener nofollow ugc"
+                                target="_blank"
+                                >Brave got caught installing a paid VPN
+                                service</a
+                            >
+                            on users' computers without their consent.
+                        </p>
+                        <p>I've probably missed a few.</p>
+                    </blockquote>
+                    <p>
+                        Search engines are their own rabbit holes; if you want
+                        to go further, you can check out the metasearch engine
+                        <a href="https://docs.searxng.org/">SearXNG</a>, and/or
+                        rotate between multiple search engines so that your
+                        search history can't be tracked to a single place. But
+                        realistically, for most people that's a lot to ask for.
+                    </p>
+
+                    <h4>Step 3: Proton Mail</h4>
+
+                    <p><em>To be continued ... </em></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="../../themes/prism.js"></script>
+    </body>
+</html>
