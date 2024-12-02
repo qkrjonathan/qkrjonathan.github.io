@@ -11,18 +11,14 @@
         <meta name="language" content="English" />
         <meta name="author" content="Jonathan Park" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            type="application/json+oembed"
-            href="https://parkdj.com/blog/2024/cloning-boa-oembed.json"
-        />
 
         <meta
             property="og:image"
-            content="https://hackread.com/wp-content/uploads/2019/07/evilgnomes-linux-malware-steals-audios-spy-on-linux-users-1.jpg"
+            content="https://the25post.com/uploads/google-monopoly-cover.jpg"
         />
         <meta
             property="og:title"
-            content="blog: kernel panics, i panic - jonathan park"
+            content="blog: escaping google's monopoly - jonathan park"
         />
         <meta
             property="og:description"
@@ -329,7 +325,150 @@
 
                     <h4>Step 3: Proton Mail</h4>
 
-                    <p><em>To be continued ... </em></p>
+                    <p>
+                        For most purposes, Gmail is secure enough. But security
+                        and privacy are separate things &mdash; as in, one is
+                        about the ability of an unauthorized actor getting to
+                        your data, and the other is about an authorized actor
+                        getting it and selling it for profit. Until 2017, Google
+                        had been
+                        <a
+                            href="https://www.npr.org/sections/thetwo-way/2017/06/26/534451513/google-says-it-will-no-longer-read-users-emails-to-sell-targeted-ads"
+                            >scanning users' emails within the free consumer
+                            ecosystem to serve targeted ads</a
+                        >, before it stopped the practice to merge policies with
+                        its corporate-facing service. And that change only
+                        happened, after at least 13 years of selling the info,
+                        because "some current or prospective paying enterprise
+                        customers," not free-tier consumers, "were uncomfortable
+                        with this practice," said Seth Schoen, of the digital
+                        rights group Electronics Frontier Foundation, in
+                        <a
+                            href="https://www.nytimes.com/2017/06/23/technology/gmail-ads.html"
+                            >an interview with the <em>New York Times</em></a
+                        >.
+                    </p>
+                    <p>
+                        Scanning of Gmail messages nonetheless continues, at
+                        Google's discretion, though presumably that information
+                        is only for internal use and not for advertisements.
+                        Whether one is to trust such claims from Google is, at
+                        this point, a matter of opinion. I personally don't feel
+                        like risking it; so I moved to Proton Mail.
+                    </p>
+                    <p>
+                        Unlike Gmail, Proton uses client-side encryption &mdash;
+                        that is, messages are encrypted before they're sent to
+                        mail servers, meaning Proton couldn't scan the contents
+                        of that message even if they wanted to. Since Proton
+                        itself is headquartered outside the U.S., in
+                        Switzerland, your email data is regulated under the much
+                        stricter GDPR framework, and falls outside of the
+                        purview of U.S. (and
+                        <a href="https://en.wikipedia.org/wiki/Five_Eyes"
+                            >Five Eyes</a
+                        >, for that matter) surveillance. It's certainly not as
+                        keen as Google is to hand over data to law enforcement,
+                        and it only complies when absolutely necessary. (It was
+                        only last month that Google decided it would
+                        <a
+                            href="https://www.forbes.com/sites/larsdaniel/2024/10/08/google-to-stop-sharing-location-data-with-law-enforcement/"
+                            >no longer make its users geolocation data easily
+                            available to authorities</a
+                        >.)
+                    </p>
+                    <p><strong>Considerations</strong></p>
+                    <p>
+                        If I were born yesterday, and I were able to use Proton
+                        Mail as soon as I left the womb, perhaps that would have
+                        been ideal. Clearly that is not the case. Since
+                        childhood, I've had several Gmail accounts, and at this
+                        point my current account is linked to so many
+                        third-party services via federation that it's almost
+                        impossible to track down the extent of it, or control
+                        it, unless I deleted the account entirely &mdash; but
+                        then I wouldn't know what I'd be losing access to,
+                        including any crucial services I happened to forget
+                        about.
+                    </p>
+                    <p>
+                        That's not to mention my university forces me to use
+                        their own Google Workspace, which is neither here nor
+                        there.
+                    </p>
+                    <p>
+                        But all of this is (mostly) out of my control by this
+                        point. What I can do is move forward with Proton. I've
+                        switched most of my frequently used third-party accounts
+                        &mdash; LinkedIn, my bank accounts &mdash; and other
+                        work-related miscellanea to my Proton email. I have a
+                        separate "throwaway" email that I use for other things
+                        in my personal life, like Amazon, Twitch and various
+                        newsletters that I don't want to clog up my work email.
+                        I also set up that email so messages sent to my Gmail
+                        are forwarded to Proton. So far, that system is working
+                        out quite well.
+                    </p>
+                    <p>
+                        As with all things, this is just the beginning of
+                        another rabbit hole, along which you may find things
+                        like <a href="https://addy.io/">addy.io</a>, an email
+                        forwarding service that gives you an obscured email
+                        address so you don't have to unnecessarily give out your
+                        actual email. However you deep you may fall into that
+                        rabbit hole, Proton Mail is nonetheless a good start.
+                    </p>
+
+                    <h4>Step 4: LibreOffice / WPS</h4>
+                    <p>
+                        Hairs have been standing on end as of late as Google is
+                        diving deeper and deeper into the AI/ML space, and many
+                        who use Google's suite of document editors are becoming
+                        suspicious as to whether their data will be used to
+                        train generative models without their consent or
+                        knowledge. So far Google is vehemently denying this, but
+                        whether we can trust them is another matter entirely.
+                    </p>
+                    <p>
+                        LibreOffice is the much touted, community-driven
+                        alternative to Google's (and Microsoft's) services. It
+                        has many of the same features that those more mainstream
+                        suites have, while allowing for a degree of safety
+                        knowing these files are locally hosted and not scanned
+                        by a corporation as Google Docs are.
+                    </p>
+                    <p>
+                        For most use cases, LibreOffice works just fine. If
+                        you're looking to do something that's fairly specific,
+                        and that does work on either Google or Microsoft &mdash;
+                        e.g. using Morph transitions between slides on
+                        PowerPoint, that's something that will be a lot more
+                        difficult to accomplish. Another drawback is that
+                        imports of .docx, .ppt etc. files are not always
+                        perfect, and it'll be annoying to fix it. If you have a
+                        job or other obligation that would require you to then
+                        reupload a finished file to be opened with Microsoft or
+                        Google, it'll then be need to fixed again after that
+                        fact. But in more isolated use cases where that doesn't
+                        matter, it works just fine.
+                    </p>
+                    <p>
+                        In terms of quality, WPS is a much better alternative
+                        that I've personally been using. Its knockoff of
+                        PowerPoint even has equally effective Morph transitions,
+                        which impressed it. But a huge caveat is that as a whole
+                        it isn't open-source, and it's developed and maintained
+                        by the Chinese software company Kingsoft. Take that how
+                        you will. The Linux version, at least, is
+                        community-operated as of 2019, so if you're a Linux user
+                        you can still use it with a reasonable degree of
+                        reassurance. Still, be wary of
+                        <a
+                            href="https://www.welivesecurity.com/en/eset-research/nspx30-sophisticated-aitm-enabled-implant-evolving-since-2005/"
+                            >potential exploits through update mechanisms for
+                            WPS.</a
+                        >
+                    </p>
                 </div>
             </div>
         </div>
