@@ -14,7 +14,7 @@
 
         <meta
             property="og:image"
-            content="https://parkdj.com/uploads/google-monopoly-cover.jpg"
+            content="https://parkdj.com/uploads/homelabthumbnail.jpg"
         />
         <meta
             property="og:title"
@@ -41,6 +41,9 @@
         ></script>
 
         <link href="../../themes/prism.css" rel="stylesheet" />
+        <style>
+            h4 { margin-bottom: 5px; }
+        </style>
     </head>
     <body>
         <div class="all-content-container">
@@ -57,7 +60,7 @@
                         Graduate cum laude of the University of Southern California.
                     </p>
                     <p>
-                        <i class="fa-solid fa-location-dot"></i> &nbsp;
+                        <i class="fa-solid fa-location-dot"></i> &nbsp; 
                         California
                     </p>
                     <a href="https://www.linkedin.com/in/jon25/"
@@ -72,11 +75,15 @@
                     <a href="../../blog.html" style="text-decoration: underline"
                         ><h6>&lt;&lt; Back</h6></a
                     >
-                    <h2>Baby's first home lab</h2>
-                    <h6>X June 2025</h6>
+                    <h2 id="top">Baby's first home lab</h2>
+                    <h6>27 June 2025 - present</h6>
+
+                    <p style="background: rgb(143, 37, 44); display: inline-block; font-weight: bold; padding: 3px;">This page is still under construction.</p>
                     <div class="table-of-contents">
                         <p><strong>Contents</strong></p>
                         <p><a href="#download">Downloading Win10 and Kali images</a></p>
+                        <p><a href="#config">Configuring the VMs</a></p>
+                        <p><a href="#add-metasploitable">Adding the Metasploitable VM</a></p>
                     </div>
                     <p>
                         This is the opening of a new world for me. I’ve been looking into home labs for a little bit, now being fresh out of college, newly minted bachelor’s degree and all. With my summer internship in cybersecurity fading further and further into the past, I hadn’t had the chance since then to “practice” cybersecurity, as it were, until this moment. Now, free of my studies, I have the opportunity at last.
@@ -87,12 +94,146 @@
                     </p>
                    <p>As time passes, I can always mold my newfound home lab for other purposes, but for now, I wanted to dig into this fascinating field of vulnerability assessment and management. </p>
 
-                   <p>Before that, though, I wanted to first get a feel for setting up an absolute barebones network: an internal network of two VMs — one Kali Linux as the attacker, and one Windows 10 as the target — with manually set IPs. </p>
+                   <p>Before that, though, I wanted to first get a feel for setting up an absolute barebones network: an internal network within VirtualBox of two VMs — one Kali Linux as the attacker, and one Windows 10 as the target — with manually set IPs. </p>
 
+
+
+
+                   <!-- #download -->
                    <h4 id="download">Downloading Win10 and Kali images</h4>
+                   <h6><a href="#top">Back to top</a></h6>
+
+                   <p>I won't spend too much space on the process for downloading the ISO files for <a href="https://support.microsoft.com/en-us/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d">Windows 10</a> and Kali Linux (<a href="https://www.kali.org/get-kali/#kali-installer-images">installer</a> or <a href="https://www.kali.org/get-kali/#kali-virtual-machines">pre-built VM for VirtualBox</a>), since those instructions are readily available and were followed pretty much as directed. But there are certain considerations that I wanted to mention here:</p>
+
+                   <ul>
+                    <li><p>Zeroeth(?) item should be that my current host machine is a Windows 11 device.</p></li>
+                    <li>
+                        <p>Firstly, it is crucial to compare the SHA256 checksums of the downloaded files to ensure they haven't been corrupted in transit. To get the checksum of your downloaded file: go to your Downloads folder, right-click anywhere in the folder and select Open in Terminal. Then run the following command:</p>
+                        <pre><code>Get-FileHash [filename]</code></pre>
+                        <p>The checksums for the proper files can be found at the following:</p>
+                        <ul>
+                            <li><p>VirtualBox: <a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS</a></p></li>
+                            <li><p>Windows: Provided within ISO installation wizard, in "Verify your download" section</p></li>
+                            <li>
+                                <p>Kali: Regardless of installer or pre-built VM, the respective checksum can be found when you click "sum":</p>
+                                <div style="display: flex;">
+                                    <img src="../../uploads/homelab2.png" style="width: 30%">
+                                    <img src="../../uploads/homelab3sum.png" style="width: 30%;">
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><p>Each of these ISOs are just over 4GB, and I am gradually running out of space on this laptop after having used it for four years; so in order to conserve storage I decided to move these ISOs over to a 128GB (really a 116GB) USB stick. But I first needed to format the USB drive first -- I initially didn't recognize this, and kept trying to transfer over, only to repeatedly get the same nonsensical error that there "wasn't enough disk space" on a 116GB drive for a 4GB file. After some digging, I'd had to change the format of the drive from the default exFAT to NTFS. (OS installation media generally requires NTFS as it is a journaled filesystem, meaning changes are logged to prevent potential corruption.)</p></li>
+                    <li><p>In installing the Win10 VM, I decided to allocate 1GB of memory (mostly an educated-guess decision based on what resources I know I have on this flimsy laptop; even then it was probably overkill), 1 CPU, and a disk size of 20GB (anything that can accommodate 10,816MB is fine). </p></li>
+                    <img src="../../uploads/homelab1.png" style="width: 90%;">
+                    <li><p>For the Kali VM, I allocated 2GB of memory, 1 CPU, and 50GB.</p></li>
+                    <img src="../../uploads/homelabkaliconfig.png" style="width:90%">
+                    <li>
+                        <p>The Win10 bootup can be particularly annoying once the VM is up and running. I followed the YouTube channel MyDFIR's <a href="https://youtu.be/kku0fVfksrk?si=uzEafBC9wG-FhvyS&t=267">stunningly clear video tutorial on the subject</a>, but the gist of it is to state, when prompted, that you don't have a product key, and then to choose Windows 10 Pro as your version.</p>
+                        <ul>
+                            <li>
+                                <p>When prompted: "Which type of installation do you want?", select "Custom: Install Windows only (advanced)."</p>
+                                <img src="../../uploads/homelab4typeofinstallation.png" style="width: 100%;">
+                            </li>
+                            <li>
+                                <p>When prompted: "How would you like to set up?" choose "Set up for personal use."</p>
+                                <img src="../../uploads/homelabhowwouldyouliketosetup.png" style="width:100%">
+                            </li>
+                            <li>
+                                <p>After that, insist on creating an offline account, then turn OFF all the knobs presented in the "Choose privacy settings for your device" prompt.</p>
+                                <img src="../../uploads/homelabprivacysettingsallno.png" style="width:100%">
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>For the Kali bootup, I was prompted with the option for a graphical install or simply "Install", among other options. The graphical install did not work for me, but the normal Install did work.</p>
+                    </li>
+                   </ul>
+
+                   <p>And there we have it.</p>
+
+                   <img src="../../uploads/homelabsetupcomplete.png" width="100%">
 
 
 
+                   
+                   <!-- #config -->
+                   <h4 id="config">Configuring the VMs</h4>
+                   <h6><a href="#top">Back to top</a></h6>
+
+                   <p>Now, for this specific situation, of a Win10 machine with nothing on it (albeit with the intentionally weak password "password") and a Kali machine with nothing on it, there wouldn't be any measures we would need to take to ensure the security of this setup. But our endgoal here, for right now, is to add a Metasploitable VM to this network and take some jabs at it in a sandbox environment &mdash; which means, we need at least our Kali attacker and the Metasploitable to be able to communicate, while blocking it from the Internet so that it's just me that's doing the jabbing.</p>
+
+                   <p>This means we need an <strong>internal network</strong>. Fortunately, VirtualBox gives us the option to do just that. Let's configure our Win10 machine first.</p>
+                   <ul>
+                    <li><p>In VirtualBox, click the Win10 machine, then Settings.</p></li>
+                    <li><p>Newer versions of VB seem to have separated these settings into Basic and Expert. The option to switch to an internal network is only available in "Expert," so click that. (Older tutorials fail to mention this.)</p></li>
+                    <li><p>Scroll down to the Network section or simply click the "Network" tab on the left sidebar. From there, in the "Attached to:" dropdown, select "Internal network." Right below that, you can name this internal network whatever you'd like. I called mine "qkrnet".</p></li>
+                    <li><p>Once you're done, click OK.</p></li>
+                   </ul>
+
+                   <img src="../../uploads/homelabintnetconfig1.png" width="100%">
+
+                   <p>Repeat these steps to configure the Kali machine the same way. For the Kali machine, once you switch it to an internal network you will only need to select the name of the existing internal network from the dropdown, in my case "qkrnet."</p>
+
+                   <p>Now, we still need to statically set the IP for each VM.</p>
+
+                   <p>Again, let's do the Win10 machine first:</p>
+
+                   <ul>
+                    <li>
+                        <p>Once logged in, right-click the globe icon on the bottom right, then click "Open Network & Internet settings."</p>
+                        <img src="../../uploads/homelabwinstatip1.png" width="50%">
+                    </li>
+                    <li>
+                        <p>Then click "Change adapter options."</p>
+                        <img src="../../uploads/homelabwinstatip2.png" width="100%">
+                    </li>
+                    <li>
+                        <p>Right click on the "Ethernet" item, then click "Properties."</p>
+                        <img src="../../uploads/homelabwinstatip3.png" width="100%">
+                    </li>
+                    <li>
+                        <p>Double-click on "Internet Protocol Version 4 (TCP/IPv4)."</p>
+                        <img src="../../uploads/homelabwinstatip4.png" width="50%">
+                    </li>
+                    <li>
+                        <p>Select the "Use the following IP address:" option, then manually set the IP address. A /24 subnet is fine. I chose 192.168.31.10/24. Then press OK, and OK on the previous screen. Leave all else unchanged.</p>
+                        <img src="../../uploads/homelabwinstatip5.png" width="50%">
+                    </li>
+                    <li>
+                        <p>Open cmd and run <code class="language-css">ipconfig</code> to confirm the static IP has been set.</p>
+                        <img src="../../uploads/homelabwinstatip6.png" width="70%">
+                    </li>
+                   </ul>
+
+                   <p>Now let's do the same in our Kali VM:</p>
+                   <ul>
+                    <li>
+                        <p>Once logged in, right-click the Ethernet button (for me this was still loading as the VM was attempting to find a nonexistent Internet connection, but process of elimination made it obvious that was the button to press), then click "Edit Connections..."</p>
+                        <img src="../../uploads/homelabkalistatip1.png" width="70%">
+                    </li>
+                    <li>
+                        <p>Select (single-click) "Wired connection 1" to highlight it, then click the gear icon on the bottom left of that window.</p>
+                        <img src="../../uploads/homelabkalistatip2.png" width="70%">
+                    </li>
+                    <li>
+                        <p>Navigate to the "IPv4 Settings" tab. Notice that the default Method is set to DHCP; open that dropdown and select "Manual." Then under Addresses, click the "Add" button, and the desired static IP for this machine &mdash; preferably one higher than what you set for the Win10 machine. In my case, that would be 192.168.31.11. Then press Tab; the netmask should automatically appear as 24. Leave all else unchanged, and press Save.</p>
+                        <img src="../../uploads/homelabkalistatip3.png" width="70%">
+                    </li>
+                   </ul>
+
+                   <p>Now let's check that the two VMs are interconnected. Unfortunately, the firewall on the Win10 machine doesn't allow ICMPs from the Kali machine to the Win10 machine, but if we ping Kali from the Win10, we will see that the pings do go through. (In my case, when I tried immediately after I'd set the Kali IP, it took a while for pings to go through as the change was still taking effect.)</p>
+
+                   <img src="../../uploads/homelabkaliwinping1.png" width="60%">
+
+                   <p>Now we have a basic home lab, with an attacker machine (Kali) and a defender machine (Win10). From here we could go anywhere: we could start running this very setup as a malware analysis lab (something I do intend to do very soon); we could open the network back up to the Internet by changing the configurations back to NAT or a bridged network; and so on. But right now, as a first little exercise, I want to add a Metasploitable VM to this network and see what I can find.</p>
+
+
+
+
+                   <!-- #add-metasploitable -->
+                   <h4 id="add-metasploitable">Adding the Metasploitable VM</h4>
+                   <h6><a href="#top">Back to top</a></h6>
                 </div>
             </div>
         </div>

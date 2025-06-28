@@ -7,10 +7,12 @@ body a:link {
     color: #20c20e;
 }
 
+body a:visited { color: #6aac63; }
+
 blockquote {
     margin-left: 0;
     padding-left: 15px;
-    border-left: 2px solid #20c20e;
+    border-left: 2px solid #90b98baa;
 }
 
 ::-moz-selection,
@@ -19,8 +21,8 @@ blockquote {
 }
 
 .all-content-container {
-    width: 80%;
-    max-width: 1200px;
+    width: 50%;
+    max-width: 900px;
     margin: 0 auto;
     & a {
         text-decoration: none;
@@ -86,7 +88,7 @@ blockquote {
     & .blog-content {
         flex: 3;
         overflow: scroll;
-        padding: 0 10px;
+        padding: 0 20px 0 10px;
         & h2 {
             margin-bottom: 10px;
         }
@@ -105,9 +107,10 @@ blockquote {
     }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 1080px) {
     .all-content-container {
         width: 100%;
+        max-width: 700px;
     }
 
     .blog-list-container {
