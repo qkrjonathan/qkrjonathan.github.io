@@ -84,6 +84,7 @@
                         <p><a href="#download">Downloading Win10 and Kali images</a></p>
                         <p><a href="#config">Configuring the VMs</a></p>
                         <p><a href="#add-metasploitable">Adding the Metasploitable VM</a></p>
+                        <p><a href="nmap">First impressions with nmap</a></p>
                     </div>
                     <p>
                         This is the opening of a new world for me. I’ve been looking into home labs for a little bit, now being fresh out of college, newly minted bachelor’s degree and all. With my summer internship in cybersecurity fading further and further into the past, I hadn’t had the chance since then to “practice” cybersecurity, as it were, until this moment. Now, free of my studies, I have the opportunity at last.
@@ -112,7 +113,7 @@
                         <pre><code>Get-FileHash [filename]</code></pre>
                         <p>The checksums for the proper files can be found at the following:</p>
                         <ul>
-                            <li><p>VirtualBox: <a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS</a></p></li>
+                            <li><p><a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">VirtualBox</a></p></li>
                             <li><p>Windows: Provided within ISO installation wizard, in "Verify your download" section</p></li>
                             <li>
                                 <p>Kali: Regardless of installer or pre-built VM, the respective checksum can be found when you click "sum":</p>
@@ -156,7 +157,7 @@
 
 
 
-                   
+
                    <!-- #config -->
                    <h4 id="config">Configuring the VMs</h4>
                    <h6><a href="#top">Back to top</a></h6>
@@ -226,7 +227,10 @@
 
                    <img src="../../uploads/homelabkaliwinping1.png" width="60%">
 
-                   <p>Now we have a basic home lab, with an attacker machine (Kali) and a defender machine (Win10). From here we could go anywhere: we could start running this very setup as a malware analysis lab (something I do intend to do very soon); we could open the network back up to the Internet by changing the configurations back to NAT or a bridged network; and so on. But right now, as a first little exercise, I want to add a Metasploitable VM to this network and see what I can find.</p>
+                   <p>Now we have a basic home lab, with an attacker machine (Kali) and a defender machine (Win10). With everything in line, I made sure to <strong>take snapshots of the VMs' current states</strong>, and note them down as a default state that I can always come back to. From here we could go anywhere: we could start running this very setup as a malware analysis lab (something I do intend to do very soon); we could open the network back up to the Internet by changing the configurations back to NAT or a bridged network; and so on. But right now, as a first little exercise, I want to add a Metasploitable VM to this network and see what I can find.</p>
+
+
+
 
 
 
@@ -234,6 +238,372 @@
                    <!-- #add-metasploitable -->
                    <h4 id="add-metasploitable">Adding the Metasploitable VM</h4>
                    <h6><a href="#top">Back to top</a></h6>
+
+                   <p>Now begins the real deal. I want to get an intentionally vulnerable system onto my new internal network so that I can take a look at what it is that makes it vulnerable exactly, and then see what I can do using those vulnerabilities (whether it be remedying them or abusing them). The mindset I'm trying to get into here is that this machine is indeed a client's actual machine, and my actions with this machine are performed with the endgoal of producing a report for the client to read and truly understand the risks, as well as the <em>importance</em> of minimizing those risks.</p>
+
+                   <p>The Metasploitable series of systems is exactly what I need for this task. In this section we'll be dealing with <strong>Metasploitable 2</strong>, as it is easier to build than the original; there is also a newer Metasploitable 3 but for now we'll stick to the former and see what we can do with it.</p>
+
+                   <p><strong>Installing Metasploitable 2</strong></p>
+                   
+                   <p><a href="https://docs.rapid7.com/metasploit/metasploitable-2/">Rapid7</a> offers two links for downloading Metasploitable 2 (I'll shorten as MS2 going forward), but the one that I got to work was the second, via <a href="https://sourceforge.net/projects/metasploitable/">SourceForge</a>. The file is a 800MB zip file, that even without unzipping I was able to double-click to preview the contents and pull just the 1GB .vmdk file out to my USB drive containing my other VM disks.</p>
+                   <img src="../../uploads/homelabms2inthumbdrive.png" width="100%">
+                   <p>Evidently, this renders my name for the USB drive useless, but it gets the point across so at this point I'm keeping it.</p>
+                   <p>But where this new file format does matter (since it is a VMWare file format) is in getting VirtualBox to run this file when, at least upfront, it only accepts ISO files. This is where the tiniest bit of trickery comes in (credit to <a href="https://smallbusiness.chron.com/open-vmdk-virtualbox-28847.html">this article from Chron</a>):</p>
+                   <ul>
+                    <li>
+                        <p>Create a new virtual machine, set to Linux but without selecting an ISO image. Then click Finish. But do NOT start the VM yet.</p>
+                        <img src="../../uploads/homelabms2newvm.png" width="100%">
+                    </li>
+                    <li>
+                        <p>Now go to the Settings for that new VM. Under the Storage section, when you click  to highlight the row "Controller: SATA" there should be two buttons that appear to the right. If you hover over the rightmost of those buttons, it should read "Adds hard disk." Click that button. Then click the "Add" button at the top left of that new window, at which point File Explorer will open and you can select the vmdk file wherever you stored it. Then press OK to save. Make sure to DELETE the existing .vdi file under "Controller: SATA" so that VirtualBox knows to pull only from the .vmdk file.</p>
+                        <img src="../../uploads/homelabms2storagevmdk.png" width="100%">
+
+                    </li>
+                    <li>
+                        <p>We'll follow the same steps as before to add the MS2 VM to the internal network, making sure to select the name of our actual network from earlier.</p>
+                        <img src="../../uploads/homelabms2intnet.png" width="100%">
+                    </li>
+                   </ul>
+
+                   <p>Again, one last step here to actually add the MS2 VM to our qkrnet intnet: Bootup the MS2 VM, login with <code>msfadmin:msfadmin</code>, then run <code>ifconfig -a</code>. You should notice there's an IPv6 address, but no IPv4.</p>
+
+                   <img src="../../uploads/homelabifconfiginitial.png" width="100%">
+
+                   <p>The <code>sudo</code> is unnecessary in that first instance, but we will need root access to actually set the IPv4 address. In my case, since I want to set it to 192.168.31.12: <code>sudo ifconfig 192.168.31.11 netmask 255.255.255.0</code> Then run <code>ifconfig -a</code> again to confirm the change.</p>
+
+                   <img src="../../uploads/homelabifconfigafter.png" width="100%">
+
+                   <p>Let's have Kali (which you should now boot up) and MS2 ping each other to confirm they're interconnected.</p>
+
+                   <img src="../../uploads/homelabkalipingms2.png" width="100%">
+                   <br>
+                   <img src="../../uploads/homelabms2pingkali.png" width="100%">
+
+                   <p>Now our intnet infrastructure looks something like this:</p>
+
+                   <img src="../../uploads/intnetinfra.png" width="100%">
+
+
+
+
+
+
+
+
+
+
+
+
+                   <!-- #nmap -->
+                   <h4 id="nmap">First impressions with nmap</h4>
+                   <h6><a href="#top">Back to top</a></h6>
+
+                   <p>Just to get a feel for what we're dealing with, I ran the most basic <code>nmap</code> scan of the MS2.</p>
+
+                   <img src="../../uploads/homelabms2nmapscan.png" width="100%">
+
+                   <p>Basically every port that could possibly be open is open. This is rich with opportunities for potential exploits, and to go through each port to see what we could find is a little time-consuming, and frankly overwhelming. To make things a little more clear, I ran <code>nmap</code> again but with a few added specifications:</p>
+
+                   <pre><code class="language-css">nmap -sS -sV --script vuln 192.168.31.12 > ~/Desktop/nmapoutput.txt</code></pre>
+
+                   <ul>
+                    <li><p><code class="language-css">-sS</code>: "stealth" scan/TCP SYN scan, more unobtrusive as it doesn't complete TCP connections. Since the connections is never completed, it becomes more likely that OSs or IDSs don't log the connection as a full session, if they log it at all; it also blends in more easily to regular traffic, since legitimate users also send SYN packets.</p></li>
+                    <li><p><code class="language-css">-sV</code>: version detection.</p></li>
+                    <li><p><code class="language-css">--script vuln</code>: Runs <code language-css>vuln</code> script that prints details about each detected vulnerability.</p></li>
+                    <li><p><code class="language-css">> ~/Desktop/nmapoutput.txt</code>: sends the output to a txt file.</p></li>
+                   </ul>
+
+                   <p>Here's the first few lines of that output (<a href="homelab_nmapoutput.txt">entire output here</a>). I've included just enough to see one example of what the <code>vuln</code> script outputs for a vulnerability.</p>
+                    <blockquote>
+                        <pre style="color: white;">
+                            <code>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
+Nmap scan report for 192.168.31.12
+Host is up (0.000093s latency).
+Not shown: 977 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+| ftp-vsftpd-backdoor: 
+|   VULNERABLE:
+|   vsFTPd version 2.3.4 backdoor
+|     State: VULNERABLE (Exploitable)
+|     IDs:  BID:48539  CVE:CVE-2011-2523
+|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+|     Disclosure date: 2011-07-03
+|     Exploit results:
+|       Shell command: id
+|       Results: uid=0(root) gid=0(root)
+|     References:
+|       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+|_      https://www.securityfocus.com/bid/48539
+22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+23/tcp   open  telnet      Linux telnetd
+...</code>
+                        </pre>
+                    </blockquote>
+
+                    <p>Having first turned on the shared clipboard in the Kali VM to be bidirectional, I copied the entire contents of <code>nmapoutput.txt</code> to a txt file on my host machine. Our goal at this point is turn this 461-line output into something more readable. What immediately comes to mind is to collect some crucial info about each vulnerability into a table or spreadsheet. (While we do that, we can shut down our VMs for now, as we want to avoid having the MS2 on when it's not being used.)</p>
+
+                    <style type="text/css">
+                        table.tg  {border-collapse:collapse;border-spacing:0;}
+                        .tg td{border-color:white;border-style:solid;border-width:1px;font-family:"SF Pro Display", sans-serif;font-size:14px;color: white;padding:10px 5px;word-break:normal;overflow-x:scroll;}
+                        .tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;color: white; font-weight:normal;padding:10px 5px;word-break:normal;overflow-x:scroll;}
+                        .tg .tg-cly1{text-align:left;vertical-align:middle}
+                        .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
+                        .tg .tg-j6zm{font-weight:bold;text-align:left;vertical-align:bottom}
+                        .tg .tg-nrix{text-align:center;vertical-align:middle}
+                        .tg .tg-8cte{background-color:#d0d0d048;text-align:center;vertical-align:middle}
+                    </style>
+                    <div style="overflow-x:scroll;">
+                        <table class="tg">
+                        <thead>
+                    <tr>
+                        <th class="tg-wa1i">port</th>
+                        <th class="tg-wa1i">CVE</th>
+                        <th class="tg-wa1i">state</th>
+                        <th class="tg-wa1i">description</th>
+                        <th class="tg-j6zm">references</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr>
+                            <td class="tg-nrix" rowspan="4">21/tcp</td>
+                            <td class="tg-nrix" rowspan="4">CVE-2011-2523</td>
+                            <td class="tg-nrix" rowspan="4">VULNERABLE (Exploitable)</td>
+                            <td class="tg-nrix" rowspan="4">vsFTP vrsion 2.3.4 backdoor</td>
+                            <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_      https://www.securityfocus.com/bid/48539</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte" rowspan="4">25/txp</td>
+                            <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
+                            <td class="tg-8cte" rowspan="4">VULNERABLE</td>
+                            <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
+                            <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix">25/tcp</td>
+                            <td class="tg-nrix">n/a</td>
+                            <td class="tg-nrix">VULNERABLE</td>
+                            <td class="tg-nrix">Anonymous Diffie-Helman Key&nbsp;&nbsp;&nbsp;Exchange MitM Vulnerability</td>
+                            <td class="tg-cly1">https://www.ietf.org/rfc/rfc2246.txt</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte" rowspan="3">25/tcp</td>
+                            <td class="tg-8cte" rowspan="3">CVE-2015-4000</td>
+                            <td class="tg-8cte" rowspan="3">VULNERABLE</td>
+                            <td class="tg-8cte" rowspan="3">Transport Layer Security (TLS) Protocol&nbsp;&nbsp;&nbsp;DHE_EXPORT Ciphers Downgrade MitM (Logjam)</td>
+                            <td class="tg-cly1">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/74733</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|       https://weakdh.org</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix">25/tcp</td>
+                            <td class="tg-nrix">n/a</td>
+                            <td class="tg-nrix">VULNERABLE</td>
+                            <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
+                            <td class="tg-cly1">https://weakdh.org</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte" rowspan="2">80/tcp</td>
+                            <td class="tg-8cte" rowspan="2">CVE-2007-6750</td>
+                            <td class="tg-8cte" rowspan="2">VULNERABLE</td>
+                            <td class="tg-8cte" rowspan="2">Slowloris DOS attack</td>
+                            <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix" rowspan="7">80/tcp</td>
+                            <td class="tg-nrix" rowspan="7">n/a</td>
+                            <td class="tg-nrix" rowspan="7">n/a</td>
+                            <td class="tg-nrix" rowspan="7">http-enum</td>
+                            <td class="tg-cly1">/tikiwiki/: Tikiwiki</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /test/: Test page</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /phpinfo.php: Possible information file</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /phpMyAdmin/: phpMyAdmin</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /doc/: Potentially interesting directory&nbsp;&nbsp;&nbsp;w/ listing on 'apache/2.2.8 (ubuntu) dav/2'</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /icons/: Potentially interesting folder w/&nbsp;&nbsp;&nbsp;directory listing</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_  /index/: Potentially interesting folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte">1099/tcp</td>
+                            <td class="tg-8cte">n/a</td>
+                            <td class="tg-8cte">VULNERABLE</td>
+                            <td class="tg-8cte">RMI registry default configuration remote code execution&nbsp;&nbsp;&nbsp;vulnerability</td>
+                            <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix">5432/tcp</td>
+                            <td class="tg-nrix">n/a</td>
+                            <td class="tg-nrix">VULNERABLE</td>
+                            <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
+                            <td class="tg-cly1">https://weakdh.org</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte" rowspan="4">5432/tcp</td>
+                            <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
+                            <td class="tg-8cte" rowspan="4">VULNERABLE</td>
+                            <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
+                            <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix" rowspan="3">5432/tcp</td>
+                            <td class="tg-nrix" rowspan="3">CVE-2014-0224</td>
+                            <td class="tg-nrix" rowspan="3">VULNERABLE</td>
+                            <td class="tg-nrix" rowspan="3">SSL/TLS MITM vulnerability (CCS Injection)</td>
+                            <td class="tg-cly1">http://www.cvedetails.com/cve/2014-0224</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://www.openssl.org/news/secadv_20140605.txt</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-8cte" rowspan="27">8180/tcp</td>
+                            <td class="tg-8cte" rowspan="27">n/a</td>
+                            <td class="tg-8cte" rowspan="27">n/a</td>
+                            <td class="tg-8cte" rowspan="27">http-enum</td>
+                            <td class="tg-cly1">/admin/: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/index.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/login.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/account.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin_login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/home.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin-login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/adminLogin.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/controlpanel.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/cp.html: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/index.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/login.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/home.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/controlpanel.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin-login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/cp.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/account.jsp: Possible admin folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/admin_login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/adminLogin.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /manager/html/upload: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /manager/html: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html:&nbsp;&nbsp;&nbsp;OpenCart/FCKeditor File upload</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP&nbsp;&nbsp;&nbsp;Simple Blog / FCKeditor File Upload</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|   /admin/jscript/upload.html: Lizard&nbsp;&nbsp;&nbsp;Cart/Remote File upload</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_  /webdav/: Potentially interesting folder</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-nrix" rowspan="2">8180/tcp</td>
+                            <td class="tg-nrix" rowspan="2">CVE-2007-6750</td>
+                            <td class="tg-nrix" rowspan="2">LIKELY VULNERABLE</td>
+                            <td class="tg-nrix" rowspan="2">Slowloris DOS attack</td>
+                            <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
+                        </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
+                    <p>test</p>
                 </div>
             </div>
         </div>

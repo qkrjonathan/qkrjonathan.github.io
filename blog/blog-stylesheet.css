@@ -87,7 +87,8 @@ blockquote {
 
     & .blog-content {
         flex: 3;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         padding: 0 20px 0 10px;
         & h2 {
             margin-bottom: 10px;
@@ -104,6 +105,8 @@ blockquote {
         & h6.photo-caption {
             margin-top: 10px;
         }
+
+        & blockquote { overflow-x: scroll; }
     }
 }
 
