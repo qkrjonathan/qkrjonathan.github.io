@@ -43,6 +43,9 @@
         <link href="../../themes/prism.css" rel="stylesheet" />
         <style>
             h4 { margin-bottom: 5px; }
+            #en { display: block; }
+            #pttext { display: none; }
+            button { border: none; background: rgba(24, 131, 12, 0.4); font-family: 'SF Pro Display'; cursor: pointer; padding: 5px 10px; margin: 0; margin-right: 5px; color: white; font-weight: bold; }
         </style>
     </head>
     <body>
@@ -78,113 +81,48 @@
                     <h2 id="top">Baby's first home lab</h2>
                     <h6>27 June - 11 July 2025</h6>
 
-                    <div class="table-of-contents">
-                        <p><strong>Contents</strong></p>
-                        <p><a href="#download">Downloading Win10 and Kali images</a></p>
-                        <p><a href="#config">Configuring the VMs</a></p>
-                        <p><a href="#add-metasploitable">Adding the Metasploitable VM</a></p>
-                        <p><a href="#nmap">First impressions with nmap</a></p>
-                        <p><a href="#tenablenessus">Tenable Nessus</a></p>
-                        <p><a href="#nessus-scanning">Scanning with Tenable Nessus</a></p>
-                        <p><a href="#report">Creating a report</a></p>
-                        <p><a href="#conclusion">Conclusion</a></p>
-                    </div>
-                    <div class="table-of-contents">
-                        <p><strong>Deliverables</strong></p>
-                        <p>Homelab internal network infastructure diagram <a href="#infra-diagram">[See in blog]</a> <a href="../../uploads/intnetinfra.png">[PNG]</a></p>
-                        <p>Organized spreadsheet of nmap-detected vulnerabilities <a href="#nmap-vuln-table">[See in blog]</a> <a href="../../uploads/nmapvulntable.xlsx">[XLSX]</a></p>
-                        <p>Vulnerability assessment report <a href="#vulnreportfinal">[See in blog]</a> <a href="../../uploads/fake_inc_vulnerability_assessment_report.pdf">[PDF]</a></p>
-                    </div>
-                    <p>
-                        This is the opening of a new world for me. I’ve been looking into home labs for a little bit, now being fresh out of college, newly minted bachelor’s degree and all. 
-                    </p>
-                    <p>With my summer internship in cybersecurity fading further and further into the past, I hadn’t had the chance since then to “practice” cybersecurity, as it were, until this moment. </p>
-                    <p>Now, free of my studies, I have the opportunity at last.</p>
-                    <p>I remember one thing that struck me as particularly intriguing during the internship was <strong>vulnerability management</strong>. </p>
-                    <p>At Aristotle, where I’d interned, pretty much every facet of their infosec protocol was feeding into the same interface — their <strong>Security Information and Event Management (SIEM) system</strong>, Exabeam. 
-                        <br><br>And while that algorithmic smushing did yield a big-picture overview of how those facets came together, I don’t think I really had the time to delve deep into a single particular area.</p>
-                    <p>
-                         But when I did have some time, I found myself tinkering in Tenable, trawling through that endless, computer-detected list of CVEs and entertaining myself by seeing which ones actually mattered to the company.
-
-                    </p>
-                   <p>As time passes, I can always mold my newfound home lab for other purposes, but for now, I wanted to dig into this fascinating field of vulnerability assessment and management. </p>
-
-                   <p>Before that, though, I wanted to first get a feel for setting up an <em>absolute barebones network</em>: an internal network within VirtualBox of two VMs — one Kali Linux as the attacker, and one Windows 10 as the target — with manually set IPs. </p>
+                    <br><br>
 
 
 
+                    <button id="en-button">EN</button>
+                    <button id="pt-button">PT</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   <!-- #download -->
-                   <h4 id="download">Downloading Win10 and Kali images</h4>
-                   <h6><a href="#top">Back to top</a></h6>
-
-                   <p>I won't spend too much space on the process for downloading the ISO files for <a href="https://support.microsoft.com/en-us/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d">Windows 10</a> and Kali Linux (<a href="https://www.kali.org/get-kali/#kali-installer-images">installer</a> or <a href="https://www.kali.org/get-kali/#kali-virtual-machines">pre-built VM for VirtualBox</a>), since those instructions are readily available and were followed pretty much as directed. But there are certain considerations that I wanted to mention here:</p>
-
-                   <ul>
-                    <li><p>Zeroeth(?) item should be that my current host machine is a Windows 11 device.</p></li>
-                    <li>
-                        <p>Firstly, it is crucial to compare the SHA256 checksums of the downloaded files to ensure they haven't been corrupted in transit. To get the checksum of your downloaded file: go to your Downloads folder, right-click anywhere in the folder and select Open in Terminal. Then run the following command:</p>
-                        <pre><code>Get-FileHash [filename]</code></pre>
-                        <p>The checksums for the proper files can be found at the following:</p>
-                        <ul>
-                            <li><p><a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">VirtualBox</a></p></li>
-                            <li><p>Windows: Provided within ISO installation wizard, in "Verify your download" section</p></li>
-                            <li>
-                                <p>Kali: Regardless of installer or pre-built VM, the respective checksum can be found when you click "sum":</p>
-                                <div style="display: flex;">
-                                    <img src="../../uploads/homelab2.png" style="width: 30%">
-                                    <img src="../../uploads/homelab3sum.png" style="width: 30%;">
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><p>Each of these ISOs are just over 4GB, and I am gradually running out of space on this laptop after having used it for four years; so in order to conserve storage I decided to move these ISOs over to a 128GB (really a 116GB) USB stick. 
+                    <!-- english text -->
+                    <div id="entext">
                         
-                        <br><br>But I first needed to format the USB drive first -- I initially didn't recognize this, and kept trying to transfer over, only to repeatedly get the same nonsensical error that there "wasn't enough disk space" on a 116GB drive for a 4GB file. 
-                        <br><br>After some digging, I'd had to change the format of the drive from the default exFAT to NTFS. (OS installation media generally requires NTFS as it is a journaled filesystem, meaning changes are logged to prevent potential corruption.)</p></li>
-                    <li><p>In installing the Win10 VM, I decided to allocate 1GB of memory (mostly an educated-guess decision based on what resources I know I have on this flimsy laptop; even then it was probably overkill), 1 CPU, and a disk size of 20GB (anything that can accommodate 10,816MB is fine). </p></li>
-                    <img src="../../uploads/homelab1.png" style="width: 90%;">
-                    <li><p>For the Kali VM, I allocated 5000MB of memory, 4 CPUs, and 100GB. (This is extremely important, as I learned the way later, because of the hardware requirements for Tenable Nessus down the line.)</p></li>
-                    <li>
-                        <p>The Win10 bootup can be particularly annoying once the VM is up and running. I followed the YouTube channel MyDFIR's <a href="https://youtu.be/kku0fVfksrk?si=uzEafBC9wG-FhvyS&t=267">stunningly clear video tutorial on the subject</a>, but the gist of it is to state, when prompted, that you don't have a product key, and then to choose Windows 10 Pro as your version.</p>
-                        <ul>
-                            <li>
-                                <p>When prompted: "Which type of installation do you want?", select "Custom: Install Windows only (advanced)."</p>
-                                <img src="../../uploads/homelab4typeofinstallation.png" style="width: 100%;">
-                            </li>
-                            <li>
-                                <p>When prompted: "How would you like to set up?" choose "Set up for personal use."</p>
-                                <img src="../../uploads/homelabhowwouldyouliketosetup.png" style="width:100%">
-                            </li>
-                            <li>
-                                <p>After that, insist on creating an offline account, then turn OFF all the knobs presented in the "Choose privacy settings for your device" prompt.</p>
-                                <img src="../../uploads/homelabprivacysettingsallno.png" style="width:100%">
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>For the Kali bootup, I was prompted with the option for a graphical install or simply "Install", among other options. The graphical install did not work for me, but the normal Install did work.</p>
-                    </li>
-                   </ul>
+                        <div class="table-of-contents">
+                            <p><strong>Contents</strong></p>
+                            <p><a href="#download">Downloading Win10 and Kali images</a></p>
+                            <p><a href="#config">Configuring the VMs</a></p>
+                            <p><a href="#add-metasploitable">Adding the Metasploitable VM</a></p>
+                            <p><a href="#nmap">First impressions with nmap</a></p>
+                            <p><a href="#tenablenessus">Tenable Nessus</a></p>
+                            <p><a href="#nessus-scanning">Scanning with Tenable Nessus</a></p>
+                            <p><a href="#report">Creating a report</a></p>
+                            <p><a href="#conclusion">Conclusion</a></p>
+                        </div>
+                        <div class="table-of-contents">
+                            <p><strong>Deliverables</strong></p>
+                            <p>Homelab internal network infastructure diagram <a href="#infra-diagram">[See in blog]</a> <a href="../../uploads/intnetinfra.png">[PNG]</a></p>
+                            <p>Organized spreadsheet of nmap-detected vulnerabilities <a href="#nmap-vuln-table">[See in blog]</a> <a href="../../uploads/nmapvulntable.xlsx">[XLSX]</a></p>
+                            <p>Vulnerability assessment report <a href="#vulnreportfinal">[See in blog]</a> <a href="../../uploads/fake_inc_vulnerability_assessment_report.pdf">[PDF]</a></p>
+                        </div>
+                        <p>
+                            This is the opening of a new world for me. I’ve been looking into home labs for a little bit, now being fresh out of college, newly minted bachelor’s degree and all. 
+                        </p>
+                        <p>With my summer internship in cybersecurity fading further and further into the past, I hadn’t had the chance since then to “practice” cybersecurity, as it were, until this moment. </p>
+                        <p>Now, free of my studies, I have the opportunity at last.</p>
+                        <p>I remember one thing that struck me as particularly intriguing during the internship was <strong>vulnerability management</strong>. </p>
+                        <p>At Aristotle, where I’d interned, pretty much every facet of their infosec protocol was feeding into the same interface — their <strong>Security Information and Event Management (SIEM) system</strong>, Exabeam. 
+                            <br><br>And while that algorithmic smushing did yield a big-picture overview of how those facets came together, I don’t think I really had the time to delve deep into a single particular area.</p>
+                        <p>
+                            But when I did have some time, I found myself tinkering in Tenable, trawling through that endless, computer-detected list of CVEs and entertaining myself by seeing which ones actually mattered to the company.
 
-                   <p>And there we have it.</p>
+                        </p>
+                    <p>As time passes, I can always mold my newfound home lab for other purposes, but for now, I wanted to dig into this fascinating field of vulnerability assessment and management. </p>
 
-                   <img src="../../uploads/homelabsetupcomplete.png" width="100%">
+                    <p>Before that, though, I wanted to first get a feel for setting up an <em>absolute barebones network</em>: an internal network within VirtualBox of two VMs — one Kali Linux as the attacker, and one Windows 10 as the target — with manually set IPs. </p>
 
 
 
@@ -196,627 +134,70 @@
 
 
 
-                   <!-- #config -->
-                   <h4 id="config">Configuring the VMs</h4>
-                   <h6><a href="#top">Back to top</a></h6>
 
-                   <p>Now, for this specific situation, of a Win10 machine with nothing on it (albeit with the intentionally weak password "password") and a Kali machine with nothing on it, there wouldn't be any measures we would need to take to ensure the security of this setup. </p>
-                   <p>But our endgoal here, for right now, is to add a Metasploitable VM to this network and take some jabs at it in a sandbox environment &mdash; which means, we need at least our Kali attacker and the Metasploitable to be able to communicate, while blocking it from the Internet so that it's just me that's doing the jabbing.</p>
 
-                   <p>This means we need an <strong>internal network</strong>. Fortunately, VirtualBox gives us the option to do just that. Let's configure our Win10 machine first.</p>
-                   <ul>
-                    <li><p>In VirtualBox, click the Win10 machine, then Settings.</p></li>
-                    <li><p>Newer versions of VB seem to have separated these settings into Basic and Expert. The option to switch to an internal network is only available in "Expert," so click that. (Older tutorials fail to mention this.)</p></li>
-                    <li><p>Scroll down to the Network section or simply click the "Network" tab on the left sidebar. From there, in the "Attached to:" dropdown, select "Internal network." Right below that, you can name this internal network whatever you'd like. I called mine "qkrnet".</p></li>
-                    <li><p>Once you're done, click OK.</p></li>
-                   </ul>
 
-                   <img src="../../uploads/homelabintnetconfig1.png" width="100%">
 
-                   <p>Repeat these steps to configure the Kali machine the same way. For the Kali machine, once you switch it to an internal network you will only need to select the name of the existing internal network from the dropdown, in my case "qkrnet."</p>
 
-                   <p>Now, we still need to statically set the IP for each VM.</p>
 
-                   <p>Again, let's do the Win10 machine first:</p>
 
-                   <ul>
-                    <li>
-                        <p>Once logged in, right-click the globe icon on the bottom right, then click "Open Network & Internet settings."</p>
-                        <img src="../../uploads/homelabwinstatip1.png" width="50%">
-                    </li>
-                    <li>
-                        <p>Then click "Change adapter options."</p>
-                        <img src="../../uploads/homelabwinstatip2.png" width="100%">
-                    </li>
-                    <li>
-                        <p>Right click on the "Ethernet" item, then click "Properties."</p>
-                        <img src="../../uploads/homelabwinstatip3.png" width="100%">
-                    </li>
-                    <li>
-                        <p>Double-click on "Internet Protocol Version 4 (TCP/IPv4)."</p>
-                        <img src="../../uploads/homelabwinstatip4.png" width="50%">
-                    </li>
-                    <li>
-                        <p>Select the "Use the following IP address:" option, then manually set the IP address. A <code>/24</code> subnet is fine. I chose <code>192.168.31.10/24</code>. Then press OK, and OK on the previous screen. Leave all else unchanged.</p>
-                        <img src="../../uploads/homelabwinstatip5.png" width="50%">
-                    </li>
-                    <li>
-                        <p>Open cmd and run <code class="language-css">ipconfig</code> to confirm the static IP has been set.</p>
-                        <img src="../../uploads/homelabwinstatip6.png" width="70%">
-                    </li>
-                   </ul>
 
-                   <p>Now let's do the same in our Kali VM:</p>
-                   <ul>
-                    <li>
-                        <p>Once logged in, right-click the Ethernet button (for me this was still loading as the VM was attempting to find a nonexistent Internet connection, but process of elimination made it obvious that was the button to press), then click "Edit Connections..."</p>
-                        <img src="../../uploads/homelabkalistatip1.png" width="70%">
-                    </li>
-                    <li>
-                        <p>Select (single-click) "Wired connection 1" to highlight it, then click the gear icon on the bottom left of that window.</p>
-                        <img src="../../uploads/homelabkalistatip2.png" width="70%">
-                    </li>
-                    <li>
-                        <p>Navigate to the "IPv4 Settings" tab. Notice that the default Method is set to DHCP; open that dropdown and select "Manual." Then under Addresses, click the "Add" button, and the desired static IP for this machine &mdash; preferably one higher than what you set for the Win10 machine. In my case, that would be <code>192.168.31.11</code>. Then press Tab; the netmask should automatically appear as 24. Leave all else unchanged, and press Save.</p>
-                        <img src="../../uploads/homelabkalistatip3.png" width="70%">
-                    </li>
-                   </ul>
-
-                   <p>Now let's check that the two VMs are interconnected. Unfortunately, the firewall on the Win10 machine doesn't allow ICMPs from the Kali machine to the Win10 machine, but if we ping Kali from the Win10, we will see that the pings do go through. (In my case, when I tried immediately after I'd set the Kali IP, it took a while for pings to go through as the change was still taking effect.)</p>
-
-                   <img src="../../uploads/homelabkaliwinping1.png" width="60%">
-
-                   <p>Now we have a basic home lab, with an attacker machine (Kali) and a defender machine (Win10). </p>
-                   <p>With everything in line, I made sure to <strong>take snapshots of the VMs' current states</strong>, and note them down as a default state that I can always come back to. </p>
-                   <p>From here we could go anywhere: we could start running this very setup as a malware analysis lab (something I do intend to do very soon); we could open the network back up to the Internet by changing the configurations back to NAT or a bridged network; and so on. </p>
-                   <p>But right now, as a first little exercise, I want to add a Metasploitable VM to this network and see what I can find.</p>
-
-
-
-
-
-
-
-                   <!-- #add-metasploitable -->
-                   <h4 id="add-metasploitable">Adding the Metasploitable VM</h4>
-                   <h6><a href="#top">Back to top</a></h6>
-
-                   <p>Now begins the real deal. I want to get an intentionally vulnerable system onto my new internal network so that I can take a look at what it is that makes it vulnerable exactly, and then see what I can do using those vulnerabilities (whether it be remedying them or abusing them). 
-                    <br><br>The mindset I'm trying to get into here is that this machine is indeed a client's <strong>actual machine</strong>, and my actions with this machine are performed with the endgoal of producing a report for the client to read and truly understand the risks, as well as the <em>importance</em> of minimizing those risks.</p>
-
-                   <p>The Metasploitable series of systems is exactly what I need for this task. In this section we'll be dealing with <strong>Metasploitable 2</strong>, as it is easier to build than the original; there is also a newer Metasploitable 3 but for now we'll stick to the former and see what we can do with it.</p>
-
-                   <p><strong>Installing Metasploitable 2</strong></p>
-                   
-                   <p><a href="https://docs.rapid7.com/metasploit/metasploitable-2/">Rapid7</a> offers two links for downloading Metasploitable 2 (I'll shorten as MS2 going forward), but the one that I got to work was the second, via <a href="https://sourceforge.net/projects/metasploitable/">SourceForge</a>. 
-                    <br><br>The file is a 800MB zip file, that even without unzipping I was able to double-click to preview the contents and pull just the 1GB .vmdk file out to my USB drive containing my other VM disks.</p>
-                   <img src="../../uploads/homelabms2inthumbdrive.png" width="100%">
-                   <p>Evidently, this renders my name for the USB drive useless, but it gets the point across so at this point I'm keeping it.</p>
-                   <p>But where this new file format does matter (since it is a VMWare file format) is in getting VirtualBox to run this file when, at least upfront, it only accepts ISO files. This is where the tiniest bit of trickery comes in (credit to <a href="https://smallbusiness.chron.com/open-vmdk-virtualbox-28847.html">this article from Chron</a>):</p>
-                   <ul>
-                    <li>
-                        <p>Create a new virtual machine, set to Linux but without selecting an ISO image. Then click Finish. But do NOT start the VM yet.</p>
-                        <img src="../../uploads/homelabms2newvm.png" width="100%">
-                    </li>
-                    <li>
-                        <p>Now go to the Settings for that new VM. 
-                            <br><br>Under the Storage section, when you click  to highlight the row "Controller: SATA" there should be two buttons that appear to the right. 
-                            <br><br>If you hover over the rightmost of those buttons, it should read "Adds hard disk." Click that button. 
-                            <br><br>Then click the "Add" button at the top left of that new window, at which point File Explorer will open and you can select the vmdk file wherever you stored it. 
-                            <br><br><strong>Then press OK to save.</strong> 
-                            <br><br>Make sure to <strong><em><u>DELETE</u></em></strong> the existing .vdi file under "Controller: SATA" so that VirtualBox knows to pull only from the .vmdk file.</p>
-                        <img src="../../uploads/homelabms2storagevmdk.png" width="100%">
-
-                    </li>
-                    <li>
-                        <p>We'll follow the same steps as before to add the MS2 VM to the internal network, making sure to select the name of our actual network from earlier.</p>
-                        <img src="../../uploads/homelabms2intnet.png" width="100%">
-                    </li>
-                   </ul>
-
-                   <p>Again, one last step here to actually add the MS2 VM to our qkrnet intnet: Bootup the MS2 VM, login with <code>msfadmin:msfadmin</code>, then run <code>ifconfig -a</code>. You should notice there's an IPv6 address, but no IPv4.</p>
-
-                   <img src="../../uploads/homelabifconfiginitial.png" width="100%">
-
-                   <p>The <code>sudo</code> is unnecessary in that first instance, but we will need root access to actually set the IPv4 address. In my case, since I want to set it to <code>192.168.31.12</code>: <code>sudo ifconfig 192.168.31.11 netmask 255.255.255.0</code> Then run <code>ifconfig -a</code> again to confirm the change.</p>
-
-                   <img src="../../uploads/homelabifconfigafter.png" width="100%">
-
-                   <p>Let's have Kali (which you should now boot up) and MS2 ping each other to confirm they're interconnected.</p>
-
-                   <img src="../../uploads/homelabkalipingms2.png" width="100%">
-                   <br>
-                   <img src="../../uploads/homelabms2pingkali.png" width="100%">
-
-                   <p>Now our intnet infrastructure looks something like this:</p>
-
-                   <img id="infra-diagram" src="../../uploads/intnetinfra.png" width="100%">
-
-
-
-
-
-
-
-
-
-
-
-
-                   <!-- #nmap -->
-                   <h4 id="nmap">First impressions with nmap</h4>
-                   <h6><a href="#top">Back to top</a></h6>
-
-                   <p>Just to get a feel for what we're dealing with, I ran the most basic <code>nmap</code> scan of the MS2.</p>
-
-                   <img src="../../uploads/homelabms2nmapscan.png" width="100%">
-
-                   <p>Basically every port that could possibly be open is open. This is rich with opportunities for potential exploits, and to go through each port to see what we could find is a little time-consuming, and frankly overwhelming. To make things a little more clear, I ran <code>nmap</code> again but with a few added specifications:</p>
-
-                   <pre><code class="language-css">nmap -sS -sV --script vuln 192.168.31.12 > ~/Desktop/nmapoutput.txt</code></pre>
-
-                   <ul>
-                    <li><p><code class="language-css">-sS</code>: "stealth" scan/TCP SYN scan, more unobtrusive as it doesn't complete TCP connections. Since the connections is never completed, it becomes more likely that OSs or IDSs don't log the connection as a full session, if they log it at all; it also blends in more easily to regular traffic, since legitimate users also send SYN packets.</p></li>
-                    <li><p><code class="language-css">-sV</code>: version detection.</p></li>
-                    <li><p><code class="language-css">--script vuln</code>: Runs <code language-css>vuln</code> script that prints details about each detected vulnerability.</p></li>
-                    <li><p><code class="language-css">> ~/Desktop/nmapoutput.txt</code>: sends the output to a txt file.</p></li>
-                   </ul>
-
-                   <p>Here's the first few lines of that output (<a href="homelab_nmapoutput.txt">entire output here</a>). I've included just enough to see one example of what the <code>vuln</code> script outputs for a vulnerability.</p>
-                    <blockquote>
-                        <pre style="color: white;">
-                            <code>
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
-Nmap scan report for 192.168.31.12
-Host is up (0.000093s latency).
-Not shown: 977 closed tcp ports (reset)
-PORT     STATE SERVICE     VERSION
-21/tcp   open  ftp         vsftpd 2.3.4
-| ftp-vsftpd-backdoor: 
-|   VULNERABLE:
-|   vsFTPd version 2.3.4 backdoor
-|     State: VULNERABLE (Exploitable)
-|     IDs:  BID:48539  CVE:CVE-2011-2523
-|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
-|     Disclosure date: 2011-07-03
-|     Exploit results:
-|       Shell command: id
-|       Results: uid=0(root) gid=0(root)
-|     References:
-|       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
-|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
-|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
-|_      https://www.securityfocus.com/bid/48539
-22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
-23/tcp   open  telnet      Linux telnetd
-...</code>
-                        </pre>
-                    </blockquote>
-
-                    <p>Having first turned on the shared clipboard in the Kali VM to be bidirectional, I copied the entire contents of <code>nmapoutput.txt</code> to a txt file on my host machine. Our goal at this point is turn this 461-line output into something more readable. What immediately comes to mind is to collect some crucial info about each vulnerability into a table or spreadsheet. (While we do that, we can shut down our VMs for now, as we want to avoid having the MS2 on when it's not being used.)</p>
-
-
-
-
-
-
-
-                    <style type="text/css">
-                        table.tg  {border-collapse:collapse;border-spacing:0;}
-                        .tg td{border-color:white;border-style:solid;border-width:1px;font-family:"SF Pro Display", sans-serif;font-size:14px;color: white;padding:10px 5px;word-break:normal;overflow-x:scroll;}
-                        .tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;color: white; font-weight:normal;padding:10px 5px;word-break:normal;overflow-x:scroll;}
-                        .tg .tg-cly1{text-align:left;vertical-align:middle}
-                        .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
-                        .tg .tg-j6zm{font-weight:bold;text-align:left;vertical-align:bottom}
-                        .tg .tg-nrix{text-align:center;vertical-align:middle}
-                        .tg .tg-8cte{background-color:#d0d0d048;text-align:center;vertical-align:middle}
-                    </style>
-
-                    <!-- nmap vuln table -->
-                    <div id="nmap-vuln-table" style="overflow-x:scroll;">
-                        <table class="tg">
-                        <thead>
-                    <tr>
-                        <th class="tg-wa1i">port</th>
-                        <th class="tg-wa1i">CVE</th>
-                        <th class="tg-wa1i">state</th>
-                        <th class="tg-wa1i">description</th>
-                        <th class="tg-j6zm">references</th>
-                        </tr></thead>
-                        <tbody>
-                        <tr>
-                            <td class="tg-nrix" rowspan="4">21/tcp</td>
-                            <td class="tg-nrix" rowspan="4">CVE-2011-2523</td>
-                            <td class="tg-nrix" rowspan="4">VULNERABLE (Exploitable)</td>
-                            <td class="tg-nrix" rowspan="4">vsFTP vrsion 2.3.4 backdoor</td>
-                            <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_      https://www.securityfocus.com/bid/48539</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte" rowspan="4">25/tcp</td>
-                            <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
-                            <td class="tg-8cte" rowspan="4">VULNERABLE</td>
-                            <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
-                            <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix">25/tcp</td>
-                            <td class="tg-nrix">n/a</td>
-                            <td class="tg-nrix">VULNERABLE</td>
-                            <td class="tg-nrix">Anonymous Diffie-Helman Key&nbsp;&nbsp;&nbsp;Exchange MitM Vulnerability</td>
-                            <td class="tg-cly1">https://www.ietf.org/rfc/rfc2246.txt</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte" rowspan="3">25/tcp</td>
-                            <td class="tg-8cte" rowspan="3">CVE-2015-4000</td>
-                            <td class="tg-8cte" rowspan="3">VULNERABLE</td>
-                            <td class="tg-8cte" rowspan="3">Transport Layer Security (TLS) Protocol&nbsp;&nbsp;&nbsp;DHE_EXPORT Ciphers Downgrade MitM (Logjam)</td>
-                            <td class="tg-cly1">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/74733</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|       https://weakdh.org</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix">25/tcp</td>
-                            <td class="tg-nrix">n/a</td>
-                            <td class="tg-nrix">VULNERABLE</td>
-                            <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
-                            <td class="tg-cly1">https://weakdh.org</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte" rowspan="2">80/tcp</td>
-                            <td class="tg-8cte" rowspan="2">CVE-2007-6750</td>
-                            <td class="tg-8cte" rowspan="2">VULNERABLE</td>
-                            <td class="tg-8cte" rowspan="2">Slowloris DOS attack</td>
-                            <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix" rowspan="7">80/tcp</td>
-                            <td class="tg-nrix" rowspan="7">n/a</td>
-                            <td class="tg-nrix" rowspan="7">n/a</td>
-                            <td class="tg-nrix" rowspan="7">http-enum</td>
-                            <td class="tg-cly1">/tikiwiki/: Tikiwiki</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /test/: Test page</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /phpinfo.php: Possible information file</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /phpMyAdmin/: phpMyAdmin</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /doc/: Potentially interesting directory&nbsp;&nbsp;&nbsp;w/ listing on 'apache/2.2.8 (ubuntu) dav/2'</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /icons/: Potentially interesting folder w/&nbsp;&nbsp;&nbsp;directory listing</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_  /index/: Potentially interesting folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte">1099/tcp</td>
-                            <td class="tg-8cte">n/a</td>
-                            <td class="tg-8cte">VULNERABLE</td>
-                            <td class="tg-8cte">RMI registry default configuration remote code execution&nbsp;&nbsp;&nbsp;vulnerability</td>
-                            <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix">5432/tcp</td>
-                            <td class="tg-nrix">n/a</td>
-                            <td class="tg-nrix">VULNERABLE</td>
-                            <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
-                            <td class="tg-cly1">https://weakdh.org</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte" rowspan="4">5432/tcp</td>
-                            <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
-                            <td class="tg-8cte" rowspan="4">VULNERABLE</td>
-                            <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
-                            <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix" rowspan="3">5432/tcp</td>
-                            <td class="tg-nrix" rowspan="3">CVE-2014-0224</td>
-                            <td class="tg-nrix" rowspan="3">VULNERABLE</td>
-                            <td class="tg-nrix" rowspan="3">SSL/TLS MITM vulnerability (CCS Injection)</td>
-                            <td class="tg-cly1">http://www.cvedetails.com/cve/2014-0224</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://www.openssl.org/news/secadv_20140605.txt</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-8cte" rowspan="27">8180/tcp</td>
-                            <td class="tg-8cte" rowspan="27">n/a</td>
-                            <td class="tg-8cte" rowspan="27">n/a</td>
-                            <td class="tg-8cte" rowspan="27">http-enum</td>
-                            <td class="tg-cly1">/admin/: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/index.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/login.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/account.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin_login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/home.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin-login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/adminLogin.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/controlpanel.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/cp.html: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/index.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/login.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/home.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/controlpanel.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin-login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/cp.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/account.jsp: Possible admin folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/admin_login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/adminLogin.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /manager/html/upload: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /manager/html: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html:&nbsp;&nbsp;&nbsp;OpenCart/FCKeditor File upload</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP&nbsp;&nbsp;&nbsp;Simple Blog / FCKeditor File Upload</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|   /admin/jscript/upload.html: Lizard&nbsp;&nbsp;&nbsp;Cart/Remote File upload</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_  /webdav/: Potentially interesting folder</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-nrix" rowspan="2">8180/tcp</td>
-                            <td class="tg-nrix" rowspan="2">CVE-2007-6750</td>
-                            <td class="tg-nrix" rowspan="2">LIKELY VULNERABLE</td>
-                            <td class="tg-nrix" rowspan="2">Slowloris DOS attack</td>
-                            <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
-                        </tr>
-                        </tbody>
-                        </table>
-                    </div>
-
-
-
-
-
-
-                    <p>So now we have a fairly easy-to-read initial list of vulnerabilities. But there are a few inherent flaws in the data here. The first is that we only really have these severity levels of "VULNERABLE" and "LIKELY VULNERABLE," which don't really tell us anything.</p>
-
-                    <p>A pentester could probably start digging into the things that sound the most interesting (certainly CVE-2011-2523, the vsFTP backdoor that offers root access, would be a great start). 
-                        <br><br>
-                        But from a blue-team standpoint one has to consider <em>all of these</em> to an extent and understand how much of a risk they actually pose to the client. </p>
-
-                    <p>So before we run off to draw conclusions and draft a vulnerability assessment report with just this data, I want a second opinion, maybe from a commercial vulnerability scanner. 
-                        <br><br>So let's save this table for now and turn to Tenable Nessus.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <!-- #tenablenessus -->
-                    <h4 id="tenablenessus">Tenable Nessus</h4>
+                    <!-- #download -->
+                    <h4 id="download">Downloading Win10 and Kali images</h4>
                     <h6><a href="#top">Back to top</a></h6>
 
-                    <p>Specifically, we are downloading <strong>Tenable Nessus Essentials</strong>, which is a free 1-year license with some limited functionality (up to 16 addresses, limited scanning), but enough for our purposes.</p>
+                    <p>I won't spend too much space on the process for downloading the ISO files for <a href="https://support.microsoft.com/en-us/windows/create-installation-media-for-windows-99a58364-8c02-206f-aa6f-40c3b507420d">Windows 10</a> and Kali Linux (<a href="https://www.kali.org/get-kali/#kali-installer-images">installer</a> or <a href="https://www.kali.org/get-kali/#kali-virtual-machines">pre-built VM for VirtualBox</a>), since those instructions are readily available and were followed pretty much as directed. But there are certain considerations that I wanted to mention here:</p>
 
-                    <p><em><strong>IMPORTANT!</strong> For this section I found that it's much better if just the Kali is reconfigured as NAT (instead of intnet) so that the initial Nessus install goes smoothly. You technically can do an offline install but for some reason that did not go very well for me. Once Nessus is stably installed, however, it takes less than a minute to change it back to the intnet settings with our custom IP and subnet.</em> </p>
-
-                    <p>The <a href="https://docs.tenable.com/nessus/Content/InstallNessusLinux.htm">Linux installation docs</a> from Tenable emphasizes that <code>hostname</code> is a dependency, but on Kali it already comes OOTB.</p>
-                    <img src="../../uploads/homelabsudoaptinstallhostname.png" width="70%">
-
-                    <p>I already <a href="https://www.tenable.com/downloads/nessus">downloaded</a> Nessus (version 10.9.0 for Linux - Debian - amd64). So I enabled <a href="https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/guestadd-dnd.html">drag and drop</a> (host to guest) on the Kali machine, then dragged and dropped the .deb file to the Kali desktop.</p>
-
-                    <p>Then, opening the terminal in Kali, I first navigated to the desktop &mdash; <code>cd Desktop</code> &mdash; then I ran the install command.</p>
-
-                    <pre><code class="language-css">sudo dpkg -i Nessus-10.9.0-debian6_amd64.deb</code></pre>
-
-                    <img src="../../uploads/homelabsudodkpgnessus.png" width="70%">
-
-                    <p>Then restart the <code>nessusd</code> daemon. A window will open prompting you to enter your password to authenticate. Enter your password.</p>
-
-                    <pre><code class="language-css">systemctl start nessusd</code></pre>
-
-                    <p>Once that finishes, open Firefox and go to <strong>https://localhost:8834</strong>.</p>
-                    <p>(If you get a warning that reads <strong>"Potential Security Risk Ahead"</strong>, click Advanced then Proceed anyway.)</p>
-                    <p>You should land on this page.</p>
-
-                    <img src="../../uploads/homelabtenablenessuslandingpage.png" 
-                    width="100%">
-
-                    <p>Simply press <strong>Continue</strong>.</p>
-
-                    <p>On the next screen, select <strong>Register for Nessus Essentials</strong>, then Continue.</p>
-
-                    <p>On the subsequent "Get an activation code" screen, we already have an activation code, so we can just press <strong>Skip</strong>.</p>
-
-                    <p>Copy and paste your <strong>activation code</strong> when prompted. You can find the activation code in the email you should have received from Tenable Nessus with the subject line "Welcome to Tenable Nessus!"</p>
-
-                    <img src="../../uploads/homelabwelcometotenablenessusemail.png" width="100%">
-
-                    <p>On the next screen, you'll be prompted to come up with a username and password for the Nessus admin account. Once that's done you'll get an "Initializing" screen, and you'll know you're through.</p>
-
-                    <p>(I had so much trouble with this last part, as I would repeatedly enter those credentials only to get an "Error: Activation failed" popup with no further explanation. I had to go back to that first <a href="https://www.tenable.com/products/nessus/nessus-essentials">Nessus Essentials</a>  intro webpage and resend an activation code, which ended up working.)</p>
-
-                    <p><strong>A really annoying hiccup</strong></p>
-
-                    <p>You see, I made the instructions sound really smooth when I put them together but it cost me a lot of time and mental fortitude to actually get Nessus to work.
-                    <br><br>When I finally solved that "Error: Activation failed" issue, Nessus would then start installing the plugins only to crash the entire VM saying it had run out of space. 
-                    <br><br>Then when I tried to overcompensate by making the VM hard drive 100GB (which equates to about 20GB in real size) then my computer ran out of space. So I had to delete my ENTIRE home lab set up and remake it from scratch on my 128GB thumb drive.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-                    <!-- #nessus-scanning -->
-                    <h4 id="nessus-scanning">Scanning with Tenable Nessus</h4>
-                    <h6><a href="#top">Back to top</a></h6>
-
-                    <p>Anyway, I finally, FINALLY got it to work, and I got to the Nessus homescreen I'd been dying to see all this time.</p>
-                    
-                    <img src="../../uploads/homelabnessushomepage.png" width="100%">
-
-                    <p>From here it's actually smooth sailing to get the results we want &mdash; just a few clicks on this GUI will do.</p>
-
-                    <p>The first thing we want to do is run a <strong>Host Discovery</strong> scan to see what we're dealing with on this network and what ports are open.</p>
-                    
                     <ul>
+                        <li><p>Zeroeth(?) item should be that my current host machine is a Windows 11 device.</p></li>
                         <li>
-                            <p>Click the <strong>New Scan</strong> button, then on the next screen click <strong>Host Discovery</strong>.</p>
-                            <img src="../../uploads/homelabhostdiscoverybutton.png" width="70%">
+                            <p>Firstly, it is crucial to compare the SHA256 checksums of the downloaded files to ensure they haven't been corrupted in transit. To get the checksum of your downloaded file: go to your Downloads folder, right-click anywhere in the folder and select Open in Terminal. Then run the following command:</p>
+                            <pre><code>Get-FileHash [filename]</code></pre>
+                            <p>The checksums for the proper files can be found at the following:</p>
+                            <ul>
+                                <li><p><a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">VirtualBox</a></p></li>
+                                <li><p>Windows: Provided within ISO installation wizard, in "Verify your download" section</p></li>
+                                <li>
+                                    <p>Kali: Regardless of installer or pre-built VM, the respective checksum can be found when you click "sum":</p>
+                                    <div style="display: flex;">
+                                        <img src="../../uploads/homelab2.png" style="width: 30%">
+                                        <img src="../../uploads/homelab3sum.png" style="width: 30%;">
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><p>Each of these ISOs are just over 4GB, and I am gradually running out of space on this laptop after having used it for four years; so in order to conserve storage I decided to move these ISOs over to a 128GB (really a 116GB) USB stick. 
+                            
+                            <br><br>But I first needed to format the USB drive first -- I initially didn't recognize this, and kept trying to transfer over, only to repeatedly get the same nonsensical error that there "wasn't enough disk space" on a 116GB drive for a 4GB file. 
+                            <br><br>After some digging, I'd had to change the format of the drive from the default exFAT to NTFS. (OS installation media generally requires NTFS as it is a journaled filesystem, meaning changes are logged to prevent potential corruption.)</p></li>
+                        <li><p>In installing the Win10 VM, I decided to allocate 1GB of memory (mostly an educated-guess decision based on what resources I know I have on this flimsy laptop; even then it was probably overkill), 1 CPU, and a disk size of 20GB (anything that can accommodate 10,816MB is fine). </p></li>
+                        <img src="../../uploads/homelab1.png" style="width: 90%;">
+                        <li><p>For the Kali VM, I allocated 5000MB of memory, 4 CPUs, and 100GB. (This is extremely important, as I learned the way later, because of the hardware requirements for Tenable Nessus down the line.)</p></li>
+                        <li>
+                            <p>The Win10 bootup can be particularly annoying once the VM is up and running. I followed the YouTube channel MyDFIR's <a href="https://youtu.be/kku0fVfksrk?si=uzEafBC9wG-FhvyS&t=267">stunningly clear video tutorial on the subject</a>, but the gist of it is to state, when prompted, that you don't have a product key, and then to choose Windows 10 Pro as your version.</p>
+                            <ul>
+                                <li>
+                                    <p>When prompted: "Which type of installation do you want?", select "Custom: Install Windows only (advanced)."</p>
+                                    <img src="../../uploads/homelab4typeofinstallation.png" style="width: 100%;">
+                                </li>
+                                <li>
+                                    <p>When prompted: "How would you like to set up?" choose "Set up for personal use."</p>
+                                    <img src="../../uploads/homelabhowwouldyouliketosetup.png" style="width:100%">
+                                </li>
+                                <li>
+                                    <p>After that, insist on creating an offline account, then turn OFF all the knobs presented in the "Choose privacy settings for your device" prompt.</p>
+                                    <img src="../../uploads/homelabprivacysettingsallno.png" style="width:100%">
+                                </li>
+                            </ul>
                         </li>
                         <li>
-                            <p>Now all you need is to name the scan (whatever you want) and to specify the targets (in this case our little <code>/24</code> subnet).</p>
-                            <img src="../../uploads/homelabhostdiscoveryconfig.png" width="100%" alt="">
-                            <p>There are other options (see left sidebar under BASIC) to schedule this scan for regular intervals or to send the resulting report to specified email recipients. We won't need any of these right now, but it's good to know that option exists.</p>
-                        </li>
-                        <li><p>Hit <strong>Save</strong>.</p></li>
-                        <li>
-                            <p>We'll be led back to the homescreen, where our new scan should now appear as a list item. On the right side of that row, there should be a little play button that, on hover, reads <strong>Launch</strong>. Click it.</p>
-                            <img src="../../uploads/homelabhostdiscoverylaunch.png" width="100%" alt="">
-                        </li>
-                        <li>
-                            <p>When the scan completes, click on that row again to see the results. You should see something like this:</p>
-                            <img src="../../uploads/homelabhostdiscoveryresults.png" width="100%" alt="">
+                            <p>For the Kali bootup, I was prompted with the option for a graphical install or simply "Install", among other options. The graphical install did not work for me, but the normal Install did work.</p>
                         </li>
                     </ul>
 
-                    <p><strong>Diving deeper</strong></p>
+                    <p>And there we have it.</p>
 
-                    <p>Let's now dig in to the actual vulnerabilities present in the MS2 machine. Check to select the row for <code>192.168.31.12</code>, then go to <strong>More > Create Scan ...</strong></p>
-
-                    <img src="../../uploads/mshostdiscoveryselectms2.png" width="70%" alt="">
-                    
-                    <p>Then on the next screen select <strong>Advanced Scan</strong>.</p>
-
-                    <p>You'll notice under <strong>Basic > General</strong>, <code>192.168.31.12</code> has already been inserted in the <strong>Targets</strong> field. In the Name field, we'll call this scan <strong>"MS Advanced Scan."</strong></p>
-
-                    <p>We won't be changing much here; I just checked (under <strong>Assessment > Brute Force</strong>) <strong>Test default accounts (slow)</strong> and <strong>Always enable Hydra (slow)</strong>, just to see what would happen. (Hydra is a brute-force password cracker.)</p>
-
-                    <img src="../../uploads/homelabmsadvancedscanconfig.png" width="70%" alt="">
-
-                    <p>Hit <strong>Save</strong>, then <strong>Launch</strong>.</p>
-
-                    <p>After 9 minutes, the scan finishes, and upon clicking on the MS Advanced Scan row again I get a huge list of vulnerabilities, sorted by severity.</p>
-
-                    <img src="../../uploads/homelabmsadvancedscanresults.png" width="100%" alt="">
-
-                    <p>Notably we see 9 critical vulnerabilities and three high-severity vulnerabilities. So we definitely want to give those a look.</p>
-
-                    <p>I exported these results as a CSV, then made it look a little bit nicer by importing it into Google Sheets and doing some formatting.</p>
-
-                    <p><em><a target="_blank" href="../../uploads/homelabmsadvancedscanresultsgooglesheets.pdf">Here's a partial table (with just Critical and High Severity vulnerabilities) as a PDF.</a></em></p>
+                    <img src="../../uploads/homelabsetupcomplete.png" width="100%">
 
 
 
@@ -828,21 +209,483 @@ PORT     STATE SERVICE     VERSION
 
 
 
-
-
-
-                    <!-- #report -->
-
-                    <h4 id="report">Creating a report</h4>
+                    <!-- #config -->
+                    <h4 id="config">Configuring the VMs</h4>
                     <h6><a href="#top">Back to top</a></h6>
 
-                    <p>Now comes the most tedious but crucial step: creating an actually legible vulnerability assessment report that explains the vulnerabilities, why they're important to address, and <em>how</em> to address them.</p>
-                    <p>I will skip a long explanation of how I made the report, just so I can pretend I didn't spend three hours of my life on it, but suffice it to say that I closely followed <a href="https://purplesec.us/wp-content/uploads/2019/03/Sample-Network-Security-Vulnerability-Assessment-Report-Purplesec.pdf">the sample by PurpleSec</a>, with some further inspiration by this <a href="https://www.slideshare.net/slideshow/vulnerability-assessment-report/50008510#2">random PDF on SlideShare</a>.</p>
-                    <p>I improvised a hypothetical client company called Fake Inc. for which I would be creating this report, and made a decently pretty logo for it. Then I got to work actually writing out the report.</p>
+                    <p>Now, for this specific situation, of a Win10 machine with nothing on it (albeit with the intentionally weak password "password") and a Kali machine with nothing on it, there wouldn't be any measures we would need to take to ensure the security of this setup. </p>
+                    <p>But our endgoal here, for right now, is to add a Metasploitable VM to this network and take some jabs at it in a sandbox environment &mdash; which means, we need at least our Kali attacker and the Metasploitable to be able to communicate, while blocking it from the Internet so that it's just me that's doing the jabbing.</p>
 
-                    <object id="vulnreportfinal" data="../../uploads/fake_inc_vulnerability_assessment_report.pdf" class="pdf" width="100%" height="800px"></object>
+                    <p>This means we need an <strong>internal network</strong>. Fortunately, VirtualBox gives us the option to do just that. Let's configure our Win10 machine first.</p>
+                    <ul>
+                        <li><p>In VirtualBox, click the Win10 machine, then Settings.</p></li>
+                        <li><p>Newer versions of VB seem to have separated these settings into Basic and Expert. The option to switch to an internal network is only available in "Expert," so click that. (Older tutorials fail to mention this.)</p></li>
+                        <li><p>Scroll down to the Network section or simply click the "Network" tab on the left sidebar. From there, in the "Attached to:" dropdown, select "Internal network." Right below that, you can name this internal network whatever you'd like. I called mine "qkrnet".</p></li>
+                        <li><p>Once you're done, click OK.</p></li>
+                    </ul>
+
+                    <img src="../../uploads/homelabintnetconfig1.png" width="100%">
+
+                    <p>Repeat these steps to configure the Kali machine the same way. For the Kali machine, once you switch it to an internal network you will only need to select the name of the existing internal network from the dropdown, in my case "qkrnet."</p>
+
+                    <p>Now, we still need to statically set the IP for each VM.</p>
+
+                    <p>Again, let's do the Win10 machine first:</p>
+
+                    <ul>
+                        <li>
+                            <p>Once logged in, right-click the globe icon on the bottom right, then click "Open Network & Internet settings."</p>
+                            <img src="../../uploads/homelabwinstatip1.png" width="50%">
+                        </li>
+                        <li>
+                            <p>Then click "Change adapter options."</p>
+                            <img src="../../uploads/homelabwinstatip2.png" width="100%">
+                        </li>
+                        <li>
+                            <p>Right click on the "Ethernet" item, then click "Properties."</p>
+                            <img src="../../uploads/homelabwinstatip3.png" width="100%">
+                        </li>
+                        <li>
+                            <p>Double-click on "Internet Protocol Version 4 (TCP/IPv4)."</p>
+                            <img src="../../uploads/homelabwinstatip4.png" width="50%">
+                        </li>
+                        <li>
+                            <p>Select the "Use the following IP address:" option, then manually set the IP address. A <code>/24</code> subnet is fine. I chose <code>192.168.31.10/24</code>. Then press OK, and OK on the previous screen. Leave all else unchanged.</p>
+                            <img src="../../uploads/homelabwinstatip5.png" width="50%">
+                        </li>
+                        <li>
+                            <p>Open cmd and run <code class="language-css">ipconfig</code> to confirm the static IP has been set.</p>
+                            <img src="../../uploads/homelabwinstatip6.png" width="70%">
+                        </li>
+                    </ul>
+
+                    <p>Now let's do the same in our Kali VM:</p>
+                    <ul>
+                        <li>
+                            <p>Once logged in, right-click the Ethernet button (for me this was still loading as the VM was attempting to find a nonexistent Internet connection, but process of elimination made it obvious that was the button to press), then click "Edit Connections..."</p>
+                            <img src="../../uploads/homelabkalistatip1.png" width="70%">
+                        </li>
+                        <li>
+                            <p>Select (single-click) "Wired connection 1" to highlight it, then click the gear icon on the bottom left of that window.</p>
+                            <img src="../../uploads/homelabkalistatip2.png" width="70%">
+                        </li>
+                        <li>
+                            <p>Navigate to the "IPv4 Settings" tab. Notice that the default Method is set to DHCP; open that dropdown and select "Manual." Then under Addresses, click the "Add" button, and the desired static IP for this machine &mdash; preferably one higher than what you set for the Win10 machine. In my case, that would be <code>192.168.31.11</code>. Then press Tab; the netmask should automatically appear as 24. Leave all else unchanged, and press Save.</p>
+                            <img src="../../uploads/homelabkalistatip3.png" width="70%">
+                        </li>
+                    </ul>
+
+                    <p>Now let's check that the two VMs are interconnected. Unfortunately, the firewall on the Win10 machine doesn't allow ICMPs from the Kali machine to the Win10 machine, but if we ping Kali from the Win10, we will see that the pings do go through. (In my case, when I tried immediately after I'd set the Kali IP, it took a while for pings to go through as the change was still taking effect.)</p>
+
+                    <img src="../../uploads/homelabkaliwinping1.png" width="60%">
+
+                    <p>Now we have a basic home lab, with an attacker machine (Kali) and a defender machine (Win10). </p>
+                    <p>With everything in line, I made sure to <strong>take snapshots of the VMs' current states</strong>, and note them down as a default state that I can always come back to. </p>
+                    <p>From here we could go anywhere: we could start running this very setup as a malware analysis lab (something I do intend to do very soon); we could open the network back up to the Internet by changing the configurations back to NAT or a bridged network; and so on. </p>
+                    <p>But right now, as a first little exercise, I want to add a Metasploitable VM to this network and see what I can find.</p>
+
+
+
+
+
+
+
+                    <!-- #add-metasploitable -->
+                    <h4 id="add-metasploitable">Adding the Metasploitable VM</h4>
+                    <h6><a href="#top">Back to top</a></h6>
+
+                    <p>Now begins the real deal. I want to get an intentionally vulnerable system onto my new internal network so that I can take a look at what it is that makes it vulnerable exactly, and then see what I can do using those vulnerabilities (whether it be remedying them or abusing them). 
+                        <br><br>The mindset I'm trying to get into here is that this machine is indeed a client's <strong>actual machine</strong>, and my actions with this machine are performed with the endgoal of producing a report for the client to read and truly understand the risks, as well as the <em>importance</em> of minimizing those risks.</p>
+
+                    <p>The Metasploitable series of systems is exactly what I need for this task. In this section we'll be dealing with <strong>Metasploitable 2</strong>, as it is easier to build than the original; there is also a newer Metasploitable 3 but for now we'll stick to the former and see what we can do with it.</p>
+
+                    <p><strong>Installing Metasploitable 2</strong></p>
                     
-                    <p>In total there were 45 vulnerabilities to speak of: 11 critical, 1 high-severity, 39 medium-severity, and 8 low-severity. From those I also created a list of remediative steps that I would recommend this hypothetical Fake Inc. take.</p>
+                    <p><a href="https://docs.rapid7.com/metasploit/metasploitable-2/">Rapid7</a> offers two links for downloading Metasploitable 2 (I'll shorten as MS2 going forward), but the one that I got to work was the second, via <a href="https://sourceforge.net/projects/metasploitable/">SourceForge</a>. 
+                        <br><br>The file is a 800MB zip file, that even without unzipping I was able to double-click to preview the contents and pull just the 1GB .vmdk file out to my USB drive containing my other VM disks.</p>
+                    <img src="../../uploads/homelabms2inthumbdrive.png" width="100%">
+                    <p>Evidently, this renders my name for the USB drive useless, but it gets the point across so at this point I'm keeping it.</p>
+                    <p>But where this new file format does matter (since it is a VMWare file format) is in getting VirtualBox to run this file when, at least upfront, it only accepts ISO files. This is where the tiniest bit of trickery comes in (credit to <a href="https://smallbusiness.chron.com/open-vmdk-virtualbox-28847.html">this article from Chron</a>):</p>
+                    <ul>
+                        <li>
+                            <p>Create a new virtual machine, set to Linux but without selecting an ISO image. Then click Finish. But do NOT start the VM yet.</p>
+                            <img src="../../uploads/homelabms2newvm.png" width="100%">
+                        </li>
+                        <li>
+                            <p>Now go to the Settings for that new VM. 
+                                <br><br>Under the Storage section, when you click  to highlight the row "Controller: SATA" there should be two buttons that appear to the right. 
+                                <br><br>If you hover over the rightmost of those buttons, it should read "Adds hard disk." Click that button. 
+                                <br><br>Then click the "Add" button at the top left of that new window, at which point File Explorer will open and you can select the vmdk file wherever you stored it. 
+                                <br><br><strong>Then press OK to save.</strong> 
+                                <br><br>Make sure to <strong><em><u>DELETE</u></em></strong> the existing .vdi file under "Controller: SATA" so that VirtualBox knows to pull only from the .vmdk file.</p>
+                            <img src="../../uploads/homelabms2storagevmdk.png" width="100%">
+
+                        </li>
+                        <li>
+                            <p>We'll follow the same steps as before to add the MS2 VM to the internal network, making sure to select the name of our actual network from earlier.</p>
+                            <img src="../../uploads/homelabms2intnet.png" width="100%">
+                        </li>
+                    </ul>
+
+                    <p>Again, one last step here to actually add the MS2 VM to our qkrnet intnet: Bootup the MS2 VM, login with <code>msfadmin:msfadmin</code>, then run <code>ifconfig -a</code>. You should notice there's an IPv6 address, but no IPv4.</p>
+
+                    <img src="../../uploads/homelabifconfiginitial.png" width="100%">
+
+                    <p>The <code>sudo</code> is unnecessary in that first instance, but we will need root access to actually set the IPv4 address. In my case, since I want to set it to <code>192.168.31.12</code>: <code>sudo ifconfig 192.168.31.11 netmask 255.255.255.0</code> Then run <code>ifconfig -a</code> again to confirm the change.</p>
+
+                    <img src="../../uploads/homelabifconfigafter.png" width="100%">
+
+                    <p>Let's have Kali (which you should now boot up) and MS2 ping each other to confirm they're interconnected.</p>
+
+                    <img src="../../uploads/homelabkalipingms2.png" width="100%">
+                    <br>
+                    <img src="../../uploads/homelabms2pingkali.png" width="100%">
+
+                    <p>Now our intnet infrastructure looks something like this:</p>
+
+                    <img id="infra-diagram" src="../../uploads/intnetinfra.png" width="100%">
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- #nmap -->
+                    <h4 id="nmap">First impressions with nmap</h4>
+                    <h6><a href="#top">Back to top</a></h6>
+
+                    <p>Just to get a feel for what we're dealing with, I ran the most basic <code>nmap</code> scan of the MS2.</p>
+
+                    <img src="../../uploads/homelabms2nmapscan.png" width="100%">
+
+                    <p>Basically every port that could possibly be open is open. This is rich with opportunities for potential exploits, and to go through each port to see what we could find is a little time-consuming, and frankly overwhelming. To make things a little more clear, I ran <code>nmap</code> again but with a few added specifications:</p>
+
+                    <pre><code class="language-css">nmap -sS -sV --script vuln 192.168.31.12 > ~/Desktop/nmapoutput.txt</code></pre>
+
+                    <ul>
+                        <li><p><code class="language-css">-sS</code>: "stealth" scan/TCP SYN scan, more unobtrusive as it doesn't complete TCP connections. Since the connections is never completed, it becomes more likely that OSs or IDSs don't log the connection as a full session, if they log it at all; it also blends in more easily to regular traffic, since legitimate users also send SYN packets.</p></li>
+                        <li><p><code class="language-css">-sV</code>: version detection.</p></li>
+                        <li><p><code class="language-css">--script vuln</code>: Runs <code language-css>vuln</code> script that prints details about each detected vulnerability.</p></li>
+                        <li><p><code class="language-css">> ~/Desktop/nmapoutput.txt</code>: sends the output to a txt file.</p></li>
+                    </ul>
+
+                    <p>Here's the first few lines of that output (<a href="homelab_nmapoutput.txt">entire output here</a>). I've included just enough to see one example of what the <code>vuln</code> script outputs for a vulnerability.</p>
+                        <blockquote>
+                            <pre style="color: white;">
+                                <code>
+    Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
+    Nmap scan report for 192.168.31.12
+    Host is up (0.000093s latency).
+    Not shown: 977 closed tcp ports (reset)
+    PORT     STATE SERVICE     VERSION
+    21/tcp   open  ftp         vsftpd 2.3.4
+    | ftp-vsftpd-backdoor: 
+    |   VULNERABLE:
+    |   vsFTPd version 2.3.4 backdoor
+    |     State: VULNERABLE (Exploitable)
+    |     IDs:  BID:48539  CVE:CVE-2011-2523
+    |       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+    |     Disclosure date: 2011-07-03
+    |     Exploit results:
+    |       Shell command: id
+    |       Results: uid=0(root) gid=0(root)
+    |     References:
+    |       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+    |       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+    |_      https://www.securityfocus.com/bid/48539
+    22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+    23/tcp   open  telnet      Linux telnetd
+    ...</code>
+                            </pre>
+                        </blockquote>
+
+                        <p>Having first turned on the shared clipboard in the Kali VM to be bidirectional, I copied the entire contents of <code>nmapoutput.txt</code> to a txt file on my host machine. Our goal at this point is turn this 461-line output into something more readable. What immediately comes to mind is to collect some crucial info about each vulnerability into a table or spreadsheet. (While we do that, we can shut down our VMs for now, as we want to avoid having the MS2 on when it's not being used.)</p>
+
+
+
+
+
+
+
+                        <style type="text/css">
+                            table.tg  {border-collapse:collapse;border-spacing:0;}
+                            .tg td{border-color:white;border-style:solid;border-width:1px;font-family:"SF Pro Display", sans-serif;font-size:14px;color: white;padding:10px 5px;word-break:normal;overflow-x:scroll;}
+                            .tg th{border-color:white;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;color: white; font-weight:normal;padding:10px 5px;word-break:normal;overflow-x:scroll;}
+                            .tg .tg-cly1{text-align:left;vertical-align:middle}
+                            .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
+                            .tg .tg-j6zm{font-weight:bold;text-align:left;vertical-align:bottom}
+                            .tg .tg-nrix{text-align:center;vertical-align:middle}
+                            .tg .tg-8cte{background-color:#d0d0d048;text-align:center;vertical-align:middle}
+                        </style>
+
+                        <!-- nmap vuln table -->
+                        <div id="nmap-vuln-table" style="overflow-x:scroll;">
+                            <table class="tg">
+                            <thead>
+                        <tr>
+                            <th class="tg-wa1i">port</th>
+                            <th class="tg-wa1i">CVE</th>
+                            <th class="tg-wa1i">state</th>
+                            <th class="tg-wa1i">description</th>
+                            <th class="tg-j6zm">references</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr>
+                                <td class="tg-nrix" rowspan="4">21/tcp</td>
+                                <td class="tg-nrix" rowspan="4">CVE-2011-2523</td>
+                                <td class="tg-nrix" rowspan="4">VULNERABLE (Exploitable)</td>
+                                <td class="tg-nrix" rowspan="4">vsFTP vrsion 2.3.4 backdoor</td>
+                                <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_      https://www.securityfocus.com/bid/48539</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte" rowspan="4">25/tcp</td>
+                                <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
+                                <td class="tg-8cte" rowspan="4">VULNERABLE</td>
+                                <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
+                                <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix">25/tcp</td>
+                                <td class="tg-nrix">n/a</td>
+                                <td class="tg-nrix">VULNERABLE</td>
+                                <td class="tg-nrix">Anonymous Diffie-Helman Key&nbsp;&nbsp;&nbsp;Exchange MitM Vulnerability</td>
+                                <td class="tg-cly1">https://www.ietf.org/rfc/rfc2246.txt</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte" rowspan="3">25/tcp</td>
+                                <td class="tg-8cte" rowspan="3">CVE-2015-4000</td>
+                                <td class="tg-8cte" rowspan="3">VULNERABLE</td>
+                                <td class="tg-8cte" rowspan="3">Transport Layer Security (TLS) Protocol&nbsp;&nbsp;&nbsp;DHE_EXPORT Ciphers Downgrade MitM (Logjam)</td>
+                                <td class="tg-cly1">https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4000</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/74733</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|       https://weakdh.org</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix">25/tcp</td>
+                                <td class="tg-nrix">n/a</td>
+                                <td class="tg-nrix">VULNERABLE</td>
+                                <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
+                                <td class="tg-cly1">https://weakdh.org</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte" rowspan="2">80/tcp</td>
+                                <td class="tg-8cte" rowspan="2">CVE-2007-6750</td>
+                                <td class="tg-8cte" rowspan="2">VULNERABLE</td>
+                                <td class="tg-8cte" rowspan="2">Slowloris DOS attack</td>
+                                <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix" rowspan="7">80/tcp</td>
+                                <td class="tg-nrix" rowspan="7">n/a</td>
+                                <td class="tg-nrix" rowspan="7">n/a</td>
+                                <td class="tg-nrix" rowspan="7">http-enum</td>
+                                <td class="tg-cly1">/tikiwiki/: Tikiwiki</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /test/: Test page</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /phpinfo.php: Possible information file</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /phpMyAdmin/: phpMyAdmin</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /doc/: Potentially interesting directory&nbsp;&nbsp;&nbsp;w/ listing on 'apache/2.2.8 (ubuntu) dav/2'</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /icons/: Potentially interesting folder w/&nbsp;&nbsp;&nbsp;directory listing</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_  /index/: Potentially interesting folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte">1099/tcp</td>
+                                <td class="tg-8cte">n/a</td>
+                                <td class="tg-8cte">VULNERABLE</td>
+                                <td class="tg-8cte">RMI registry default configuration remote code execution&nbsp;&nbsp;&nbsp;vulnerability</td>
+                                <td class="tg-cly1">https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/multi/misc/java_rmi_server.rb</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix">5432/tcp</td>
+                                <td class="tg-nrix">n/a</td>
+                                <td class="tg-nrix">VULNERABLE</td>
+                                <td class="tg-nrix">Diffie-Hellman Key Exchange Insufficient Group Strength</td>
+                                <td class="tg-cly1">https://weakdh.org</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte" rowspan="4">5432/tcp</td>
+                                <td class="tg-8cte" rowspan="4">CVE-2014-3566</td>
+                                <td class="tg-8cte" rowspan="4">VULNERABLE</td>
+                                <td class="tg-8cte" rowspan="4">SSL POODLE information leak</td>
+                                <td class="tg-cly1">https://www.openssl.org/~bodo/ssl-poodle.pdf</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.imperialviolet.org/2014/10/14/poodle.html</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;https://www.securityfocus.com/bid/70574</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix" rowspan="3">5432/tcp</td>
+                                <td class="tg-nrix" rowspan="3">CVE-2014-0224</td>
+                                <td class="tg-nrix" rowspan="3">VULNERABLE</td>
+                                <td class="tg-nrix" rowspan="3">SSL/TLS MITM vulnerability (CCS Injection)</td>
+                                <td class="tg-cly1">http://www.cvedetails.com/cve/2014-0224</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|      &nbsp;&nbsp;&nbsp;http://www.openssl.org/news/secadv_20140605.txt</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0224</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-8cte" rowspan="27">8180/tcp</td>
+                                <td class="tg-8cte" rowspan="27">n/a</td>
+                                <td class="tg-8cte" rowspan="27">n/a</td>
+                                <td class="tg-8cte" rowspan="27">http-enum</td>
+                                <td class="tg-cly1">/admin/: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/index.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/login.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/account.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin_login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/home.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin-login.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/adminLogin.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/controlpanel.html: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/cp.html: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/index.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/login.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/home.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/controlpanel.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin-login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/cp.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/account.jsp: Possible admin folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/admin_login.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/adminLogin.jsp: Possible admin&nbsp;&nbsp;&nbsp;folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /manager/html/upload: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /manager/html: Apache Tomcat (401&nbsp;&nbsp;&nbsp;Unauthorized)</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/view/javascript/fckeditor/editor/filemanager/connectors/test.html:&nbsp;&nbsp;&nbsp;OpenCart/FCKeditor File upload</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|  &nbsp;&nbsp;&nbsp;/admin/includes/FCKeditor/editor/filemanager/upload/test.html: ASP&nbsp;&nbsp;&nbsp;Simple Blog / FCKeditor File Upload</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|   /admin/jscript/upload.html: Lizard&nbsp;&nbsp;&nbsp;Cart/Remote File upload</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_  /webdav/: Potentially interesting folder</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-nrix" rowspan="2">8180/tcp</td>
+                                <td class="tg-nrix" rowspan="2">CVE-2007-6750</td>
+                                <td class="tg-nrix" rowspan="2">LIKELY VULNERABLE</td>
+                                <td class="tg-nrix" rowspan="2">Slowloris DOS attack</td>
+                                <td class="tg-cly1">http://ha.ckers.org/slowloris/</td>
+                            </tr>
+                            <tr>
+                                <td class="tg-cly1">|_     &nbsp;&nbsp;&nbsp;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+
+
+
+
+
+                        <p>So now we have a fairly easy-to-read initial list of vulnerabilities. But there are a few inherent flaws in the data here. The first is that we only really have these severity levels of "VULNERABLE" and "LIKELY VULNERABLE," which don't really tell us anything.</p>
+
+                        <p>A pentester could probably start digging into the things that sound the most interesting (certainly CVE-2011-2523, the vsFTP backdoor that offers root access, would be a great start). 
+                            <br><br>
+                            But from a blue-team standpoint one has to consider <em>all of these</em> to an extent and understand how much of a risk they actually pose to the client. </p>
+
+                        <p>So before we run off to draw conclusions and draft a vulnerability assessment report with just this data, I want a second opinion, maybe from a commercial vulnerability scanner. 
+                            <br><br>So let's save this table for now and turn to Tenable Nessus.</p>
 
 
 
@@ -858,15 +701,434 @@ PORT     STATE SERVICE     VERSION
 
 
 
-                    <!-- #conclusion -->
-                     <h4 id="conclusion">Conclusion</h4>
-                     <h6><a href="#top">Back to top</a></h6>
 
-                     <p>As with all projects, what I thought would be a quick one-and-done turned out to be a complex affair that taught me so many things.</p>
-                     <p>For one thing, though this isn't my first time using VirtualBox, I can definitely say now I've gotten a lot more comfortable using it, from configuring network settings to adding hard drives to even shared folders between host and VM.</p>
-                     <p>I've also finally dipped my toes into Tenable Nessus, and gotten a feel for what doing a scan looks like, and what things I can do with the results.</p>
-                     <p>I think I've also just gotten a lot better at troubleshooting &mdash; especially after the whole fiasco with trying to get Nessus to work &mdash; and that's a skill I'm going to be needing a lot just with this home lab alone, as I shuffle things around and play around with them and inevitably break something along the way.</p>
-                     <p>This report deliverable may be finished, but I'm excited to keep going with this home lab. Up next, malware analysis.</p>
+
+
+
+                        <!-- #tenablenessus -->
+                        <h4 id="tenablenessus">Tenable Nessus</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>Specifically, we are downloading <strong>Tenable Nessus Essentials</strong>, which is a free 1-year license with some limited functionality (up to 16 addresses, limited scanning), but enough for our purposes.</p>
+
+                        <p><em><strong>IMPORTANT!</strong> For this section I found that it's much better if just the Kali is reconfigured as NAT (instead of intnet) so that the initial Nessus install goes smoothly. You technically can do an offline install but for some reason that did not go very well for me. Once Nessus is stably installed, however, it takes less than a minute to change it back to the intnet settings with our custom IP and subnet.</em> </p>
+
+                        <p>The <a href="https://docs.tenable.com/nessus/Content/InstallNessusLinux.htm">Linux installation docs</a> from Tenable emphasizes that <code>hostname</code> is a dependency, but on Kali it already comes OOTB.</p>
+                        <img src="../../uploads/homelabsudoaptinstallhostname.png" width="70%">
+
+                        <p>I already <a href="https://www.tenable.com/downloads/nessus">downloaded</a> Nessus (version 10.9.0 for Linux - Debian - amd64). So I enabled <a href="https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/guestadd-dnd.html">drag and drop</a> (host to guest) on the Kali machine, then dragged and dropped the .deb file to the Kali desktop.</p>
+
+                        <p>Then, opening the terminal in Kali, I first navigated to the desktop &mdash; <code>cd Desktop</code> &mdash; then I ran the install command.</p>
+
+                        <pre><code class="language-css">sudo dpkg -i Nessus-10.9.0-debian6_amd64.deb</code></pre>
+
+                        <img src="../../uploads/homelabsudodkpgnessus.png" width="70%">
+
+                        <p>Then restart the <code>nessusd</code> daemon. A window will open prompting you to enter your password to authenticate. Enter your password.</p>
+
+                        <pre><code class="language-css">systemctl start nessusd</code></pre>
+
+                        <p>Once that finishes, open Firefox and go to <strong>https://localhost:8834</strong>.</p>
+                        <p>(If you get a warning that reads <strong>"Potential Security Risk Ahead"</strong>, click Advanced then Proceed anyway.)</p>
+                        <p>You should land on this page.</p>
+
+                        <img src="../../uploads/homelabtenablenessuslandingpage.png" 
+                        width="100%">
+
+                        <p>Simply press <strong>Continue</strong>.</p>
+
+                        <p>On the next screen, select <strong>Register for Nessus Essentials</strong>, then Continue.</p>
+
+                        <p>On the subsequent "Get an activation code" screen, we already have an activation code, so we can just press <strong>Skip</strong>.</p>
+
+                        <p>Copy and paste your <strong>activation code</strong> when prompted. You can find the activation code in the email you should have received from Tenable Nessus with the subject line "Welcome to Tenable Nessus!"</p>
+
+                        <img src="../../uploads/homelabwelcometotenablenessusemail.png" width="100%">
+
+                        <p>On the next screen, you'll be prompted to come up with a username and password for the Nessus admin account. Once that's done you'll get an "Initializing" screen, and you'll know you're through.</p>
+
+                        <p>(I had so much trouble with this last part, as I would repeatedly enter those credentials only to get an "Error: Activation failed" popup with no further explanation. I had to go back to that first <a href="https://www.tenable.com/products/nessus/nessus-essentials">Nessus Essentials</a>  intro webpage and resend an activation code, which ended up working.)</p>
+
+                        <p><strong>A really annoying hiccup</strong></p>
+
+                        <p>You see, I made the instructions sound really smooth when I put them together but it cost me a lot of time and mental fortitude to actually get Nessus to work.
+                        <br><br>When I finally solved that "Error: Activation failed" issue, Nessus would then start installing the plugins only to crash the entire VM saying it had run out of space. 
+                        <br><br>Then when I tried to overcompensate by making the VM hard drive 100GB (which equates to about 20GB in real size) then my computer ran out of space. So I had to delete my ENTIRE home lab set up and remake it from scratch on my 128GB thumb drive.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                        <!-- #nessus-scanning -->
+                        <h4 id="nessus-scanning">Scanning with Tenable Nessus</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>Anyway, I finally, FINALLY got it to work, and I got to the Nessus homescreen I'd been dying to see all this time.</p>
+                        
+                        <img src="../../uploads/homelabnessushomepage.png" width="100%">
+
+                        <p>From here it's actually smooth sailing to get the results we want &mdash; just a few clicks on this GUI will do.</p>
+
+                        <p>The first thing we want to do is run a <strong>Host Discovery</strong> scan to see what we're dealing with on this network and what ports are open.</p>
+                        
+                        <ul>
+                            <li>
+                                <p>Click the <strong>New Scan</strong> button, then on the next screen click <strong>Host Discovery</strong>.</p>
+                                <img src="../../uploads/homelabhostdiscoverybutton.png" width="70%">
+                            </li>
+                            <li>
+                                <p>Now all you need is to name the scan (whatever you want) and to specify the targets (in this case our little <code>/24</code> subnet).</p>
+                                <img src="../../uploads/homelabhostdiscoveryconfig.png" width="100%" alt="">
+                                <p>There are other options (see left sidebar under BASIC) to schedule this scan for regular intervals or to send the resulting report to specified email recipients. We won't need any of these right now, but it's good to know that option exists.</p>
+                            </li>
+                            <li><p>Hit <strong>Save</strong>.</p></li>
+                            <li>
+                                <p>We'll be led back to the homescreen, where our new scan should now appear as a list item. On the right side of that row, there should be a little play button that, on hover, reads <strong>Launch</strong>. Click it.</p>
+                                <img src="../../uploads/homelabhostdiscoverylaunch.png" width="100%" alt="">
+                            </li>
+                            <li>
+                                <p>When the scan completes, click on that row again to see the results. You should see something like this:</p>
+                                <img src="../../uploads/homelabhostdiscoveryresults.png" width="100%" alt="">
+                            </li>
+                        </ul>
+
+                        <p><strong>Diving deeper</strong></p>
+
+                        <p>Let's now dig in to the actual vulnerabilities present in the MS2 machine. Check to select the row for <code>192.168.31.12</code>, then go to <strong>More > Create Scan ...</strong></p>
+
+                        <img src="../../uploads/mshostdiscoveryselectms2.png" width="70%" alt="">
+                        
+                        <p>Then on the next screen select <strong>Advanced Scan</strong>.</p>
+
+                        <p>You'll notice under <strong>Basic > General</strong>, <code>192.168.31.12</code> has already been inserted in the <strong>Targets</strong> field. In the Name field, we'll call this scan <strong>"MS Advanced Scan."</strong></p>
+
+                        <p>We won't be changing much here; I just checked (under <strong>Assessment > Brute Force</strong>) <strong>Test default accounts (slow)</strong> and <strong>Always enable Hydra (slow)</strong>, just to see what would happen. (Hydra is a brute-force password cracker.)</p>
+
+                        <img src="../../uploads/homelabmsadvancedscanconfig.png" width="70%" alt="">
+
+                        <p>Hit <strong>Save</strong>, then <strong>Launch</strong>.</p>
+
+                        <p>After 9 minutes, the scan finishes, and upon clicking on the MS Advanced Scan row again I get a huge list of vulnerabilities, sorted by severity.</p>
+
+                        <img src="../../uploads/homelabmsadvancedscanresults.png" width="100%" alt="">
+
+                        <p>Notably we see 9 critical vulnerabilities and three high-severity vulnerabilities. So we definitely want to give those a look.</p>
+
+                        <p>I exported these results as a CSV, then made it look a little bit nicer by importing it into Google Sheets and doing some formatting.</p>
+
+                        <p><em><a target="_blank" href="../../uploads/homelabmsadvancedscanresultsgooglesheets.pdf">Here's a partial table (with just Critical and High Severity vulnerabilities) as a PDF.</a></em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- #report -->
+
+                        <h4 id="report">Creating a report</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>Now comes the most tedious but crucial step: creating an actually legible vulnerability assessment report that explains the vulnerabilities, why they're important to address, and <em>how</em> to address them.</p>
+                        <p>I will skip a long explanation of how I made the report, just so I can pretend I didn't spend three hours of my life on it, but suffice it to say that I closely followed <a href="https://purplesec.us/wp-content/uploads/2019/03/Sample-Network-Security-Vulnerability-Assessment-Report-Purplesec.pdf">the sample by PurpleSec</a>, with some further inspiration by this <a href="https://www.slideshare.net/slideshow/vulnerability-assessment-report/50008510#2">random PDF on SlideShare</a>.</p>
+                        <p>I improvised a hypothetical client company called Fake Inc. for which I would be creating this report, and made a decently pretty logo for it. Then I got to work actually writing out the report.</p>
+
+                        <object id="vulnreportfinal" data="../../uploads/fake_inc_vulnerability_assessment_report.pdf" class="pdf" width="100%" height="800px"></object>
+                        
+                        <p>In total there were 45 vulnerabilities to speak of: 11 critical, 1 high-severity, 39 medium-severity, and 8 low-severity. From those I also created a list of remediative steps that I would recommend this hypothetical Fake Inc. take.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- #conclusion -->
+                        <h4 id="conclusion">Conclusion</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>As with all projects, what I thought would be a quick one-and-done turned out to be a complex affair that taught me so many things.</p>
+                        <p>For one thing, though this isn't my first time using VirtualBox, I can definitely say now I've gotten a lot more comfortable using it, from configuring network settings to adding hard drives to even shared folders between host and VM.</p>
+                        <p>I've also finally dipped my toes into Tenable Nessus, and gotten a feel for what doing a scan looks like, and what things I can do with the results.</p>
+                        <p>I think I've also just gotten a lot better at troubleshooting &mdash; especially after the whole fiasco with trying to get Nessus to work &mdash; and that's a skill I'm going to be needing a lot just with this home lab alone, as I shuffle things around and play around with them and inevitably break something along the way.</p>
+                        <p>This report deliverable may be finished, but I'm excited to keep going with this home lab. Up next, malware analysis.</p>
+                    </div>
+
+                    <!-- portuguese text -->
+                    <div id="pttext">
+                        <p style="padding: 2px 4px; background: #990000; display: inline-block;"><strong>Atualmente esta página está em construção.</strong></p>
+                        <div class="table-of-contents">
+                            <p><strong>Contents</strong></p>
+                            <p><a href="#download-pt">Baixando imagens Win10 e Kali</a></p>
+                            <p><a href="#config-pt">Configurando as VMs</a></p>
+                            <p><a href="#add-metasploitable-pt">Adiciando a VM Metasploitable</a></p>
+                            <p><a href="#nmap-pt">Impressões iniciais com nmap</a></p>
+                            <p><a href="#tenablenessus-pt">Tenable Nessus</a></p>
+                            <p><a href="#nessus-scanning-pt">Escaneando com Tenable Nessus</a></p>
+                            <p><a href="#report-pt">Criando um relatório</a></p>
+                            <p><a href="#conclusion-pt">Conclusão</a></p>
+                        </div>
+                        <div class="table-of-contents">
+                            <p><strong>Deliverables</strong></p>
+                            <p>Diagrama da infraestrutura da rede internal do homelab<a href="#infra-diagram-pt">[Ver no blog]</a> <a href="../../uploads/intnetinfra.png">[PNG]</a></p>
+                            <p>Planilha organizada de vulnerabilidades detectadas por nmap <a href="#nmap-vuln-table-pt">[Ver no blog]</a> <a href="../../uploads/nmapvulntable.xlsx">[XLSX]</a></p>
+                            <p>Relatório da avaliação de vulnerabilidades <a href="#vulnreportfinal-pt">[Ver no blog]</a> <a href="../../uploads/fake_inc_vulnerability_assessment_report.pdf">[PDF]</a></p>
+                        </div>
+
+                        <p>Esta &eacute; a abertura de um mundo novo para mim. Eu tenho pensado em criar um &ldquo;home lab&rdquo; faz pouco tempo, agora que acabei de sair da faculdade, com o meu bacharelado e tudo assim.</p>
+
+                        <p>Enquanto o meu est&aacute;gio de ciberseguran&ccedil;a se desvanece mais e mais ao passado, eu nem tinha a chance desde ent&atilde;o de &ldquo;praticar&rdquo; a ciberseguran&ccedil;a, por assim dizer, at&eacute; este momento.</p>
+
+                        <p>Agora que estou livre dos meus estudos, tenho a oportunidade por fim.</p>
+
+                        <p>Lembro-me que uma coisa que me pareceu particularmente intrigante durante o est&aacute;gio foi <strong>&ldquo;vulnerability management&rdquo;</strong> (ger&ecirc;ncia de vulnerabilidades).&nbsp;</p>
+
+                        <p>Na Aristotle, onde fui estagi&aacute;rio, quase todo aspecto do protocolo infosec a&iacute; estava alimentando no mesmo interface &mdash; <strong>o sistema Security Information and Event Management (SIEM) dela, </strong>Exabeam<strong>.</strong></p>
+
+                        <p>E enquanto o aperto algor&iacute;tmico produziu mesmo uma vis&atilde;o geral de como esses aspectos se juntaram, n&atilde;o acho que eu tivesse o tempo para mergulhar num assunto particular.</p>
+
+                        <p>Embora, quando tive mesmo tempinho, me encontrei mexendo em Tenable, vasculhando esse listo de CVEs automaticamente detectado e quase sem fim, e ent&atilde;o me divertindo observando quais na verdade importava para a empresa.</p>
+
+                        <p>Com o tempo sempre consigo mudar esse novo &ldquo;home lab&rdquo; para outros prop&oacute;sitos, mas para agora, eu queria investigar essa &agrave;rea t&atilde;o fascinante da avalia&ccedil;&atilde;o e ger&ecirc;ncia de vulnerabilidades.</p>
+
+                        <p>Antes disso, queria primeiramente entender como criar e configurar um network<em> absolutamente barebones</em>: um network internal dentro de VirtualBox com duas VMs &mdash; uma Kali Linux como agressor, e uma Windows 10 como o alvo &mdash; com endere&ccedil;os IP manualmente definidos.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- #download-pt -->
+                        <h4 id="download-pt">Baixando imagens Win10 e Kali</h4>
+                        <h6><a href="#top">Voltar acima</a></h6>
+
+
+                        <p><span style="font-weight: 400;">N&atilde;o vou passar muito tempo sobre o processo de baixar os arquivos ISO para Windows 10 e Kali Linux (</span><a href="https://www.kali.org/get-kali/#kali-installer-images"><span style="font-weight: 400;">instalador</span></a><span style="font-weight: 400;"> ou </span><a href="https://www.kali.org/get-kali/#kali-virtual-machines"><span style="font-weight: 400;">VM pr&eacute;-construido para VirtualBox</span></a><span style="font-weight: 400;">), que essas instru&ccedil;&otilde;es j&aacute; s&atilde;o dispon&iacute;veis e foram seguidas quase &agrave; letra. Embora h&aacute; umas considera&ccedil;&otilde;es que eu queria mencionar aqui:</span></p>
+                        <ul>
+                            <li><p>Item número zero deve ser que a minha máquina atual é Windows 11.</p></li>
+                            <li>
+                                <p>Primeiramente, é crucial comparar os checksums SHA256 dos arquivos baixados que não foram corrompidos no trânsito. Para obter o checksum do seu arquivo baixado: Abra a sua pasta Downloads, clique com o batão direito em qualquer lugar na pasta e seleciona “Abra em Terminal.” E depois, execute o comando siguiente:</p>
+                                <pre><code>Get-FileHash [filename]</code></pre>
+                                <p>Encontra-se os checksums para os arquivos apropriados no sigiuiente:</p>
+                                <ul>
+                                    <li><p><a href="https://www.virtualbox.org/download/hashes/7.1.10/SHA256SUMS">VirtualBox</a></p></li>
+                                    <li><p>Windows: Fornecido dentro do instalador do ISO, na seção "Verify your download"</p></li>
+                                    <li>
+                                        <p>Kali: Independemente do instalador ou VM pré-construido, se encontra o checksum respectivo quando clique em "sum":</p>
+                                        <div style="display: flex;">
+                                            <img src="../../uploads/homelab2.png" style="width: 30%">
+                                            <img src="../../uploads/homelab3sum.png" style="width: 30%;">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><p>
+                                Cada destes ISOs é pouco mais de 4GB, e sou gradualmente estou ficando sem espaço nesse laptop após usá-lo por quatro anos; então, para conservar armazenamento decidi mover estes ISOs para um pendrive de 128GB (na verdade 116GB).
+
+                                <br><br>Mas primeiro, precisei de formatar o pendrive &mdash; no início não sabia disso, e ficava tentano transferir os ISOs, só para receber repetidamente a mesma mensagem que "não há espaço suficiente no disco rígido" num pendrive de 116GB por casa dum arquivo de 4GB.
+
+                                <br><br>Após alguma pesquisa, descobri que tinha de mudar o formate do pendrive desde a padrão exFAT para NTFS. (A media de instalação de OS geralmente requer NTFS porque é um <em>journaled filesystem</em>, ou seja, as mudanças são logadas para evitar a possibilidade de corrupção.)  
+                            </p></li>
+
+                            <li><p>Em instalar a VM Win10, decidi alocar 1GB de memôria (principalmente um palpite com base no meu conhecimento de que recursos são que tenho nesse laptop tão fraco; mesmo assim, provavelmente foi demais), 1 núcleo de processador, e um disco rígido com 20GB (qualquer dimensão que consegue acomodar 10,816 funciona).</p></li>
+                            <img src="../../uploads/homelab1.png" style="width: 90%;">
+                            <li><p>
+                                Para a VM Kali, aloquei 5000MB de memôria, 4 núcleos de processador, e um disco rígido de 100GB. (Isso é extremamente importante, como descobri muito mais tarde, por causa dos requisitos de hardware para Tenable Nessus no futuro.)
+                            </p></li>
+
+                            <li>
+                                <p>A inicialização de Win10 pode ser particularmente chata após a VM estar operacional. Eu segui <a href="https://youtu.be/kku0fVfksrk?si=uzEafBC9wG-FhvyS&t=267">as instruções da canal MyDFIR</a> na YouTube que foram incrivelmente claras, mas a essência é afirmar, quando solicitado, que você não tem product key, e depois escolher Windows 10 Pro como a sua versão.</p>
+                                <ul>
+                                    <li>
+                                        <p>Quando solicitado: "Which type of installation do you want?", selecione "Custom: Install Windows only (advanced)."</p>
+                                        <img src="../../uploads/homelab4typeofinstallation.png" style="width: 100%;">
+                                    </li>
+                                    <li>
+                                        <p>Quando solicitado: "How would you like to set up?" selecione "Set up for personal use."</p>
+                                        <img src="../../uploads/homelabhowwouldyouliketosetup.png" style="width:100%">
+                                    </li>
+                                    <li>
+                                        <p>Depois disso, insista em criar uma conta offline, e então desligue todas as botões que se presentam na tela "Choose privacy settings for your device".</p>
+                                        <img src="../../uploads/homelabprivacysettingsallno.png" style="width:100%">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p>Para a inicialização de Kali, fui solicitado com a opção de instalação gráfica ou instalação simples (que se aparece como apenas "Install"), entre outras opções. Para mim a instalação gráfica não funcionou, mas a outra deu certo sim.</p>
+                            </li>
+                        </ul>
+
+                        <p>E agora olha o que temos.</p>
+
+                        <img src="../../uploads/homelabsetupcomplete.png" width="100%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- #config-pt -->
+                        <h4 id="config">Configurando as VMs</h4>
+                        <h6><a href="#top">Voltar acima</a></h6>
+
+                        <p>Agora, para essa situação específica, duma máquina Win10 com nada adentro dela (embora com a senha intencionalmente fraca de "password") e uma Kali com nada dela também, não haveria nenhuma ação que a gente precisaria tomar para garantir a segurança desta configuração.</p>
+                        <p>Mas o objetivo final aqui é, por agora mesmo, adicionar uma VM Metasploitable a essa rede e brincar com ela num ambiente <em>sandbox</em> &mdash; ou seja, precisamos de pelo menos a nossa agressora Kali, enquanto a bloqueamos da internet que é apenas eu que faz a brincadeira.</p>
+                        <p>Isso significa que precisamos duma <strong>rede internal</strong>. Felizmente, VirtualBox nos da a opção de fazer exatamente isso. Então, vamós lá a configurar a Win10 primeiramente.</p>
+                        <ul>
+                            <li><p>
+                                Em VirtualBox, clique na Win10, e depois em "Settings".
+                            </p></li>
+                            <li><p>
+                                As versões novas de VirtualBox parece ter separado essas configurações em "Basic" e "Expert". A opção de mudar para rede internal só está disponível em "Expert," então clique aí. (Os tutoriais mais antigos falham em mencionar isso.)
+                            </p></li>
+                            <li><p>
+                                Role para baixo à seção "Network" ou simplesmente clique "Network" na esquerda. Daí, sob "Attached to:", escolhe "Internal network". Diretamente abaixo disso, pode colocar qualquer nome para essa rede internal que você quer. Para a minha rede eu dei o nome "qkrnet".
+                                Scroll down to the Network section or simply click the "Network" tab on the left sidebar. From there, in the "Attached to:" dropdown, select "Internal network." Right below that, you can name this internal network whatever you'd like. I called mine "qkrnet".
+                            </p></li>
+                            <li><p>Quando termina, clique em "OK".</p></li>
+                        </ul>
+
+                        <img src="../../uploads/homelabintnetconfig1.png" width="100%">
+
+                        <p>
+                            Repita esses passos para configurar a Kali no mesmo jeito. Para a Kali, quando a muda a rede internal, é só selecionar o nome da rede que você já criou &mdash; no meu caso "qkrnet".
+                        </p>
+
+                        <p>Agora, ainda precisamos de definir estaticamente o endereço IP para cada VM.</p>
+
+                        <p>Uma vez mais, bora fazer a Win10 no primeiro:</p>
+
+                        <ul>
+                            <li>
+                                <p>Quando acaba de fazer login, clique com botão direita a desenha de globo na parte inferior direita, e clique em "Open Network & Internet settings."</p>
+                                <img src="../../uploads/homelabwinstatip1.png" width="50%">
+                            </li>
+                            <li>
+                                <p>Então clique em "Change adapter options."</p>
+                                <img src="../../uploads/homelabwinstatip2.png" width="100%">
+                            </li>
+                            <li>
+                                <p>Clique com a botão direita o item "Ethernet" item, então clique em "Properties."</p>
+                                <img src="../../uploads/homelabwinstatip3.png" width="100%">
+                            </li>
+                            <li>
+                                <p>Dê um clique duplo em "Internet Protocol Version 4 (TCP/IPv4)."</p>
+                                <img src="../../uploads/homelabwinstatip4.png" width="50%">
+                            </li>
+                            <li>
+                                <p>Seleciona a opção "Use the following IP address:", e depois defina manualmente o endereço IP. Dá para usar um subnet <code>/24</code>. Para minha eu escolhei <code>192.168.31.10/24</code>. Então clique em OK, e OK na tela prévia. Deixa todo o resto sem mudança.</p>
+                                <img src="../../uploads/homelabwinstatip5.png" width="50%">
+                            </li>
+                            <li>
+                                <p>Abra <code>cmd</code> e execute <code class="language-css">ipconfig</code> para confirmar o IP estático tem sido definido.</p>
+                                <img src="../../uploads/homelabwinstatip6.png" width="70%">
+                            </li>
+                        </ul>
+
+                        <p>Agora vamos fazer o mesmo para a Kali:</p>
+                        <ul>
+                            <li>
+                                <p>Quando acaba de fazer login, clique com a botão direita em a botão Ethernet (para mim essa foi ainda carregando por tentar de buscar para conexão internet que não existia, mas o processo de eliminação deixou óbvio que essa foi a botão clicar), e depois clique em "Edit Connections..."</p>
+                                <img src="../../uploads/homelabkalistatip1.png" width="70%">
+                            </li>
+                            <li>
+                                <p>Selecione (um clique só) "Wired connection 1" para destacar, e então clique no icone de engrenagem na parte inferior esquerda dessa tela.</p>
+                                <img src="../../uploads/homelabkalistatip2.png" width="70%">
+                            </li>
+                            <li>
+                                <p>Navegue para a guia "IPv4 Settings". Olhe que o metódo padrão agora é DHCP; abra essa dropdown e coloque "Manual." Depois, sob Addresses, clique na botão "Add", e o IP estático que deseja usar para essa máquina, de preferência uma acima do que usou para a Win10. No meu caso seria <code>192.168.31.11</code>. </p>
+                                <p>Então pressione a tecla Tab; a netmask deve aparecer automaticamente como 24. Deixou todo o resto sem mudança e clique em Save.</p>
+                                <img src="../../uploads/homelabkalistatip3.png" width="70%">
+                            </li>
+                        </ul>
+
+                        <p>Agora bora confirmar que ambas as VMs são interconectadas. Infelizmente, a firewall na Win10 não aceita pings ICMP desde a Kali, mas se fizer ping para a Kali desde a Win10, vamos olhar que os pings dão certo sim. (No meu caso, quando tentei imediatamente após definir o IP da Kali, levou algum tempo para os pings passar.)</p>
+
+
+                        <img src="../../uploads/homelabkaliwinping1.png" width="60%">
+
+                        <p>E agora temos um home lab básico, com um máquina agressora (Kali) e uma maqúina defensora (Win10). </p>
+                        <p>Com tudo pronto, garanti que tomar snapshots dos estados atuais das VMs, e notá-los como estados padrão para qual sempre posso voltar.</p>
+                        <p>Desde aqui a gente consegue ir em qualquer direcção: podería usar esse setup mesmo como um laboratório de analização de malware (que já pretendo fazer em breve); podería abrir a rede de volta à internet mudando as configurações a NAT; e mais assim.</p>
+                        <p>Mas agora mesmo, como um primeiro exercíciozinho, quero adicionar uma VM Metasploitable à esta rede e ver o que posso encontrar.</p>
+
+                    </div>
+
+                    <!-- Script -->
+                    <script>
+                        const enButton = document.getElementById('en-button');
+                        const ptButton = document.getElementById('pt-button');
+                        const enDiv = document.getElementById('entext');
+                        const ptDiv = document.getElementById('pttext');
+
+                        enButton.addEventListener('click', () => {
+                        enDiv.style.display = 'block';
+                        ptDiv.style.display = 'none';
+                        });
+
+                        ptButton.addEventListener('click', () => {
+                        ptDiv.style.display = 'block';
+                        enDiv.style.display = 'none';
+                        });
+                    </script>
 
                 </div>
             </div>
