@@ -1,0 +1,325 @@
+<html>
+    <head>
+        <title>blog: the quest to become a Splunk Core Certified User - jonathan park</title>
+
+        <meta charset="UTF-8" />
+        <meta name="title" content="Jonathan Park" />
+        <meta name="description" content="$ whoami /all" />
+        <meta name="keywords" content="Jonathan Park" />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Jonathan Park" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            property="og:image"
+            content="https://www.splunk.com/content/dam/splunk2/en_us/images/training/training-course-track-core-certified-power-user-header-fg.png"
+        />
+        <meta
+            property="og:title"
+            content="blog: The quest to become a Splunk Core Certified User - jonathan park"
+        />
+        <meta
+            property="og:description"
+            content="I've talked a lot about SIEMs, so it's time to put some money where my mouth is."
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+
+        <link
+            href="https://fonts.cdnfonts.com/css/sf-pro-display"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../stylesheet.css" />
+        <link rel="stylesheet" href="../blog-stylesheet.css" />
+
+        <!-- font awesome -->
+        <script
+            src="https://kit.fontawesome.com/5177f0fe75.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <link href="../../themes/prism.css" rel="stylesheet" />
+        <style>
+            h4 { margin-bottom: 5px; }
+            #pttext { display: none; }
+            button { border: none; background: rgba(24, 131, 12, 0.4); font-family: 'SF Pro Display'; cursor: pointer; padding: 5px 10px; margin: 0; margin-right: 5px; color: white; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <div class="all-content-container">
+            <div class="header">
+                <a href="../../"><h1>jonathan park</h1></a>
+            </div>
+            <div class="blog-list-container">
+                <div class="sidebar">
+                    <img
+                        src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif"
+                        style="width: 30%"
+                    />
+                    <p>
+                        Graduate cum laude of the University of Southern California.
+                    </p>
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>&nbsp; 
+                        California
+                    </p>
+                    <a href="https://www.linkedin.com/in/jon25/"
+                        ><p>
+                            <i class="fa-brands fa-linkedin"></i> &nbsp;<strong
+                                >LinkedIn</strong
+                            >
+                        </p></a
+                    >
+                </div>
+                <div class="blog-content">
+                    <a href="../../blog.html" style="text-decoration: underline"
+                        ><h6>&lt;&lt; Back</h6></a
+                    >
+                    <h2 id="top">The quest to become a Splunk Core Certified User</h2>
+                    <h6>14 July 2025 - present</h6>
+
+                    <br><br>
+
+
+
+                    <button id="en-button">EN</button>
+                    <button id="pt-button">PT</button>
+
+                    <!-- english text -->
+                    <div id="entext">
+                        
+                        <div class="table-of-contents">
+                            <p><strong>Contents</strong></p>
+                            <p><a href="#intro">Introduction</a></p>
+                            <p><a href="#timeline">Timeline</a></p>
+                            <p><a href="#140725" style="margin-left: 20px; font-size: 12px;">14 July 2025</a></p>
+                        </div>
+
+                        <!-- #introduction -->
+                        <h4 id="intro">Introduction</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>At this point I've probably mentioned Exabeam, the Security Information and Event Management software (SIEM) I had the opportunity to test out and also present to the IT team during my internship, more than a few times in this blog. So it's become fairly clear to me, and most likely you, dear reader, that it's high time that I start properly <em>committing</em> to making SIEMs and log analysis and alert remediation etc. etc. become my thing.</p>
+                        <p>How I got from there to deciding to pursue the Splunk Core Certified User certification is honestly pure chance. This word, "Splunk," had been planted into my head from having seen it constantly in the qualifications sections of job postings. So when my YouTube algorithm threw a little video about Splunk to see what would happen, like a grandmother in Central Park tossing breadcrumbs at pigeons, I happily took the bait.</p>
+                        <p>Anyways, internet pipelines are a dangerous thing, and now I've committed to getting this certification and proving myself as a competent basic user of Splunk &mdash; and I assume to some extent most SIEMs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                         
+
+                        <!-- #timeline -->
+                        <h4 id="intro">Timeline</h4>
+
+                        <br>
+
+                        <!-- #140725 -->
+                        <p id="140725" style="margin-bottom: 0;"><strong>14 July 2025</strong></p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>I have to give it to <a href="https://www.youtube.com/@TechwithJono">Tech with Jono</a> with getting me started on this. His <a href="https://www.youtube.com/watch?v=_2O-qxS8nqI">video on installing Splunk <em>and</em> downloading practice data</a>  for Splunk was <em>that</em> video that YouTube fed to me to see if I was interested. And indeed I was.</p>
+
+                        <p>While I was setting up my <a href="homelab.html">homelab</a>, I'd come across the idea a few times of getting a SIEM onto that homelab and learning how it works. But the lingering question in my mind had been, <em>How do you practice log analysis and alert triaging or whatever on a SIEM when your network has literally nothing going on?</em> The concept of practice data didn't even exist in my mind for some reason until this video.</p>
+
+                        <p>To be clear, I wasn't following the actual instructions in that video step by step from the getgo. But it definitely sparked something.</p>
+
+                        <p>That led to <a href="https://youtu.be/BQbwQszqjRs?si=AVGidQ7H6Hak4AjL">this video by CYBERWOX</a> on how to pass the Splunk Core Certified User exam. This is how I found out such an exam existed.</p>
+
+                        <p>Until this moment I'd had two distinct ideas in my head: (a) that I wanted to get into learning Splunk and having fun with it, and (b) I also wanted to have some kind of formal way of <em>proving</em> the experience I'd get along the way to put on my resume. Learning about the SCCU was when those ideas finally merged together.</p>
+
+                        <p>Yet another source of affirmation was <a href="https://youtu.be/ON1jM4_MOIo?si=g-ogriSxkQXNQDWS">this video by TYTE</a> about how she passed the exam after 10 days of studying. Now this was incredibly encouraging. Both of my certs so far (CCNA and Security+) took months. But two <em>weeks</em>?</p>
+
+                        <p>Splunk's official <a href="https://www.splunk.com/en_us/pdfs/training/splunk-test-blueprint-user.pdf">test blueprint</a> for the SCCU offers a "suggested and non-exhaustive" list of eight free training courses that cover the exam material:</p>
+
+                        <ul>
+                            <li>Intro to Splunk</li>
+                            <li>Using Fields</li>
+                            <li>Scheduling Reports and Alerts</li>
+                            <li>Visualizations</li>
+                            <li>Working with Time</li>
+                            <li>Statistical Processing</li>
+                            <li>Leveraging Lookups and Subsearches</li>
+                            <li>Search Optimization</li>
+                        </ul>
+
+                        <p>I signed up for the Intro to Splunk course and got started. In the meantime, now following Tech with Jono's video from earlier (albeit using my Kali VM as the OS, not Windows as Jono did in the video), I downloaded the free trial of Splunk Enterprise as well as the Splunk Universal Forwarder. I got them as <code>.deb</code> files and unpackaged with them with <code>sudo dpkg -i [filename]</code>.</p>
+
+                        <img src="../../uploads/splunkyouredownloadingsplunkenterprise.png" width="100%">
+                        <br>
+                        <img src="../../uploads/splunkyouredownloadingsplunkuniversalforwarder.png" width="100%">
+                        <br>
+                        <img src="../../uploads/splunksudodpkgi.png" width="70%" alt="">
+                       
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!-- portuguese text -->
+                    <div id="pttext">
+                        <div class="table-of-contents">
+                            <p><strong>Sumário</strong></p>
+                            <p><a href="#intro-pt">Introdução</a></p>
+                        </div>
+
+                        <!-- #intro-pt -->
+                         <h4 id="intro-pt">Introdução</h4>
+                         <p><a href="#top">Voltar acima</a></p>
+                    </div>
+
+                    <!-- script to switch between eng and pt text -->
+                    <script>
+                        const enButton = document.getElementById('en-button');
+                        const ptButton = document.getElementById('pt-button');
+                        const enDiv = document.getElementById('entext');
+                        const ptDiv = document.getElementById('pttext');
+
+                        enButton.addEventListener('click', () => {
+                        enDiv.style.display = 'block';
+                        ptDiv.style.display = 'none';
+                        });
+
+                        ptButton.addEventListener('click', () => {
+                        ptDiv.style.display = 'block';
+                        enDiv.style.display = 'none';
+                        });
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+        <script src="../../themes/prism.js"></script>
+    </body>
+</html>
