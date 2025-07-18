@@ -97,6 +97,8 @@
                             <p><a href="#timeline">Timeline</a></p>
                             <p><a href="#140725" style="margin-left: 20px; font-size: 12px;">14 July 2025</a></p>
                             <p><a href="#150725" style="margin-left: 20px; font-size: 12px;">15 July 2025</a></p>
+                            <p><a href="#160725" style="margin-left: 20px; font-size: 12px;">16 July 2025</a></p>
+                            <p><a href="#170725" style="margin-left: 20px; font-size: 12px;">17 July 2025</a></p>
                         </div>
 
                         <div class="table-of-contents">
@@ -265,6 +267,39 @@
                             <li>Working with Time</li>
                             <li>Statistical Processing</li>
                         </ul>
+
+                        <!-- #170725 -->
+                        <p id="170725" style="margin-bottom: 0;"><strong>17 July 2025</strong></p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+
+                        <p style="color: grey;"><strong>Course progress</strong></p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <li><strong>Visualizations</strong></li>
+                            <li><strong>Working with Time</strong></li>
+                            <li>Statistical Processing</li>
+                        </ul>
+
+                        <p>Here's a cool little visual I made showing the change in my laptop's disk space (as a percent of total) over the past couple days.</p>
+
+                        <img src="../../uploads/splunkdiskspaceovertime.png" width="100%" alt="">
+
+                        <br><br>
+
+                        <div class="code-general">
+                            <pre>
+                                <code style="color: white;">
+index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" counter="% Free Space"
+| rename Value as %_Disk_Space
+| table _time, %_Disk_Space</code>
+                            </pre>
+                        </div>
+
+                        <p>This is combining a lot of what I've learned so far: the use of <code>earliest</code> and <code>latest</code> to set time ranges overriding the range picker, the use of <code>rename</code>, and the creation of <code>table</code> which Splunk then autoconverts into a line chart visualization. It also took a bit of digging around the ingested logs from my laptop; while by itself this isn't too fascinating I thought it was something fun to look at.</p>
                        
                     </div>
 

@@ -375,35 +375,36 @@
                     </ul>
 
                     <p>Here's the first few lines of that output (<a href="homelab_nmapoutput.txt">entire output here</a>). I've included just enough to see one example of what the <code>vuln</code> script outputs for a vulnerability.</p>
-                        <blockquote>
-                            <pre style="color: white;">
+
+                    <div class="code-general">
+                        <pre style="color: white;">
                                 <code>
-    Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
-    Nmap scan report for 192.168.31.12
-    Host is up (0.000093s latency).
-    Not shown: 977 closed tcp ports (reset)
-    PORT     STATE SERVICE     VERSION
-    21/tcp   open  ftp         vsftpd 2.3.4
-    | ftp-vsftpd-backdoor: 
-    |   VULNERABLE:
-    |   vsFTPd version 2.3.4 backdoor
-    |     State: VULNERABLE (Exploitable)
-    |     IDs:  BID:48539  CVE:CVE-2011-2523
-    |       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
-    |     Disclosure date: 2011-07-03
-    |     Exploit results:
-    |       Shell command: id
-    |       Results: uid=0(root) gid=0(root)
-    |     References:
-    |       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
-    |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
-    |       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
-    |_      https://www.securityfocus.com/bid/48539
-    22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
-    23/tcp   open  telnet      Linux telnetd
-    ...</code>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
+Nmap scan report for 192.168.31.12
+Host is up (0.000093s latency).
+Not shown: 977 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+| ftp-vsftpd-backdoor: 
+|   VULNERABLE:
+|   vsFTPd version 2.3.4 backdoor
+|     State: VULNERABLE (Exploitable)
+|     IDs:  BID:48539  CVE:CVE-2011-2523
+|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+|     Disclosure date: 2011-07-03
+|     Exploit results:
+|       Shell command: id
+|       Results: uid=0(root) gid=0(root)
+|     References:
+|       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+|_      https://www.securityfocus.com/bid/48539
+22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+23/tcp   open  telnet      Linux telnetd
+...</code>
                             </pre>
-                        </blockquote>
+                        </div>
 
                         <p>Having first turned on the shared clipboard in the Kali VM to be bidirectional, I copied the entire contents of <code>nmapoutput.txt</code> to a txt file on my host machine. Our goal at this point is turn this 461-line output into something more readable. What immediately comes to mind is to collect some crucial info about each vulnerability into a table or spreadsheet. (While we do that, we can shut down our VMs for now, as we want to avoid having the MS2 on when it's not being used.)</p>
 
@@ -1340,35 +1341,35 @@
                         </ul>
 
                         <p>Aqui são as primeiras linhas dessa saída (<a href="homelab_nmapoutput.txt">saída inteira aqui</a>). Incluí só bastante para ver um exemplo do que o script sai para uma vulnerabilidade.</p>
-                            <blockquote>
-                                <pre style="color: white;">
-                                    <code>
-        Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
-        Nmap scan report for 192.168.31.12
-        Host is up (0.000093s latency).
-        Not shown: 977 closed tcp ports (reset)
-        PORT     STATE SERVICE     VERSION
-        21/tcp   open  ftp         vsftpd 2.3.4
-        | ftp-vsftpd-backdoor: 
-        |   VULNERABLE:
-        |   vsFTPd version 2.3.4 backdoor
-        |     State: VULNERABLE (Exploitable)
-        |     IDs:  BID:48539  CVE:CVE-2011-2523
-        |       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
-        |     Disclosure date: 2011-07-03
-        |     Exploit results:
-        |       Shell command: id
-        |       Results: uid=0(root) gid=0(root)
-        |     References:
-        |       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
-        |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
-        |       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
-        |_      https://www.securityfocus.com/bid/48539
-        22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
-        23/tcp   open  telnet      Linux telnetd
-        ...</code>
-                                </pre>
-                            </blockquote>
+                            <div class="code-general">
+                        <pre style="color: white;">
+                                <code>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-06-30 12:19 PDT
+Nmap scan report for 192.168.31.12
+Host is up (0.000093s latency).
+Not shown: 977 closed tcp ports (reset)
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+| ftp-vsftpd-backdoor: 
+|   VULNERABLE:
+|   vsFTPd version 2.3.4 backdoor
+|     State: VULNERABLE (Exploitable)
+|     IDs:  BID:48539  CVE:CVE-2011-2523
+|       vsFTPd version 2.3.4 backdoor, this was reported on 2011-07-04.
+|     Disclosure date: 2011-07-03
+|     Exploit results:
+|       Shell command: id
+|       Results: uid=0(root) gid=0(root)
+|     References:
+|       https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/unix/ftp/vsftpd_234_backdoor.rb
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-2523
+|       http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html
+|_      https://www.securityfocus.com/bid/48539
+22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+23/tcp   open  telnet      Linux telnetd
+...</code>
+                            </pre>
+                        </div>
 
 
                             <p>Tendo primeiramente ligado clipboard compartilhado na VM Kali a ser bidireccional, eu copiei os conteúdos inteiros de <code>nmapoutput.txt</code> a um arquivo txt na minha máquina host. Nosso objetivo neste momento é transformar esta saída de 461 linhas a algo mais legível. O que imediatamente vem à mente é coletar umas informações cruciais sobre cada vulnerabilidade numa tabela ou planilha. (Enquanto fazemos isso, podemos desligar as VMs por agora, que queremos evitar de ter ligado a MS2 quando não está em uso.)</p>
