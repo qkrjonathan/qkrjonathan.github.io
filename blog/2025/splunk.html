@@ -145,6 +145,47 @@
                                     >17 July 2025</a
                                 >
                             </p>
+                            <p>
+                                <a
+                                    href="#180725"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >18-20 July 2025: major homelab changes</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#210725"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >21 July 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#220725"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >22 July 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#250725"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >25-29 July 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#300725"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >30 July 2025: Taking the test</a
+                                >
+                            </p>
+                            <p>
+                                <a href="#wasitworthit">But was it worth it?</a>
+                            </p>
+                            <p>
+                                <a href="#nextsteps">Next steps</a>
+                            </p>
                         </div>
 
                         <div class="table-of-contents">
@@ -299,8 +340,8 @@
                             as the OS, not Windows as Jono did in the video), I
                             downloaded the free trial of Splunk Enterprise as
                             well as the Splunk Universal Forwarder. I got them
-                            as <code>.deb</code> files and unpackaged with them
-                            with <code>sudo dpkg -i [filename]</code>.
+                            as <code>.deb</code> files and unpackaged them with
+                            <code>sudo dpkg -i [filename]</code>.
                         </p>
 
                         <img
@@ -518,24 +559,860 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </p>
 
                         <!-- #180725 -->
-                        <h4 id="180725">
-                            18-19 July 2025: Major homelab changes
+                        <p id="180725" style="margin-bottom: 0">
+                            <strong
+                                >18-20 July 2025: Major homelab changes</strong
+                            >
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            For unrelated reasons (another story for another
+                            post), I became fed up with my Windows 11
+                            environment and did a complete overhaul of my
+                            homelab.
+                        </p>
+                        <p>
+                            For one, I switched to <strong>Fedora</strong> as my
+                            daily driver, which has been incredible; it's
+                            minimal, it's a fresh change of pace, it's
+                            customizable, and it stays out of the damn way. It
+                            took a bit to get used to how Fedora works, with its
+                            .rpm packages and the default-hidden bottom bar. But
+                            overall it's been great.
+                        </p>
+
+                        <p>
+                            Anyways, in that spirit I also switched my Splunk
+                            setup to the Fedora-based
+                            <strong>Red Hat Enterprise (RHEL)</strong>, in a
+                            VirtualBox VM. In effect it only really changed the
+                            installation experience, and using Splunk was
+                            obviously the same. But overall switching to Linux
+                            again came with a great sense of relief. And
+                            thankfully, unlike with Kali, RHEL had no problem
+                            running Splunk whatsoever.
+                        </p>
+
+                        <!-- #210725 -->
+                        <p id="210725" style="margin-bottom: 0">
+                            <strong>21 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <s><li>Visualizations</li></s>
+                            <li><strong>Working with Time</strong></li>
+                            <li>Statistical Processing</li>
+                        </ul>
+
+                        <!-- #220725 -->
+                        <p id="220725" style="margin-bottom: 0">
+                            <strong>22 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <s><li>Visualizations</li></s>
+                            <s><li>Working with Time</li></s>
+                            <li><strong>Statistical Processing</strong></li>
+                        </ul>
+
+                        <!-- #250725 -->
+                        <p id="250725" style="margin-bottom: 0">
+                            <strong>25-29 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            <em
+                                >(I had personal matters to take care of through
+                                the 24th)</em
+                            >
+                        </p>
+
+                        <p>
+                            Finally finished the courses, so I decided to take
+                            some time to review. I'd go in and quickly redo the
+                            quizzes after each course, and I'd also mess around
+                            with the BOTSv3 dataset to test out some of the
+                            commands. But this wasn't really intense studying, I
+                            admit ... maybe one or two hours in a day?
+                        </p>
+
+                        <img
+                            src="../../uploads/splunksearchpractice.png"
+                            width="100%"
+                        />
+
+                        <!-- #300725 -->
+                        <p id="300725" style="margin-bottom: 0">
+                            <strong>30 July 2025: Taking the test</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            ... And I passed! Checking in was a little
+                            nerve-wracking, because my camera would apparently
+                            keep freezing while the proctor made me show her my
+                            setup through my laptop webcam. But in the end it
+                            ended up working out, and I breezed through the exam
+                            &mdash; so much so that I became certain halfway
+                            through that I'd definitely overprepared.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkyoupassed.png"
+                            width="100%"
+                        />
+
+                        <!-- #wasitworthit -->
+                        <h4 id="wasitworthit" style="margin-bottom: 0">
+                            <strong>But was it worth it?</strong>
                         </h4>
                         <h6><a href="#top">Back to top</a></h6>
 
-                        <p>text</p>
+                        <p>
+                            I guess it depends on how I look at it. In the
+                            sixteen days
+                            <em
+                                >(total, though I certainly wasn't working on
+                                this that entire time)</em
+                            >
+                            it took to get the cert, it was gratifying to feel a
+                            sense of purpose in this unofficial "gap-year"
+                            period where I'm still looking for a job.
+                        </p>
+
+                        <p>
+                            Career-wise, it would obviously help most for
+                            positions where the company actually uses Splunk.
+                            But this comes with a couple side effects: one,
+                            because Splunk is so expensive at the enterprise
+                            level, I am definitely limited in the companies I
+                            can apply for. Two, Reddit will have you convinced
+                            that the SCCU cert is either a waste of money
+                            because you could just jump straight to Power User
+                            or Architect or something higher.
+                        </p>
+
+                        <p>
+                            And that does make sense. But I still maintain there
+                            is some worth to getting this cert. The test was a
+                            motivation for me to actually hunker down and learn
+                            the basics of Splunk &mdash; and, to some extent,
+                            the core competencies for any SIEM &mdash; and I've
+                            come out on the other side feeling all the better
+                            for it. The test itself and its contents were easy
+                            enough that it was a much less intimidating
+                            introduction to the software than I had anticipated,
+                            which would not have been the case, I imagine, if
+                            I'd jumped straight to Power User following some
+                            Redditor's advice.
+                        </p>
+
+                        <p>
+                            I'm rambling, but basically I'm someone who is
+                            looking to be a SOC Analyst, and this test is a tool
+                            to formally demonstrate my interest in that job
+                            description. Or at least, it's the start.
+                        </p>
+
+                        <!-- #nextsteps -->
+                        <h4 id="nextsteps" style="margin-bottom: 0">
+                            <strong>Next steps</strong>
+                        </h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            I think at this point, I should decide if I want to
+                            hone in further or broaden my horizons further. For
+                            the former, for example, I could work through the
+                            given questions included in the BOTSv3 dataset and
+                            have a blog post dedicated to a writeup for that.
+                            For the latter, I could move into malware analysis
+                            and work toward setting up my homelab in that
+                            direction.
+                        </p>
+
+                        <p>
+                            Right now, my thoughts are: Why not both? There's
+                            definitely a way to do it. I'll figure it out in the
+                            days to come.
+                        </p>
                     </div>
 
                     <!-- portuguese text -->
                     <div id="pttext">
+                        <p
+                            style="
+                                display: inline-block;
+                                background: #900;
+                                padding: 2px 4px;
+                            "
+                        >
+                            <strong
+                                >Desculpa, esta página ainda está em
+                                construção.</strong
+                            >
+                        </p>
                         <div class="table-of-contents">
                             <p><strong>Sumário</strong></p>
                             <p><a href="#intro-pt">Introdução</a></p>
+                            <p><a href="#timeline-pt">Cronologia</a></p>
+                            <p>
+                                <a
+                                    href="#140725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >14 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#150725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >15 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#160725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >16 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#170725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >17 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#180725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >18-20 julio 2025: grandes mudanças do
+                                    homelab</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#210725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >21 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#220725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >22 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#250725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >25-29 julio 2025</a
+                                >
+                            </p>
+                            <p>
+                                <a
+                                    href="#300725-pt"
+                                    style="margin-left: 20px; font-size: 12px"
+                                    >30 julio 2025: fazendo a prova</a
+                                >
+                            </p>
+                            <p>
+                                <a href="#wasitworthit-pt">Mas valeu a pena?</a>
+                            </p>
+                            <p>
+                                <a href="#nextsteps-pt">Próximos passos</a>
+                            </p>
                         </div>
 
-                        <!-- #intro-pt -->
-                        <h4 id="intro-pt">Introdução</h4>
-                        <p><a href="#top">Voltar acima</a></p>
+                        <div class="table-of-contents">
+                            <p><strong>Links</strong></p>
+                            <p>
+                                <a
+                                    href="https://education.splunk.com/Saba/Web_spf/NA10P2PRD105/app/me/ledetail;spf-url=common%2Flearningeventdetail%2Fcurra000000000003200%3Fcontext%3Duser&learnerId%3Dpersn000000001416921"
+                                    >Cursos de Splunk Certified Core User</a
+                                >
+                            </p>
+                        </div>
+
+                        <!-- #introduction -->
+                        <h4 id="intro">Introdução</h4>
+                        <h6><a href="#top">Voltar acima</a></h6>
+
+                        <p>
+                            Neste momento eu provavelmente mencionei a Exabeam,
+                            o software para Security Information and Event
+                            Management (SIEM,
+                            <em>informação de segurança e direção de eventos</em
+                            >) que tinha a oportunidade para experimentar e
+                            também apresentar à equipe TI durante o meu estágio,
+                            mais de umas vezes aqui neste blog. Então, virou tão
+                            claro para mim, e para você mesmo, queridinho
+                            leitor, que já está na hora de propriamente me
+                            comprometer a fazer a minha área de competência as
+                            SIEMs e a análise de <em>logs</em> e a remediação de
+                            alertes e tudo assim.
+                        </p>
+                        <p>
+                            Foi pura chance como eu cheguei desde esse ponto a
+                            decidir a dedicar-me ao certificado Splunk Core
+                            Certified User. Esta palavra, "Splunk," foi inserido
+                            na minha mente após a ter vido constantemente nas
+                            seções de qualificação nas descrições de vagas.
+                            Então quando o meu algoritmo de YouTube me mostrou
+                            um vídeozinho sobre Splunk, eu mordei a isca com
+                            prazer.
+                        </p>
+                        <p>
+                            De qualquer forma, estes <em>rabbit holes</em> são
+                            coisas perigosas, e agora me compremetei de obter
+                            este certificado e me provar como um usador básico
+                            competente de Splunk &mdash; e assumo até algum
+                            ponto a maioria das SIEMs.
+                        </p>
+
+                        <!-- #timeline -->
+                        <h4 id="intro">Timeline</h4>
+
+                        <br />
+
+                        <!-- #140725 -->
+                        <p id="140725" style="margin-bottom: 0">
+                            <strong>14 julio 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            O mérito é do
+                            <a href="https://www.youtube.com/@TechwithJono"
+                                >Tech with Jono</a
+                            >
+                            para me ajudar a começar. O
+                            <a
+                                href="https://www.youtube.com/watch?v=_2O-qxS8nqI"
+                                >vídeo dele sobre instalar Splunk
+                                <em>e</em> baixar dados de prática</a
+                            >
+                            para Splunk foi <em>esse</em> video mesmo que
+                            YouTube me alimentou para ver se eu tivesse
+                            interesse. E tive mesmo.
+                        </p>
+
+                        <p>
+                            Quando eu estava criando o meu
+                            <a href="homelab.html">homelab</a>, eu encontrei
+                            algumas vezes da ideia de configurar uma SIEM nesse
+                            homelab e aprender como ela funciona. Mas a questão
+                            que ficou para mim era,
+                            <em
+                                >Como é que se pratica análise de logs e triagem
+                                de alertes e qualquer coisa numa SIEM quando a
+                                minha rede não tem nada de interesse para
+                                analisar?</em
+                            >
+                            Por alguma razão o conceito mesmo de data de prática
+                            nem existiu na minha mente até este video.
+                        </p>
+
+                        <p>
+                            Para ser claro, eu não estava seguindo as instruções
+                            nesse video passo a passo desde o momento que o
+                            encontrei. Mas com certeza provocou algo.
+                        </p>
+
+                        <p>
+                            E isso me levou a
+                            <a
+                                href="https://youtu.be/BQbwQszqjRs?si=AVGidQ7H6Hak4AjL"
+                                >este video por CYBERWOX</a
+                            >
+                            sobre como passar o exame Splunk Core Certified
+                            User. Este é como descobri que um exame assim
+                            existia.
+                        </p>
+
+                        <p>
+                            Até este momento eu tinha dois ideias distintos na
+                            minha mente: (a) que queria começar a aprender
+                            Splunk e me divertindo assim; e (b) enquanto faço
+                            isso, que eu tambẽm queria ter um jeito formal de
+                            <em>provar</em> no meu CV a experiência que eu
+                            obteria. Descobrir o exame SCCU foi quando esses
+                            ideias se reuniram.
+                        </p>
+
+                        <p>
+                            Ainda uma fonte mais de afirmação foi
+                            <a
+                                href="https://youtu.be/ON1jM4_MOIo?si=g-ogriSxkQXNQDWS"
+                                >este video pela TYTE</a
+                            >
+                            sobre como ela passou o exame após 10 dias de
+                            estudar. Agora, isto foi incrivelmente encorajador.
+                            Ambos os meus certificados até agora (CCNA e
+                            Security+) levou meses. Mas duas <em>semanas</em>?
+                        </p>
+
+                        <p>
+                            O plano de exame oficial por Splunk oferece uma
+                            lista "sugerida e não exaustiva" de oito cursos
+                            gratúitos que tratam o material do exame:
+                        </p>
+
+                        <ul>
+                            <li>Intro to Splunk</li>
+                            <li>Using Fields</li>
+                            <li>Scheduling Reports and Alerts</li>
+                            <li>Visualizations</li>
+                            <li>Working with Time</li>
+                            <li>Statistical Processing</li>
+                            <li>Leveraging Lookups and Subsearches</li>
+                            <li>Search Optimization</li>
+                        </ul>
+
+                        <p>
+                            Eu me inscrevi para o curso Intro to Splunk e
+                            comecei. Enquanto isso, agora seguindo o vídeo do
+                            Tech with Jono de antes (mas usando a minha VM Kali
+                            como o sistema de operação, e não Windows como Jono
+                            usou no vídeo), baixei o <em>free trial</em> de
+                            Splunk Enterprise e também o Splunk Universal
+                            Forwarder. Eu os obtive como arquivos
+                            <code>.deb</code> e os extrai com
+                            <code>sudo dpkg -i [nome de arquivo]</code>.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkyouredownloadingsplunkenterprise.png"
+                            width="100%"
+                        />
+                        <br />
+                        <img
+                            src="../../uploads/splunkyouredownloadingsplunkuniversalforwarder.png"
+                            width="100%"
+                        />
+                        <br />
+                        <img
+                            src="../../uploads/splunksudodpkgi.png"
+                            width="70%"
+                            alt=""
+                        />
+
+                        <!-- #150725 -->
+                        <p id="150725" style="margin-bottom: 0">
+                            <strong>15 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <li><strong>Using Fields</strong></li>
+                            <li>Scheduling Reports and Alerts</li>
+                            <li>Visualizations</li>
+                            <li>Working with Time</li>
+                            <li>Statistical Processing</li>
+                            <s
+                                ><li>
+                                    <em
+                                        >Leveraging Lookups and Subsearches
+                                        (PAID)</em
+                                    >
+                                </li></s
+                            >
+                            <s
+                                ><li><em>Search Optimization (PAID)</em></li></s
+                            >
+                        </ul>
+
+                        <p>
+                            As it turns out &mdash; as it always turns out
+                            &mdash; my confidence from the first day always
+                            faces a little setback in the next. Having slept on
+                            it, and doing a bit more research, I got a bit more
+                            clarity on my roadmap.
+                        </p>
+                        <p>
+                            The good news is that I learned two of the eight
+                            supposedly recommended courses by Splunk were paid,
+                            and they were not at all necessary to get SCCU
+                            certified. (See the above updated list.)
+                        </p>
+                        <p>
+                            The bad news is that Splunk basically does not work
+                            on Kali Linux, and I spent all that extra time the
+                            day before trying to get it to work for nothing.
+                        </p>
+                        <p>
+                            So, defeated, I returned to the video by Tech with
+                            Jono (who had done it properly on Windows the first
+                            time), and just redid the whole installation process
+                            on Windows. To no one's surprise, it worked
+                            perfectly.
+                        </p>
+                        <p>
+                            Now, I <em>could</em> have done it on a Windows VM
+                            (and I think this is what Jono did); but instead I
+                            just set it up on my laptop. But when I was setting
+                            up my homelab and had to remake it from scratch, the
+                            truth is I didn't want to sit through the whole
+                            bootup process again when I didn't need it
+                            immediately (I only needed Kali and Metasploitable).
+                            Space limitations that would push me to use a VM
+                            aren't really an issue here (yet), as I'm on the
+                            Splunk Free license and I won't be ingesting so much
+                            data as to overwhelm my hard drive anyway &mdash;
+                            it's only one dataset I'm working with.
+                        </p>
+
+                        <p>
+                            Once installation of both Splunk Enterprise,
+                            <a
+                                href="https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/9.2/configure-splunk-licenses/about-splunk-free"
+                                >which I promptly converted to Splunk Free</a
+                            >
+                            so as to not lose access after the free trial ends,
+                            and the Splunk Universal Forwarder is complete, I
+                            can verify that the logs from my host are being
+                            ingested into Splunk in two ways: first, opening
+                            <strong>Data Summary</strong> in the Search and
+                            Reporting homepage, then in a separate PowerShell
+                            instance running <code>hostname</code> and checking
+                            that the host shown under Data Summary > Hosts
+                            matches that returned by <code>hostname</code>.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkverifyhostname.png"
+                            width="100%"
+                            alt=""
+                        />
+
+                        <p>
+                            Second, to see for ourselves the logs being ingested
+                            from the host, we run the search
+                            <code>host=[hostname]</code> in Splunk itself.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkcheckhostlogs.png"
+                            width="100%"
+                            alt=""
+                        />
+
+                        <p>
+                            I also got the
+                            <a href="https://github.com/splunk/botsv3"
+                                >practice dataset</a
+                            >, Boss of the SOC (BOTS) Dataset Version 3, that
+                            Tech with Jono had recommended, and once that was
+                            installed I ran the search
+                            <code>index=botsv3</code> in Splunk to verify the
+                            logs had been ingested properly.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkbotsv3logsbasicsearch.png"
+                            width="100%"
+                            alt=""
+                        />
+
+                        <!-- #160725 -->
+                        <p id="160725" style="margin-bottom: 0">
+                            <strong>16 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <li>
+                                <strong>Scheduling Reports and Alerts</strong>
+                            </li>
+                            <li>Visualizations</li>
+                            <li>Working with Time</li>
+                            <li>Statistical Processing</li>
+                        </ul>
+
+                        <!-- #170725 -->
+                        <p id="170725" style="margin-bottom: 0">
+                            <strong>17 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <li><strong>Visualizations</strong></li>
+                            <li><strong>Working with Time</strong></li>
+                            <li>Statistical Processing</li>
+                        </ul>
+
+                        <p>
+                            Here's a cool little visual I made showing the
+                            change in my laptop's disk space (as a percent of
+                            total) over the past couple days.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkdiskspaceovertime.png"
+                            width="100%"
+                            alt=""
+                        />
+
+                        <br /><br />
+
+                        <div class="code-general">
+                            <pre>
+                                <code style="color: white;">
+index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" counter="% Free Space"
+| rename Value as %_Disk_Space
+| table _time, %_Disk_Space</code>
+                            </pre>
+                        </div>
+
+                        <p>
+                            This is combining a lot of what I've learned so far:
+                            the use of <code>earliest</code> and
+                            <code>latest</code> to set time ranges overriding
+                            the range picker, the use of <code>rename</code>,
+                            and the creation of <code>table</code> which Splunk
+                            then autoconverts into a line chart visualization.
+                            It also took a bit of digging around the ingested
+                            logs from my laptop; while by itself this isn't too
+                            fascinating I thought it was something fun to look
+                            at.
+                        </p>
+
+                        <!-- #180725 -->
+                        <p id="180725" style="margin-bottom: 0">
+                            <strong
+                                >18-20 July 2025: Major homelab changes</strong
+                            >
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            For unrelated reasons (another story for another
+                            post), I became fed up with my Windows 11
+                            environment and did a complete overhaul of my
+                            homelab.
+                        </p>
+                        <p>
+                            For one, I switched to <strong>Fedora</strong> as my
+                            daily driver, which has been incredible; it's
+                            minimal, it's a fresh change of pace, it's
+                            customizable, and it stays out of the damn way. It
+                            took a bit to get used to how Fedora works, with its
+                            .rpm packages and the default-hidden bottom bar. But
+                            overall it's been great.
+                        </p>
+
+                        <p>
+                            Anyways, in that spirit I also switched my Splunk
+                            setup to the Fedora-based
+                            <strong>Red Hat Enterprise (RHEL)</strong>, in a
+                            VirtualBox VM. In effect it only really changed the
+                            installation experience, and using Splunk was
+                            obviously the same. But overall switching to Linux
+                            again came with a great sense of relief. And
+                            thankfully, unlike with Kali, RHEL had no problem
+                            running Splunk whatsoever.
+                        </p>
+
+                        <!-- #210725 -->
+                        <p id="210725" style="margin-bottom: 0">
+                            <strong>21 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <s><li>Visualizations</li></s>
+                            <li><strong>Working with Time</strong></li>
+                            <li>Statistical Processing</li>
+                        </ul>
+
+                        <!-- #220725 -->
+                        <p id="220725" style="margin-bottom: 0">
+                            <strong>22 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p style="color: grey">
+                            <strong>Course progress</strong>
+                        </p>
+
+                        <ul>
+                            <s><li>Intro to Splunk</li></s>
+                            <s><li>Using Fields</li></s>
+                            <s><li>Scheduling Reports and Alerts</li></s>
+                            <s><li>Visualizations</li></s>
+                            <s><li>Working with Time</li></s>
+                            <li><strong>Statistical Processing</strong></li>
+                        </ul>
+
+                        <!-- #250725 -->
+                        <p id="250725" style="margin-bottom: 0">
+                            <strong>25-29 July 2025</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            <em
+                                >(I had personal matters to take care of through
+                                the 24th)</em
+                            >
+                        </p>
+
+                        <p>
+                            Finally finished the courses, so I decided to take
+                            some time to review. I'd go in and quickly redo the
+                            quizzes after each course, and I'd also mess around
+                            with the BOTSv3 dataset to test out some of the
+                            commands. But this wasn't really intense studying, I
+                            admit ... maybe one or two hours in a day?
+                        </p>
+
+                        <img
+                            src="../../uploads/splunksearchpractice.png"
+                            width="100%"
+                        />
+
+                        <!-- #300725 -->
+                        <p id="300725" style="margin-bottom: 0">
+                            <strong>30 July 2025: Taking the test</strong>
+                        </p>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            ... And I passed! Checking in was a little
+                            nerve-wracking, because my camera would apparently
+                            keep freezing while the proctor made me show her my
+                            setup through my laptop webcam. But in the end it
+                            ended up working out, and I breezed through the exam
+                            &mdash; so much so that I became certain halfway
+                            through that I'd definitely overprepared.
+                        </p>
+
+                        <img
+                            src="../../uploads/splunkyoupassed.png"
+                            width="100%"
+                        />
+
+                        <!-- #wasitworthit -->
+                        <h4 id="wasitworthit" style="margin-bottom: 0">
+                            <strong>But was it worth it?</strong>
+                        </h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            I guess it depends on how I look at it. In the
+                            sixteen days
+                            <em
+                                >(total, though I certainly wasn't working on
+                                this that entire time)</em
+                            >
+                            it took to get the cert, it was gratifying to feel a
+                            sense of purpose in this unofficial "gap-year"
+                            period where I'm still looking for a job.
+                        </p>
+
+                        <p>
+                            Career-wise, it would obviously help most for
+                            positions where the company actually uses Splunk.
+                            But this comes with a couple side effects: one,
+                            because Splunk is so expensive at the enterprise
+                            level, I am definitely limited in the companies I
+                            can apply for. Two, Reddit will have you convinced
+                            that the SCCU cert is either a waste of money
+                            because you could just jump straight to Power User
+                            or Architect or something higher.
+                        </p>
+
+                        <p>
+                            And that does make sense. But I still maintain there
+                            is some worth to getting this cert. The test was a
+                            motivation for me to actually hunker down and learn
+                            the basics of Splunk &mdash; and, to some extent,
+                            the core competencies for any SIEM &mdash; and I've
+                            come out on the other side feeling all the better
+                            for it. The test itself and its contents were easy
+                            enough that it was a much less intimidating
+                            introduction to the software than I had anticipated,
+                            which would not have been the case, I imagine, if
+                            I'd jumped straight to Power User following some
+                            Redditor's advice.
+                        </p>
+
+                        <p>
+                            I'm rambling, but basically I'm someone who is
+                            looking to be a SOC Analyst, and this test is a tool
+                            to formally demonstrate my interest in that job
+                            description. Or at least, it's the start.
+                        </p>
+
+                        <!-- #nextsteps -->
+                        <h4 id="nextsteps" style="margin-bottom: 0">
+                            <strong>Next steps</strong>
+                        </h4>
+                        <h6><a href="#top">Back to top</a></h6>
+
+                        <p>
+                            I think at this point, I should decide if I want to
+                            hone in further or broaden my horizons further. For
+                            the former, for example, I could work through the
+                            given questions included in the BOTSv3 dataset and
+                            have a blog post dedicated to a writeup for that.
+                            For the latter, I could move into malware analysis
+                            and work toward setting up my homelab in that
+                            direction.
+                        </p>
+
+                        <p>
+                            Right now, my thoughts are: Why not both? There's
+                            definitely a way to do it. I'll figure it out in the
+                            days to come.
+                        </p>
                     </div>
 
                     <!-- script to switch between eng and pt text -->
