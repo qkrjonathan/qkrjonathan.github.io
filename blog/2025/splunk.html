@@ -758,18 +758,6 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
 
                     <!-- portuguese text -->
                     <div id="pttext">
-                        <p
-                            style="
-                                display: inline-block;
-                                background: #900;
-                                padding: 2px 4px;
-                            "
-                        >
-                            <strong
-                                >Desculpa, esta página ainda está em
-                                construção.</strong
-                            >
-                        </p>
                         <div class="table-of-contents">
                             <p><strong>Sumário</strong></p>
                             <p><a href="#intro-pt">Introdução</a></p>
@@ -893,15 +881,15 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </p>
 
                         <!-- #timeline -->
-                        <h4 id="intro">Timeline</h4>
+                        <h4 id="intro-pt">Cronologia</h4>
 
                         <br />
 
                         <!-- #140725 -->
-                        <p id="140725" style="margin-bottom: 0">
+                        <p id="140725-pt" style="margin-bottom: 0">
                             <strong>14 julio 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
                             O mérito é do
@@ -1021,12 +1009,12 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
 
                         <!-- #150725 -->
                         <p id="150725" style="margin-bottom: 0">
-                            <strong>15 July 2025</strong>
+                            <strong>15 julio 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p style="color: grey">
-                            <strong>Course progress</strong>
+                            <strong>Progresso de curso</strong>
                         </p>
 
                         <ul>
@@ -1050,60 +1038,62 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </ul>
 
                         <p>
-                            As it turns out &mdash; as it always turns out
-                            &mdash; my confidence from the first day always
-                            faces a little setback in the next. Having slept on
-                            it, and doing a bit more research, I got a bit more
-                            clarity on my roadmap.
+                            Como se vê &mdash; como sempre se vê &mdash; a minha
+                            confiança desde o primeiro dia sempre enfrenta um
+                            revés no próximo. Após dormir sobre o assunto, e
+                            fazer um pouco mais de pesquisa, eu fiquei com mais
+                            clareza nos meus próximos passos.
                         </p>
                         <p>
-                            The good news is that I learned two of the eight
-                            supposedly recommended courses by Splunk were paid,
-                            and they were not at all necessary to get SCCU
-                            certified. (See the above updated list.)
+                            As boas noticias são que descobri que dois dos oito
+                            cursos aparentemente recomendados por Splunk e eles
+                            nem foram precisos para ser certificado com Splunk
+                            Core Certified User. (Veja a lista atualizada
+                            acima.)
                         </p>
                         <p>
-                            The bad news is that Splunk basically does not work
-                            on Kali Linux, and I spent all that extra time the
-                            day before trying to get it to work for nothing.
+                            As más notícias são que Splunk basicamente nem
+                            funciona na Kali Linux, e passei todo esse tempo
+                            extra no dia anterior por nada.
                         </p>
                         <p>
-                            So, defeated, I returned to the video by Tech with
-                            Jono (who had done it properly on Windows the first
-                            time), and just redid the whole installation process
-                            on Windows. To no one's surprise, it worked
-                            perfectly.
+                            Então, derrotado, voltei ao vídeo pelo Tech with
+                            Jono (quem o fez corretamente no Windows na primeira
+                            vez), e simplesmente refiz a instalação inteira no
+                            Windows. Para a surpresa de ninguem, funcionou
+                            perfeitamente.
                         </p>
                         <p>
-                            Now, I <em>could</em> have done it on a Windows VM
-                            (and I think this is what Jono did); but instead I
-                            just set it up on my laptop. But when I was setting
-                            up my homelab and had to remake it from scratch, the
-                            truth is I didn't want to sit through the whole
-                            bootup process again when I didn't need it
-                            immediately (I only needed Kali and Metasploitable).
-                            Space limitations that would push me to use a VM
-                            aren't really an issue here (yet), as I'm on the
-                            Splunk Free license and I won't be ingesting so much
-                            data as to overwhelm my hard drive anyway &mdash;
-                            it's only one dataset I'm working with.
+                            Agora, eu <em>poderia</em> a ter feito numa VM
+                            Windows (e acho que é isso que o Jono fez); mas em
+                            vez disso eu simplesmente usei o meu notebook.
+                            Quando eu estava criando o meu homelab e tinha que
+                            refazê-lo desde o inicio, a verdade é que eu não
+                            queria esperar pelo processo de inicialização de
+                            novo quando eu nem o precisava (só precisava da Kali
+                            e Metasploitable). As limitações de espaço que me
+                            incentivaria a usar uma VM não existe aqui, porque
+                            estou usando a licença Splunk Free e, de qualquer
+                            forma, não tenho nem planos de inserir tantos dados
+                            até sobrecarregar o meu disco rígido; é so um
+                            dataset que vou usar.
                         </p>
 
                         <p>
-                            Once installation of both Splunk Enterprise,
+                            Quando a instalação de ambos Splunk Enterprise,
                             <a
                                 href="https://help.splunk.com/en/splunk-enterprise/administer/admin-manual/9.2/configure-splunk-licenses/about-splunk-free"
-                                >which I promptly converted to Splunk Free</a
+                                >que imediatemente mudei para Splunk Free</a
                             >
-                            so as to not lose access after the free trial ends,
-                            and the Splunk Universal Forwarder is complete, I
-                            can verify that the logs from my host are being
-                            ingested into Splunk in two ways: first, opening
-                            <strong>Data Summary</strong> in the Search and
-                            Reporting homepage, then in a separate PowerShell
-                            instance running <code>hostname</code> and checking
-                            that the host shown under Data Summary > Hosts
-                            matches that returned by <code>hostname</code>.
+                            para que eu não perda acesso depois do free trial
+                            terminar, e o Splunk Universal Forwarder são
+                            completas, posso verificar que os logs do meu host
+                            estão sendo ingeridos em Splunk de duas maneiras: o
+                            primeiro, abrindo <strong>Data Summary</strong> na
+                            página Search and Reporting, e depois numa instãncia
+                            PowerShell separada e verificando que o host
+                            mostrado abaixo do Data Summary > Hosts corresponda
+                            com ele que é retornados por <code>hostname</code>.
                         </p>
 
                         <img
@@ -1113,9 +1103,9 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         />
 
                         <p>
-                            Second, to see for ourselves the logs being ingested
-                            from the host, we run the search
-                            <code>host=[hostname]</code> in Splunk itself.
+                            Segundo, para ver por nós mesmo os logs sendo
+                            ingerido desde o host, executamos a pesquisa
+                            <code>host=[hostname]</code> em Splunk.
                         </p>
 
                         <img
@@ -1125,14 +1115,14 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         />
 
                         <p>
-                            I also got the
+                            Também obtei o
                             <a href="https://github.com/splunk/botsv3"
-                                >practice dataset</a
-                            >, Boss of the SOC (BOTS) Dataset Version 3, that
-                            Tech with Jono had recommended, and once that was
-                            installed I ran the search
-                            <code>index=botsv3</code> in Splunk to verify the
-                            logs had been ingested properly.
+                                >dataset de prática</a
+                            >, Boss of the SOC (BOTS) Dataset Version 3, que o
+                            Tech with Jono recomendou, e quando essa foi
+                            instalado fiz a pesquisa
+                            <code>index=botsv3</code> em Splunk para verificar
+                            que os logs foram ingeridos corretamente.
                         </p>
 
                         <img
@@ -1142,13 +1132,13 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         />
 
                         <!-- #160725 -->
-                        <p id="160725" style="margin-bottom: 0">
-                            <strong>16 July 2025</strong>
+                        <p id="160725-pt" style="margin-bottom: 0">
+                            <strong>16 julio 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p style="color: grey">
-                            <strong>Course progress</strong>
+                            <strong>Progresso de cursos</strong>
                         </p>
 
                         <ul>
@@ -1163,13 +1153,13 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </ul>
 
                         <!-- #170725 -->
-                        <p id="170725" style="margin-bottom: 0">
-                            <strong>17 July 2025</strong>
+                        <p id="170725-pt" style="margin-bottom: 0">
+                            <strong>17 julio 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p style="color: grey">
-                            <strong>Course progress</strong>
+                            <strong>Progresso de curso</strong>
                         </p>
 
                         <ul>
@@ -1182,9 +1172,10 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </ul>
 
                         <p>
-                            Here's a cool little visual I made showing the
-                            change in my laptop's disk space (as a percent of
-                            total) over the past couple days.
+                            Aqui é uma visualização que eu fiz mostrando a
+                            mudança no espaço do disco rígido do meu notebook
+                            (como uma percentagem do total) durante os dois dias
+                            anteriores.
                         </p>
 
                         <img
@@ -1205,62 +1196,60 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </div>
 
                         <p>
-                            This is combining a lot of what I've learned so far:
-                            the use of <code>earliest</code> and
-                            <code>latest</code> to set time ranges overriding
-                            the range picker, the use of <code>rename</code>,
-                            and the creation of <code>table</code> which Splunk
-                            then autoconverts into a line chart visualization.
-                            It also took a bit of digging around the ingested
-                            logs from my laptop; while by itself this isn't too
-                            fascinating I thought it was something fun to look
-                            at.
+                            Esta combina muito do que eu já aprendi até agora: o
+                            uso do <code>earliest</code> e
+                            <code>latest</code> para marcar periodos de tempo
+                            ignorando o <em>time range picker</em>, o uso de
+                            <code>rename</code>, e a criação de
+                            <code>table</code> que Splunk auto-converte a uma
+                            visualização de grâfico de linhas. Também levou um
+                            pouco tempo mergulhar nos logs desde o meu laptop;
+                            enquanto isso por si nem é tão fascinante, eu achava
+                            que é uma coisa legal para ver.
                         </p>
 
                         <!-- #180725 -->
-                        <p id="180725" style="margin-bottom: 0">
+                        <p id="180725-pt" style="margin-bottom: 0">
                             <strong
-                                >18-20 July 2025: Major homelab changes</strong
+                                >18-20 julio 2025: mudanças grandes do
+                                homelab</strong
                             >
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
-                            For unrelated reasons (another story for another
-                            post), I became fed up with my Windows 11
-                            environment and did a complete overhaul of my
+                            Por razões não relacionados (uma hístoria para outra
+                            hora), eu fiquei farto com o Windows 11 no meu
+                            notebook e fiz uma renovação completa do meu
                             homelab.
                         </p>
                         <p>
-                            For one, I switched to <strong>Fedora</strong> as my
-                            daily driver, which has been incredible; it's
-                            minimal, it's a fresh change of pace, it's
-                            customizable, and it stays out of the damn way. It
-                            took a bit to get used to how Fedora works, with its
-                            .rpm packages and the default-hidden bottom bar. But
-                            overall it's been great.
+                            Primeiramente, mudei para a Fedora como o meu
+                            <em>daily driver</em>, que tem sido incrível; é
+                            minimal, é uma mudança de ritmo, e simplesmente fica
+                            fora do caminho. Levou um tempinho ajustar a como o
+                            Fedora funciona, com os seus pacotes e o taskbar
+                            oculto a padrão. Mas em total tem sido legalíssimo.
                         </p>
 
                         <p>
-                            Anyways, in that spirit I also switched my Splunk
-                            setup to the Fedora-based
-                            <strong>Red Hat Enterprise (RHEL)</strong>, in a
-                            VirtualBox VM. In effect it only really changed the
-                            installation experience, and using Splunk was
-                            obviously the same. But overall switching to Linux
-                            again came with a great sense of relief. And
-                            thankfully, unlike with Kali, RHEL had no problem
-                            running Splunk whatsoever.
+                            Em qualquer forma, nesse espirito, também mudei a
+                            minha configuração de Splunk para
+                            <strong>Red Hat Enterprise (RHEL)</strong> com base
+                            na Fedora, numa VM do VirtualBox. Na verdade isto só
+                            mudou a expêrencia da instalação, e claro que usando
+                            Splunk foi igual como antes. Mas em total mudar para
+                            Linux de volta veio com um sentido grande de alívio.
                         </p>
 
                         <!-- #210725 -->
-                        <p id="210725" style="margin-bottom: 0">
-                            <strong>21 July 2025</strong>
+                        <p id="210725-pt" style="margin-bottom: 0">
+                            <strong>21 julio 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p style="color: grey">
-                            <strong>Course progress</strong>
+                            <strong>Progresso de cursos</strong>
                         </p>
 
                         <ul>
@@ -1273,8 +1262,8 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         </ul>
 
                         <!-- #220725 -->
-                        <p id="220725" style="margin-bottom: 0">
-                            <strong>22 July 2025</strong>
+                        <p id="220725-pt" style="margin-bottom: 0">
+                            <strong>22 julio 2025</strong>
                         </p>
                         <h6><a href="#top">Back to top</a></h6>
 
@@ -1295,22 +1284,23 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         <p id="250725" style="margin-bottom: 0">
                             <strong>25-29 July 2025</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
                             <em
-                                >(I had personal matters to take care of through
-                                the 24th)</em
+                                >(Eu tinha assuntos pessoais para resolver, e
+                                por isso não consegui trabalhar.)</em
                             >
                         </p>
 
                         <p>
-                            Finally finished the courses, so I decided to take
-                            some time to review. I'd go in and quickly redo the
-                            quizzes after each course, and I'd also mess around
-                            with the BOTSv3 dataset to test out some of the
-                            commands. But this wasn't really intense studying, I
-                            admit ... maybe one or two hours in a day?
+                            Afinal, acabei de terminar os cursos, então decidi
+                            levar algum tempo para revisar. Eu iria nos cursos
+                            de novo e refazer rápidamente as provas após cada
+                            curso, e também jogar com a dataset BOTSv3 para
+                            experimentar uns comandos. Mas admito que isso não
+                            era estudo tão intenso ... talvez uma ou duas horas
+                            num dia?
                         </p>
 
                         <img
@@ -1319,19 +1309,19 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
                         />
 
                         <!-- #300725 -->
-                        <p id="300725" style="margin-bottom: 0">
-                            <strong>30 July 2025: Taking the test</strong>
+                        <p id="300725-pt" style="margin-bottom: 0">
+                            <strong>30 julio 2025: Fazer a prova</strong>
                         </p>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
-                            ... And I passed! Checking in was a little
-                            nerve-wracking, because my camera would apparently
-                            keep freezing while the proctor made me show her my
-                            setup through my laptop webcam. But in the end it
-                            ended up working out, and I breezed through the exam
-                            &mdash; so much so that I became certain halfway
-                            through that I'd definitely overprepared.
+                            ... E passei! O check-in me fez um pouco nervoso,
+                            porque parece que a minha câmera ficaria parado
+                            enquanto o supervisor me fez mostrar-lhe o meu setup
+                            pelo webcam do meu laptop. Mas afinal tudo acabou
+                            funcionando, e despachei o exame &mdash; tão assim
+                            que fiquei certo no meio do exame que com certeza
+                            preparei demais.
                         </p>
 
                         <img
@@ -1341,77 +1331,80 @@ index="main" earliest=-2d@d latest=@h sourcetype="Perfmon:Free Disk Space" count
 
                         <!-- #wasitworthit -->
                         <h4 id="wasitworthit" style="margin-bottom: 0">
-                            <strong>But was it worth it?</strong>
+                            <strong>Mas valeu a pena?</strong>
                         </h4>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
-                            I guess it depends on how I look at it. In the
-                            sixteen days
+                            Acho que depende de como eu vejo nele. Nos dezzeseis
+                            dias
                             <em
-                                >(total, though I certainly wasn't working on
-                                this that entire time)</em
+                                >(em total, embora com certeza não trabalhava
+                                nisso o tempo inteiro)</em
                             >
-                            it took to get the cert, it was gratifying to feel a
-                            sense of purpose in this unofficial "gap-year"
-                            period where I'm still looking for a job.
+                            que levou para obter o certificado, era gratificante
+                            sentir um sentido de propósito durante este
+                            <em>gap year</em> não oficial em que ainda estou
+                            procurando trabalho.
                         </p>
 
                         <p>
-                            Career-wise, it would obviously help most for
-                            positions where the company actually uses Splunk.
-                            But this comes with a couple side effects: one,
-                            because Splunk is so expensive at the enterprise
-                            level, I am definitely limited in the companies I
-                            can apply for. Two, Reddit will have you convinced
-                            that the SCCU cert is either a waste of money
-                            because you could just jump straight to Power User
-                            or Architect or something higher.
+                            Para a minha carreira, claro que ajudaria o maior
+                            para os trabalhos onde a empresa na verdade usa
+                            Splunk. Career-wise, it would obviously help most
+                            for positions where the company actually uses
+                            Splunk. Mas isso vem com uns efeitos colaterais: um,
+                            porque Splunk é tão caro no nivel
+                            <em>enterprise</em>, com certeza estou limitado nas
+                            empresas a que consigo me candidatar. Dois, Reddit
+                            fazerá você convencido que o SCCU é uma perda de
+                            tempo porque poderia pulâ-lo para o Power User ou
+                            Architect ou algo mais alto.
                         </p>
 
                         <p>
-                            And that does make sense. But I still maintain there
-                            is some worth to getting this cert. The test was a
-                            motivation for me to actually hunker down and learn
-                            the basics of Splunk &mdash; and, to some extent,
-                            the core competencies for any SIEM &mdash; and I've
-                            come out on the other side feeling all the better
-                            for it. The test itself and its contents were easy
-                            enough that it was a much less intimidating
-                            introduction to the software than I had anticipated,
-                            which would not have been the case, I imagine, if
-                            I'd jumped straight to Power User following some
-                            Redditor's advice.
+                            E isso faz sentido, sim. Mas ainda mantenho que vale
+                            a pena em obter este certificado. O exame era uma
+                            motivação para eu na verdade sentar-me e aprender o
+                            básico de Splunk &mdash; e, até um ponto, as
+                            competências fundamentais para qualquer SIEM &mdash;
+                            e saí no outro lado sentindo muito melhor por isso.
+                            O exame mesmo e os seus conteúdos eram bastante
+                            fáceis que foi uma introdução ao software que me deu
+                            muito menos medo do que eu anticipei &mdash; e
+                            imagino que isso não teria sido o caso se eu pulasse
+                            diretamente ao Power User seguindo o conselho de
+                            algum Redditor.
                         </p>
 
                         <p>
-                            I'm rambling, but basically I'm someone who is
-                            looking to be a SOC Analyst, and this test is a tool
-                            to formally demonstrate my interest in that job
-                            description. Or at least, it's the start.
+                            Estou divagando, mas básicamente sou uma pessoa que
+                            está buscando ser um SOC Analyst, e este exame é um
+                            instrumento para formalmente demonstrar o meu
+                            interesse nesse trabalho. Ou pelo menos, é o começo.
                         </p>
 
                         <!-- #nextsteps -->
                         <h4 id="nextsteps" style="margin-bottom: 0">
-                            <strong>Next steps</strong>
+                            <strong>Próximos passos</strong>
                         </h4>
-                        <h6><a href="#top">Back to top</a></h6>
+                        <h6><a href="#top">Voltar acima</a></h6>
 
                         <p>
-                            I think at this point, I should decide if I want to
-                            hone in further or broaden my horizons further. For
-                            the former, for example, I could work through the
-                            given questions included in the BOTSv3 dataset and
-                            have a blog post dedicated to a writeup for that.
-                            For the latter, I could move into malware analysis
-                            and work toward setting up my homelab in that
-                            direction.
+                            Acho que neste punto, devo decidir se eu quiser
+                            enfocar mais ou abrir mais os meus horizontes. Para
+                            o primeiro, por exemplo, eu poderia trabalhar em
+                            responder às perguntas que foram incluidos na
+                            dataset BOTSv3 e ter um blog post dedicado como um
+                            <em>write-up</em> sobre isso. Para o último, eu
+                            poderia mover à análise de malware e trabalhar para
+                            configurar o meu homelab nessa direção.
                         </p>
 
                         <p>
-                            Right now, my thoughts are: Why not both? There's
-                            definitely a way to do it. I'll figure it out in the
-                            days to come.
+                            Agora mesmo, os meus pensamentos são assim: Por quê
+                            não os dois? Com certeza existe jeito para fazer.
+                            Vou descobri-lo nos dias que vêm.
                         </p>
                     </div>
 
