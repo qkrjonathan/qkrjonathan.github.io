@@ -7,7 +7,9 @@ body a:link {
     color: #20c20e;
 }
 
-body a:visited { color: #6aac63; }
+body a:visited {
+    color: #6aac63;
+}
 
 blockquote {
     margin-left: 0;
@@ -40,15 +42,23 @@ blockquote {
 
 .table-of-contents {
     margin: 40px 0;
+    & a:link {
+        color: grey;
+    }
+    & p {
+        color: grey;
+    }
 }
 
-.table-of-contents a:link {
-    color: grey;
-}
-
-.table-of-contents p {
-    color: grey;
-    line-height: 1;
+#table-of-contents-copy {
+    margin: 40px 0;
+    & a:link {
+        color: rgba(32, 194, 14, 0.7);
+        text-decoration: underline;
+    }
+    & p {
+        color: grey;
+    }
 }
 
 .blog-list-container {
@@ -59,6 +69,7 @@ blockquote {
         flex: 1;
         margin-right: 10px;
         padding-right: 30px;
+        overflow-y: scroll;
     }
 
     & .sidebar a:link {
@@ -106,7 +117,9 @@ blockquote {
             margin-top: 10px;
         }
 
-        & blockquote { overflow-x: scroll; }
+        & blockquote {
+            overflow-x: scroll;
+        }
     }
 }
 
@@ -132,7 +145,13 @@ blockquote {
     display: none;
 }
 
-
 div.code-general {
-    overflow-x: scroll; background: #111; border-radius: 10px; border: 2px solid #999; padding: 0 20px;
+    overflow-x: scroll;
+    background: #111;
+    border-radius: 10px;
+    border: 2px solid #999;
+    padding: 0 20px;
+    & pre {
+        color: white;
+    }
 }

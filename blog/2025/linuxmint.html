@@ -96,6 +96,53 @@
                             >
                         </p></a
                     >
+                    <div id="table-of-contents-copy"></div>
+                    <!-- copyTableofContents(): copy table of contents into the sidebar -->
+                    <script>
+                        // Function to copy table of contents
+                        function copyTableOfContents() {
+                            // Find the source div with class 'table-of-contents'
+                            const sourceDiv =
+                                document.querySelector(".table-of-contents");
+
+                            // Find the target div with id 'table-of-contents-copy'
+                            const targetDiv = document.getElementById(
+                                "table-of-contents-copy",
+                            );
+
+                            // Check if both elements exist
+                            if (!sourceDiv) {
+                                console.error(
+                                    'Source div with class "table-of-contents" not found',
+                                );
+                                return;
+                            }
+
+                            if (!targetDiv) {
+                                console.error(
+                                    'Target div with id "table-of-contents-copy" not found',
+                                );
+                                return;
+                            }
+
+                            // Copy the innerHTML from source to target
+                            targetDiv.innerHTML = sourceDiv.innerHTML;
+
+                            console.log(
+                                "Table of contents copied successfully",
+                            );
+                        }
+
+                        // Option 1: Run immediately when script loads (if DOM is ready)
+                        if (document.readyState === "loading") {
+                            document.addEventListener(
+                                "DOMContentLoaded",
+                                copyTableOfContents,
+                            );
+                        } else {
+                            copyTableOfContents();
+                        }
+                    </script>
                 </div>
                 <div class="blog-content">
                     <a href="../../blog.html" style="text-decoration: underline"
@@ -524,15 +571,26 @@
                         const ptButton = document.getElementById("pt-button");
                         const enDiv = document.getElementById("entext");
                         const ptDiv = document.getElementById("pttext");
+                        const sidebarTOC = document.getElementById(
+                            "table-of-contents-copy",
+                        );
+                        const enTOC = document.querySelector(
+                            "#entext .table-of-contents",
+                        );
+                        const ptTOC = document.querySelector(
+                            "#pttext .table-of-contents",
+                        );
 
                         enButton.addEventListener("click", () => {
                             enDiv.style.display = "block";
                             ptDiv.style.display = "none";
+                            sidebarTOC.innerHTML = enTOC.innerHTML;
                         });
 
                         ptButton.addEventListener("click", () => {
                             ptDiv.style.display = "block";
                             enDiv.style.display = "none";
+                            sidebarTOC.innerHTML = ptTOC.innerHTML;
                         });
                     </script>
                 </div>
