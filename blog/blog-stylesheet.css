@@ -47,6 +47,7 @@ blockquote {
     }
     & p {
         color: grey;
+        margin: 10px 0;
     }
 }
 
@@ -58,6 +59,7 @@ blockquote {
     }
     & p {
         color: grey;
+        margin: 10px 0;
     }
 }
 
