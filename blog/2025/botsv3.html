@@ -235,7 +235,9 @@
                                     >Question 200: List out the IAM users
                                     that...</a
                                 >
+
                             </p>
+                            <p><a href="#question-201">Question 201: What field would you use to alert that...</a></p>
                         </div>
 
                         <h4 id="intro">Introduction</h4>
@@ -315,6 +317,22 @@ index=botsv3 sourcetype="aws:cloudtrail" host="splunk.froth.ly"
                                 <code>web_admin</code>
                             </li>
                         </ul>
+
+                        <h4 id="question-201">Question 201: What field would you use to alert that AWS API activity have occurred without MFA (multi-factor authentication)?</h4>
+                        <h6><a href="#top">Back to top</a></h6>
+                        <br>
+
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/Ocr3CrKHUDc?si=nYGNyX631kZHzNLD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        <br><br>
+
+                        <div class="code-general">
+                            <pre><code>
+index=botsv3
+| search eventType=awsapicall userAgent="signin.amazonaws.com" "userIdentity.sessionContext.attributes.mfaAuthenticated"=false</code>
+                            </pre>
+                        </div>
+
                     </div>
 
                     <!-- portuguese text -->
@@ -326,6 +344,7 @@ index=botsv3 sourcetype="aws:cloudtrail" host="splunk.froth.ly"
                                 >Question 200: List out the IAM users
                                 that...</a
                             ></p>
+                            <p><a href="#question-201-pt">Question 201: What field would you use to alert that...</a></p>
                         </div>
 
                         <!-- #intro-pt -->
@@ -370,7 +389,7 @@ index=botsv3 sourcetype="aws:cloudtrail" host="splunk.froth.ly"
 
                         <iframe
                             width="100%"
-                            height="315"
+                            height="400"
                             src="https://www.youtube.com/embed/6WZxmXhdJOo?si=jWrk8PxvnU5hE_ec"
                             title="YouTube video player"
                             frameborder="0"
@@ -405,6 +424,23 @@ index=botsv3 sourcetype="aws:cloudtrail" host="splunk.froth.ly"
                                 <code>web_admin</code>
                             </li>
                         </ul>
+
+                        <h4 id="question-201-pt">Question 201: What field would you use to alert that AWS API activity have occurred without MFA (multi-factor authentication)?</h4>
+                        <h6><a href="#top">Voltar acima</a></h6>
+                        <br>
+
+                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/Ocr3CrKHUDc?si=nYGNyX631kZHzNLD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        <br><br>
+
+                        <div class="code-general">
+                            <pre><code>
+index=botsv3
+| search eventType=awsapicall userAgent="signin.amazonaws.com" "userIdentity.sessionContext.attributes.mfaAuthenticated"=false</code>
+                            </pre>
+                        </div>
+
+
                     </div>
                     </div>
 
