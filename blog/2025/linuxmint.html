@@ -281,7 +281,7 @@
                         </p>
 
                         <iframe
-                            width="560"
+                            width="100%"
                             height="315"
                             src="https://www.youtube.com/embed/pVI_smLgTY0?si=ui8oOZ419yVlZe-G"
                             title="YouTube video player"
@@ -447,7 +447,7 @@
                                 </p>
 
                                 <iframe
-                                    width="560"
+                                    width="100%"
                                     height="315"
                                     src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k"
                                     title="YouTube video player"
@@ -732,7 +732,40 @@
                         <h4 id="shouldnt-pt">Porque você NÂO deve adquiri-lo</h4>
 
                         <ul>
-                            <li><p><strong>Você é obrigado a depender de ferramentas do Microsoft,</strong> e.g. para trabalho (Outlook, Teams, Edge 👎 (por quê)). </p></li>
+                            <li><p><strong>Você é obrigado a depender de ferramentas do Microsoft,</strong> e.g. para trabalho (Outlook, Teams, Edge 👎). Isso é assumindo que você não tem um outro notebook para trabalho de que pode depender para software assim.</p></li>
+                            <li><p><strong>Você joga qualquer jogo que não tem apoio <em>anti-cheat</em> para Linux</strong>, atual ou planeado. Isso inclui Valorant, Apex, Battlefield 2042, Fortnite ... <a href="https://areweanticheatyet.com/">Pode ver a lista inteira aqui</a>. Se vpcê considera-se um <em>hardcore PC gamer</em>, então Linux pode parecer bem restrito. <em><strong>Mas</strong></em>, as boas noticias são que já existe um software chamado <a href="https://www.protondb.com">Proton</a> que faz (muitos, mas nem todos) os jogos no Windows executar-se no Linux. Basicamente pode assumir que se for verificado para <a href="https://www.steamdeck.com/en/verified">Steam Deck</a>, executa-se no Linux.</p></li>
+                            <li>
+                                <p><strong>Você depende de qualquer software criativo do Adobe</strong> (tipo Photoshop, Premiere, Illustrator, etc.) já que eles não existem no Linux e nunca vâo existir ... mas considerando só quão predatório os serviços do Adobe tem sido tornando-se, talvez isso poderia sua oportunidade para escapar o ecossistema dele completamente? Por exemplo, aquí é um <a href="https://youtu.be/PEFqdqRr18E?si=2us1qZ3JcWH4bpZd">vídeo no YouTube sobre fazer vídeos inteiramente no Linux</a>.</p>
+                                <iframe
+                                    width="100%"
+                                    height="315"
+                                    src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen
+                                ></iframe>
+                            </li>
+                        </ul>
+
+                        <h4 id="further-pt">Outras considerações</h4>
+
+                        <ul>
+                            <li><p>Se você for um pessoa que gosta de programação, você terá que refazer todos os seus ambientes de novo. (IDEs, repositórios clonados do GitHub, configuração do Git CLI)</p></li>
+                            <li><p>Instala-se aplicações não pelos assistentes de instalação como se vê no Windows, mas por pacotes que você pode obter no Software Manager (que funciona igual como o app store), ou pelo command line via <code>sudo apt-get install [nome]</code>.</p></li>
+                            <li><p>Não há Microsoft Office, claro, e o equivalente de código aberto, LibreOffice, é instalado por padrão. Admito que pode ser um pouco caótico e chato para usar, comparado com os apps do Microsoft, mas ainda são utilizáveis, qual é ultimamente tudo que se importa. Tem nada impedindo você de usar os apps do Google, embora <a href="../2024/google-monopoly.html">tem outras razões por nem usar eles</a>.</p></li>
+                            <li><p>Se você fazer provas supervisionado online, tipo pelo Pearson VUE, por qualquer razão (tipo obter certificados para sua carreira), no usual esses só funcionam no Windows. E não dá para usar as máquinas virtuais, também. Digo isso porque eu já tinha problemas com o meu exame de <a href="splunk.html">Splunk Core Certified User</a> após já mudar para o Linux.</p></li>
+                            <li>
+                                <p>Se, infelizmente mas realmente, ainda absolutamente precisa do Windows na sua vida (Adobe, Microsoft Office e os exames online são umas das razões mais fortes na minha vida pessoal, pelo menos), <strong>você tem opções!!!</strong></p>
+                                <ul>
+                                    <li>
+                                        <p>A mais fácil (e gratuita): Sempre pode fazer <strong>dual-boot</strong> do Linux Mint e do Windows na mesma máquina. (Sim, seu computador pode ter mais de um sistema de operação no mesmo disco rígido.) <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/multiboot.html">Há mais informações aqui se você for curioso.</a></p>
+                                        <p>Mas uma nota importante: <strong><em>O WINDOWS DEVE SER INSTALADO PRIMEIRO!!!</em></strong> Ou seja, nem tente de reinstalar o Windows após já apagar o seu disco rígido inteiro para o Linux Mint. Tenho <a href="../2024/kernel-panic.html">um blog post inteiro</a> sobre porque esse foi um verdadeiro pesadelo.</p>
+                                    </li>
+                                    <li></li>
+                                </ul>
+                            </li>
                         </ul>
 
                     </div>
