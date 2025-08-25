@@ -1,0 +1,615 @@
+<html>
+
+<head>
+    <title>
+        blog: setting up Active Directory in a homelab - jonathan
+        park
+    </title>
+
+    <meta charset="UTF-8" />
+    <meta name="title" content="Jonathan Park" />
+    <meta name="description" content="$ whoami /all" />
+    <meta name="keywords" content="Jonathan Park" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Jonathan Park" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:image" content="https://www.splunk.com/content/dam/splunk2/en_us/images/training/training-course-track-core-certified-power-user-header-fg.png" />
+    <meta property="og:title" content="blog: setting up Active Directory in a homelab - jonathan park" />
+    <meta property="og:description" content="I've talked a lot about SIEMs, so it's time to put some money where my mouth is." />
+
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <link rel="stylesheet" href="../../stylesheet.css" />
+    <link rel="stylesheet" href="../blog-stylesheet.css" />
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/5177f0fe75.js" crossorigin="anonymous"></script>
+
+    <link href="../../themes/prism.css" rel="stylesheet" />
+    <style>
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        #pttext {
+            display: none;
+        }
+
+        button {
+            border: none;
+            background: rgba(24, 131, 12, 0.4);
+            font-family: "SF Pro Display";
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0;
+            margin-right: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        s {
+            color: #555;
+
+            & li {
+                color: #555;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all-content-container">
+        <div class="header">
+            <a href="../../">
+                <h1>jonathan park</h1>
+            </a>
+        </div>
+        <div class="blog-list-container">
+            <div class="sidebar">
+                <img src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif" style="width: 30%" />
+                <p>
+                    Graduate cum laude of the University of Southern
+                    California.
+                </p>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                    California
+                </p>
+                <a href="https://www.linkedin.com/in/jon25/">
+                    <p>
+                        <i class="fa-brands fa-linkedin"></i> &nbsp;<strong>LinkedIn</strong>
+                    </p>
+                </a>
+                <div id="table-of-contents-copy"></div>
+                <!-- copyTableofContents(): copy table of contents into the sidebar -->
+                <script>
+                    // Function to copy table of contents
+                    function copyTableOfContents() {
+                        // Find the source div with class 'table-of-contents'
+                        const sourceDiv =
+                            document.querySelector(".table-of-contents");
+
+                        // Find the target div with id 'table-of-contents-copy'
+                        const targetDiv = document.getElementById(
+                            "table-of-contents-copy",
+                        );
+
+                        // Check if both elements exist
+                        if (!sourceDiv) {
+                            console.error(
+                                'Source div with class "table-of-contents" not found',
+                            );
+                            return;
+                        }
+
+                        if (!targetDiv) {
+                            console.error(
+                                'Target div with id "table-of-contents-copy" not found',
+                            );
+                            return;
+                        }
+
+                        // Copy the innerHTML from source to target
+                        targetDiv.innerHTML = sourceDiv.innerHTML;
+
+                        console.log(
+                            "Table of contents copied successfully",
+                        );
+                    }
+
+                    // Option 1: Run immediately when script loads (if DOM is ready)
+                    if (document.readyState === "loading") {
+                        document.addEventListener(
+                            "DOMContentLoaded",
+                            copyTableOfContents,
+                        );
+                    } else {
+                        copyTableOfContents();
+                    }
+                </script>
+            </div>
+            <div class="blog-content">
+                <a href="../../blog.html" style="text-decoration: underline">
+                    <h6>&lt;&lt; Back</h6>
+                </a>
+                <h2 id="top">
+                    Setting up Active Directory in a homelab
+                </h2>
+                <h6>14 July 2025 - 30 July 2025</h6>
+
+                <!-- english text -->
+                <div id="entext">
+                    <div class="table-of-contents">
+                        <p><strong>Contents</strong></p>
+                        <p><a href="#intro">Introduction</a></p>
+                        <p><a href="#network-diagram" style="font-size:16px;">Network diagram</a></p>
+                        <p><a href="#components" style="font-size:16px;">Components</a></p>
+
+                        <p><a href="#arch-considerations">Arch-specific considerations</a></p>
+                        <p><a href="#download-install">Downloading and installing all operating systems</a></p>
+
+                        <p><a href="#windows10" style="font-size:12px; margin-left:20px;">Windows 10</a></p>
+                        <p><a href="#kali" style="font-size:12px; margin-left:20px;">Kali Linux</a></p>
+                        <p><a href="#ubuntu-splunk" style="font-size:12px; margin-left:20px;">Ubuntu Server (Splunk)</a></p>
+                        <p><a href="#server2022" style="font-size:12px; margin-left:20px;">Windows Server 2022</a></p>
+
+                        <p><a href="#splunk-config">Configuring Splunk server</a></p>
+                        <p><a href="#ip-address">Manually setting the IP address</a></p>
+                        <p><a href="#splunk-download">Download free trial of Splunk Enterprise</a></p>
+                        <p><a href="#shared-folder">Make a shared folder between Splunk server and host</a></p>
+
+                        <p><a href="#forwarder-sysmon">Installing Splunk Universal Forwarder and sysmon</a></p>
+                        <p><a href="#target10" style="font-size:12px; margin-left:20px;">Target machine (Windows 10)</a></p>
+                        <p><a href="#forwarder" style="font-size:12px; margin-left:40px;">Downloading Splunk Universal Forwarder</a></p>
+                        <p><a href="#sysmon" style="font-size:12px; margin-left:40px;">Downloading sysmon</a></p>
+                        <p><a href="#inputsconf" style="font-size:12px; margin-left:40px;">Configuring Splunk Universal Forwarder by editing inputs.conf</a></p>
+                        <p><a href="#win-server" style="font-size:12px; margin-left:20px;">Windows Server</a></p>
+
+                        <p><a href="#active-directory">Install and configure Active Directory</a></p>
+                        <p><a href="#server-config" style="font-size:12px; margin-left:20px;">Windows Server</a></p>
+                        <p><a href="#users" style="font-size:12px; margin-left:40px;">Adding users</a></p>
+                        <p><a href="#join-domain" style="font-size:12px; margin-left:20px;">Join target_PC to the bbqcheetodust.local domain</a></p>
+
+                    </div>
+
+                    <div class="table-of-contents">
+                        <p><strong>Links</strong></p>
+                        <p><a href="https://www.youtube.com/playlist?list=PLUNDUs-SNKD_KVjOo_SWvpK9q5o1kXCfe">YouTube: MyDFIR video series</a></p>
+                    </div>
+
+                    <h4 id="intro">Introduction</h4>
+
+                    <p>This post covers how to build up an environment with Active Directory in a homelab using Arch Linux as the host machine. I will confess immediately that much of these instructions are taken directly from MyDFIR's video series on creating an Active Directory homelab (link above); but there were at least a few outdated steps and differences with using Arch Linux (installing and generally dealing with VirtualBox, for example) that I thought were worth fixing in a single cohesive post.</p>
+
+                    <p>This setup uses Active Directory and Sysmon installed across Windows 10 and Windows Server 2022 virtual machines (the former also serving as a target machine), the logs of which feed into Splunk hosted on an Ubuntu Server machine. There is also a Kali Linux machine serving as an attacker. All four VMs are hosted in VirtualBox and contained in the same NAT network. See network diagram below.</p>
+
+                    <h4 id="network-diagram">Network diagram</h4>
+                    <br>
+                    <img src="../../uploads/activedirectorydiagram.png" style="width: 100%">
+                    <h4 id="components">Components</h4>
+                    <ul>
+                        <li><strong>Windows 10 target machine</strong> with Splunk Universal Forwarder System installed, Sysmon, Atomic Red Team</li>
+                        <li><strong>Kali Linux machine</strong> as an attacker machine</li>
+                        <li><strong>Ubuntu Server</strong> as Splunk server</li>
+                        <li><strong>Windows Server 2022</strong> as Active Directory server</li>
+                        <li><em>All four machines will be hosted on Oracle Virtualbox</em></li>
+                    </ul>
+
+                    <p>Now time to build up the environment.</p>
+
+                    <h4 id="arch-considerations">Arch-specific considerations</h4>
+                    <p><code>sudo pacman -S virtualbox</code></p>
+                    <p>when prompted to choose package to provide host modules, depending on kernel choose the respective package</p>
+                    <ul>
+                        <li>for linux kernel: <code>virtualbox-host-modules-arch</code></li>
+                        <li>linux-lts: <code>virtualbox-host-modules-lts</code></li>
+                        <li>for any other kernel, choose <code>virtualbox-host-dkms</code>.<br>
+                            <em>(this is taken directly from <a rel="noopener nofollow" class="external-link" href="https://wiki.archlinux.org/title/VirtualBox" target="_blank">https://wiki.archlinux.org/title/VirtualBox</a>)</em></li>
+                    </ul>
+                    <p>another thing: run <code>neofetch</code> then <code>modprobe vboxdrv</code>, if the latter returns a fatal error check that the kernel is up to date and update/reinstall <code>linux</code> and <code>linux-headers</code> as necessary, then reboot<br>
+                        <code>sudo pacman -S linux linux-headers</code></p>
+                    <p style="font-weight: bold;" data-heading="Downloading and installing all operating systems">Downloading and installing all operating systems</p>
+                    <p>We are creating each of the following VMs in Oracle VirtualBox.</p>
+                    <p><strong>FOR ALL MACHINES:</strong></p>
+                    <ul>
+                        <li>Make sure unattended installation is <strong>UNCHECKED</strong>.</li>
+                        <li>Select the appropriate memory and disk space for each machine. My own settings are below; I could afford to be generous as my laptop has 40GB RAM and a 2TB SSD. At minimum set the RAM to 4GB and 20GB storage, 2-4 CPUs, and worst-case run each machine one at a time.</li>
+                    </ul>
+                    <p id="windows10"><strong>Windows 10</strong> - straightforward, follow MyDFIR tutorial: <a rel="noopener nofollow" class="external-link" href="https://www.youtube.com/watch?v=uXRxoPKX65Q" target="_blank">https://www.youtube.com/watch?v=uXRxoPKX65Q</a><br>
+                        system config: 8192MB RAM, 4 processors, 100GB storage<br>
+                        Notes:</p>
+                    <ul>
+                        <li>when prompted choose Windows 10 Pro</li>
+                        <li>(same considerations and extra steps as when creating initial homelab)</li>
+                    </ul>
+                    <p id="kali"><strong>Kali Linux</strong> - run graphical install and follow instructions<br>
+                        system config: 4096MB RAM, 2 processors, 25GB storage</p>
+                    <p id="ubuntu-splunk"><strong>Ubuntu Server (Splunk)</strong> - follow MyDFIR tutorial (mostly just keeping defaults and continually pressing Done or Continue)<br>
+                        system config: 16384MB RAM, 4 processors, 250GB storage</p>
+                    <ul>
+                        <li>For this tutorial, we will assume the username chosen is <code>bbqcheetodust</code></li>
+                    </ul>
+                    <p id="server-2022"><strong>Windows Server 2022</strong> - follow MyDFIR tutorial<br>
+                        system config: 8192MB RAM, 4 processors, 50GB storage<br>
+                        Notes:</p>
+                    <ul>
+                        <li>when prompted select <strong>Windows Server Standard Evaluation (Desktop Experience)</strong></li>
+                    </ul>
+
+                    <h4 id="splunk-config">Configuring Splunk server</h2>
+                        <p>In <strong>VirtualBox &gt; Tools &gt; Network</strong> (or <code>Ctrl+H</code> within VirtualBox) (if you don't immediately see a Tools tab, check under File), go to the <strong>NAT Networks</strong> tab, then click <strong>Create</strong>.</p>
+                        <p>At the bottom, editing <strong>General Options</strong>:</p>
+                        <ul>
+                            <li>name the network whatever you'd like, I called mine <strong>AD_PROJECT</strong>.</li>
+                            <li>set the IPv4 prefix to your network, in my case <code>192.168.122.0/24</code></li>
+                            <li>leave DHCP enabled</li>
+                            <li>click Apply</li>
+                        </ul>
+                        <p>Now navigate to the <strong>Settings</strong> for each of the four VMs, then Network, and change <strong>Attached to:</strong> dropdown to <strong>NAT Network</strong></p>
+                        <p>make sure the right network (e.g. AD_PROJECT) is selected in the dropdown that appears underneath, then press <strong>OK</strong> button on the bottom right</p>
+
+                        <h4 id="ip-address">Manually setting the IP address</h4>
+                        <p>Back in the Splunk server CLI, run <code>ip a</code> and note that the IP address printed is probably not what we want (<code>192.168.122.209</code>).</p>
+                        <p>To set this statically, we'll be editing the file <code>/etc/netplan/50-cloud-init.yaml</code>. (once you type <code>sudo nano /etc/netplan/</code> you can hit Tab to autofill as <code>50-cloud-init.yaml</code> is the only file in that directory.) </p>
+                        <p>By default <code>50-cloud-init.yaml</code> should look something like this</p>
+                        <div class="code-general">
+                            <pre><code>
+network:
+	version: 2
+	ethernets:
+		enp0s3:
+			dhcp4: true
+</code></pre>
+                        </div>
+                        <p>Make the following additions:</p>
+                        <div class="code-general">
+                            <pre><code>
+network:
+	version: 2
+	ethernets:
+		enp0s3:
+			dhcp4: no /* CHANGE "true" to "no" */\
+			/* new line then tab THREE times */
+			addresses: [192.168.122.209/24] /* IPv4 prefix in square brackets */
+			/* new line then tab THREE times */
+			nameservers: /* for DNS */
+			/* new line then tab FIVE times */
+				addresses: [8.8.8.8] /* Google's server */
+			/* new line then tab THREE times */
+			routes:
+			/* new line then tab FIVE times */
+			- to: default
+			/* new line then tab SIX times */
+			  via: 192.168.122.1 /* gateway, should be .1 of network */
+			
+</code></pre>
+                        </div>
+                        <p>The end result should look like this:</p>
+                        <div class="code-general">
+                            <pre><code>
+network:
+	version: 2
+	ethernets:
+		enp0s3:
+			dhcp4: no 
+			addresses: [192.168.122.209/24]
+			nameservers:		
+				addresses: [8.8.8.8]
+			routes:
+			- to: default
+			  via: 192.168.122.1
+			
+</code></pre>
+                        </div>
+                        <p>To save, hit <code>Ctrl+X</code>, then <code>Ctrl+Y</code> for Yes, and then <code>Enter</code>.</p>
+                        <p>Then <code>sudo netplan apply</code></p>
+                        <p>Confirm new IP address has been applied wiith <code>ip a</code></p>
+                        <p>And confirm connectivity with <code>ping google.com</code> (<code>Ctrl+C</code> to stop after a few successful pings)</p>
+
+
+                        <h4 id="splunk-download">Download free trial of Splunk Enterprise</h4>
+                        <p>Create a Splunk account.</p>
+                        <p>Then go to the Downloads page for Splunk Enterprise (<a rel="noopener nofollow" class="external-link" href="https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us" target="_blank">https://www.splunk.com/en_us/download/splunk-enterprise.html?locale=en_us</a>) and select Linux &gt; the <code>.deb</code> file.</p>
+                        <h3 data-heading="Make a shared folder between Splunk server and host">Make a shared folder between Splunk server and host</h3>
+                        <p>... so that we can actually download Splunk onto the Ubuntu Server guest.</p>
+                        <p><em>(But honestly a faster way is to just copy (by hand) the <code>wget</code> command into the Ubuntu Server CLI)</em></p>
+                        <p>Back in the Ubuntu Server CLI, run<br>
+                            <code>sudo apt-get install virtualbox-guest-additions-iso virtualbox-guest-utils</code></p>
+                        <p>Now on the VM window, on the top bar, click Devices &gt; Shared Folders &gt; Shared Folder Settings</p>
+                        <p>Add a folder by clicking the icon on the top right of the Shared Folders section.</p>
+                        <p>Within the <strong>Add Share</strong> popup that appears:</p>
+                        <ul>
+                            <li>Set the folder path to whichever folder the Splunk Enterprise <code>.deb</code> file is in (preferably you create an <strong>entirely separate folder</strong>, I put mine in <code>~/homelab/ad_project/</code>).</li>
+                            <li>The folder name can be whatever you want, I put <code>ad_project</code></li>
+                            <li>Check <strong>Read-only, Auto-mount, and Make Machine-permanent</strong> . (You do not have to check Make Global)<br>
+                                Then press <strong>OK</strong>.</li>
+                        </ul>
+                        <p>Back in the Splunk server CLI:</p>
+                        <p>Run <code>sudo adduser [USERNAME] vboxsf</code><br>
+                            in my case <code>sudo adduser bbqcheetodust vboxsf</code></p>
+                        <p>Now we will create a new directory <code>share</code></p>
+                        <p><code>mkdir share</code><br>
+                            <code>ls</code> to confirm <code>share</code> folder has been created</p>
+                        <p>Then we can mount our actual shared folder to this new <code>share</code> folder.</p>
+                        <p><code>sudo mount -t vboxsf -o uid=1000,gid=1000 [FOLDERNAME] share/</code><br>
+                            in my case <code>sudo mount -t vboxsf -o uid=1000,gid=1000 ad_project share/</code><br>
+                            (If you get an error try <code>exit</code>ing then logging back in.)</p>
+                        <p>Now <code>cd share/ &amp;&amp; ls -la</code> to confirm that you can see the <code>.deb</code> file.</p>
+                        <p>Now to actually unpackage the Splunk installer:</p>
+                        <p><code>sudo dpkg -i [FILENAME].deb</code><br>
+                            (You can probably just type out <code>splunk</code> and then tab to autocomplete the filename.)</p>
+                        <p>Once this completes, <code>cd /opt/splunk &amp;&amp; ls -la</code></p>
+                        <p>Notice that all files and folders and owned by <code>splunk</code>.<br>
+                            So we'll need to change over to this user to actually do anything in here.<br>
+                            <code>sudo -u splunk bash</code><br>
+                            then <code>cd bin</code> and let's start the installer:<br>
+                            <code>./splunk start</code></p>
+                        <p>The license agreement will pop up, Hold Space until you reach the bottom then press <code>y</code> to agree to the license terms.</p>
+                        <p>Choose an administrator username and password, and Splunk installation should complete.</p>
+                        <p>To ensure Splunk runs on boot:</p>
+                        <p><code>exit</code><br>
+                            <code>cd bin</code><br>
+                            <code>sudo ./splunk enable boot-start -user splunk</code></p>
+                        <p>MAKE A SNAPSHOT OF THE SPLUNK SERVER VM RIGHT NOW (you can call it "splunk installed")</p>
+
+                        <h4 id="forwarder-sysmon">Installing Splunk Universal Forwarder and sysmon</h4>
+                        <p>... on both our target machine and the Splunk server.</p>
+
+                        <p style="font-weight: bold" id="target10">Target machine (Windows 10)</p>
+                        <p>Log in to the Windows 10 machine, and then in the Search bar search for <strong>About your PC</strong>.<br>
+                            Open that window and click <strong>Rename this PC</strong>.<br>
+                            Rename it to <code>target-PC</code></p>
+                        <p>You will be made to restart the VM.<br>
+                            Once VM restarts, go to the same About your PC window and confirm that the <strong>Device name</strong> has been changed accordingly.</p>
+                        <p>Now open a Command Prompt terminal (search <code>cmd</code>) and run <code>ipconfig</code><br>
+                            Note the IPv4 address. If you're okay with this DHCP-assigned address, skip to <a data-href="#Downloading Splunk Universal Forwarder" href="#forwarder" class="internal-link" target="_blank" rel="noopener nofollow">Downloading Splunk Universal Forwarder</a>. </p>
+                        <p>If the address CONFLICTS with another address that you've preset in the network diagram:</p>
+                        <ul>
+                            <li>Go to Settings &gt; Network &amp; Internet &gt; Status &gt; (scroll down) Change adapter options</li>
+                            <li>New "Network connections" window will open, right-click the Ethernet adapter, then click <strong>Properties</strong></li>
+                            <li>Under "This connection uses the following items:" find and click to highlight <strong>Internet Protocol Version 4 (TCP/IPv4)</strong>, then click the <strong>Properties</strong> button on the bottom right of that box.</li>
+                            <li>Select "Use the following IP address" and set the IP address, subnet mask and default gateway</li>
+                            <li>Under "Use the following DNS server addresses", set the preferred DNS server as <code>8.8.8.8</code> </li>
+                            <li>Then hit OK. Then on the previous window, Close.</li>
+                            <li>Back in Command Prompt, if we run <code>ipconfig</code> again you should notice the address is now changed.</li>
+                        </ul>
+                        <p>Now, opening a browser window, we should be able to go to <code>[SPLUNK_SERVER_IP]:8000</code> and see a login screen for Splunk Enterprise.</p>
+
+                        <p style="font-weight: bold;" id="forwarder"><em>Downloading Splunk Universal Forwarder</em></p>
+                        <p>In the same Windows 10 VM, open another browser tab and go to <code>splunk.com</code>.<br>
+                            Log in to your Splunk account<br>
+                            Then go to Security &gt; Free Trials &amp; Downloads<br>
+                            Scroll down to Universal Forwarder and click <code>Get My Free Download</code></p>
+                        <p>Select Windows and choose the 64-bit installer<br>
+                            A <code>.msi</code> file should download<br>
+                            Open the installer.</p>
+                        <ul>
+                            <li>Check the box to accept the License Agreement</li>
+                            <li>Check <strong>An on-premises Splunk Enterprises instance</strong></li>
+                            <li>Hit <strong>Next</strong></li>
+                            <li>Set the username as <code>admin</code> and leave <strong>Generate random password</strong> checked</li>
+                            <li>Skip the <strong>Deployment Server</strong> screen by hitting <strong>Next</strong></li>
+                            <li>For the Receiving Indexer screen, put in the IP of the Splunk <em>server</em> (in my case <code>192.168.122.209</code>)</li>
+                            <li>For the port, enter the default <code>9997</code></li>
+                            <li>Hit <strong>Install</strong> to start the installation</li>
+                            <li>Click <strong>Yes</strong> when prompted</li>
+                            <li>Once the install finishes, click <strong>Finish</strong>\</li>
+                        </ul>
+                        <p style="font-weight: bold;" id="sysmon"><em>Downloading sysmon</em></p>
+                        <p>Going back to the same browser (within the Windows 10 VM), open a new tab<br>
+                            Google <code>sysmon</code> and click the first link (should be a <code>learn.microsoft.com</code> url)<br>
+                            <a rel="noopener nofollow" class="external-link" href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon" target="_blank">https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon</a></p>
+                        <p>On that webpage, click the <strong>Download sysmon</strong> link, and a <code>.zip</code> file should install</p>
+                        <p>To download the sysmon config we'll be using, go to <a rel="noopener nofollow" class="external-link" href="https://github.com/olafhartong/sysmon-modular" target="_blank">https://github.com/olafhartong/sysmon-modular</a> (or google <code>sysmon olaf config</code>)</p>
+                        <p>Scroll until you see the <code>sysmonconfig.xml</code>, and open that file.<br>
+                            Then click <code>Raw</code></p>
+                        <p>On the page that appears, right-click anywhere and click <strong>Save As</strong>, and save it to your Downloads folder</p>
+                        <p>Now open your Downloads folder in File Explorer<br>
+                            Right click on the sysmon <code>.zip</code> file and select <strong>Extract All</strong></p>
+                        <p>Now open PowerShell as root<br>
+                            (search <code>powershell</code>, then in the menu that appears, select <strong>Run as administrator</strong>. If prompted, click <strong>Yes</strong>)</p>
+                        <p>In the terminal run <code>cd C:\Users\[USERNAME]\Downloads\Sysmon</code><br>
+                            (In my case my chosen username when I configured this Win10 VM is <code>target</code>)</p>
+                        <p>Then <code>.\Sysmon64.exe -i ..\sysmonconfig.xml</code></p>
+                        <p>In the window that appears, click <strong>Agree</strong></p>
+                        <p>Once this completes, close out of the PowerShell window</p>
+
+                        <p style="font-weight: bold;" id="inputsconf"><em>Configuring Splunk Universal Forwarder by editing <code>inputs.conf</code></em></p>
+                        <p>In this section we are setting the instructions for the Splunk Universal Forwarder on what it should send to the Splunk server. </p>
+                        <p>We can find <code>inputs.conf</code> in<br>
+                            <code>C:\Program Files\SplunkUniversalForwarder\etc\system\default</code></p>
+                        <p><strong>IMPORTANT: WE ARE NOT EDITING THIS EXACT FILE!!!!!!</strong><br>
+                            Instead we will go to the directory<br>
+                            <code>C:\Program Files\SplunkUniversalForwarder\etc\system\local</code> and create a NEW FILE called <code>inputs.conf</code> in that directory.</p>
+                        <p>To do so, open Notepad <strong>as an administrator</strong> and type in the following:<br>
+                            (You can also copy and paste this from <a rel="noopener nofollow" class="external-link" href="https://github.com/MyDFIR/Active-Directory-Project" target="_blank">https://github.com/MyDFIR/Active-Directory-Project</a> .)</p>
+                        <div class="code-general">
+                            <pre><code>
+[WinEventLog://Application]
+index = endpoint
+disabled = false
+
+[WinEventLog://Security]
+index = endpoint
+disabled = false
+
+[WinEventLog://System]
+index = endpoint
+disabled = false
+
+[WinEventLog://Microsoft-Windows-Sysmon/Operational]
+index = endpoint
+disabled = false
+renderXml = true
+source = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
+</code></pre>
+                        </div>
+                        <p>Now save this as <code>inputs.conf</code> in <code>C:\Program Files\SplunkUniversalForwarder\etc\system\local</code>. Be sure to Save as type: <strong>All Files</strong>.</p>
+                        <p>Notice that we now have an <code>inputs.conf</code> file in that directory.</p>
+                        <p>Anytime this file is updated we must restart the Splunk Universal Forwarder service.<br>
+                            To do so, search for <strong>Services</strong> and run as administrator.</p>
+                        <p>In the list that appears, look for <code>SplunkForwarder</code>.<br>
+                            If you see that in that row, the <code>Log On As</code> column reads <code>NTSERVICE</code>, we should change that as that configuration does not give all the necessary permissions for Splunk to ingest logs properly.<br>
+                            Double-click the row and go to the <strong>Log On</strong> tab, and select Log on as: <strong>Local System account</strong>.<br>
+                            Click <strong>Apply</strong>. You should get a warning that "The new logon name will not take effect until you stop and restart the service." This is exactly what we will do, hit OK to close the warning.</p>
+                        <p>Confirm that in the row from earlier, the Log On As column has been updated.</p>
+                        <p>Right click the row and hit <strong>Restart</strong>.<br>
+                            If you get an error that Windows was unable to start the service, simply hit OK, and on the left column click <strong>Start</strong> the service.</p>
+                        <p>Once the <code>SplunkForwarder</code> service is running again, go back to the very first tab where you have Splunk Enterprise <code>[SPLUNK_SERVER_IP]:8000</code> open. Login if you haven't already (make sure your Splunk server VM is also up and running still).</p>
+                        <p>Once logged in, go to <strong>Settings &gt; Indexes</strong>.<br>
+                            <em>Recall from earlier that we are sending all of these logs to an index called <code>endpoint</code>. This screen is where we will be creating that index.</em><br>
+                            Notice no such <code>endpoint</code> index already exists in the list shown.</p>
+                        <p>On the top right click <strong>New Index</strong>.<br>
+                            Set Index Name as <code>endpoint</code>, leave all else as is and hit <strong>Save</strong>.</p>
+                        <p>Scroll down to check that the <code>endpoint</code> index has been created.</p>
+                        <p>Now to confirm that the Splunk server has been properly configured to receive data, go to <strong>Settings &gt; Forwarding and receiving</strong>.<br>
+                            Then click on <strong>Configure receiving</strong>.<br>
+                            On the top right click <strong>New Receiving Port</strong>.</p>
+                        <p>Set Listen on this port to <code>9997</code>. Then hit <strong>Save</strong>.</p>
+                        <p>Now go to <strong>Apps &gt; Search and Reporting</strong>.<br>
+                            Skip the tour.<br>
+                            Do a search for <code>index=endpoint</code> (the default time range of <code>Last 24 hours</code> is fine).</p>
+
+                        <p style="font-weight: bold;" id="win-server">Windows Server</p>
+                        <p>Now let's open the Windows Server 2022 VM.</p>
+                        <p>Similarly, we'll rename this machine to <code>win-server</code> (search <strong>About your PC</strong>) and allow it to restart to apply that change.</p>
+                        <p><em>(Unlike the Windows 10 VM, a window will appear before you restart, prompting you to "Choose a reason that best describes why you want to shut down this computer." Leave it as <strong>Other (Unplanned)</strong> and press <strong>Continue</strong>.)</em></p>
+                        <p>Follow the same instructions as the Windows 10 VM for confirming the machine's IP address (and changing it as needed), as well as downloading Splunk Universal Forwarder, sysmon, and the sysmon config.</p>
+                        <p>To run apps as administrator (e.g. PowerShell for the sysmon commands and the Notepad app to make the new <code>inputs.conf</code> file) you will need to search for the app and then <strong>right-click</strong> to run as administrator.</p>
+                        <p>Note that once you've completed all the steps of installing Splunk Universal Forwarder and sysmon you do not need to redo any of the configurations within the Splunk interface itself (creating the <code>endpoint</code> index and setting the receiving port), as those have already been completed and we are simply accessing the same server.</p>
+                        <p>As a final confirmation run the following search on Splunk:</p>
+                        <div class="code-general">
+                            <pre><code>
+index=endpoint
+| stats count by host
+</code></pre>
+                        </div>
+                        <p>You should see two rows: <code>target-PC</code> and <code>win-server</code>.</p>
+
+                        <h4 id="active-directory">Install and configure Active Directory</h4>
+
+                        <p style="font-weight: bold;" id="server-config">Windows Server</p>
+                        <p>In the Windows Server VM, open <strong>Server Manager</strong>, then go to <strong>Manage &gt; Add Roles and Features</strong>.</p>
+                        <p>The Add Roles and Features Wizard will appear.<br>
+                            <code>Before You Begin</code> screen: Next<br>
+                            <code>Installation Type</code>: Role-based or feature-based installation<br>
+                            <code>Server Selection</code>: If there were multiple servers, this is where they would be listed, but since we only have one, we can skip this. Next<br>
+                            <code>Server Roles</code>: Select <strong>Active Directory Domain Services</strong>. A window will pop up that reads: "Add features that are required for Active Directory Domain Services"? Leave everything as is and just click <strong>Add Features</strong>.</p>
+                        <p>Keep clicking <strong>Next</strong> until the <strong>Install</strong> button becomes available.<br>
+                            Click the <strong>Install</strong> button.</p>
+                        <p>Installation will take a couple minutes.</p>
+                        <p>Once the status below the progress bar reads "Configuration required. Installation succeeded on win-server", close out of the Add Roies and Features Wizard.</p>
+                        <p>You'll notice the flag icon on the top right has a warning sign next to it.<br>
+                            Click the flag icon, then click <strong>Promote this server to a domain controller</strong>.</p>
+                        <p>The Active Directory Domain Services Configuration Wizard should appear.<br>
+                            <code>Deployment Configuration</code>: Add a new forest. Root domain name: any top level domain of your choice should work, e.g. <code>bbqcheetodust.local</code> or <code>bbqcheetodust.test</code>. But it cannot be simply, for example, <code>bbqcheetodust</code>.<br>
+                            <code>Domain Controller Options</code>: Leave all defaults as is, and enter a password where prompted.<br>
+                            <code>DNS Options, Additional Options, Paths, Review Options</code>: Next.</p>
+                        <p><em>(Note that the path in the <code>Paths</code> tab contains the <code>ntds.dit</code> file. Any unauthorized activity in this directory effectively means the entire domain is compromised.)</em></p>
+                        <p>At <code>Prerequisites Check</code>, once the check passes, click <strong>Install</strong>.</p>
+                        <p>The machine will restart after installation is complete; when the "You're about to be signed out" prompt appears, click <strong>Close</strong> and wait for the machine to restart.</p>
+                        <p>Once you arrive back at the login screen, we should see the user has changed to, e.g. in my case, <code>BBQCHEETODUST\Administrator</code>. This confirms that we have promoted the server to a domain controller.</p>
+
+                        <p style="font-weight: bold;" id="users"><em>Adding users</em></p>
+                        <p>Log in again and open Server Manager (usually Server Manager auto-opens on boot).<br>
+                            Then go to <strong>Tools &gt; Active Directory Users and Computers</strong>.</p>
+                        <p>Expand the domain on the left sidebar (<code>bbqcheetodust.local</code>) and click <strong>Builtin</strong>.</p>
+                        <p>To simulate a corporate environment, let's create a new organizational unit called "IT".<br>
+                            Right click the domain name, then <strong>New &gt; Organizational Unit.</strong><br>
+                            Name: IT<br>
+                            Then hit <strong>OK</strong>.</p>
+                        <p>Now in this IT unit, right-click anywhere in the window, then click <strong>New &gt; User</strong>.</p>
+                        <p>For fun, I'll be adding users for the four current active members of the band Deftones:</p>
+                        <ul>
+                            <li>Stephen Carpenter: username <code>scarpenter</code>, password <code>ExtremelySecure#</code>
+                                <ul>
+                                    <li><em>when prompted, UNCHECK "User must change password at next login"</em></li>
+                                </ul>
+                            </li>
+                            <li>Abe Cunningham: username <code>acunningham</code>, password <code>Secure###</code></li>
+                            <li>Chino Moreno: username <code>cmoreno</code>, password <code>Secure###</code></li>
+                            <li>Frank Delgado: username <code>fdelgado</code>, password <code>Secure###</code></li>
+                        </ul>
+                        <p>Actually, let's to create another organizational unit called "HR".<br>
+                            Now we'll move Chino Moreno and Frank Delgado to HR by right-clicking on each of them, then hitting <strong>Move</strong>, then <strong>HR</strong>, then <strong>OK</strong>.</p>
+                        <p>The result should be that Stephen Carpenter and Abe Cunningham are in IT, while Chino Moreno and Frank Delgado are in HR.</p>
+
+
+                        <p style="font-weight: bold;" id="join-domain">Join <code>target_PC</code> to the <code>bbqcheetodust.local</code> domain</p>
+                        <p>Back on the Windows 10 machine, search again for <strong>About your PC</strong> then scroll down to <strong>Advanced system settings</strong> (under Related settings).</p>
+                        <p>In the window that appears, switch to the <strong>Computer Name</strong> tab, then click <strong>Change</strong>.</p>
+                        <p>Leave Computer Name as is, but switch to Member of <strong>Domain</strong>, and enter the TLD you chose earlier (<code>bbqcheetodust.local</code>).</p>
+                        <p>You will get an error that reads:</p>
+                        <div class="code-general">
+                            <pre><code>
+An Active Directory Domain Controller (AD DC) for the domain 'jontwentyfive.local' could not be contacted.
+
+Ensure that the domain name is typed correctly.
+
+If the name is correct, click 'Details' for troubleshooting information.
+</code></pre>
+                        </div>
+                        <p>This is expected, as the Windows 10 machine does not know how to resolve <code>bbqcheetodust.local</code>.</p>
+                        <p>To give instructions on how to do so, right-click the network icon (probably an ethernet icon on the bottom right) and then <strong>Open Network &amp; Internet settings</strong>.</p>
+                        <p>The next few steps should be familiar: Change adapter options &gt; Ethernet (right click and click Properties) &gt; Internet Protocol Version 4 (TCP/IPv4).</p>
+                        <p>Under "Use the following DNS server addresses:" set the Preferred DNS server as the IP of the domain controller, i.e. the Windows Server machine. In my case this would be <code>192.168.122.49</code>. (You do not need to enter an alternate.) Hit OK.</p>
+                        <p>To confirm the change open Command Prompt and run <code>ipconfig /all</code>.<br>
+                            The <code>DNS Servers</code> line should read <code>192.168.122.49</code>.</p>
+                        <p>Now going back to the <strong>Computer Name/Domain Changes</strong> screen from earlier, close out the error by hitting <strong>OK</strong>, then hit <strong>OK</strong> again to retry. (You should make sure your Windows Server VM is still on and running.)</p>
+                        <p>When prompted to enter a username and password, enter <code>administrator</code> as the username and the password for the Windows Server machine as the password.</p>
+                        <p>You should get a message that reads, "Welcome to the bbqcheetodust.local domain".</p>
+                        <p>...followed by, "You must restart your computer to apply these changes."</p>
+                        <p>Hit <strong>OK</strong>, then close out of the Computer Name/Domain Changes screen.</p>
+                        <p>Another window will appear asking if you want to restart now or later.<br>
+                            Click <strong>Restart Now</strong>.</p>
+                        <p>When we reach the login screen again, we'll switch to <strong>Other user</strong> in the bottom left and then type in the username and password of one of the users you created.</p>
+                        <p>As you do so, notice it should say <code>Sign in to: BBQCHEETODUST</code> on the bottom. This should confirm that the Windows 10 machine is now joined to the domain.</p>
+                        <p>For example, I will now be logging in as Chino Moreno.</p>
+
+                        <img src="../../uploads/chinomorenologin.png" width="100%">
+
+
+                </div>
+
+                <!-- 
+                script to switch between eng and pt text 
+                <script>
+                    const enButton = document.getElementById("en-button");
+                    const ptButton = document.getElementById("pt-button");
+                    const enDiv = document.getElementById("entext");
+                    const ptDiv = document.getElementById("pttext");
+                    const sidebarTOC = document.getElementById(
+                        "table-of-contents-copy",
+                    );
+                    const enTOC = document.querySelector(
+                        "#entext .table-of-contents",
+                    );
+                    const ptTOC = document.querySelector(
+                        "#pttext .table-of-contents",
+                    );
+
+                    enButton.addEventListener("click", () => {
+                        enDiv.style.display = "block";
+                        ptDiv.style.display = "none";
+                        sidebarTOC.innerHTML = enTOC.innerHTML;
+                    });
+
+                    ptButton.addEventListener("click", () => {
+                        ptDiv.style.display = "block";
+                        enDiv.style.display = "none";
+                        sidebarTOC.innerHTML = ptTOC.innerHTML;
+                    });
+                    -->
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../themes/prism.js"></script>
+</body>
+
+</html>

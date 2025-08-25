@@ -26,6 +26,7 @@ blockquote {
     width: 50%;
     max-width: 900px;
     margin: 0 auto;
+
     & a {
         text-decoration: none;
     }
@@ -34,6 +35,7 @@ blockquote {
 .header {
     border-bottom: 2px solid white;
     margin-bottom: 20px;
+
     & a:link {
         color: white;
         text-decoration: none;
@@ -42,21 +44,27 @@ blockquote {
 
 .table-of-contents {
     margin: 40px 0;
+
     & a:link {
         color: grey;
     }
+
     & p {
         color: grey;
         margin: 10px 0;
+
     }
 }
 
 #table-of-contents-copy {
     margin: 40px 0;
+
     & a:link {
         color: rgba(32, 194, 14, 0.7);
         text-decoration: underline;
+        display: inline-block;
     }
+
     & p {
         color: grey;
         margin: 10px 0;
@@ -103,9 +111,11 @@ blockquote {
         overflow-y: scroll;
         overflow-x: hidden;
         padding: 0 20px 0 10px;
+
         & h2 {
             margin-bottom: 10px;
         }
+
         & h4 {
             font-size: 21px;
         }
@@ -133,9 +143,11 @@ blockquote {
 
     .blog-list-container {
         flex-direction: column;
+
         & .sidebar {
             display: none;
         }
+
         & .blog-content {
             overflow: auto;
         }
@@ -147,13 +159,29 @@ blockquote {
     display: none;
 }
 
+code {
+    background: #222;
+    padding: 2px 7px;
+    margin-right: 2px;
+    border-radius: 2px;
+    border: 1.5px solid #555;
+}
+
 div.code-general {
     overflow-x: scroll;
     background: #111;
     border-radius: 10px;
     border: 2px solid #999;
     padding: 0 20px;
+
     & pre {
         color: white;
+    }
+
+    & code {
+        background: none;
+        padding: none;
+        margin-right: none;
+        border: none;
     }
 }
