@@ -37,6 +37,65 @@
                 <h1>jonathan park</h1>
             </a>
         </div>
+        <!-- Container for blog posts -->
+        <div class="blog-list-container">
+            <div class="sidebar">
+                <img src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif" style="width: 30%" />
+                <p>
+                    Graduate cum laude of the University of Southern
+                    California.
+                </p>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i> &nbsp;
+                    California
+                </p>
+                <a href="https://www.linkedin.com/in/jon25/">
+                    <p>
+                        <i class="fa-brands fa-linkedin"></i> &nbsp;<strong>LinkedIn</strong>
+                    </p>
+                </a>
+            </div>
+            <div class="blog-list" id="blog-list"></div>
+        </div>
+
+
+        <script>
+            // run after the DOM has finished loading
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch("blogposts.json") // Fetch the JSON file containing the blog posts
+                    .then(response => response.json()) // convert response to json
+                    .then(data => {
+                        const container = document.getElementById("blog-list"); // get container div
+
+                        data.posts.forEach(post => { // create main wrapper div for each blog post
+                            const div = document.createElement("div");
+                            div.className = "blog-list-item";
+
+                            const link = document.createElement("a");
+                            link.href = post.link;
+
+                            const title = document.createElement("h2");
+                            title.textContent = post.title;
+                            link.appendChild(title);
+
+                            const date = document.createElement("h6");
+                            date.textContent = post.date;
+
+                            const summary = document.createElement("p");
+                            summary.textContent = post.summary;
+
+                            div.appendChild(link);
+                            div.appendChild(date);
+                            div.appendChild(summary);
+
+                            container.appendChild(div);
+                        });
+                    })
+                    .catch(error => console.error("Error loading posts:", error));
+            });
+        </script>
+
+        <!--
         <div class="blog-list-container">
             <div class="sidebar">
                 <img src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif" style="width: 30%" />
@@ -166,6 +225,7 @@
                 </div>
             </div>
         </div>
+        -->
     </div>
 </body>
 

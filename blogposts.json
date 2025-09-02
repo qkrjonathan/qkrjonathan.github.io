@@ -1,0 +1,51 @@
+{
+    "posts": [{
+            "title": "Setting up Active Directory in a homelab",
+            "date": "24 August 2025",
+            "link": "blog/2025/activedirectory.html",
+            "summary": "This setup uses Active Directory and Sysmon installed across Windows 10 and Windows Server 2022 virtual machines (the former also serving as a target machine), the logs of which feed into Splunk hosted on an Ubuntu Server machine. There is also a Kali Linux machine serving as an attacker."
+        },
+        {
+            "title": "Don't know anything about computers? You should get Linux.",
+            "date": "2 August 2025",
+            "link": "blog/2025/linuxmint.html",
+            "summary": "Windows 10 support is ending, and Windows 11 is bad. Allow me to make the case for Linux Mint."
+        },
+        {
+            "title": "The quest to become a Splunk Core Certified User",
+            "date": "14 July 2025 - 30 July 2025",
+            "link": "blog/2025/splunk.html",
+            "summary": "I've talked a lot about SIEMs, so it's time to put my money where my mouth is."
+        },
+        {
+            "title": "Baby's first home lab",
+            "date": "27 June - 11 July 2025",
+            "link": "blog/2025/homelab.html",
+            "summary": "This is the opening of a new world for me. I’ve been looking into home labs for a little bit, now being fresh out of college, newly minted bachelor’s degree and all. With my summer internship in cybersecurity fading further and further into the past, I hadn’t had the chance since then ..."
+        },
+        {
+            "title": "Escaping Google's monopoly",
+            "date": "2 December 2024",
+            "link": "blog/2024/google-monopoly.html",
+            "summary": "On 20 November, the U.S. Department of Justice submitted a court filing demanding that Google sell its browser Chrome and be banned from pursuing contracts that make its search engine the default on smartphones and laptops. This comes amid an ongoing effort to break up Google's domineering monopoly on the online search market …"
+        },
+        {
+            "title": "Kernel panics, I panic",
+            "date": "18 October 2024",
+            "link": "blog/2024/kernel-panic.html",
+            "summary": "So here's the situation. I have this 17-inch LG Gram that's been chugging along with me as I get through college. Windows 10 came in the box (this was before Windows 11 became available). By the summer of 2024, I had just finished my post-junior-year internship in cybersecurity, and I was feeling cocky. I decided the likes of Windows (derogatory) were beneath me, and I wanted to switch to Linux …"
+        },
+        {
+            "title": "The most basic guide to using Git CLI",
+            "date": "7 September 2024",
+            "link": "blog/2024/git-cli.html",
+            "summary": "I hate Git documentation. I hate it. I just want to write something on this website and then push the updated files to the repo, and it never works the first time, and the documentation never works, and then I just bang my head on the wall until something works, and then …"
+        },
+        {
+            "title": "Cloning the Bank of America homepage",
+            "date": "10 August 2024",
+            "link": "blog/2024/cloning-boa.html",
+            "summary": "The Bank of America homepage, like any index webpage for a bank or other financial service, is undoubtedly one of the more tempting webpages that threat actors will try to clone. With enough effort, and a gullible enough target, a webpage clone could suffice in extracting user credentials …"
+        }
+    ]
+}
