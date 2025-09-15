@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url("uploads/production.gif");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("uploads/lisbonbackground.gif");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -45,6 +45,7 @@ small {
     color: #fff;
     margin: 0;
     padding: 0;
+    display: inline-block;
 }
 
 .folder {
@@ -58,12 +59,15 @@ small {
 #about-folder {
     top: 100px;
 }
+
 #work-folder {
     top: 200px;
 }
+
 #fun-folder {
     top: 300px;
 }
+
 #blog-folder {
     top: 400px;
 }
@@ -72,7 +76,7 @@ h6.foldername,
 h6.filename {
     font-family: "SF Pro Display";
     font-size: 12px;
-    font-weight: normal;
+    font-weight: bold;
     color: #fff;
     margin: 4px 0 0 0;
     padding: 0;
@@ -207,7 +211,11 @@ h6.foldername {
 
 #credits small {
     color: white;
-    font-size: 9px;
+    font-size: 12px;
+
+    & a:visited {
+        color: white;
+    }
 }
 
 /* sample article styles */
@@ -304,28 +312,35 @@ h2 {
         text-align: center !important;
         margin-top: 100px;
     }
+
     #credits {
         left: 0;
+
         & p {
             text-align: center !important;
         }
     }
+
     #all-display-container {
         background-position: 70%;
         width: 100%;
     }
+
     #folders {
         display: block;
         width: 80px;
         margin: 0 auto;
         padding-right: 20px;
     }
+
     #about-folder {
         top: 200px;
     }
+
     #work-folder {
         top: 325px;
     }
+
     #fun-folder {
         top: 450px;
     }
@@ -336,11 +351,13 @@ h2 {
 
     .folder-contents-table {
         width: 100%;
+
         & td {
             display: block;
             width: 100% !important;
             margin: 20px 0;
         }
+
         & .file-container {
             width: 80px;
             margin: 0 auto;
@@ -351,6 +368,7 @@ h2 {
             width: 80px;
             margin: 0 auto;
         }
+
         & #socials-graphics-file {
             width: 90px;
         }
@@ -377,6 +395,7 @@ h2 {
 .blog-list-item a {
     transition: color 0.3s;
 }
+
 .blog-list-item a:hover {
     color: #aaa;
 }
