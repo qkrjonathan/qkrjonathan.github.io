@@ -1,807 +1,775 @@
 <html>
-    <head>
-        <title>
-            Don't know anything about computers? You should get Linux. -
-            jonathan park
-        </title>
 
-        <meta charset="UTF-8" />
-        <meta name="title" content="Jonathan Park" />
-        <meta name="description" content="$ whoami /all" />
-        <meta name="keywords" content="Jonathan Park" />
-        <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="language" content="English" />
-        <meta name="author" content="Jonathan Park" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <title>
+        Don't know anything about computers? You should get Linux. -
+        jonathan park
+    </title>
 
-        <meta
-            property="og:image"
-            content="https://media1.tenor.com/m/e8iTZyAyou4AAAAd/tux-in-the-ring-linux.gif"
-        />
-        <meta
-            property="og:title"
-            content="Don't know anything about computers? You should get Linux. - jonathan park"
-        />
-        <meta
-            property="og:description"
-            content="Windows 10 support is ending, and Windows 11 is bad. Allow me to make the case for Linux Mint."
-        />
+    <meta charset="UTF-8" />
+    <meta name="title" content="Jonathan Park" />
+    <meta name="description" content="$ whoami /all" />
+    <meta name="keywords" content="Jonathan Park" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="Jonathan Park" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta property="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content="https://media1.tenor.com/m/e8iTZyAyou4AAAAd/tux-in-the-ring-linux.gif" />
+    <meta property="og:title" content="Don't know anything about computers? You should get Linux. - jonathan park" />
+    <meta property="og:description" content="Windows 10 support is ending, and Windows 11 is bad. Allow me to make the case for Linux Mint." />
 
-        <link
-            href="https://fonts.cdnfonts.com/css/sf-pro-display"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../stylesheet.css" />
-        <link rel="stylesheet" href="../blog-stylesheet.css" />
+    <meta property="twitter:card" content="summary_large_image" />
 
-        <!-- font awesome -->
-        <script
-            src="https://kit.fontawesome.com/5177f0fe75.js"
-            crossorigin="anonymous"
-        ></script>
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <link rel="stylesheet" href="../../stylesheet.css" />
+    <link rel="stylesheet" href="../blog-stylesheet.css" />
 
-        <link href="../../themes/prism.css" rel="stylesheet" />
-        <style>
-            h4 {
-                margin-bottom: 5px;
-            }
-            #pttext {
-                display: none;
-            }
-            button {
-                border: none;
-                background: rgba(24, 131, 12, 0.4);
-                font-family: "SF Pro Display";
-                cursor: pointer;
-                padding: 5px 10px;
-                margin: 0;
-                margin-right: 5px;
-                color: white;
-                font-weight: bold;
-            }
-            s {
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/5177f0fe75.js" crossorigin="anonymous"></script>
+
+    <link href="../../themes/prism.css" rel="stylesheet" />
+    <style>
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        #pttext {
+            display: none;
+        }
+
+        button {
+            border: none;
+            background: rgba(24, 131, 12, 0.4);
+            font-family: "SF Pro Display";
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 0;
+            margin-right: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        s {
+            color: #555;
+
+            & li {
                 color: #555;
-                & li {
-                    color: #555;
-                }
             }
-        </style>
-    </head>
-    <body>
-        <div class="all-content-container">
-            <div class="header">
-                <a href="../../"><h1>jonathan park</h1></a>
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all-content-container">
+        <div class="header">
+            <a href="../../">
+                <h1>jonathan park</h1>
+            </a>
+        </div>
+        <div class="blog-list-container">
+            <div class="sidebar">
+                <img src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif" style="width: 30%" />
+                <p>
+                    Graduate cum laude of the University of Southern
+                    California.
+                </p>
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>&nbsp;
+                    California
+                </p>
+                <a href="https://www.linkedin.com/in/jon25/">
+                    <p>
+                        <i class="fa-brands fa-linkedin"></i> &nbsp;<strong>LinkedIn</strong>
+                    </p>
+                </a>
+                <div id="table-of-contents-copy"></div>
+                <!-- copyTableofContents(): copy table of contents into the sidebar -->
+                <script>
+                    // Function to copy table of contents
+                    function copyTableOfContents() {
+                        // Find the source div with class 'table-of-contents'
+                        const sourceDiv =
+                            document.querySelector(".table-of-contents");
+
+                        // Find the target div with id 'table-of-contents-copy'
+                        const targetDiv = document.getElementById(
+                            "table-of-contents-copy",
+                        );
+
+                        // Check if both elements exist
+                        if (!sourceDiv) {
+                            console.error(
+                                'Source div with class "table-of-contents" not found',
+                            );
+                            return;
+                        }
+
+                        if (!targetDiv) {
+                            console.error(
+                                'Target div with id "table-of-contents-copy" not found',
+                            );
+                            return;
+                        }
+
+                        // Copy the innerHTML from source to target
+                        targetDiv.innerHTML = sourceDiv.innerHTML;
+
+                        console.log(
+                            "Table of contents copied successfully",
+                        );
+                    }
+
+                    // Option 1: Run immediately when script loads (if DOM is ready)
+                    if (document.readyState === "loading") {
+                        document.addEventListener(
+                            "DOMContentLoaded",
+                            copyTableOfContents,
+                        );
+                    } else {
+                        copyTableOfContents();
+                    }
+                </script>
             </div>
-            <div class="blog-list-container">
-                <div class="sidebar">
-                    <img
-                        src="https://media1.tenor.com/m/j8XyZWDIn-8AAAAC/penguin-walking.gif"
-                        style="width: 30%"
-                    />
-                    <p>
-                        Graduate cum laude of the University of Southern
-                        California.
-                    </p>
-                    <p>
-                        <i class="fa-solid fa-location-dot"></i>&nbsp;
-                        California
-                    </p>
-                    <a href="https://www.linkedin.com/in/jon25/"
-                        ><p>
-                            <i class="fa-brands fa-linkedin"></i> &nbsp;<strong
-                                >LinkedIn</strong
-                            >
-                        </p></a
-                    >
-                    <div id="table-of-contents-copy"></div>
-                    <!-- copyTableofContents(): copy table of contents into the sidebar -->
-                    <script>
-                        // Function to copy table of contents
-                        function copyTableOfContents() {
-                            // Find the source div with class 'table-of-contents'
-                            const sourceDiv =
-                                document.querySelector(".table-of-contents");
+            <div class="blog-content">
+                <a href="../../blog.html" style="text-decoration: underline">
+                    <h6>&lt;&lt; Back</h6>
+                </a>
+                <h2 id="top">
+                    Don't know anything about computers? You should get
+                    Linux.
+                </h2>
+                <h6>2 August 2025</h6>
 
-                            // Find the target div with id 'table-of-contents-copy'
-                            const targetDiv = document.getElementById(
-                                "table-of-contents-copy",
-                            );
+                <br /><br />
 
-                            // Check if both elements exist
-                            if (!sourceDiv) {
-                                console.error(
-                                    'Source div with class "table-of-contents" not found',
-                                );
-                                return;
-                            }
+                <button id="en-button">EN</button>
+                <button id="pt-button">PT</button>
 
-                            if (!targetDiv) {
-                                console.error(
-                                    'Target div with id "table-of-contents-copy" not found',
-                                );
-                                return;
-                            }
-
-                            // Copy the innerHTML from source to target
-                            targetDiv.innerHTML = sourceDiv.innerHTML;
-
-                            console.log(
-                                "Table of contents copied successfully",
-                            );
-                        }
-
-                        // Option 1: Run immediately when script loads (if DOM is ready)
-                        if (document.readyState === "loading") {
-                            document.addEventListener(
-                                "DOMContentLoaded",
-                                copyTableOfContents,
-                            );
-                        } else {
-                            copyTableOfContents();
-                        }
-                    </script>
-                </div>
-                <div class="blog-content">
-                    <a href="../../blog.html" style="text-decoration: underline"
-                        ><h6>&lt;&lt; Back</h6></a
-                    >
-                    <h2 id="top">
-                        Don't know anything about computers? You should get
-                        Linux.
-                    </h2>
-                    <h6>2 August 2025</h6>
-
-                    <br /><br />
-
-                    <button id="en-button">EN</button>
-                    <button id="pt-button">PT</button>
-
-                    <!-- english text -->
-                    <div id="entext">
-                        <div class="table-of-contents">
-                            <p><strong>Contents</strong></p>
-                            <p><a href="#intro">Introduction</a></p>
-                            <p><a href="#should">Why you should get it</a></p>
-                            <p>
-                                <a href="#shouldnt">Why you shouldn't get it</a>
-                            </p>
-                            <p><a href="#further">Further considerations</a></p>
-                            <p>
-                                <a href="#reqs">Minimum system requirements</a>
-                            </p>
-                            <p><a href="#need">You will need:</a></p>
-                            <p><a href="#install">Ready?</a></p>
-
-                            <br />
-
-                            <p>
-                                <strong>Inspiration/further reading(?)</strong>
-                            </p>
-                            <p>
-                                <a href="https://youtu.be/me7tCDPAlw4"
-                                    >DankPods (YouTube): It's time for change,
-                                    it's time for Linux.
-                                </a>
-                            </p>
-                            <p>
-                                <a href="https://youtu.be/pVI_smLgTY0"
-                                    >PewDiePie (YouTube): I installed Linux (so
-                                    should you)</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="https://www.youtube.com/watch?v=dfUaaUEPIN0"
-                                    >Bread on Penguins (YouTube): Why I started
-                                    using Linux</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="https://www.youtube.com/watch?v=j-Ha0vl-0ME"
-                                    >Bread on Penguins (YouTube): How to
-                                    (actually) learn Linux</a
-                                >
-                            </p>
-
-                        </div>
-                        <!-- #introduction -->
-                        <h4 id="intro">Introduction</h4>
-                        <h6><a href="#top">Back to top</a></h6>
-
+                <!-- english text -->
+                <div id="entext">
+                    <div class="table-of-contents">
+                        <p><strong>Contents</strong></p>
+                        <p><a href="#intro">Introduction</a></p>
+                        <p><a href="#should">Why you should get it</a></p>
                         <p>
-                            Official support for Windows 10 is
-                            <a
-                                href="https://support.microsoft.com/en-us/windows/windows-10-support-ends-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281"
-                                >ending on 14 October 2025</a
-                            >. Obviously this doesn't mean your existing Windows
-                            10 computer just magically explodes or crashes on
-                            that date Y2K-style; but simply put, Windows will
-                            simply stop caring about that version. No more
-                            security updates, no more technical support. You're
-                            on your own.
+                            <a href="#shouldnt">Why you shouldn't get it</a>
                         </p>
-
-                        <br />
-
-                        <img
-                            src="https://media1.tenor.com/m/fVuajb22F9QAAAAC/up-is-not-jump-computer.gif"
-                            width="40%"
-                            style="margin: 0 auto"
-                        />
+                        <p><a href="#further">Further considerations</a></p>
+                        <p>
+                            <a href="#reqs">Minimum system requirements</a>
+                        </p>
+                        <p><a href="#need">You will need:</a></p>
+                        <p><a href="#install">Ready?</a></p>
 
                         <br />
 
                         <p>
-                            Which leaves you seemingly with a couple options,
-                            which all sound horrible.
+                            <strong>Inspiration/further reading(?)</strong>
                         </p>
-
                         <p>
-                            The first is
-                            <strong>switching to Windows 11</strong>. The fact
-                            that some machines running Windows 10 can't even
-                            meet the hardware requirements for the new version
-                            says more than enough. Thankfully(?) my laptop was
-                            not one of those machines. When I eventually reneged
-                            to the endless barrage of "reminders" to update to
-                            Windows 11, however, my Bluetooth headphones refused
-                            to connect, and my already dying trackpad (which is
-                            my fault, I admit) gladly took the opportunity to
-                            simply cease to function.
+                            <a href="https://youtu.be/me7tCDPAlw4">DankPods (YouTube): It's time for change,
+                                it's time for Linux.
+                            </a>
                         </p>
-
                         <p>
-                            The other is ...
-                            <strong><em>throwing your laptop away?</em></strong>
-                            Or as Microsoft sugarcoats it, "to leverage trade-in
-                            and recycling programs." Recycling is fine and all,
-                            but it doesn't change the fact that if my computer
-                            were to not meet the requirements, or I simply did
-                            not like Windows 11, then my own computer, that is
-                            currently in my possession, and that I bought with
-                            my own money, and that clearly still works????
-                            basically becomes waste.
+                            <a href="https://youtu.be/pVI_smLgTY0">PewDiePie (YouTube): I installed Linux (so
+                                should you)</a>
                         </p>
-
                         <p>
-                            But there has always been a
-                            <em>secret third option</em>. Well, not so secret,
-                            because so many people already use it; and even more
-                            people are probably using it ever since
-                            <a
-                                href="https://www.youtube.com/watch?v=pVI_smLgTY0"
-                                >PewDiePie made his YouTube video</a
-                            >
-                            about it, which has amassed over 6.4 million views
-                            at the time of this post.
+                            <a href="https://www.youtube.com/watch?v=dfUaaUEPIN0">Bread on Penguins (YouTube): Why I started
+                                using Linux</a>
                         </p>
-
-                        <iframe
-                            width="100%"
-                            height="315"
-                            src="https://www.youtube.com/embed/pVI_smLgTY0?si=ui8oOZ419yVlZe-G"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen
-                        ></iframe>
-
                         <p>
-                            But yes. It's <strong>switching to Linux</strong>.
+                            <a href="https://www.youtube.com/watch?v=j-Ha0vl-0ME">Bread on Penguins (YouTube): How to
+                                (actually) learn Linux</a>
                         </p>
 
-                        <p>
-                            Linux has somewhat of a reputation, partially for
-                            being a niche thing that only nerds use, and
-                            partially for being the thing that annoying people
-                            use. (These are not mutually exclusive.)
-                        </p>
-
-                        <p>
-                            Whether I myself, having run some distribution of
-                            Linux as my daily driver for almost a year now, have
-                            become one of those said annoying people is a
-                            question I will decidedly ignore. In any case, the
-                            former is definitively untrue. Android runs on
-                            Linux. So does Instagram, Facebook, Twitter,
-                            YouTube, the New York Stock Exchange.
-                        </p>
-
-                        <p>And so should you. Potentially. Perchance.</p>
-
-                        <p>
-                            Maybe you feel a bit intimidated by the fact that
-                            you're running, to some extent, the same operating
-                            system as the Pentagon. (Which is probably not
-                            true.) But for you, perhaps a more casual user,
-                            Linux could look as simple as this:
-                        </p>
-
-                        <img
-                            src="https://www.linuxmint.com/pictures/screenshots/una/cinnamon.png"
-                            width="100%"
-                        />
-                        <h6 style="color: grey"><br />Courtesy Linux Mint</h6>
-
-                        <p>Clean, sleek, and kind of looks like Windows?</p>
-
-                        <p>
-                            Exactly. This is <strong>Linux Mint</strong>. Here's
-                            why you should get it.
-                        </p>
-
-                        <h4 id="should">Why you should get it</h4>
-
-                        <ul>
-                            <li>
-                                <p>
-                                    <strong>Basically zero setup.</strong> You
-                                    <a
-                                        href="https://linuxmint-installation-guide.readthedocs.io/en/latest/"
-                                        >follow the instructions on a website</a
-                                    >, no code, no nothing. You do need a USB
-                                    stick.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>It's free.</strong> And there's no
-                                    catch. Unlike with some companies.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>It's open-source</strong>, which is
-                                    no guarantee of anything, but it does mean
-                                    if the developer tried to do something weird
-                                    with it someone could actually notice.
-                                    Unlike with some companies.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>There's much less bloatware</strong
-                                    >, meaning even older machines can run
-                                    faster (and Mint is one of the more bloated
-                                    distros).
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>No annoying notifications</strong>,
-                                    e.g. about Xbox Game Pass which no one gives
-                                    a fuck about,
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong
-                                        >Basically most of the apps you need for
-                                        work/life just work</strong
-                                    >, out of the box (Slack, Discord, browsers,
-                                    VPNs, text editors),
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong
-                                        >You can try it as long as you
-                                        want before you actually commit to it.</strong
-                                    >
-                                     Linux Mint can boot from a USB stick, and it will stay within that USB stick until you explicitly agree to have it take over your laptop (or dual-boot with Windows, see under "Further considerations.")
-                                </p>
-                            </li>
-                        </ul>
-
-                        <h4 id="shouldnt">Why you shouldn't get it</h4>
-
-                        <ul>
-                            <li>
-                                <p>
-                                    <strong
-                                        >You're forced to rely on Microsoft
-                                        tools,</strong
-                                    >
-                                    e.g. for work (Outlook, Teams, Edge 👎
-                                    (why)). This is assuming you don't have a
-                                    separate work laptop that you could rely on
-                                    for such software.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong
-                                        >You play any games that have no
-                                        anti-cheat support for Linux</strong
-                                    >, current or planned. That includes
-                                    Valorant, Apex, Battlefield 2042, Fortnite
-                                    ...
-                                    <a href="https://areweanticheatyet.com/"
-                                        >You can see the full list here.</a
-                                    >
-                                    If you consider yourself a hardcore PC gamer
-                                    then Linux can feel pretty restricted. <strong><em>But,</em></strong> the good news is there already exists a software called <a href="https://www.protondb.com/">Proton</a> that makes (many but not all) Windows games run on Linux. Basically you can assume that if it's <a href="https://www.steamdeck.com/en/verified">Steam Deck Verified</a>, it runs on Linux.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong
-                                        >You rely on ANY Adobe creative
-                                        software</strong
-                                    >
-                                    (Photoshop, Premiere, Illustrator, etc.) ...
-                                    but considering just how predatory Adobe's
-                                    services have been becoming, maybe this
-                                    could be your opportunity to escape its
-                                    ecosystem entirely? For example, here's a
-                                    <a
-                                        href="https://youtu.be/PEFqdqRr18E?si=2us1qZ3JcWH4bpZd"
-                                        >YouTube video on making videos entirely
-                                        in Linux</a
-                                    >.
-                                </p>
-
-                                <iframe
-                                    width="100%"
-                                    height="315"
-                                    src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k"
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen
-                                ></iframe>
-                            </li>
-                        </ul>
-
-                        <h4 id="further">Further considerations</h4>
-
-                        <ul>
-                            <li>
-                                <p>
-                                    If you're a coding person you will need to
-                                    build back up all those environments again.
-                                    (IDEs, cloned repos from GitHub, Git CLI
-                                    config) (get ready to read forum posts
-                                    buddy) (but also if you're a coding person
-                                    you'd perhaps be more predisposed to
-                                    switching to Linux as your daily driver
-                                    anyway) (think about it)
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    Installing apps takes place not through
-                                    those installation wizards like in Windows
-                                    but through packages that you can either get
-                                    in the app-store-like Software Manager, or
-                                    in the command line via
-                                    <code>sudo apt-get install [name]</code>
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    There is no Microsoft Office (as implied
-                                    earlier), and the equivalent open-source
-                                    LibreOffice suit is installed by default. I
-                                    will admit, they are a bit chaotic and
-                                    annoying compared to the Microsoft apps, but
-                                    they're still usable, which is ultimately
-                                    all that matters. Nothing is stopping you
-                                    from using Google Docs etc. although there
-                                    are
-                                    <a href="../2024/google-monopoly.html"
-                                        >separate reasons for avoiding those</a
-                                    >.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    If you take online-proctored tests e.g. via
-                                    Pearson VUE for any reason (such as getting
-                                    certifications for your career), those tend
-                                    to only work on Windows. And virtual
-                                    machines don't do the trick (anymore)
-                                    either. Source: I had to deal with this
-                                    after I'd already switched to Linux prior to
-                                    taking
-                                    <a href="splunk.html"
-                                        >my Splunk Core Certified User exam</a
-                                    >.
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    If, unfortunately but realistically, you
-                                    still absolutely need Windows in your life
-                                    (Adobe, MS Office and online exams are among
-                                    the strongest reasons in my own personal
-                                    life, at least),
-                                    <strong>you have options!!!</strong>
-                                    <ul>
-                                        <li>
-                                            <p>The easiest (and free): You can always <strong>dual-boot</strong> Linux Mint and Windows on the same machine. (Yes, your computer can have more than one operating system on the same hard drive.) <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/multiboot.html">More information here if you're curious</a>.</p>
-                                            <p>
-                                                But important note: <strong><em>WINDOWS MUST BE INSTALLED FIRST!!!!!</em></strong>, i.e. do not try to re-install Windows after you've already wiped your entire drive for Linux Mint. I have <a href="../2024/kernel-panic.html">an entire blog post on why this was an absolute nightmare</a>.
-                                            </p>
-                                        </li>
-                                        <li><p>Less ideal would be to have an entirely separate laptop that's exclusively Windows, and your current one exclusively Linux. Hardware-wise it's the most "clean," if that's important for your brain (no fiddling with drives); but there are only a handful of scenarios where this is realistic, e.g. if you're in a family that has more than one computer to spare around the house.</p></li>
-                                    </ul>
-                                </p>
-                            </li>
-                        </ul>
-
-                        <h4 id="reqs">Minimum system requirements</h4>
-                        <p>
-                            <em
-                                >This is taken directly from the Linux Mint
-                                installation guide. (It is pretty safe to assume
-                                a laptop or PC meets these requirements.)</em
-                            >
-                        </p>
-                        <ul>
-                            <li>
-                                <p>
-                                    <strong>2GB RAM</strong> (4GB recommended
-                                    for a comfortable usage).
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>20GB of disk space</strong> (100GB
-                                    recommended).
-                                </p>
-                            </li>
-                            <li>
-                                <p>
-                                    <strong>1024×768 resolution</strong> (on
-                                    lower resolutions, press ALT to drag windows
-                                    with the mouse if they don’t fit in the
-                                    screen).
-                                </p>
-                            </li>
-                        </ul>
-
-                        <p><em>For comparison, you can expect a fairly decent laptop from Walmart to come with 8-32GB RAM, 256+ GB storage, and 1920x1080 (1080p HD) resolution.</em></p>
-
-                        <h4 id="need">You will need:</h4>
-
-                        <ul>
-                            <li><p>A backup of your files</p></li>
-                            <li>
-                                <p>
-                                    USB stick exclusively for burning the Mint
-                                    disk (16GB is fine)
-                                </p>
-                            </li>
-                            <li><p>A backup of your files</p></li>
-                            <li><p>A backup of your files</p></li>
-                            <li>
-                                <p style="font-size: 12px">
-                                    Did I mention a backup of your
-                                </p>
-                            </li>
-                        </ul>
-
-                        <h4 id="install">Ready?</h4>
-
-                        <p>
-                            <a
-                                href="https://linuxmint-installation-guide.readthedocs.io/en/latest/"
-                                >https://linuxmint-installation-guide.readthedocs.io/en/latest/</a
-                            >
-                        </p>
-
-                        <img src="https://media1.tenor.com/m/e8iTZyAyou4AAAAd/tux-in-the-ring-linux.gif">
                     </div>
+                    <!-- #introduction -->
+                    <h4 id="intro">Introduction</h4>
+                    <h6><a href="#top">Back to top</a></h6>
 
-                    <!-- portuguese text -->
-                    <div id="pttext">
-                        <p
-                            style="
+                    <p>
+                        Official support for Windows 10 is
+                        <a href="https://support.microsoft.com/en-us/windows/windows-10-support-ends-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281">ending on 14 October 2025</a>. Obviously this doesn't mean your existing Windows
+                        10 computer just magically explodes or crashes on
+                        that date Y2K-style; but simply put, Windows will
+                        simply stop caring about that version. No more
+                        security updates, no more technical support. You're
+                        on your own.
+                    </p>
+
+                    <br />
+
+                    <img src="https://media1.tenor.com/m/fVuajb22F9QAAAAC/up-is-not-jump-computer.gif" width="40%" style="margin: 0 auto" />
+
+                    <br />
+
+                    <p>
+                        Which leaves you seemingly with a couple options,
+                        which all sound horrible.
+                    </p>
+
+                    <p>
+                        The first is
+                        <strong>switching to Windows 11</strong>. The fact
+                        that some machines running Windows 10 can't even
+                        meet the hardware requirements for the new version
+                        says more than enough. Thankfully(?) my laptop was
+                        not one of those machines. When I eventually reneged
+                        to the endless barrage of "reminders" to update to
+                        Windows 11, however, my Bluetooth headphones refused
+                        to connect, and my already dying trackpad (which is
+                        my fault, I admit) gladly took the opportunity to
+                        simply cease to function.
+                    </p>
+
+                    <p>
+                        The other is ...
+                        <strong><em>throwing your laptop away?</em></strong>
+                        Or as Microsoft sugarcoats it, "to leverage trade-in
+                        and recycling programs." Recycling is fine and all,
+                        but it doesn't change the fact that if my computer
+                        were to not meet the requirements, or I simply did
+                        not like Windows 11, then my own computer, that is
+                        currently in my possession, and that I bought with
+                        my own money, and that clearly still works????
+                        basically becomes waste.
+                    </p>
+
+                    <p>
+                        But there has always been a
+                        <em>secret third option</em>. Well, not so secret,
+                        because so many people already use it; and even more
+                        people are probably using it ever since
+                        <a href="https://www.youtube.com/watch?v=pVI_smLgTY0">PewDiePie made his YouTube video</a>
+                        about it, which has amassed over 6.4 million views
+                        at the time of this post.
+                    </p>
+
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/pVI_smLgTY0?si=ui8oOZ419yVlZe-G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    <p>
+                        But yes. It's <strong>switching to Linux</strong>.
+                    </p>
+
+                    <p>
+                        Linux has somewhat of a reputation, partially for
+                        being a niche thing that only nerds use, and
+                        partially for being the thing that annoying people
+                        use. (These are not mutually exclusive.)
+                    </p>
+
+                    <p>
+                        Whether I myself, having run some distribution of
+                        Linux as my daily driver for almost a year now, have
+                        become one of those said annoying people is a
+                        question I will decidedly ignore. In any case, the
+                        former is definitively untrue. Android runs on
+                        Linux. So does Instagram, Facebook, Twitter,
+                        YouTube, the New York Stock Exchange.
+                    </p>
+
+                    <p>And so should you. Potentially. Perchance.</p>
+
+                    <p>
+                        Maybe you feel a bit intimidated by the fact that
+                        you're running, to some extent, the same operating
+                        system as the Pentagon. (Which is probably not
+                        true.) But for you, perhaps a more casual user,
+                        Linux could look as simple as this:
+                    </p>
+
+                    <img src="https://www.linuxmint.com/pictures/screenshots/una/cinnamon.png" width="100%" />
+                    <h6 style="color: grey"><br />Courtesy Linux Mint</h6>
+
+                    <p>Clean, sleek, and kind of looks like Windows?</p>
+
+                    <p>
+                        Exactly. This is <strong>Linux Mint</strong>. Here's
+                        why you should get it.
+                    </p>
+
+                    <h4 id="should">Why you should get it</h4>
+
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>Basically zero setup.</strong> You
+                                <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/">follow the instructions on a website</a>, no code, no nothing. You do need a USB
+                                stick.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>It's free.</strong> And there's no
+                                catch. Unlike with some companies.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>It's open-source</strong>, which is
+                                no guarantee of anything, but it does mean
+                                if the developer tried to do something weird
+                                with it someone could actually notice.
+                                Unlike with some companies.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>There's much less bloatware</strong>, meaning even older machines can run
+                                faster (and Mint is one of the more bloated
+                                distros).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>No annoying notifications</strong>,
+                                e.g. about Xbox Game Pass which no one gives
+                                a fuck about,
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Basically most of the apps you need for
+                                    work/life just work</strong>, out of the box (Slack, Discord, browsers,
+                                VPNs, text editors),
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>You can try it as long as you
+                                    want before you actually commit to it.</strong>
+                                Linux Mint can boot from a USB stick, and it will stay within that USB stick until you explicitly agree to have it take over your laptop (or dual-boot with Windows, see under "Further considerations.")
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 id="shouldnt">Why you shouldn't get it</h4>
+
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>You're forced to rely on Microsoft
+                                    tools,</strong>
+                                e.g. for work (Outlook, Teams, Edge 👎
+                                (why)). This is assuming you don't have a
+                                separate work laptop that you could rely on
+                                for such software.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>You play any games that have no
+                                    anti-cheat support for Linux</strong>, current or planned. That includes
+                                Valorant, Apex, Battlefield 2042, Fortnite
+                                ...
+                                <a href="https://areweanticheatyet.com/">You can see the full list here.</a>
+                                If you consider yourself a hardcore PC gamer
+                                then Linux can feel pretty restricted. <strong><em>But,</em></strong> the good news is there already exists a software called <a href="https://www.protondb.com/">Proton</a> that makes (many but not all) Windows games run on Linux. Basically you can assume that if it's <a href="https://www.steamdeck.com/en/verified">Steam Deck Verified</a>, it runs on Linux.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>You rely on ANY Adobe creative
+                                    software</strong>
+                                (Photoshop, Premiere, Illustrator, etc.) ...
+                                but considering just how predatory Adobe's
+                                services have been becoming, maybe this
+                                could be your opportunity to escape its
+                                ecosystem entirely? For example, here's a
+                                <a href="https://youtu.be/PEFqdqRr18E?si=2us1qZ3JcWH4bpZd">YouTube video on making videos entirely
+                                    in Linux</a>.
+                            </p>
+
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </li>
+                    </ul>
+
+                    <h4 id="further">Further considerations</h4>
+
+                    <ul>
+                        <li>
+                            <p>
+                                If you're a coding person you will need to
+                                build back up all those environments again.
+                                (IDEs, cloned repos from GitHub, Git CLI
+                                config) (get ready to read forum posts
+                                buddy) (but also if you're a coding person
+                                you'd perhaps be more predisposed to
+                                switching to Linux as your daily driver
+                                anyway) (think about it)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Installing apps takes place not through
+                                those installation wizards like in Windows
+                                but through packages that you can either get
+                                in the app-store-like Software Manager, or
+                                in the command line via
+                                <code>sudo apt-get install [name]</code>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                There is no Microsoft Office (as implied
+                                earlier), and the equivalent open-source
+                                LibreOffice suit is installed by default. I
+                                will admit, they are a bit chaotic and
+                                annoying compared to the Microsoft apps, but
+                                they're still usable, which is ultimately
+                                all that matters. Nothing is stopping you
+                                from using Google Docs etc. although there
+                                are
+                                <a href="../2024/google-monopoly.html">separate reasons for avoiding those</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                If you take online-proctored tests e.g. via
+                                Pearson VUE for any reason (such as getting
+                                certifications for your career), those tend
+                                to only work on Windows. And virtual
+                                machines don't do the trick (anymore)
+                                either. Source: I had to deal with this
+                                after I'd already switched to Linux prior to
+                                taking
+                                <a href="splunk.html">my Splunk Core Certified User exam</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                If, unfortunately but realistically, you
+                                still absolutely need Windows in your life
+                                (Adobe, MS Office and online exams are among
+                                the strongest reasons in my own personal
+                                life, at least),
+                                <strong>you have options!!!</strong>
+                                <ul>
+                                    <li>
+                                        <p>The easiest (and free): You can always <strong>dual-boot</strong> Linux Mint and Windows on the same machine. (Yes, your computer can have more than one operating system on the same hard drive.) <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/multiboot.html">More information here if you're curious</a>.</p>
+                                        <p>
+                                            But important note: <strong><em>WINDOWS MUST BE INSTALLED FIRST!!!!!</em></strong>, i.e. do not try to re-install Windows after you've already wiped your entire drive for Linux Mint. I have <a href="../2024/kernel-panic.html">an entire blog post on why this was an absolute nightmare</a>.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>Less ideal would be to have an entirely separate laptop that's exclusively Windows, and your current one exclusively Linux. Hardware-wise it's the most "clean," if that's important for your brain (no fiddling with drives); but there are only a handful of scenarios where this is realistic, e.g. if you're in a family that has more than one computer to spare around the house.</p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 id="reqs">Minimum system requirements</h4>
+                    <p>
+                        <em>This is taken directly from the Linux Mint
+                            installation guide. (It is pretty safe to assume
+                            a laptop or PC meets these requirements.)</em>
+                    </p>
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>2GB RAM</strong> (4GB recommended
+                                for a comfortable usage).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>20GB of disk space</strong> (100GB
+                                recommended).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>1024×768 resolution</strong> (on
+                                lower resolutions, press ALT to drag windows
+                                with the mouse if they don’t fit in the
+                                screen).
+                            </p>
+                        </li>
+                    </ul>
+
+                    <p><em>For comparison, you can expect a fairly decent laptop from Walmart to come with 8-32GB RAM, 256+ GB storage, and 1920x1080 (1080p HD) resolution.</em></p>
+
+                    <h4 id="need">You will need:</h4>
+
+                    <ul>
+                        <li>
+                            <p>A backup of your files</p>
+                        </li>
+                        <li>
+                            <p>
+                                USB stick exclusively for burning the Mint
+                                disk (16GB is fine)
+                            </p>
+                        </li>
+                        <li>
+                            <p>A backup of your files</p>
+                        </li>
+                        <li>
+                            <p>A backup of your files</p>
+                        </li>
+                        <li>
+                            <p style="font-size: 12px">
+                                Did I mention a backup of your
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 id="install">Ready?</h4>
+
+                    <p>
+                        <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/">https://linuxmint-installation-guide.readthedocs.io/en/latest/</a>
+                    </p>
+
+                    <img src="https://media1.tenor.com/m/e8iTZyAyou4AAAAd/tux-in-the-ring-linux.gif">
+                </div>
+
+                <!-- portuguese text -->
+                <div id="pttext">
+                    <p style="
                                 color: white;
                                 background: #900;
                                 padding: 2px 4px;
                                 font-weight: bold;
                                 display: inline-block;
-                            "
-                        >
-                            Desculpa, esta página ainda está em construção.
+                            ">
+                        Desculpa, esta página ainda está em construção.
+                    </p>
+                    <div class="table-of-contents">
+
+
+                        <p><strong>Sumário</strong></p>
+                        <p><a href="#intro-pt">Introdução</a></p>
+                        <p><a href="#should-pt">Por que você deve adquiri-lo</a></p>
+                        <p>
+                            <a href="#shouldnt-pt">Por que você NÂO deve adquiri-lo</a>
                         </p>
-                        <div class="table-of-contents">
+                        <p><a href="further-pt">Outras considerações</a></p>
+                        <p>
+                            <a href="#reqs-pt">Requisitos mínimos do sistema</a>
+                        </p>
+                        <p><a href="#need-pt">Você precisará de:</a></p>
+                        <p><a href="#install-pt">Pronto?</a></p>
 
+                        <br>
 
-                            <p><strong>Sumário</strong></p>
-                            <p><a href="#intro-pt">Introdução</a></p>
-                            <p><a href="#should-pt">Por que você deve adquiri-lo</a></p>
-                            <p>
-                                <a href="#shouldnt-pt">Por que você NÂO deve adquiri-lo</a>
-                            </p>
-                            <p><a href="further-pt">Outras considerações</a></p>
-                            <p>
-                                <a href="#reqs-pt">Requisitos mínimos do sistema</a>
-                            </p>
-                            <p><a href="#need-pt">Você precisará de:</a></p>
-                            <p><a href="#install-pt">Pronto?</a></p>
-
-                            <br>
-
-                            <p>
-                                <strong
-                                    >Inspiração/leituras(?) adicionais</strong
-                                >
-                            </p>
-                            <p>
-                                <a href="https://youtu.be/me7tCDPAlw4"
-                                    >DankPods (YouTube): It's time for change,
-                                    it's time for Linux.</a
-                                >
-                            </p>
-                            <p>
-                                <a href="https://youtu.be/pVI_smLgTY0"
-                                    >PewDiePie (YouTube): I installed Linux (so
-                                    should you)</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="https://www.youtube.com/watch?v=dfUaaUEPIN0"
-                                    >Bread on Penguins (YouTube): Why I started
-                                    using Linux</a
-                                >
-                            </p>
-                            <p>
-                                <a
-                                    href="https://www.youtube.com/watch?v=j-Ha0vl-0ME"
-                                    >Bread on Penguins (YouTube): How to
-                                    (actually) learn Linux</a
-                                >
-                            </p>
-                        </div>
-
-                        <!-- #intro-pt -->
-                        <h4 id="intro-pt">Introdução</h4>
-                        <p><a href="#top">Voltar acima</a></p>
-                        
-                        <p>O apoio oficial do Windows 10 vai acabar no dia 14 de outubre 2025. Claro que isto não significa que o seu notebook existente com Windows 10 magicamente explode ou falha nessa data exata, mas, falando simplesmente, o Microsoft simplesmente vai deixar de se importar dessa versão. Nem mais atualizações de segurança, nem mais apoio tecnical. Você será sozinho.</p>
-
-                        <br />
-
-                        <img
-                            src="https://media1.tenor.com/m/fVuajb22F9QAAAAC/up-is-not-jump-computer.gif"
-                            width="40%"
-                            style="margin: 0 auto"
-                        />
-
-                        <br />
-
-                        <p>Depois disso, você tem agora duas opções, das quais ambos parecem horriveis.</p>
-
-                        <p>A primeira é <strong>mudar para o Windows 11</strong>. O fato de que algumas máquinas que agora mesmo estão usando Windows 10 nem podem satisfazer os requisitos de hardware para a nova versão diz mais do que o suficiente. Felizmente(?) meu notebook não foi uma dessas máquinas. Quando finalmente cedi ao monte das "lembretes" para atualizar ao Windows 11, embora, meus fones Bluetooth refusou a conectar-se, e meu trackpad que já estava morrendo (que é a culpa minha &mdash; isso eu admito) aproveitou com prazer a oportunidade para simplesmente deixar de funcionar.</p>
-
-                        <p>A outra é ... <strong><em>jogar fora seu notebook inteiro??</em></strong> Ou, como o Microsoft expressa mais suavemente, "aproveitar programas de troca ou reciclagem." É bom reciclar, claro, mas isso não muda o fato de que se meu computador não satisfazesse os requisitos, ous e eu simplesmente não gostasse do Windows 11, então meu próprio computador, que atualmente está na minha posse, e que comprei com meu próprio dinheiro, e que claramente ainda funciona???? básicamente fica lixo.</p>
-
-                        <p>Mas sempre tem sido uma terçeira opçao secreta. Bem, não tão secreta, porque tanta gente já o usa; e ainda mais pessoas provavelmente estão o usando após <a href="https://www.youtube.com/watch?v=pVI_smLgTY0">o PewDiePie fez seu vídeo sobre ele</a>, que acumulou mais de 6.4 milhões visualizações na época deste post.</p>
-
-                        <iframe
-                            width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/pVI_smLgTY0?si=ui8oOZ419yVlZe-G"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen
-                        ></iframe>
-
-                        <p>Mas sim. É <strong>mudar para o Linux</strong>.</p>
-
-                        <p>Olha, já sei que o Linux tem uma reputaçãozinha, em parte para ser uma coisa de nicho que só os nerds usam, e em parte para ser a coisa que as pessoas irritantes usam. (Essas não são mutuamente exclusivas.)</p>
-
-                        <p>A questão de se eu mesmo, tendo usado alguma distribuição do Linux como meu <em>daily driver</em> há quase um ano, já me tornei uma dessas pessoas irritantes, é uma que claramente vou ignorar. De qualquer forma, a primeira é definitivamente errada. O Android funciona em Linux. O mesmo com o Instagram, o Facebook, o Twitter, o YouTube, a Bolsa de Valores de Nova Iorque.</p>
-
-                        <p>E será o mesmo com você? Eu acho que deve, sim.</p>
-
-                        <p>Talvez você tenha um pouco de medo pelo fato de que você executaria, até um ponto, o sistema de operação igual como o Pentágono. (Isso provavelmente não é a verdade.) Mas para você, o Linux poderia parecer tão simples como isso:</p>
-
-                        <img
-                            src="https://www.linuxmint.com/pictures/screenshots/una/cinnamon.png"
-                            width="100%"
-                        />
-                        <h6 style="color: grey"><br />Foto do Linux Mint</h6>
-
-                        <p>Limpo, elegante, e parece um pouco como o Windows?</p>
-
-                        <p>É isso. Este é o <strong>Linux Mint</strong>. Aquí está porque você deve adquiri-lo.</p>
-
-                        <h4 id="should-pt">Porque você deve adquiri-lo</h4>
-
-                        <ul>
-                            <li><p><strong>Basicamente nenhuma configuração.</strong> É só seguir <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/">as instruções num sítio do web</a>, sem qualquer código, sem nada. Mas o que voce precisa é um pendrive.</p></li>
-                            <li><p><strong>É grátis.</strong> E não há nenhuma condição. Ao contrário de algumas empresas.</p></li>
-                            <li><p><strong>É de código aberto</strong>, que, claro, não garante nada, mas significa que se o desenvolvidor tentasse fazer algo estranho com ele, alguem realmente poderia perceber. Ao contrário de algumas empresas.</p></li>
-                            <li><p><strong>Sem notificações irritantes</strong>, por exemplo sobre a porra do Xbox Game Pass de que ninguém se importa.</p></li>
-                            <li><p><strong>Pode experimentar por qualquer tempo que você quer antes de dedicar-se a ele.</strong></p> O Linux Mint pode executar-se desde um pendrive, e ficará assim até você explicitamente concorda a ele assumir o controle do seu notebook (ou <em>dual-boot</em> com o Windows, veja sob "Outras considerações").</li>
-                        </ul>
-
-                        <h4 id="shouldnt-pt">Porque você NÂO deve adquiri-lo</h4>
-
-                        <ul>
-                            <li><p><strong>Você é obrigado a depender de ferramentas do Microsoft,</strong> e.g. para trabalho (Outlook, Teams, Edge 👎). Isso é assumindo que você não tem um outro notebook para trabalho de que pode depender para software assim.</p></li>
-                            <li><p><strong>Você joga qualquer jogo que não tem apoio <em>anti-cheat</em> para Linux</strong>, atual ou planeado. Isso inclui Valorant, Apex, Battlefield 2042, Fortnite ... <a href="https://areweanticheatyet.com/">Pode ver a lista inteira aqui</a>. Se vpcê considera-se um <em>hardcore PC gamer</em>, então Linux pode parecer bem restrito. <em><strong>Mas</strong></em>, as boas noticias são que já existe um software chamado <a href="https://www.protondb.com">Proton</a> que faz (muitos, mas nem todos) os jogos no Windows executar-se no Linux. Basicamente pode assumir que se for verificado para <a href="https://www.steamdeck.com/en/verified">Steam Deck</a>, executa-se no Linux.</p></li>
-                            <li>
-                                <p><strong>Você depende de qualquer software criativo do Adobe</strong> (tipo Photoshop, Premiere, Illustrator, etc.) já que eles não existem no Linux e nunca vâo existir ... mas considerando só quão predatório os serviços do Adobe tem sido tornando-se, talvez isso poderia sua oportunidade para escapar o ecossistema dele completamente? Por exemplo, aquí é um <a href="https://youtu.be/PEFqdqRr18E?si=2us1qZ3JcWH4bpZd">vídeo no YouTube sobre fazer vídeos inteiramente no Linux</a>.</p>
-                                <iframe
-                                    width="100%"
-                                    height="315"
-                                    src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k"
-                                    title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen
-                                ></iframe>
-                            </li>
-                        </ul>
-
-                        <h4 id="further-pt">Outras considerações</h4>
-
-                        <ul>
-                            <li><p>Se você for um pessoa que gosta de programação, você terá que refazer todos os seus ambientes de novo. (IDEs, repositórios clonados do GitHub, configuração do Git CLI)</p></li>
-                            <li><p>Instala-se aplicações não pelos assistentes de instalação como se vê no Windows, mas por pacotes que você pode obter no Software Manager (que funciona igual como o app store), ou pelo command line via <code>sudo apt-get install [nome]</code>.</p></li>
-                            <li><p>Não há Microsoft Office, claro, e o equivalente de código aberto, LibreOffice, é instalado por padrão. Admito que pode ser um pouco caótico e chato para usar, comparado com os apps do Microsoft, mas ainda são utilizáveis, qual é ultimamente tudo que se importa. Tem nada impedindo você de usar os apps do Google, embora <a href="../2024/google-monopoly.html">tem outras razões por nem usar eles</a>.</p></li>
-                            <li><p>Se você fazer provas supervisionado online, tipo pelo Pearson VUE, por qualquer razão (tipo obter certificados para sua carreira), no usual esses só funcionam no Windows. E não dá para usar as máquinas virtuais, também. Digo isso porque eu já tinha problemas com o meu exame de <a href="splunk.html">Splunk Core Certified User</a> após já mudar para o Linux.</p></li>
-                            <li>
-                                <p>Se, infelizmente mas realmente, ainda absolutamente precisa do Windows na sua vida (Adobe, Microsoft Office e os exames online são umas das razões mais fortes na minha vida pessoal, pelo menos), <strong>você tem opções!!!</strong></p>
-                                <ul>
-                                    <li>
-                                        <p>A mais fácil (e gratuita): Sempre pode fazer <strong>dual-boot</strong> do Linux Mint e do Windows na mesma máquina. (Sim, seu computador pode ter mais de um sistema de operação no mesmo disco rígido.) <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/multiboot.html">Há mais informações aqui se você for curioso.</a></p>
-                                        <p>Mas uma nota importante: <strong><em>O WINDOWS DEVE SER INSTALADO PRIMEIRO!!!</em></strong> Ou seja, nem tente de reinstalar o Windows após já apagar o seu  disco rígido inteiro para o Linux Mint. Tenho <a href="../2024/kernel-panic.html">um blog post inteiro</a> sobre porque esse foi um verdadeiro pesadelo.</p>
-                                    </li>
-                                    <li></li>
-                                </ul>
-                            </li>
-                        </ul>
-
+                        <p>
+                            <strong>Inspiração/leituras(?) adicionais</strong>
+                        </p>
+                        <p>
+                            <a href="https://youtu.be/me7tCDPAlw4">DankPods (YouTube): It's time for change,
+                                it's time for Linux.</a>
+                        </p>
+                        <p>
+                            <a href="https://youtu.be/pVI_smLgTY0">PewDiePie (YouTube): I installed Linux (so
+                                should you)</a>
+                        </p>
+                        <p>
+                            <a href="https://www.youtube.com/watch?v=dfUaaUEPIN0">Bread on Penguins (YouTube): Why I started
+                                using Linux</a>
+                        </p>
+                        <p>
+                            <a href="https://www.youtube.com/watch?v=j-Ha0vl-0ME">Bread on Penguins (YouTube): How to
+                                (actually) learn Linux</a>
+                        </p>
                     </div>
 
-                    <!-- script to switch between eng and pt text -->
-                    <script>
-                        const enButton = document.getElementById("en-button");
-                        const ptButton = document.getElementById("pt-button");
-                        const enDiv = document.getElementById("entext");
-                        const ptDiv = document.getElementById("pttext");
-                        const sidebarTOC = document.getElementById(
-                            "table-of-contents-copy",
-                        );
-                        const enTOC = document.querySelector(
-                            "#entext .table-of-contents",
-                        );
-                        const ptTOC = document.querySelector(
-                            "#pttext .table-of-contents",
-                        );
+                    <!-- #intro-pt -->
+                    <h4 id="intro-pt">Introdução</h4>
+                    <p><a href="#top">Voltar acima</a></p>
 
-                        enButton.addEventListener("click", () => {
-                            enDiv.style.display = "block";
-                            ptDiv.style.display = "none";
-                            sidebarTOC.innerHTML = enTOC.innerHTML;
-                        });
+                    <p>O apoio oficial do Windows 10 vai acabar no dia 14 de outubre 2025. Claro que isto não significa que o seu notebook existente com Windows 10 magicamente explode ou falha nessa data exata, mas, falando simplesmente, o Microsoft simplesmente vai deixar de se importar dessa versão. Nem mais atualizações de segurança, nem mais apoio tecnical. Você será sozinho.</p>
 
-                        ptButton.addEventListener("click", () => {
-                            ptDiv.style.display = "block";
-                            enDiv.style.display = "none";
-                            sidebarTOC.innerHTML = ptTOC.innerHTML;
-                        });
-                    </script>
+                    <br />
+
+                    <img src="https://media1.tenor.com/m/fVuajb22F9QAAAAC/up-is-not-jump-computer.gif" width="40%" style="margin: 0 auto" />
+
+                    <br />
+
+                    <p>Depois disso, você tem agora duas opções, das quais ambos parecem horriveis.</p>
+
+                    <p>A primeira é <strong>mudar para o Windows 11</strong>. O fato de que algumas máquinas que agora mesmo estão usando Windows 10 nem podem satisfazer os requisitos de hardware para a nova versão diz mais do que o suficiente. Felizmente(?) meu notebook não foi uma dessas máquinas. Quando finalmente cedi ao monte das "lembretes" para atualizar ao Windows 11, embora, meus fones Bluetooth refusou a conectar-se, e meu trackpad que já estava morrendo (que é a culpa minha &mdash; isso eu admito) aproveitou com prazer a oportunidade para simplesmente deixar de funcionar.</p>
+
+                    <p>A outra é ... <strong><em>jogar fora seu notebook inteiro??</em></strong> Ou, como o Microsoft expressa mais suavemente, "aproveitar programas de troca ou reciclagem." É bom reciclar, claro, mas isso não muda o fato de que se meu computador não satisfazesse os requisitos, ous e eu simplesmente não gostasse do Windows 11, então meu próprio computador, que atualmente está na minha posse, e que comprei com meu próprio dinheiro, e que claramente ainda funciona???? básicamente fica lixo.</p>
+
+                    <p>Mas sempre tem sido uma terçeira opçao secreta. Bem, não tão secreta, porque tanta gente já o usa; e ainda mais pessoas provavelmente estão o usando após <a href="https://www.youtube.com/watch?v=pVI_smLgTY0">o PewDiePie fez seu vídeo sobre ele</a>, que acumulou mais de 6.4 milhões visualizações na época deste post.</p>
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pVI_smLgTY0?si=ui8oOZ419yVlZe-G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    <p>Mas sim. É <strong>mudar para o Linux</strong>.</p>
+
+                    <p>Olha, já sei que o Linux tem uma reputaçãozinha, em parte para ser uma coisa de nicho que só os nerds usam, e em parte para ser a coisa que as pessoas irritantes usam. (Essas não são mutuamente exclusivas.)</p>
+
+                    <p>A questão de se eu mesmo, tendo usado alguma distribuição do Linux como meu <em>daily driver</em> há quase um ano, já me tornei uma dessas pessoas irritantes, é uma que claramente vou ignorar. De qualquer forma, a primeira é definitivamente errada. O Android funciona em Linux. O mesmo com o Instagram, o Facebook, o Twitter, o YouTube, a Bolsa de Valores de Nova Iorque.</p>
+
+                    <p>E será o mesmo com você? Eu acho que deve, sim.</p>
+
+                    <p>Talvez você tenha um pouco de medo pelo fato de que você executaria, até um ponto, o sistema de operação igual como o Pentágono. (Isso provavelmente não é a verdade.) Mas para você, o Linux poderia parecer tão simples como isso:</p>
+
+                    <img src="https://www.linuxmint.com/pictures/screenshots/una/cinnamon.png" width="100%" />
+                    <h6 style="color: grey"><br />Foto do Linux Mint</h6>
+
+                    <p>Limpo, elegante, e parece um pouco como o Windows?</p>
+
+                    <p>É isso. Este é o <strong>Linux Mint</strong>. Aquí está porque você deve adquiri-lo.</p>
+
+                    <h4 id="should-pt">Porque você deve adquiri-lo</h4>
+
+                    <ul>
+                        <li>
+                            <p><strong>Basicamente nenhuma configuração.</strong> É só seguir <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/">as instruções num sítio do web</a>, sem qualquer código, sem nada. Mas o que voce precisa é um pendrive.</p>
+                        </li>
+                        <li>
+                            <p><strong>É grátis.</strong> E não há nenhuma condição. Ao contrário de algumas empresas.</p>
+                        </li>
+                        <li>
+                            <p><strong>É de código aberto</strong>, que, claro, não garante nada, mas significa que se o desenvolvidor tentasse fazer algo estranho com ele, alguem realmente poderia perceber. Ao contrário de algumas empresas.</p>
+                        </li>
+                        <li>
+                            <p><strong>Sem notificações irritantes</strong>, por exemplo sobre a porra do Xbox Game Pass de que ninguém se importa.</p>
+                        </li>
+                        <li>
+                            <p><strong>Pode experimentar por qualquer tempo que você quer antes de dedicar-se a ele.</strong></p> O Linux Mint pode executar-se desde um pendrive, e ficará assim até você explicitamente concorda a ele assumir o controle do seu notebook (ou <em>dual-boot</em> com o Windows, veja sob "Outras considerações").
+                        </li>
+                    </ul>
+
+                    <h4 id="shouldnt-pt">Porque você NÂO deve adquiri-lo</h4>
+
+                    <ul>
+                        <li>
+                            <p><strong>Você é obrigado a depender de ferramentas do Microsoft,</strong> e.g. para trabalho (Outlook, Teams, Edge 👎). Isso é assumindo que você não tem um outro notebook para trabalho de que pode depender para software assim.</p>
+                        </li>
+                        <li>
+                            <p><strong>Você joga qualquer jogo que não tem apoio <em>anti-cheat</em> para Linux</strong>, atual ou planeado. Isso inclui Valorant, Apex, Battlefield 2042, Fortnite ... <a href="https://areweanticheatyet.com/">Pode ver a lista inteira aqui</a>. Se vpcê considera-se um <em>hardcore PC gamer</em>, então Linux pode parecer bem restrito. <em><strong>Mas</strong></em>, as boas noticias são que já existe um software chamado <a href="https://www.protondb.com">Proton</a> que faz (muitos, mas nem todos) os jogos no Windows executar-se no Linux. Basicamente pode assumir que se for verificado para <a href="https://www.steamdeck.com/en/verified">Steam Deck</a>, executa-se no Linux.</p>
+                        </li>
+                        <li>
+                            <p><strong>Você depende de qualquer software criativo do Adobe</strong> (tipo Photoshop, Premiere, Illustrator, etc.) já que eles não existem no Linux e nunca vâo existir ... mas considerando só quão predatório os serviços do Adobe tem sido tornando-se, talvez isso poderia sua oportunidade para escapar o ecossistema dele completamente? Por exemplo, aquí é um <a href="https://youtu.be/PEFqdqRr18E?si=2us1qZ3JcWH4bpZd">vídeo no YouTube sobre fazer vídeos inteiramente no Linux</a>.</p>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/PEFqdqRr18E?si=3xYrqNb7BZt0bd5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </li>
+                    </ul>
+
+                    <h4 id="further-pt">Outras considerações</h4>
+
+                    <ul>
+                        <li>
+                            <p>Se você for um pessoa que gosta de programação, você terá que refazer todos os seus ambientes de novo. (IDEs, repositórios clonados do GitHub, configuração do Git CLI)</p>
+                        </li>
+                        <li>
+                            <p>Instala-se aplicações não pelos assistentes de instalação como se vê no Windows, mas por pacotes que você pode obter no Software Manager (que funciona igual como o app store), ou pelo command line via <code>sudo apt-get install [nome]</code>.</p>
+                        </li>
+                        <li>
+                            <p>Não há Microsoft Office, claro, e o equivalente de código aberto, LibreOffice, é instalado por padrão. Admito que pode ser um pouco caótico e chato para usar, comparado com os apps do Microsoft, mas ainda são utilizáveis, qual é ultimamente tudo que se importa. Tem nada impedindo você de usar os apps do Google, embora <a href="../2024/google-monopoly.html">tem outras razões por nem usar eles</a>.</p>
+                        </li>
+                        <li>
+                            <p>Se você fazer provas supervisionado online, tipo pelo Pearson VUE, por qualquer razão (tipo obter certificados para sua carreira), no usual esses só funcionam no Windows. E não dá para usar as máquinas virtuais, também. Digo isso porque eu já tinha problemas com o meu exame de <a href="splunk.html">Splunk Core Certified User</a> após já mudar para o Linux.</p>
+                        </li>
+                        <li>
+                            <p>Se, infelizmente mas realmente, ainda absolutamente precisa do Windows na sua vida (Adobe, Microsoft Office e os exames online são umas das razões mais fortes na minha vida pessoal, pelo menos), <strong>você tem opções!!!</strong></p>
+                            <ul>
+                                <li>
+                                    <p>A mais fácil (e gratuita): Sempre pode fazer <strong>dual-boot</strong> do Linux Mint e do Windows na mesma máquina. (Sim, seu computador pode ter mais de um sistema de operação no mesmo disco rígido.) <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/multiboot.html">Há mais informações aqui se você for curioso.</a></p>
+                                    <p>Mas uma nota importante: <strong><em>O WINDOWS DEVE SER INSTALADO PRIMEIRO!!!</em></strong> Ou seja, nem tente de reinstalar o Windows após já apagar o seu disco rígido inteiro para o Linux Mint. Tenho <a href="../2024/kernel-panic.html">um blog post inteiro</a> sobre porque esse foi um verdadeiro pesadelo.</p>
+                                </li>
+                                <li>
+                                    <p>A opção menos ideal seria ter um outro notebook exclusivamente para Windows, e seu atual exclusivamente para Linux. Em termos de hardware, aí é o mais "limpo," se isso for importante para sua mente (não tem que mexer com discos); mas há apenas poucos cenários onde isso é realístico, por exemplo, se você já está com familia que tem mais de um computador em casa.</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4 id="reqs-pt">Requisitos mínimos do sistema</h4>
+                    <p><em>Isso é diretamente levado da guía de instalação pela Linux Mint mesmo. (É seguro assumir que um notebook ou PC satisfaz esses requisitos.)</em></p>
+
+                    <ul>
+                        <li>
+                            <p>
+                                <strong>2GB RAM</strong> (4GB recomendado para uso cómodo).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>20GB do espaço de disco</strong> (100GB
+                                recomendado).
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>resolução 1024×768</strong> (nas resoluções baixas, pressione ALT para arrastar janelas com o mouse se não não se encaixar na tela).
+                            </p>
+                        </li>
+                    </ul>
+
+                    <p><em>Para comparação, pode esperar um notebook meio decente da Walmart ficar com 8-32GB RAM, +256 GB de armazenamento, e resolução de 1920x1080 (1080p HD).</em></p>
+
+                    <h4 id="need-pt">Você precisará de:</h4>
+
+                    <ul>
+                        <li>
+                            <p>Uma cópia dos seus arquivos</p>
+                        </li>
+                        <li>
+                            <p>
+                                pendrive exclusivamente para gravar o disco da Mint
+                            </p>
+                        </li>
+                        <li>
+                            <p>Uma cópia dos seus arquivos</p>
+                        </li>
+                        <li>
+                            <p>Uma cópia dos seus arquivos</p>
+                        </li>
+                        <li>
+                            <p style="font-size: 12px">
+                                Já mencionei uma cópia dos seus
+                            </p>
+                        </li>
+                    </ul>
+
+                    <h4 id="install-pt">Pronto?</h4>
+
+                    <p>
+                        <a href="https://linuxmint-installation-guide.readthedocs.io/en/latest/">https://linuxmint-installation-guide.readthedocs.io/en/latest/</a>
+                    </p>
+
                 </div>
+
+                <!-- script to switch between eng and pt text -->
+                <script>
+                    const enButton = document.getElementById("en-button");
+                    const ptButton = document.getElementById("pt-button");
+                    const enDiv = document.getElementById("entext");
+                    const ptDiv = document.getElementById("pttext");
+                    const sidebarTOC = document.getElementById(
+                        "table-of-contents-copy",
+                    );
+                    const enTOC = document.querySelector(
+                        "#entext .table-of-contents",
+                    );
+                    const ptTOC = document.querySelector(
+                        "#pttext .table-of-contents",
+                    );
+
+                    enButton.addEventListener("click", () => {
+                        enDiv.style.display = "block";
+                        ptDiv.style.display = "none";
+                        sidebarTOC.innerHTML = enTOC.innerHTML;
+                    });
+
+                    ptButton.addEventListener("click", () => {
+                        ptDiv.style.display = "block";
+                        enDiv.style.display = "none";
+                        sidebarTOC.innerHTML = ptTOC.innerHTML;
+                    });
+                </script>
             </div>
         </div>
+    </div>
 
-        <script src="../../themes/prism.js"></script>
-    </body>
+    <script src="../../themes/prism.js"></script>
+</body>
+
 </html>
